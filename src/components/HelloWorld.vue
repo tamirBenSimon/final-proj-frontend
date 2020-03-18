@@ -1,5 +1,5 @@
 <template>
-  <h1>hey freind!</h1>
+  <h1>hey freind! hey douches</h1>
 </template>
 
 <script>
