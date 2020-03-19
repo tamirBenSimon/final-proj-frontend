@@ -20,12 +20,12 @@
 @import 'components/chat';
 //
 //VIEWS
-@import 'views/admin.page';
-@import '../views/cart.page.vue';
-@import '../views/edit-product.page.vue';
-@import '../views/Home.page.vue';
-@import '../views/market-app.page.vue';
-@import '../views/product-details.page.vue';
-@import '../views/seller-gallery.page.vue';
-@import '../views/user-profile.page.vue';
-@import '../views/wish-list.page.vue';
+@import 'views/admin';
+@import 'views/cart';
+@import 'views/edit-product';
+@import 'views/Home';
+@import 'views/market-app';
+@import 'views/product-details';
+@import 'views/seller-gallery';
+@import 'views/user-profile';
+@import 'views/wish-list';
