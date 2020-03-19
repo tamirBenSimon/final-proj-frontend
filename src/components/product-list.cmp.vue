@@ -1,12 +1,18 @@
 <template>
   <section>
-    
+    <h2>list:</h2>
+    <productPrev />
   </section>
 </template>
 
 <script>
-export default {
+import productPrev from './product-prev.cmp'
 
+export default {
+  name: 'product-list',
+  components: {
+      productPrev
+  }
 }
 </script>
 
