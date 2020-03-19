@@ -28,9 +28,9 @@ export default {
     actions: {
 
         async loadartworks(context) {
-            const users = await artworkService.query();
+            const artworks = await artworkService.query();
             context.commit({type: 'setArtworks', artworks})
-            return users;
+            return Promise.resolve( artworks);
         },
         async removeArtwork(context, {artworkId}) {
             await artworkService.remove(artworkId);

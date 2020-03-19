@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2>list:</h2>
-    <productPrev />
+    <productPrev v-for="artwork in artworks"  :key="artwork._id"/>
   </section>
 </template>
 
@@ -12,7 +12,8 @@ export default {
   name: 'product-list',
   components: {
       productPrev
-  }
+  },
+  props:['artworks']
 }
 </script>
 
