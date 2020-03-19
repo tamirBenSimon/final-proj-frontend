@@ -1,18 +1,17 @@
 <template>
-  <div class="home">
-    <h2>hey!</h2>
-    <HelloWorld />
-  </div>
+  <section class="market-app-container">
+    <h2>Welcome To Marketplace!</h2>
+    <product-list />
+  </section>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import productList from '../components/product-list.cmp'
 
 export default {
   name: 'market-app',
   components: {
-    HelloWorld
+    productList
   }
 }
 </script>
