@@ -1,4 +1,4 @@
-import artworkService from '../services/artwork.service.js'
+import {artworkService} from '../services/artwork.service.js'
 
 // var localLoggedinUser = null;
 // if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
@@ -37,7 +37,7 @@ export default {
         },
         async updateArtwork(context, {artwork}) {
             artwork = await artworkService.update(artwork);
-            context.commit({type: 'setUser', artwork})
+            context.commit({type: 'artwork', artwork})
             return artwork;
         }
     }

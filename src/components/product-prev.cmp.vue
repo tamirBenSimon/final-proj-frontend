@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h3>artwork.title</h3>
+    <h3>{{artwork.title}}</h3>
   </section>
 </template>
 
