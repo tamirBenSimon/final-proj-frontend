@@ -1,5 +1,7 @@
 <template>
-  <h1>hey freind! hey douches nghnfgn</h1>
+  <section>
+    
+  </section>
 </template>
 
 <script>

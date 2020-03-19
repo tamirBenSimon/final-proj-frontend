@@ -1,4 +1,4 @@
-import HttpService from './HttpService'
+import HttpService from './httpService- for backend/HttpService'
 
 export default {
     add,
@@ -30,9 +30,7 @@ function query() {
 function remove(reviewId) {
     return HttpService.delete(`review/${reviewId}`)
 }
+
 function add(review) {
     return HttpService.post(`review`, review)
 }
-
-
-
