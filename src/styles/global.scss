@@ -1,0 +1,31 @@
+// SETUP
+@import 'setup/typography';
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'setup/functions';
+//
+// BASICS
+@import 'basics/helpers';
+@import 'basics/base';
+@import 'basics/layout';
+//
+// COMPONENTS
+// @import 'components/main-header';
+// @import 'components/main-footer';
+// @import 'components/cat-card';
+@import 'components/product-filter';
+@import 'components/product-list';
+@import 'components/product-preview';
+@import 'components/related-product';
+@import 'components/chat';
+//
+//VIEWS
+@import '../views/admin.page.vue';
+@import '../views/cart.page.vue';
+@import '../views/edit-product.page.vue';
+@import '../views/Home.page.vue';
+@import '../views/market-app.page.vue';
+@import '../views/product-details.page.vue';
+@import '../views/seller-gallery.page.vue';
+@import '../views/user-profile.page.vue';
+@import '../views/wish-list.page.vue';
