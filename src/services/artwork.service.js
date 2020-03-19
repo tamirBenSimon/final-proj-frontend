@@ -88,7 +88,7 @@ function _createArtworks() {
         ]
         storageService.store(KEY, artworks)
     }
-    return artworks;
+    return Promise.resolve( artworks);
 }
 
 function _createArtwork(artwork) {
