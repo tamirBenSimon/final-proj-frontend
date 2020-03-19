@@ -101,7 +101,7 @@ function query() {
 }
 
 function getById(artworkId) {
-    const artwork = artwork.find(artwork => artwork.id === artworkId)
+    const artwork = gArtworks.find(artwork => artwork.id === artworkId)
     return Promise.resolve(artwork)
 }
 

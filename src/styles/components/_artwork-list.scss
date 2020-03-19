@@ -1,0 +1,8 @@
+.artwork-list-artwork-prevs-container{
+    background: rgb(163, 123, 123);
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, rem(200px));
+    grid-auto-rows: rem(350px);
+    gap: rem(50px)
+}

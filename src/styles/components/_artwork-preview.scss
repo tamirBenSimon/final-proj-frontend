@@ -1,0 +1,14 @@
+.artwork-card{
+    background-color: white;
+    border: 1px solod black;
+    text-align: center;
+
+    & img{
+        width:rem(200px);
+        height: auto;
+        object-fit: contain;
+    }
+    & h3{
+        margin: 0.5rem;
+    }
+}
