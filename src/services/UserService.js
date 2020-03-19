@@ -1,4 +1,4 @@
-import HttpService from './HttpService'
+import HttpService from './httpService-for_backend/HttpService.js'
 
 export default {
     login,
@@ -13,6 +13,7 @@ export default {
 function getById(userId) {
     return HttpService.get(`user/${userId}`)
 }
+
 function remove(userId) {
     return HttpService.delete(`user/${userId}`)
 }
@@ -33,6 +34,7 @@ async function logout() {
     await HttpService.post('auth/logout');
     sessionStorage.clear();
 }
+
 function getUsers() {
     return HttpService.get('user')
 }
