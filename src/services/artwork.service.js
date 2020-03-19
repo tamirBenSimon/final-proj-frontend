@@ -1,33 +1,103 @@
-import {utilService} from './util.service.js'
-import {storageService} from './storage.service.js'
+import { utilService } from './util.service.js'
+import { storageService } from './storage.service.js'
 const KEY = 'artworksDB'
 
-var artwork = _createArtworks();   
+var artworks = _createArtworks();
 
 function _createArtworks() {
-    var artwork = storageService.load(KEY)
-    if (!artwork || !artwork.length) {
-        artwork = [_createArtwork
-        ('Audu'), _createArtwork
-    ('Suzupi')]
-        storageService.store(KEY, artwork)
+    var artworks = storageService.load(KEY)
+    if (!artworks || !artworks.length) {
+        artworks = [
+            _createArtwork({
+                title: 'lost in peace',
+                desc: 'very nice psychadelic picture',
+                price: 59,
+                inStock: true,
+                createdBy:
+                {
+                    _id: 101, fullName: 'ariel zissu', imageURL: `https://i.picsum.photos/id/542/200/250.jpg`
+                },
+                imgURLs:  [`https://i.picsum.photos/id/112/200/250.jpg`,`https://i.picsum.photos/id/113/200/250.jpg`
+                ],
+                tags: ['psychedelic', 'calm', 'nature'],
+                salesCount: 28,
+                reviews: [{
+                    Txt: "great ! i love it",
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    Txt: "i bought it again! this time for my uncle!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
+                ]
+            }),
+            _createArtwork({
+                title: 'i Love Ibiza',
+                desc: 'very nice psychadelic picture',
+                price: 89,
+                inStock: true,
+                createdBy:
+                {
+                    _id: 101, fullName: 'ariel zissu', imageURL: `https://i.picsum.photos/id/542/200/250.jpg`
+                },
+                imgURLs:  [`https://i.picsum.photos/id/116/200/250.jpg`,`https://i.picsum.photos/id/117/200/250.jpg`
+
+                ],
+                tags: ['psychedelic', 'calm', 'nature'],
+                salesCount: 28,
+                reviews: [{
+                    Txt: "great ! i love it",
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    Txt: "i bought it again! this time for my uncle!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
+                ]
+            }),
+            _createArtwork({
+                title: 'beautiful art',
+                desc: 'you want to buy this',
+                price: 899,
+                inStock: false,
+                createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                imgURLs:  [`https://i.picsum.photos/id/120/200/250.jpg`,`https://i.picsum.photos/id/121/200/250.jpg`],
+                tags: ['fantasy', 'urban', 'nature'],
+                salesCount: 2,
+                reviews: [{
+                    Txt: "great ! i love it",
+                    _id: 101, fullName: 'ariel zissu', imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 2
+                },
+                {
+                    Txt: "too expensive!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
+                ]
+            }),
+
+
+        ]
+        storageService.store(KEY, artworks)
     }
-    return artwork;
+    return artworks;
 }
 
-function _createArtwork(vendor) {
-    return {
-        id: utilService.makeId(),
-        vendor,
-        speed: utilService.getRandomInt(100, 300)
-    } 
+function _createArtwork(artwork) {
+    artowrk._id = utilService.makeId()
+    return artwork;
 }
 
 function query() {
     return Promise.resolve(artwork);
 }
 
-function getById(artworkId){
+function getById(artworkId) {
     const artwork = artwork.find(artwork => artwork.id === artworkId)
     return Promise.resolve(artwork)
 }
@@ -43,18 +113,18 @@ function _addArtwork(artwork) {
     artwork.push(artwork);
     storageService.store(KEY, artwork)
     return Promise.resolve(artwork)
-} 
+}
 function _updateArtwork(artwork) {
-    const idx = artwork.findIndex(currartwork => currartwork.id === artwork.id);
+    const idx = artwork.findIndex(currrAtwork => currArtwork.id === artwork.id);
     artwork.splice(idx, 1, artwork)
     storageService.store(KEY, artwork)
     return Promise.resolve(artwork)
-} 
+}
 
 
 function removeArtwork(artworkId) {
     const idx = artwork.findIndex(artwork => artwork.id === artworkId)
-    if(idx === -1) return Promise.reject('DID NOT REMOVE artwork')
+    if (idx === -1) return Promise.reject('DID NOT REMOVE artwork')
     artwork.splice(idx, 1);
     storageService.store(KEY, artwork)
     return Promise.resolve('artwork REMOVED')
@@ -62,14 +132,14 @@ function removeArtwork(artworkId) {
 
 
 function getEmptyArtwork() {
-    var emptyartwork =  {
+    var emptyartwork = {
         vendor: '',
         color: '#ff0000',
         speed: 20,
-        createdAt : '',
-        isAuto : true,
-        ownershipType : '',
-        seatsCount : 5,
+        createdAt: '',
+        isAuto: true,
+        ownershipType: '',
+        seatsCount: 5,
         desc: '',
         features: []
     }
@@ -78,11 +148,11 @@ function getEmptyArtwork() {
 
 function getNextPrevartworkIds(artworkId) {
     const idx = artwork.findIndex(artwork => artwork.id === artworkId)
-    
+
     var nextIdx = idx + 1;
-    if (nextIdx === artwork.length) nextIdx = 0; 
+    if (nextIdx === artwork.length) nextIdx = 0;
     var prevIdx = idx - 1;
-    if (prevIdx < 0) prevIdx = artwork.length-1; 
+    if (prevIdx < 0) prevIdx = artwork.length - 1;
 
     return {
         prevId: artwork[prevIdx].id,
