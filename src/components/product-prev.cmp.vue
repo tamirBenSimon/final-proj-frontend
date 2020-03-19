@@ -1,13 +1,15 @@
 <template>
   <section>
-    <h2>prev</h2>
+    <h3>artwork.title</h3>
   </section>
 </template>
 
 <script>
 export default {
   name: 'product-prev',
-   
+   props:{
+     artwork: Object
+   }
   
 }
 </script>
