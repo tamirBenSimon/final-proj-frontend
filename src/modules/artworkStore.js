@@ -26,8 +26,7 @@ export default {
         },
     },
     actions: {
-
-        async loadartworks(context) {
+            async loadArtworks(context) {
             const artworks = await artworkService.query();
             context.commit({type: 'setArtworks', artworks})
             return Promise.resolve( artworks);
