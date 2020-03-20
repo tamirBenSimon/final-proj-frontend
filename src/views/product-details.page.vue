@@ -17,14 +17,12 @@ export default {
   },
   created(){
      const artworkId = this.$route.params.id;
-     console.log('000 artworkId: ', artworkId);
         if (artworkId) {
             this.$store.dispatch({
                     type: 'loadArtwork',
                     artworkId
                 })
                 .then(artwork => {
-                    console.log('000 artwork: ', artwork)
                     this.artwork = JSON.parse(JSON.stringify(artwork))
                 })
         }

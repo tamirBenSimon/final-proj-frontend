@@ -29,9 +29,7 @@ export default {
             return Promise.resolve(artworks);
         },
         async loadArtwork(context, { artworkId }) {
-            console.log('222 artworkId', artworkId);
             const artwork = await artworkService.getById(artworkId);
-            console.log('223 artwork: ', artwork);
             context.commit({ type: 'setArtwork', artwork })
             return Promise.resolve(artwork);
         },

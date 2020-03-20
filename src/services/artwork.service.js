@@ -86,7 +86,7 @@ function _createArtworks() {
         ]
         storageService.store(KEY, artworks)
     }
-    return artworks;
+    return artworks
 }
 
 function _createArtwork(artwork) {
@@ -98,90 +98,76 @@ function query() {
     return Promise.resolve(gArtworks);
 }
 
-<<
-<<
-<< < HEAD
-
-function getById(artworkId) {
-    var artworks = storageService.load(KEY)
-    console.log('313 gArtworks', artworks);
-    const artwork = artworks.find(artwork => artwork._id === artworkId) ===
-        ===
-        =
-        async function getById(artworkId) {
-            console.log('313 gArtworks', gArtworks);
-            let artwork = gArtworks.find(artwork => artwork._id === artworkId) >>>
-                >>>
-                > 5 aa61918e7292e0bb5475ecf9af78acc0cb75652
-            console.log('333 artwork', artwork);
-            return Promise.resolve(artwork)
-        }
+async function getById(artworkId) {
+    let artwork = gArtworks.find(artwork => artwork._id === artworkId)
+    return Promise.resolve(artwork)
+}
 
 
-    function saveArtwork(artwork) {
-        if (artwork.id) return _updateArtwork(artwork)
-        else return _addArtwork(artwork);
+function saveArtwork(artwork) {
+    if (artwork.id) return _updateArtwork(artwork)
+    else return _addArtwork(artwork);
+}
+
+function _addArtwork(artwork) {
+    artwork.id = utilService.makeId()
+    artwork.push(artwork);
+    storageService.store(KEY, artwork)
+    return Promise.resolve(artwork)
+}
+
+function _updateArtwork(artwork) {
+    const idx = artwork.findIndex(currrAtwork => currrAtwork.id === artwork.id);
+    artwork.splice(idx, 1, artwork)
+    storageService.store(KEY, artwork)
+    return Promise.resolve(artwork)
+}
+
+
+function removeArtwork(artworkId) {
+    const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
+    if (idx === -1) return Promise.reject('DID NOT REMOVE artwork')
+    gArtworks.splice(idx, 1);
+    storageService.store(KEY, gArtworks)
+    return Promise.resolve('artwork REMOVED')
+}
+
+
+function getEmptyArtwork() {
+    var emptyartwork = {
+        vendor: '',
+        color: '#ff0000',
+        speed: 20,
+        createdAt: '',
+        isAuto: true,
+        ownershipType: '',
+        seatsCount: 5,
+        desc: '',
+        features: []
     }
+    return emptyartwork;
+}
 
-    function _addArtwork(artwork) {
-        artwork.id = utilService.makeId()
-        artwork.push(artwork);
-        storageService.store(KEY, artwork)
-        return Promise.resolve(artwork)
+function getNextPrevartworkIds(artworkId) {
+    const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
+
+    var nextIdx = idx + 1;
+    if (nextIdx === gArtworks.length) nextIdx = 0;
+    var prevIdx = idx - 1;
+    if (prevIdx < 0) prevIdx = gArtworks.length - 1;
+
+    return {
+        prevId: gArtworks[prevIdx].id,
+        nextId: gArtworks[nextIdx].id,
     }
+}
 
-    function _updateArtwork(artwork) {
-        const idx = artwork.findIndex(currrAtwork => currrAtwork.id === artwork.id);
-        artwork.splice(idx, 1, artwork)
-        storageService.store(KEY, artwork)
-        return Promise.resolve(artwork)
-    }
-
-
-    function removeArtwork(artworkId) {
-        const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
-        if (idx === -1) return Promise.reject('DID NOT REMOVE artwork')
-        gArtworks.splice(idx, 1);
-        storageService.store(KEY, gArtworks)
-        return Promise.resolve('artwork REMOVED')
-    }
-
-
-    function getEmptyArtwork() {
-        var emptyartwork = {
-            vendor: '',
-            color: '#ff0000',
-            speed: 20,
-            createdAt: '',
-            isAuto: true,
-            ownershipType: '',
-            seatsCount: 5,
-            desc: '',
-            features: []
-        }
-        return emptyartwork;
-    }
-
-    function getNextPrevartworkIds(artworkId) {
-        const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
-
-        var nextIdx = idx + 1;
-        if (nextIdx === gArtworks.length) nextIdx = 0;
-        var prevIdx = idx - 1;
-        if (prevIdx < 0) prevIdx = gArtworks.length - 1;
-
-        return {
-            prevId: gArtworks[prevIdx].id,
-            nextId: gArtworks[nextIdx].id,
-        }
-    }
-
-    // CRUDL - Create, Read, Update, Delete, List
-    export const artworkService = {
-        query,
-        getById,
-        saveArtwork,
-        removeArtwork,
-        getEmptyArtwork,
-        getNextPrevartworkIds
-    }
+// CRUDL - Create, Read, Update, Delete, List
+export const artworkService = {
+    query,
+    getById,
+    saveArtwork,
+    removeArtwork,
+    getEmptyArtwork,
+    getNextPrevartworkIds
+}
