@@ -4,7 +4,8 @@ import { artworkService } from '../services/artwork.service.js'
 export default {
     state: {
         artworks: [],
-        currArtwork: null
+        currArtwork: null,
+        filterBy:null
     },
     getters: {
         artworks(state) {
@@ -23,8 +24,8 @@ export default {
         },
     },
     actions: {
-        async loadArtworks(context) {
-            const artworks = await artworkService.query();
+        async loadArtworks(context, {filterBy=null}) {
+            const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
             return Promise.resolve(artworks);
         },

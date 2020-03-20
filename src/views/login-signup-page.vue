@@ -38,9 +38,10 @@ export default {
     }
   },
    methods: {
-    login(credentials) {
+    login() {
+      // console.log('in login component: ',userCred)
       this.$store.dispatch({
-        type: 'login', credentials
+        type: 'login', userCred : this.credentials
       })
     },
     signup(signupCreds) {

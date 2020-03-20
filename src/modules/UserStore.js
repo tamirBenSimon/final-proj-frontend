@@ -28,7 +28,8 @@ export default {
         },
     },
     actions: {
-        async login(context, { userCred }) {
+        async login(context, {userCred}) {
+            console.log('in the user store: ', userCred)
             const user = await userService.login(userCred);
             context.commit({ type: 'setUser', user })
             return user;
