@@ -1,14 +1,18 @@
 <template>
   <div>
     <div class="artwork-filter">
-      <input @input="$emit('onFilter', {...this.filterBy})" type="text" v-model="filterBy.name" />
-      <input type="number" v-model.number="filterBy.minPrice"  />
+      <input
+        @input="onFilter"
+        type="text"
+        v-model="filterBy.name"
+      />
+      <input type="number" v-model.number="filterBy.minPrice" />
       <input type="number" v-model.number="filterBy.maxPrice" />
-      <input type="text" v-model="filterBy.tags"/>
-      <button @input="onFilter">filter</button>
+      <input type="text" v-model="filterBy.tags" />
+      <button @click.prevent="onFilter">filter</button>
     </div>
     <pre>
-        {{this.filterBy}}
+        {{ this.filterBy }}
     </pre>
   </div>
 </template>
@@ -28,6 +32,11 @@ data(){
 
         }
     }
-},
+    },
+    methods:{
+        onFilter(){
+        this.$emit('onFilter', {...this.filterBy})
+        }
+    }
 };
 </script>
