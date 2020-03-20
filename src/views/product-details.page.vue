@@ -55,10 +55,10 @@ export default {
   },
   methods:{
     onBack(){
-      this.$router.push('/');
+      this.$router.push('/artwork');
     },
     onCart(){
-      console.log('go cart!');
+      this.$router.push('/cart');
     },
     onBuy(){
       console.log('buying!');

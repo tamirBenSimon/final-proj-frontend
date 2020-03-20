@@ -4,6 +4,7 @@ import marketApp from '../views/market-app.page';
 import loginSignup from '../views/login-signup-page';
 import admin from '../views/admin.page';
 import details from '../views/product-details.page';
+import cart from '../views/cart.page';
 
 
 
@@ -31,6 +32,10 @@ const routes = [{
     {
         path: '/signup',
         component: loginSignup
+    },
+    {
+        path: '/cart',
+        component: cart
     }
 ]
 

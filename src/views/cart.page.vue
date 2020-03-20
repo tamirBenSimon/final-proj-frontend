@@ -1,6 +1,11 @@
 <template>
-  <section>
-    
+  <section class="cart-container">
+    <h2>My cart</h2>
+    <hr>
+    <div class="cart-main-container">
+      
+    </div>
+    <hr>
   </section>
 </template>
 
