@@ -12,19 +12,17 @@
 </template>
 
 <script>
+import {eventBusService} from '../services/event-bus.service.js'
+
 export default {
   name: 'user-prev',
    props:{
      user: Object
    },
+  
    methods:{
      onDelete(userId){
-        this.$store.dispatch({
-        type: "removeUser",
-        userId
-        });
-        
-       
+       eventBusService.$emit('delete', userId);
       }
     }
   
