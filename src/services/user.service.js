@@ -121,10 +121,16 @@ function getNextPrevUserIds(userId) {
     }
 }
 
-// async function login(userCred) {
-//     // const user = await HttpService.post('auth/login', userCred)
-//     return _handleLogin(user)
-// }
+async function login(userCred) {
+    console.log('in the service: ',userCred)
+    /// hardcoded for testing
+    if (userCred.username === 'ariel' & userCred.password === '123') {
+        var user = gUsers[0];
+        console.log('in the if of service,', user)
+    } else return null;
+    // const user = await HttpService.post('auth/login', userCred)
+    return _handleLogin(user)
+}
 
 // async function signup(userCred) {
 //     const user = await HttpService.post('auth/signup', userCred)
@@ -135,10 +141,11 @@ function getNextPrevUserIds(userId) {
 //     sessionStorage.clear();
 // }
 
-// function _handleLogin(user) {
-//     sessionStorage.setItem('user', JSON.stringify(user))
-//     return user;
-// }
+function _handleLogin(user) {
+    sessionStorage.setItem('user', JSON.stringify(user))
+    console.log('handling user');
+    return user;
+}
 
 // CRUDL - Create, Read, Update, Delete, List
 export const userService = {
@@ -148,7 +155,7 @@ export const userService = {
     remove,
     getEmptyUser,
     getNextPrevUserIds,
-    // login,
+    login,
     // logout,
     // signup
 }
