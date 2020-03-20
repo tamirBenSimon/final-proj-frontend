@@ -1,34 +1,34 @@
 <template>
-  <section class="user-prev-container">
-    <img class="user-prev-img-user" :src="user.imgUrl" alt="User Picture">
-    <div class="user-prev-main">
-        <h2 class="user-prev-fullName">{{user.fullName}}</h2>
-        <h3 class="user-prev-userName">UserName :{{user.userName}}</h3>
-        <h4 class="user-prev-password">Password: {{user.password}}</h4>
-        <p class="user-prev-bio">Bio: {{user.bio}}</p>
-        <button @click="onDelete(user._id)">Delete User</button>
-   </div>
-  </section>
+    <tr>
+        <td>{{count+1}}</td>
+        <td><h2 class="user-prev-fullName">{{user.fullName}}</h2></td>
+        <td><h3 class="user-prev-userName">{{user.userName}}</h3></td>
+        <td><h4 class="user-prev-password">{{user.password}}</h4></td>
+        <td><p class="user-prev-bio">{{user.bio}}</p></td>
+        <td><button @click="onDelete(user._id)">Delete User</button></td>
+    </tr>
 </template>
 
 <script>
+import {eventBus} from '../services/event-bus.service.js'
+
 export default {
   name: 'user-prev',
    props:{
-     user: Object
+     user: Object,
+     count: Number
    },
    methods:{
      onDelete(userId){
-        this.$store.dispatch({
-        type: "removeUser",
-        userId
-        });
-        
-       
+       eventBus.$emit('delete', userId);
       }
     }
-  
 }
 </script>
 
-<style>
+<style scoped>
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+</style>

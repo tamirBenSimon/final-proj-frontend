@@ -12,3 +12,12 @@ body {
     margin: 0;
     background-color: $clr1;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ import details from '../views/product-details.page';
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
+        path: '/artwork',
         name: 'market-app',
         component: marketApp
     },

@@ -83,6 +83,95 @@ function _createArtworks() {
                     },
                 ]
             }),
+            _createArtwork({
+                title: 'breathe in the corona',
+                desc: 'i started drawing in age 10, and for the past 20 years i make a new piece each weak. this is my favourite',
+                price: 89,
+                inStock: true,
+                createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                imgURLs: [`https://i.picsum.photos/id/78/200/250.jpg`, `https://i.picsum.photos/id/79/200/250.jpg`],
+                tags: ['modern', 'urban', 'nature'],
+                salesCount: 2,
+                reviews: [{
+                        Txt: "it's the best one ! i love it",
+                        _id: 101,
+                        fullName: 'ariel zissu',
+                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                        rate: 5
+                    },
+                    {
+                        Txt: "haimon limon!",
+                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                        rate: 5
+                    },
+                ]
+            }),            _createArtwork({
+                title: 'go take a walk',
+                desc: 'i am home for 2 weaks and want to take a walk',
+                price: 29,
+                inStock: true,
+                createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                imgURLs: [`https://i.picsum.photos/id/65/200/250.jpg`, `https://i.picsum.photos/id/64/200/250.jpg`],
+                tags: ['light-play', 'angles', 'family'],
+                salesCount: 51,
+                reviews: [{
+                        Txt: "great artist but this one... not so much",
+                        _id: 101,
+                        fullName: 'ariel zissu',
+                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                        rate: 2
+                    },
+                    {
+                        Txt: "too expensive!",
+                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                        rate: 1
+                    },
+                ]
+            }),            _createArtwork({
+                title: 'beautiful art',
+                desc: 'you want to buy this',
+                price: 899,
+                inStock: false,
+                createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                imgURLs: [`https://i.picsum.photos/id/61/200/250.jpg`, `https://i.picsum.photos/id/63/200/250.jpg`,`https://i.picsum.photos/id/60/200/250.jpg`],
+                tags: ['fantasy', 'urban', 'nature'],
+                salesCount: 17,
+                reviews: [{
+                        Txt: "this is a review wrote by ariel",
+                        _id: 101,
+                        fullName: 'ariel zissu',
+                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                        rate: 2
+                    },
+                    {
+                        Txt: "this is a review wrote by tamir",
+                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                        rate: 3
+                    },
+                ]
+            }),            _createArtwork({
+                title: 'the life, of muki',
+                desc: 'you want to buy this',
+                price: 899,
+                inStock: false,
+                createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                imgURLs: [`https://i.picsum.photos/id/120/200/250.jpg`, `https://i.picsum.photos/id/121/200/250.jpg`],
+                tags: ['fantasy', 'urban', 'nature'],
+                salesCount: 12,
+                reviews: [{
+                        Txt: "I am in sprint 4, talk later!",
+                        _id: 101,
+                        fullName: 'ariel zissu',
+                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                        rate: 2
+                    },
+                    {
+                        Txt: "muki is the best!",
+                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                        rate: 3
+                    },
+                ]
+            }),
         ]
         storageService.store(KEY, artworks)
     }
@@ -125,7 +214,9 @@ function _updateArtwork(artwork) {
 
 
 function removeArtwork(artworkId) {
-    const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
+    console.log(artworkId)
+    const idx = gArtworks.findIndex(artwork => artwork._id === artworkId)
+    console.log(idx)
     if (idx === -1) return Promise.reject('DID NOT REMOVE artwork')
     gArtworks.splice(idx, 1);
     storageService.store(KEY, gArtworks)

@@ -1,26 +1,53 @@
 <template>
   <div class="artwork-prev">
+    <router-link :to="'/artwork/'+artwork._id">  
     <div class="artwork-prev-img-container">
-      <img :src="artwork.imgURLs[0]" alt="" />
+      <img :src="Showartwork" alt="" />
     </div>
     <div class="artwork-prev-txt-container">
+      <div class="artwork-prev-txt-header">
       <h3>{{ artwork.title }}</h3>
-      <span>{{ artwork.desc }}</span> <br />
-      <span>price: {{ artwork.price }}</span> <br />
-      <span>{{ isInStock }}</span> <br />
+      <span>{{ artwork.price }}USD</span> 
+      </div>
+      <span class="artwork-prev-createdBy-fullName">{{ artwork.createdBy.fullName}}</span> <br />
+      <!-- <span>{{  artwork.desc }}</span> <br> -->
+      <span>{{ isInStock }}</span> 
+      <div class="artwork-prev-controle-pad">
+        <button @click.prevent="remove">remove</button>
+      </div>
     </div>
+    </router-link>
   </div>
 </template>
 
 <script>
+import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
 export default {
   name: "product-prev",
   props: {
     artwork: Object
   },
+  data(){
+    return {
+      imgUrlIdx:0
+    }
+  },
+  mounted(){
+    setInterval(()=>{
+      this.imgUrlIdx= (this.imgUrlIdx===(this.artwork.imgURLs.length-1))? 0 :this.imgUrlIdx+1
+    },7000)
+  },
   computed: {
     isInStock() {
       return this.artwork.inStock ? "available" : "currently not available";
+    },
+    Showartwork(){
+      return this.artwork.imgURLs[this.imgUrlIdx];
+    }
+  },
+  methods:{
+    remove(){
+             eventBus.$emit(EVENT_REMOVE, this.artwork._id);
     }
   }
 };
