@@ -34,7 +34,7 @@ export default {
             return Promise.resolve(artwork);
         },
         async removeArtwork(context, { artworkId }) {
-            await artworkService.remove(artworkId);
+            await artworkService.removeArtwork(artworkId);
             context.commit({ type: 'removeArtwork', artworkId })
         },
         async updateArtwork(context, { artwork }) {

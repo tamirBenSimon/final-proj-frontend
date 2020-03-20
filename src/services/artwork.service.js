@@ -125,7 +125,9 @@ function _updateArtwork(artwork) {
 
 
 function removeArtwork(artworkId) {
-    const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
+    console.log(artworkId)
+    const idx = gArtworks.findIndex(artwork => artwork._id === artworkId)
+    console.log(idx)
     if (idx === -1) return Promise.reject('DID NOT REMOVE artwork')
     gArtworks.splice(idx, 1);
     storageService.store(KEY, gArtworks)
