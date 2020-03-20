@@ -6,6 +6,7 @@
         <h3 class="user-prev-userName">UserName :{{user.userName}}</h3>
         <h4 class="user-prev-password">Password: {{user.password}}</h4>
         <p class="user-prev-bio">Bio: {{user.bio}}</p>
+        <button @click="onDelete(user._id)">Delete User</button>
    </div>
   </section>
 </template>
@@ -15,7 +16,17 @@ export default {
   name: 'user-prev',
    props:{
      user: Object
-   }
+   },
+   methods:{
+     onDelete(userId){
+        this.$store.dispatch({
+        type: "removeUser",
+        userId
+        });
+        
+       
+      }
+    }
   
 }
 </script>

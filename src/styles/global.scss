@@ -13,7 +13,7 @@
 // @import 'components/main-header';
 // @import 'components/main-footer';
 // @import 'components/cat-card';
-@import 'components/product-filter';
+@import 'components/artwork-filter';
 @import 'components/artwork-list';
 @import 'components/artwork-preview';
 @import 'components/related-artwork';
@@ -23,10 +23,10 @@
 //VIEWS
 @import 'views/admin';
 @import 'views/cart';
-@import 'views/edit-artwork';
+@import 'views/edit-product';
 @import 'views/Home';
 @import 'views/market-app';
-@import 'views/artwork-details';
+@import 'views/product-details';
 @import 'views/seller-gallery';
 @import 'views/user-profile';
 @import 'views/wish-list';

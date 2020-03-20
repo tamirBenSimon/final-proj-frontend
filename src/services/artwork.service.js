@@ -83,8 +83,6 @@ function _createArtworks() {
                     },
                 ]
             }),
-
-
         ]
         storageService.store(KEY, artworks)
     }
@@ -101,7 +99,9 @@ function query() {
 }
 
 function getById(artworkId) {
-    const artwork = gArtworks.find(artwork => artwork.id === artworkId)
+    console.log('313 gArtworks', gArtworks);
+    const artwork = gArtworks.find(artwork => artwork._id === artworkId)
+    console.log('333 artwork', artwork);
     return Promise.resolve(artwork)
 }
 

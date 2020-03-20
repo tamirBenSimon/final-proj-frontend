@@ -82,7 +82,7 @@ function _updateUser(user) {
 }
 
 
-function removeUser(userId) {
+function remove(userId) {
     const idx = gUsers.findIndex(user => user.id === userId)
     if (idx === -1) return Promise.reject('DID NOT REMOVE USER')
     gUsers.splice(idx, 1);
@@ -126,7 +126,7 @@ export const userService = {
     query,
     getById,
     saveUser,
-    removeUser,
+    remove,
     getEmptyUser,
     getNextPrevUserIds
 }
