@@ -83,7 +83,7 @@ function _updateUser(user) {
 
 
 function remove(userId) {
-    const idx = gUsers.findIndex(user => user.id === userId)
+    const idx = gUsers.findIndex(user => user._id === userId)
     if (idx === -1) return Promise.reject('DID NOT REMOVE USER')
     gUsers.splice(idx, 1);
     storageService.store(KEY, gUsers)
