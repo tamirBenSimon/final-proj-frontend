@@ -1,7 +1,12 @@
 <template>
-  <section>
+  <section >
     <h2>list:</h2>
+    <div class="artwork-list-artwork-prevs-container">
     <productPrev v-for="artwork in artworks" :key="artwork._id" :artwork="artwork" />
+    </div>
+    <pre>
+      {{artworks[0]}}
+      </pre>
   </section>
 </template>
 

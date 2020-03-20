@@ -83,12 +83,10 @@ function _createArtworks() {
                     },
                 ]
             }),
-
-
         ]
         storageService.store(KEY, artworks)
     }
-    return Promise.resolve( artworks);
+    return artworks
 }
 
 function _createArtwork(artwork) {
@@ -100,8 +98,8 @@ function query() {
     return Promise.resolve(gArtworks);
 }
 
-function getById(artworkId) {
-    const artwork = artwork.find(artwork => artwork.id === artworkId)
+async function getById(artworkId) {
+    let artwork = gArtworks.find(artwork => artwork._id === artworkId)
     return Promise.resolve(artwork)
 }
 

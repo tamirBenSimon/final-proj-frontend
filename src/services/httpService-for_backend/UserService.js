@@ -1,4 +1,4 @@
-import HttpService from './httpService-for_backend/HttpService.js'
+import HttpService from './HttpService.js'
 
 export default {
     login,

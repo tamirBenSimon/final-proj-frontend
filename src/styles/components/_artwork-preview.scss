@@ -1,0 +1,22 @@
+.artwork-prev {
+  background-color: white;
+  border: 1px solod black;
+  text-align: center;
+  width: rem(250px);
+  display: flex;
+  flex-direction: column;
+
+  & .artwork-prev-img-container {
+    padding: 0;
+  }
+  & .artwork-prev-img-container img {
+    object-fit: contain;
+  }
+
+  & .artwork-prev-txt-container {
+  }
+  & h3 {
+    margin: 0.5rem;
+    align-self: center;
+  }
+}
