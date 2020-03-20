@@ -10,9 +10,7 @@
       <span>{{ artwork.price }}USD</span> 
       </div>
       <span class="artwork-prev-createdBy-fullName">{{ artwork.createdBy.fullName}}</span> <br />
-      <span>{{  artwork.desc }}</span> 
-      <span>{{  artwork.desc }}</span> <br>
-      <span>{{ isInStock }}</span> 
+      <!-- <span>{{  artwork.desc }}</span> <br> -->
       <span>{{ isInStock }}</span> 
       <div class="artwork-prev-controle-pad">
         <button @click.prevent="remove">remove</button>

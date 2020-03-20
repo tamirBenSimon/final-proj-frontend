@@ -1,18 +1,22 @@
 <template>
   <section class="market-app-container">
-    <h2>Welcome To Marketplace!</h2>
+    <header class="main-header" id="nav">
+      </header>
+    <artwork-filter @onFilter="onFilter" />
     <product-list :artworks="artworks" />
   </section>
 </template>
 
 <script>
 import productList from "../components/product-list.cmp";
+import artworkFilter from "../components/artwork-filter.cmp";
 import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
 
 export default {
   name: "market-app",
   components: {
-    productList
+    productList,
+    artworkFilter
   },
   created() {
     this.$store.dispatch({
@@ -28,6 +32,9 @@ export default {
       type: "removeArtwork",
       artworkId
     });
+    },
+    onFilter(filterBy){
+      console.log(filterBy)
     }
   },
   computed: {
