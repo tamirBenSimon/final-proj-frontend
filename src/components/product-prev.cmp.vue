@@ -1,6 +1,6 @@
 <template>
-  <div class="artwork-card">
-    <div class="prev-img-container">
+  <div class="artwork-prev">
+    <div class="artwork-prev-prev-img-container">
       <img :src="artwork.imgURLs[0]" alt="">
     </div>
     <h3>{{artwork.title}}</h3>
