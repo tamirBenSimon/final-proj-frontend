@@ -4,7 +4,7 @@
       <input
         @input="onFilter"
         type="text"
-        v-model="filterBy.name"
+        v-model="filterBy.title"
       />
       <input type="number" v-model.number="filterBy.minPrice" />
       <input type="number" v-model.number="filterBy.maxPrice" />
@@ -25,11 +25,10 @@ export default {
 data(){
     return{
         filterBy:{
-            name:'',
+            title:'',
             minPrice:0,
             maxPrice:0,
             tags:'',
-
         }
     }
     },

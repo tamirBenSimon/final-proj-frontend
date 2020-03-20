@@ -34,7 +34,10 @@ export default {
     });
     },
     onFilter(filterBy){
-      console.log(filterBy)
+            this.$store.dispatch({
+      type: "loadArtworks",
+      filterBy
+    });
     }
   },
   computed: {

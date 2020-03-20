@@ -22,15 +22,15 @@ function _createArtworks() {
                 tags: ['psychedelic', 'calm', 'nature'],
                 salesCount: 28,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        Txt: "i bought it again! this time for my uncle!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 5
-                    },
+                    Txt: "great ! i love it",
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    Txt: "i bought it again! this time for my uncle!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
                 ]
             }),
             _createArtwork({
@@ -49,15 +49,15 @@ function _createArtworks() {
                 tags: ['psychedelic', 'calm', 'nature'],
                 salesCount: 28,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        Txt: "i bought it again! this time for my uncle!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 5
-                    },
+                    Txt: "great ! i love it",
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    Txt: "i bought it again! this time for my uncle!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
                 ]
             }),
             _createArtwork({
@@ -70,17 +70,17 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 2,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        _id: 101,
-                        fullName: 'ariel zissu',
-                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                        rate: 2
-                    },
-                    {
-                        Txt: "too expensive!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 3
-                    },
+                    Txt: "great ! i love it",
+                    _id: 101,
+                    fullName: 'ariel zissu',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 2
+                },
+                {
+                    Txt: "too expensive!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
                 ]
             }),
             _createArtwork({
@@ -93,19 +93,19 @@ function _createArtworks() {
                 tags: ['modern', 'urban', 'nature'],
                 salesCount: 2,
                 reviews: [{
-                        Txt: "it's the best one ! i love it",
-                        _id: 101,
-                        fullName: 'ariel zissu',
-                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                        rate: 5
-                    },
-                    {
-                        Txt: "haimon limon!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 5
-                    },
+                    Txt: "it's the best one ! i love it",
+                    _id: 101,
+                    fullName: 'ariel zissu',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 5
+                },
+                {
+                    Txt: "haimon limon!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
                 ]
-            }),            _createArtwork({
+            }), _createArtwork({
                 title: 'go take a walk',
                 desc: 'i am home for 2 weaks and want to take a walk',
                 price: 29,
@@ -115,41 +115,41 @@ function _createArtworks() {
                 tags: ['light-play', 'angles', 'family'],
                 salesCount: 51,
                 reviews: [{
-                        Txt: "great artist but this one... not so much",
-                        _id: 101,
-                        fullName: 'ariel zissu',
-                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                        rate: 2
-                    },
-                    {
-                        Txt: "too expensive!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 1
-                    },
+                    Txt: "great artist but this one... not so much",
+                    _id: 101,
+                    fullName: 'ariel zissu',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 2
+                },
+                {
+                    Txt: "too expensive!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 1
+                },
                 ]
-            }),            _createArtwork({
+            }), _createArtwork({
                 title: 'beautiful art',
                 desc: 'you want to buy this',
                 price: 899,
                 inStock: false,
                 createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                imgURLs: [`https://i.picsum.photos/id/61/200/250.jpg`, `https://i.picsum.photos/id/63/200/250.jpg`,`https://i.picsum.photos/id/60/200/250.jpg`],
+                imgURLs: [`https://i.picsum.photos/id/61/200/250.jpg`, `https://i.picsum.photos/id/63/200/250.jpg`, `https://i.picsum.photos/id/60/200/250.jpg`],
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 17,
                 reviews: [{
-                        Txt: "this is a review wrote by ariel",
-                        _id: 101,
-                        fullName: 'ariel zissu',
-                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                        rate: 2
-                    },
-                    {
-                        Txt: "this is a review wrote by tamir",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 3
-                    },
+                    Txt: "this is a review wrote by ariel",
+                    _id: 101,
+                    fullName: 'ariel zissu',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 2
+                },
+                {
+                    Txt: "this is a review wrote by tamir",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
                 ]
-            }),            _createArtwork({
+            }), _createArtwork({
                 title: 'the life, of muki',
                 desc: 'you want to buy this',
                 price: 899,
@@ -159,17 +159,17 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 12,
                 reviews: [{
-                        Txt: "I am in sprint 4, talk later!",
-                        _id: 101,
-                        fullName: 'ariel zissu',
-                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                        rate: 2
-                    },
-                    {
-                        Txt: "muki is the best!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 3
-                    },
+                    Txt: "I am in sprint 4, talk later!",
+                    _id: 101,
+                    fullName: 'ariel zissu',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 2
+                },
+                {
+                    Txt: "muki is the best!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
                 ]
             }),
         ]
@@ -183,9 +183,30 @@ function _createArtwork(artwork) {
     return artwork;
 }
 
-function query() {
-    return Promise.resolve(gArtworks);
+function query(filterBy = null) {
+    if (!filterBy) {
+        return Promise.resolve(gArtworks);
+    }
+    console.log(filterBy)
+    let artworks = gArtworks.filter(artwork => {
+        if (filterBy.minPrice && filterBy.minPrice > artwork.price)
+            return false
+        if (filterBy.maxPrice && filterBy.maxPrice < artwork.price)
+            return false
+        if (filterBy.title && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
+            return false
+            if (filterBy.tags && !artwork.tags.findIndex(tag=>{
+                console.log(tag)
+               return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
+            }))
+            return false
+        return true
+
+    })
+    console.log(artworks)
+    return Promise.resolve(artworks)
 }
+
 
 async function getById(artworkId) {
     let artwork = gArtworks.find(artwork => artwork._id === artworkId)
