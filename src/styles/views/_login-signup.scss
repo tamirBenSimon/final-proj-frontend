@@ -1,0 +1,26 @@
+.login-signup-container {
+    background-image: url("https://www.lightlive.com/fileadmin/_processed_/csm_CFA_Gallery_Georg_Baselitz_1_2260d3cddf.jpg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #44444475;
+    align-self: center;
+    padding: 1.5rem;
+}
+
+input {
+    display: block;
+    background-color: #f5f5f5b8;
+    border: 0px;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem;
+}
