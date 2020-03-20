@@ -7,11 +7,12 @@
 </template>
 
 <script>
-import {eventBusService} from '../services/event-bus.service.js'
+import {eventBus} from '../services/event-bus.service.js'
 import userList from "../components/user-list.cmp";
 
 export default {
   name:'admin-cmp',
+  
   computed: {
     users() {
       return this.$store.getters.users;
@@ -21,7 +22,7 @@ export default {
     this.$store.dispatch({
       type: "loadUsers"
     });
-    eventBusService.$on('delete', userId =>{
+    eventBus.$on('delete', userId =>{
       this.$store.dispatch({
         type: "removeUser",
         userId
