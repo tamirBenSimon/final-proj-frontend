@@ -86,7 +86,7 @@ function _createArtworks() {
         ]
         storageService.store(KEY, artworks)
     }
-    return Promise.resolve(artworks);
+    return artworks;
 }
 
 function _createArtwork(artwork) {
@@ -99,8 +99,9 @@ function query() {
 }
 
 function getById(artworkId) {
-    console.log('313 gArtworks', gArtworks);
-    const artwork = gArtworks.find(artwork => artwork._id === artworkId)
+    var artworks = storageService.load(KEY)
+    console.log('313 gArtworks', artworks);
+    const artwork = artworks.find(artwork => artwork._id === artworkId)
     console.log('333 artwork', artwork);
     return Promise.resolve(artwork)
 }

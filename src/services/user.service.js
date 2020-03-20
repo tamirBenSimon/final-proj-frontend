@@ -44,7 +44,7 @@ function _createUsers() {
         ]
         storageService.store(KEY, users)
     }
-    return Promise.resolve(users);
+    return users;
 }
 
 function _createUser(user) {
@@ -57,8 +57,8 @@ function query() {
 }
 
 function getById(userId) {
-    const user = gUsers.find(user => user.id === userId)
-    return Promise.resolve(user)
+    const currUser = gUsers.find(user => user.id === userId)
+    return Promise.resolve(currUser)
 }
 
 
