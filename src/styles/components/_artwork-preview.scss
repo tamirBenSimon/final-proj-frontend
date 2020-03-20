@@ -1,11 +1,11 @@
-.artwork-card{
+.artwork-prev{
     background-color: white;
     border: 1px solod black;
     text-align: center;
+    width: rem(200px);
 
     & img{
-        width:rem(200px);
-        height: auto;
+        width: rem(200px);
         object-fit: contain;
     }
     & h3{

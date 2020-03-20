@@ -4,5 +4,7 @@
     grid-auto-flow: dense;
     grid-template-columns: repeat(auto-fill, rem(200px));
     grid-auto-rows: rem(350px);
-    gap: rem(50px)
+    gap: rem(50px);
+    width: 80%;
+    margin: 0 auto;
 }
