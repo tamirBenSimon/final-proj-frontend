@@ -1,7 +1,11 @@
 <template>
   <section class="seller-gallery-container">
     <h2>Meet the artist:</h2>
-    <pre>{{ user }}</pre>
+    <!-- <pre>{{ user }}</pre> -->
+    <img class="seller-gallery-img" :src="user.imgUrl">
+    <h4>{{user.fullName}}</h4>
+    <h4>Artist's bio: {{user.bio}}</h4>
+    <h5>A member since: {{yearJoined}}</h5>
     <product-list :artworks="artworks" />
     <h2>after the list</h2>
   </section>
@@ -30,6 +34,10 @@ created() {
     });
   },
   computed: {
+    yearJoined() {
+      var date = new Date(this.$store.getters.selectedUser.createdAt);
+      return date.getFullYear();
+    },
     artworks() {
       return this.$store.getters.artworks;
     },
