@@ -8,9 +8,7 @@
       <input type="text" v-model="filterBy.creatorName" placeholder="artiist name" />
       <button @click.prevent="onFilter">filter</button>
     </div>
-    <pre>
-        {{ this.filterBy }}
-    </pre>
+
   </div>
 </template>
 <script>
