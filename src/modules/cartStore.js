@@ -3,7 +3,6 @@ import { cartService } from '../services/cart.service.js'
 
 export default {
     state: {
-        // loggedinUser: localLoggedinUser,
         cart: []
     },
     getters: {
@@ -30,12 +29,7 @@ export default {
         //     context.commit({ type: 'removeUser', userId })
         // },
         async addToCart(context, { userId, product }) {
-            console.log('userId:: ', userId);
-            console.log('product:: ', product);
             await cartService.addToCurrCart(userId, product);
-            // currCart = await cartService.addToCurrCart(userId, product);
-            // context.commit({ type: 'setCurrCart', currCart })
-            // return currCart;
         }
     }
 }

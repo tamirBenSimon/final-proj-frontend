@@ -2,11 +2,12 @@
   <section class="cart-container">
     <h2>My cart</h2>
     <hr>
-    <div v-if="cart" class="cart-main-container">
-      <div v-for="(product, index) in cart.cart" :key="index">
-      <img class="cart-img-product" :src="product.imgURLs[0]" alt="Product">
-      <h2>Price: {{product.price}}</h2>
-
+    <div class="cart-main-container">
+      <div v-if="cart">
+        <div v-for="(product, index) in cart.cart" :key="index">
+          <img class="cart-img-product" :src="product.imgURLs[0]" alt="Product">
+          <h2>Price: {{product.price}}</h2>
+        </div>
       </div>
     </div>
     <hr>
@@ -34,10 +35,6 @@ export default {
       this.cart = currCart; 
     })
   },
-  methods:{
-
-  }
-
 }
 </script>
 

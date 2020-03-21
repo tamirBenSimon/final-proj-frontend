@@ -2,7 +2,7 @@
   <router-link class="artwork-prev" :to="'/artwork/' + artwork._id">
     <div class="artwork-prev-img-container">
       <div class="artwork-prev-wish-list">
-        wish
+        <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" :src="getSrc" alt="Wish List">
       </div>
       <img  :src="Showartwork" alt="" />
       <div class="artwork-prev-txt-container">
@@ -32,8 +32,13 @@ export default {
   },
   data() {
     return {
-      imgUrlIdx: 0
+      imgUrlIdx: 0,
+      currSrc:'../../public/img/icons/black-like.png',
+      loggedinUser: null,
     };
+  },
+  created(){
+    this.loggedinUser = this.$store.getters.loggedinUser;
   },
   mounted() {
     setInterval(() => {
@@ -49,11 +54,31 @@ export default {
     },
     Showartwork() {
       return this.artwork.imgURLs[this.imgUrlIdx];
+    },
+    getSrc(){
+      return this.currSrc;
     }
   },
   methods: {
     remove() {
       eventBus.$emit(EVENT_REMOVE, this.artwork._id);
+    },
+    onHoverWishList(){
+      this.currSrc="../../public/img/icons/red-like.png";
+    },
+    onLeaveWishList(){
+       this.currSrc="../../public/img/icons/black-like.png";
+    },
+    onWishList(){
+      const userId = this.loggedinUser._id;
+      const product = this.artwork;
+      this.$store.dispatch({
+          type: 'addToWishList',
+          userId: userId, 
+          product: product 
+      })
+      .then(res=>console.log('the res is:',res))
+       eventBus.$emit('addWishList', 1);
     }
   }
 };

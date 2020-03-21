@@ -6,6 +6,7 @@
     top: 0;
     width: 100%;
     justify-content: space-between;
+    z-index: 5;
     .navbar-container-main {
         display: flex;
     }
@@ -43,6 +44,16 @@
                 text-align: center;
                 opacity: 0.9;
             }
+        }
+        .nav-bar-num-wish-list {
+            position: relative;
+            top: -40px;
+            right: -20px;
+            background-color: red;
+            border-radius: 50%;
+            width: 15px;
+            text-align: center;
+            opacity: 0.9;
         }
     }
     .nav-bar-3buttons>* {

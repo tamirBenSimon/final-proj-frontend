@@ -1,6 +1,6 @@
 <template>
     <div class="footer">   
-      coffeerights &copy; 2020 [Ariel Zissu, Vlad Indikt, Tamir Ben Simon]
+      Copyright &copy; 2020 Gallerior - All Rights Reserved
     </div>
 </template>
 
