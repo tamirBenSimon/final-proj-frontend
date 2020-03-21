@@ -15,7 +15,10 @@ export default {
         },
         loggedinUser(state) {
             return state.loggedinUser
-        }
+        },
+        SelectedUser(state) {
+            return state.selectedUser
+        },
     },
     mutations: {
         setUser(state, { user }) {
@@ -23,6 +26,8 @@ export default {
         },
         setSelectedUser(state, { user }) {
             state.selectedUser = user;
+            console.log('state.selectedUser',state.selectedUser)
+            console.log('state.loggedinUser', state.loggedinUser)
         },
         setUsers(state, { users }) {
             state.users = users;
@@ -53,10 +58,11 @@ export default {
             context.commit({ type: 'setUsers', users })
             return users;
         },
-        async loadUser(context, {userID}) {
+        async loadUser(context, {userId}) {
             console.log('in store!!!');
-            const user = await userService.query(userID);
+            const user = await userService.getById(userId);
             context.commit({ type: 'setUser', user })
+            context.commit({ type: 'setSelectedUser', user })
             return user;
         },
         async removeUser(context, { userId }) {

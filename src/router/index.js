@@ -7,7 +7,7 @@ import admin from '../views/admin.page';
 import details from '../views/product-details.page';
 import cart from '../views/cart.page';
 import wishList from '../views/wish-list.page';
-
+import sellerGallery from '../views/seller-gallery.page';
 
 
 Vue.use(VueRouter)
@@ -48,6 +48,10 @@ const routes = [{
         path: '/wishList',
         component: wishList
     },
+    {
+        path: '/sellerGallery/:id',
+        component: sellerGallery
+    }
 ]
 
 const router = new VueRouter({

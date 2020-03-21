@@ -9,7 +9,7 @@ function _createUsers() {
     if (!users || !users.length) {
         users = [
             _createUser({
-                _id: "u101",
+                _id: "101",
                 fullName: "ariel zissu",
                 userName: "ariel",
                 password: "123",
@@ -20,7 +20,7 @@ function _createUsers() {
                 createdAt: 123234455445,
             }),
             _createUser({
-                _id: "u102",
+                _id: "102",
                 fullName: "vlad indikt",
                 userName: "shuki@gmail.com",
                 password: "shuki444",
@@ -31,7 +31,7 @@ function _createUsers() {
                 createdAt: 126564455421,
             }),
             _createUser({
-                _id: "u103",
+                _id: "103",
                 fullName: "tamir ben simom",
                 userName: "puki@ealla.com",
                 password: "puki143",
@@ -57,7 +57,7 @@ function query() {
 }
 
 function getById(userId) {
-    const currUser = gUsers.find(user => user.id === userId)
+    const currUser = gUsers.find(user => user._id === userId)
     return Promise.resolve(currUser)
 }
 

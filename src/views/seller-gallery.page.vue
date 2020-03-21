@@ -3,6 +3,7 @@
     <h2>Meet the artist:</h2>
     <pre>{{user}}</pre>
     <product-list :artworks="artworks" />
+    <h2>after the list</h2>
   </section>
 </template>
 
@@ -16,15 +17,16 @@ export default {
   },
   data() {
     return {
-      selectedUser: null
+      // selectedUser: user()
     }
   },
   created() {
+    const userId = this.$route.params.id;
     this.$store.dispatch({
-      type: "getUserById", userId : this.$router.params.id
+      type: "loadUser", userId : userId
     });
     this.$store.dispatch({
-      type: "loadArtworks"
+      type: "loadArtworks", filterBy: {creatorId: userId}
     });
 
   },
@@ -34,6 +36,9 @@ export default {
   computed: {
     artworks() {
       return this.$store.getters.artworks;
+    },
+    user() {
+      return this.$store.getters.selectedUser;
     }
   }
 }

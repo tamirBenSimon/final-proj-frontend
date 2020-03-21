@@ -190,7 +190,7 @@ function _createArtwork(artwork) {
 //         const ArtworksByCreator = gArtworks.filter(artwork => artwork.createdBy._id === creatorId)
 //         return Promise.resolve(ArtworksByCreator);
 //     }
-   
+
 function query(filterBy = null) {
     if (!filterBy) {
         return Promise.resolve(gArtworks);
@@ -203,12 +203,14 @@ function query(filterBy = null) {
             return false
         if (filterBy.title && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
             return false
-            if (filterBy.tags && !artwork.tags.findIndex(tag=>{
-                console.log(tag)
-               return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
-            }))
+        if (filterBy.tags && !artwork.tags.findIndex(tag => {
+            console.log(tag)
+            return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
+        }))
             return false
-            if (filterBy.creatorId && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
+        if (filterBy.creatorId && artwork.createdBy._id!=filterBy.creatorId)
+            return false
+            if (filterBy.creatorName && !artwork.createdBy.fullName.toLowerCase().includes(filterBy.creatorName.toLowerCase()))
             return false
         return true
 
