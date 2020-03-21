@@ -2,7 +2,7 @@
   <router-link class="artwork-prev" :to="getURL">
     <div class="artwork-prev-img-container">
       <div class="artwork-prev-wish-list">
-        <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" :src="getSrc" alt="Wish List">
+        <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
       </div>
       <img  :src="Showartwork" alt="" />
       <div class="artwork-prev-txt-container">
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       imgUrlIdx: 0,
-      currSrc:'../../public/img/icons/black-like.png',
+      // currSrc:'../../public/img/icons/black-like.png',
       loggedinUser: null,
     };
   },
