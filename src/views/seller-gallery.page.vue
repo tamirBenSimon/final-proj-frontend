@@ -21,8 +21,6 @@ export default {
     }
   },
 
-
-
 created() {
     const userId = +this.$route.params.id;
     this.$store.dispatch({
