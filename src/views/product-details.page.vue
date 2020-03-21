@@ -17,7 +17,7 @@
               <img class='product-details-img-reviewer' :src='review.by.imgURL' alt='reviewer'>
               <h3>{{review.by.fullName}}</h3>
               <h4>{{review.Txt}}</h4>
-              <h5>{{currRate}}</h5>
+              <h5>{{currRate(review.rate)}}</h5>
             </li>
           </ul>
         </div>
@@ -58,24 +58,7 @@ export default {
         }
   },
   computed:{
-    currRate(){
-      var i = 0;
-      const rate = this.artwork.reviews[i].rate;
-        i++;
-        switch (rate){
-          case 1:
-            return '⭐';
-          case 2:
-            return '⭐⭐';
-          case 3:
-            return '⭐⭐⭐';
-          case 4:
-            return '⭐⭐⭐⭐';
-          case 5:
-            return '⭐⭐⭐⭐⭐';
-      }
-      return ' ';// here is checking if the rate is 0
-    }
+   
   },
   methods:{
     onBack(){
@@ -93,6 +76,21 @@ export default {
     },
     onBuy(){
       console.log('buying!');
+    },
+     currRate(rate){
+        switch (rate){
+          case 1:
+            return '⭐';
+          case 2:
+            return '⭐⭐';
+          case 3:
+            return '⭐⭐⭐';
+          case 4:
+            return '⭐⭐⭐⭐';
+          case 5:
+            return '⭐⭐⭐⭐⭐';
+      }
+      return ' ';// here is checking if the rate is 0
     }
   }
 }
