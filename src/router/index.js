@@ -6,13 +6,13 @@ import loginSignup from '../views/login-signup-page';
 import admin from '../views/admin.page';
 import details from '../views/product-details.page';
 import cart from '../views/cart.page';
+import wishList from '../views/wish-list.page';
 
 
 
 Vue.use(VueRouter)
 
-const routes = [
-    {
+const routes = [{
         path: '/',
         name: 'home',
         component: home
@@ -43,7 +43,11 @@ const routes = [
     {
         path: '/cart',
         component: cart
-    }
+    },
+    {
+        path: '/wishList',
+        component: wishList
+    },
 ]
 
 const router = new VueRouter({

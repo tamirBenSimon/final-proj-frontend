@@ -8,7 +8,10 @@
         </div> 
     </div>
     <div class="nav-bar-3buttons">
-        <img src="../../public/img/icons/black-like.png" alt="Wish List">
+        <div>
+          <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List">
+          <div class="nav-bar-num-wish-list" v-if="countWishList">{{countWishList}}</div>
+        </div>
         <img src="../../public/img/icons/github.png" alt="User Picture">
         <div class="nav-bar-cart-container">
           <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart">
@@ -24,12 +27,16 @@ import {eventBus} from '../services/event-bus.service.js'
 export default {
   data(){
     return{
-      countCart:0
+      countCart: 0,
+      countWishList: 0
     }
   },
   created(){
       eventBus.$on('addCart', countOfCart =>{
       this.countCart += countOfCart;
+      })
+      eventBus.$on('addWishList', countOfWishList =>{
+      this.countWishList += countOfWishList;
       })
   },
   methods:{
@@ -38,6 +45,9 @@ export default {
     },
     onLogo(){
       this.$router.push('/artwork');
+    },
+    onWishList(){
+      this.$router.push('/wishList');
     }
   }
 
