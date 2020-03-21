@@ -8,50 +8,55 @@ import details from '../views/product-details.page';
 import cart from '../views/cart.page';
 import wishList from '../views/wish-list.page';
 import sellerGallery from '../views/seller-gallery.page';
+import artworkEdit from '../views/artwork-edit.page';
 
 
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        name: 'home',
-        component: home
-    },
-    {
-        path: '/artwork',
-        name: 'market-app',
-        component: marketApp
-    },
-    {
-        path: '/admin',
-        name: 'admin-page',
-        component: admin
-    },
-    {
-        path: '/artwork/:id',
-        name: 'details',
-        component: details
-    },
-    {
-        path: '/login',
-        component: loginSignup
-    },
-    {
-        path: '/signup',
-        component: loginSignup
-    },
-    {
-        path: '/cart',
-        component: cart
-    },
-    {
-        path: '/wishList',
-        component: wishList
-    },
-    {
-        path: '/sellerGallery/:id',
-        component: sellerGallery
-    }
+    path: '/',
+    name: 'home',
+    component: home
+},
+{
+    path: '/artwork',
+    name: 'market-app',
+    component: marketApp
+},
+{
+    path: '/admin',
+    name: 'admin-page',
+    component: admin
+},
+{
+    path: '/artwork/:id',
+    name: 'details',
+    component: details
+},
+{
+    path: '/login',
+    component: loginSignup
+},
+{
+    path: '/signup',
+    component: loginSignup
+},
+{
+    path: '/cart',
+    component: cart
+},
+{
+    path: '/wishList',
+    component: wishList
+},
+{
+    path: '/sellerGallery/:id',
+    component: sellerGallery
+},
+{
+    path: '/artwork/edit/:id',
+    component: artworkEdit
+}
 ]
 
 const router = new VueRouter({

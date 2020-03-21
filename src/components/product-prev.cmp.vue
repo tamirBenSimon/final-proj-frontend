@@ -1,5 +1,5 @@
 <template>
-  <router-link class="artwork-prev" :to="'/artwork/' + artwork._id">
+  <router-link class="artwork-prev" :to="getURL">
     <div class="artwork-prev-img-container">
       <div class="artwork-prev-wish-list">
         <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" :src="getSrc" alt="Wish List">
@@ -17,6 +17,7 @@
         <span>{{ isInStock }}</span>
         <div class="artwork-prev-controle-pad">
           <button @click.prevent="remove">remove</button>
+          <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
         </div>
       </div>
     </div>
@@ -49,6 +50,10 @@ export default {
     }, 7000);
   },
   computed: {
+    getURL(){
+      return  ('/artwork/' + this.artwork._id)
+    //  this.$route.params.id? : ('/artwork/edit/'+ this.artwork._id)
+    },
     isInStock() {
       return this.artwork.inStock ? "available" : "currently not available";
     },
