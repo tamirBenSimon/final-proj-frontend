@@ -2,7 +2,7 @@
   <router-link class="artwork-prev" :to="getURL">
     <div class="artwork-prev-img-container">
       <div class="artwork-prev-wish-list">
-        <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
+        <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" :src="getSrc" alt="Wish List">
       </div>
       <img  :src="Showartwork" alt="" />
       <div class="artwork-prev-txt-container">
@@ -82,8 +82,11 @@ export default {
           userId: userId, 
           product: product 
       })
-       eventBus.$emit('editWishList', 1);
+      .then(res=>console.log('the res is:',res))
+       eventBus.$emit('addWishList', 1);
     }
   }
-}
+};
 </script>
+
+<style></style>

@@ -191,6 +191,7 @@ function _createArtwork(artwork) {
 }
 
 function query(filterBy = null) {
+    console.log("QUEYYYYY")
     if (!filterBy) {
         return Promise.resolve(gArtworks);
     }

@@ -45,7 +45,7 @@ export default {
       })
       .then((user)=>{
         console.log('user is a: ', user);
-        if (user !== null) this.$router.push('/artwork');
+        if (user !== null) this.$router.push('/');
       })
       this.credentials.username = '';
       this.credentials.password = '';

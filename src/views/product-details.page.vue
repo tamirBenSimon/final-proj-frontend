@@ -44,7 +44,7 @@ export default {
       loggedinUser: null
     }
   },
-  created(){
+  mounted(){
     this.loggedinUser = this.$store.getters.loggedinUser;
      const artworkId = this.$route.params.id;
         if (artworkId) {
