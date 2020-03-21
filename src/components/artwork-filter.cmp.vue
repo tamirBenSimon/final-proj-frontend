@@ -5,7 +5,7 @@
       <input type="number" v-model.number="filterBy.minPrice" />
       <input type="number" v-model.number="filterBy.maxPrice" />
       <input type="text" v-model="filterBy.tags" />
-      <input type="text" v-model="filterBy.creatorId" placeholder="artiist ID" />
+      <input type="text" v-model="filterBy.creatorName" placeholder="artiist name" />
       <button @click.prevent="onFilter">filter</button>
     </div>
     <pre>
@@ -23,7 +23,8 @@ export default {
         title: "",
         minPrice: 0,
         maxPrice: 0,
-        tags: ""
+        tags: "",
+        creatorName:null
       }
     };
   },

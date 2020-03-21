@@ -210,6 +210,8 @@ function query(filterBy = null) {
             return false
         if (filterBy.creatorId && artwork.createdBy._id!=filterBy.creatorId)
             return false
+            if (filterBy.creatorName && !artwork.createdBy.fullName.toLowerCase().includes(filterBy.creatorName.toLowerCase()))
+            return false
         return true
 
     })
