@@ -12,6 +12,10 @@
     > * {
         grid-column: 2;
     }
+     & .home-main-header{
+        grid-column-start: 1;
+        grid-column-end: -1;
+ }
     
     @include for-narrow-layout {
         grid-template-columns: minmax(0.6rem, auto) minmax(auto, $break-narrow) minmax(0.6rem, auto);
@@ -23,3 +27,4 @@
         grid-template-columns: minmax(0.6rem, auto) minmax(auto, $break-wide) minmax(0.6rem, auto);
     }
 }
+
