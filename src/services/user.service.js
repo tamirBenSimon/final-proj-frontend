@@ -17,7 +17,7 @@ function _createUsers() {
                 bio: "Hello everyone, I played basketball",
                 wishlist: [],
                 imgUrl: `https://i.picsum.photos/id/542/200/250.jpg`,
-                createdAt: 123234455445,
+                createdAt: 1521656526000,
             }),
             _createUser({
                 _id: 102,
@@ -28,7 +28,7 @@ function _createUsers() {
                 bio: "hey my friends!!!",
                 wishlist: [],
                 imgUrl: `https://i.picsum.photos/id/552/200/250.jpg`,
-                createdAt: 126564455421,
+                createdAt: 1490120526000,
             }),
             _createUser({
                 _id: 103,
@@ -39,7 +39,7 @@ function _createUsers() {
                 bio: "In 1993 I fucking born!",
                 wishlist: [],
                 imgUrl: `https://i.picsum.photos/id/562/200/250.jpg`,
-                createdAt: 123676433474,
+                createdAt: 1426962126000,
             }),
         ]
         storageService.store(KEY, users)
