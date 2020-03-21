@@ -16,7 +16,7 @@ export default {
         loggedinUser(state) {
             return state.loggedinUser
         },
-        SelectedUser(state) {
+        selectedUser(state) {
             return state.selectedUser
         },
     },
