@@ -208,6 +208,8 @@ function query(filterBy = null) {
                return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
             }))
             return false
+            if (filterBy.creatorId && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
+            return false
         return true
 
     })

@@ -7,6 +7,11 @@
     border-radius: 0.3rem;
   }
 
+  & .artwork-prev-wish-list{
+    position: absolute;
+    right: 0px;
+    top:0px
+  }
   & .artwork-prev-img-container img {
     object-fit: cover;
     border-radius: 0.3rem;
