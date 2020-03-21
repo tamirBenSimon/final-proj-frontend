@@ -9,7 +9,3 @@ export default {
   name:'edit-product',
 }
 </script>
-
-<style>
-
-</style>

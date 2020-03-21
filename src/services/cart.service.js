@@ -27,13 +27,24 @@ function addToCurrCart(userId, product) {
     return currCart;
 }
 
-
-
-
+function remove(productId, userId) {
+    const currIndex = gCarts.findIndex(cart => cart.userId === userId);
+    if (currIndex === -1) {
+        return null;
+    } else {
+        var currCart = gCarts[currIndex].cart;
+        const productIdx = currCart.findIndex(product => product._id === productId)
+        if (productIdx === -1) return null;
+        currCart.splice(productIdx, 1);
+    }
+    storageService.store(KEY, gCarts);
+    return gCarts;
+}
 
 
 export const cartService = {
     getCurrCart,
-    addToCurrCart
+    addToCurrCart,
+    remove
 
 }
