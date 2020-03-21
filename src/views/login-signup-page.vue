@@ -47,7 +47,6 @@ export default {
         console.log('user is a: ', user);
         if (user !== null) this.$router.push('/artwork');
       })
-      
       this.credentials.username = '';
       this.credentials.password = '';
     },
@@ -59,15 +58,9 @@ export default {
       this.signupCreds.username = '';
       this.signupCreds.password = '';
     },
-
   },
   created() {
     if (this.$route.path === '/signup') this.isSignup = true;
   }
-
 }
 </script>
-
-<style>
-
-</style>

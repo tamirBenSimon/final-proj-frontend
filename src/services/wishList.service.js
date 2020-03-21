@@ -26,8 +26,24 @@ function addToCurrWishList(userId, product) {
     return currWishList;
 }
 
+function remove(productId, userId) {
+    const currIndex = gwishLists.findIndex(wishList => wishList.userId === userId);
+    if (currIndex === -1) {
+        return null;
+    } else {
+        var currWishList = gwishLists[currIndex].wishList; /// wishList- in the end???
+        const productIdx = currWishList.findIndex(product => product._id === productId)
+        if (productIdx === -1) return null;
+        currWishList.splice(productIdx, 1);
+    }
+    storageService.store(KEY, gwishLists);
+    return gwishLists;
+}
+
+
 export const wishListService = {
     getCurrWishList,
-    addToCurrWishList
+    addToCurrWishList,
+    remove
 
 }

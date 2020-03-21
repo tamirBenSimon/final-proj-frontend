@@ -37,10 +37,5 @@ export default {
   components:{
     userList,
   }
-
 }
 </script>
-
-<style>
-
-</style>

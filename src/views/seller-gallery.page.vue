@@ -24,7 +24,6 @@ export default {
       selectedUser: null
     }
   },
-
 created() {
     const userId = +this.$route.params.id;
     this.$store.dispatch({
@@ -34,8 +33,6 @@ created() {
       type: "loadArtworks", filterBy: {creatorId: userId}
     });
   },
-
-  methods: {},
   computed: {
     yearJoined() {
       var date = new Date(this.$store.getters.selectedUser.createdAt);

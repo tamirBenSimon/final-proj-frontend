@@ -89,7 +89,7 @@ export default {
           userId: userId, 
           product: product 
       })
-       eventBus.$emit('addCart', 1);
+       eventBus.$emit('editCart', 1);
     },
     onBuy(){
       console.log('buying!');
@@ -97,7 +97,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

@@ -1,6 +1,5 @@
 import { wishListService } from '../services/wishList.service.js'
 
-
 export default {
     state: {
         wishList: []
@@ -14,17 +13,20 @@ export default {
         setwishList(state, { wishList }) {
             state.wishListt = wishList;
         },
+        removeWishList(state, { userId }) {
+            state.wishList = state.wishList.wishList.filter(cart => cart._id !== userId)
+        },
     },
     actions: {
-        async loadwishList(context, { userId }) {
+        async loadWishList(context, { userId }) {
             const wishList = await wishListService.getCurrWishList(userId);
             context.commit({ type: 'setwishList', wishList })
             return wishList;
         },
-        // async removeUser(context, { userId }) {
-        //     await wishListService.remove(userId);
-        //     context.commit({ type: 'removeUser', userId })
-        // },
+        async removeWishList(context, { productId, userId }) {
+            await wishListService.remove(productId, userId);
+            context.commit({ type: 'removeWishList', userId })
+        },
         async addToWishList(context, { userId, product }) {
             await wishListService.addToCurrWishList(userId, product);
         }
