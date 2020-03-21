@@ -23,6 +23,7 @@ function _createArtworks() {
                 salesCount: 28,
                 reviews: [{
                     Txt: "great ! i love it",
+                    _id: '43dv55',
                     by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
                     rate: 4
                 },
@@ -64,19 +65,25 @@ function _createArtworks() {
                 title: 'beautiful art',
                 desc: 'you want to buy this',
                 price: 899,
-                inStock: false,
-                createdBy: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                inStock: true,
+                createdBy: {
+                    _id: 101,
+                    fullName: 'ariel zissu',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`
+                },
                 imgURLs: [`https://i.picsum.photos/id/120/200/250.jpg`, `https://i.picsum.photos/id/121/200/250.jpg`],
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 2,
                 reviews: [{
                     Txt: "great ! i love it",
-                    _id: 101,
-                    fullName: 'ariel zissu',
+                    _id: '43f55',
                     imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                    rate: 2
+                    rate: 2,
+                    by: { fullName: 'ariel zissu', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+
                 },
                 {
+                    _id: '43it5',
                     Txt: "too expensive!",
                     by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
                     rate: 3
@@ -93,13 +100,13 @@ function _createArtworks() {
                 tags: ['modern', 'urban', 'nature'],
                 salesCount: 2,
                 reviews: [{
-                    Txt: "it's the best one ! i love it",
-                    _id: 101,
-                    fullName: 'ariel zissu',
-                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                    rate: 5
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
                 },
                 {
+                    _id: '1op55',
                     Txt: "haimon limon!",
                     by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
                     rate: 5
@@ -115,13 +122,13 @@ function _createArtworks() {
                 tags: ['light-play', 'angles', 'family'],
                 salesCount: 51,
                 reviews: [{
-                    Txt: "great artist but this one... not so much",
-                    _id: 101,
-                    fullName: 'ariel zissu',
-                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                    rate: 2
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
                 },
                 {
+                    _id: '1p99us',
                     Txt: "too expensive!",
                     by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
                     rate: 1
@@ -137,13 +144,13 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 17,
                 reviews: [{
-                    Txt: "this is a review wrote by ariel",
-                    _id: 101,
-                    fullName: 'ariel zissu',
-                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                    rate: 2
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
                 },
                 {
+                    _id: '15gtrus',
                     Txt: "this is a review wrote by tamir",
                     by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
                     rate: 3
@@ -159,19 +166,19 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 12,
                 reviews: [{
-                    Txt: "I am in sprint 4, talk later!",
-                    _id: 101,
-                    fullName: 'ariel zissu',
-                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                    rate: 2
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
                 },
                 {
+                    _id: '11dzd',
                     Txt: "muki is the best!",
                     by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
                     rate: 3
                 },
                 ]
-            }),
+            })
         ]
         storageService.store(KEY, artworks)
     }
@@ -182,14 +189,6 @@ function _createArtwork(artwork) {
     artwork._id = utilService.makeId()
     return artwork;
 }
-
-// function query(creatorId) {
-//     if (!creatorId)  return Promise.resolve(gArtworks);
-//     else {
-//         console.log('creator id: ',creatorId)
-//         const ArtworksByCreator = gArtworks.filter(artwork => artwork.createdBy._id === creatorId)
-//         return Promise.resolve(ArtworksByCreator);
-//     }
 
 function query(filterBy = null) {
     if (!filterBy) {
@@ -208,9 +207,9 @@ function query(filterBy = null) {
             return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
         }))
             return false
-        if (filterBy.creatorId && artwork.createdBy._id!=filterBy.creatorId)
+        if (filterBy.creatorId && artwork.createdBy._id != filterBy.creatorId)
             return false
-            if (filterBy.creatorName && !artwork.createdBy.fullName.toLowerCase().includes(filterBy.creatorName.toLowerCase()))
+        if (filterBy.creatorName && !artwork.createdBy.fullName.toLowerCase().includes(filterBy.creatorName.toLowerCase()))
             return false
         return true
 

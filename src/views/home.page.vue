@@ -1,6 +1,7 @@
 <template>
-  <section class="market-app-container">
-    <header class="main-header" id="nav">
+  <section class="home-main-layout">
+    <header class="home-main-header" id="nav">
+    <img src="../../public/img/gallery/gallery2.jpg" alt="homepic">
       </header>
     <artwork-filter @onFilter="onFilter" />
     <product-list :artworks="artworks" />

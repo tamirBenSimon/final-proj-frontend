@@ -1,3 +1,13 @@
 .artwork-filter{
-    display:block;
+    display:flex;
+    margin-top: rem(80px);
+
+    & input{
+        outline: none;
+    }
+    & .num-input{
+        max-width: 12ch;
+        padding: 1ch;
+    }
+
 }

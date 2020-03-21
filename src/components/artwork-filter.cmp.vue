@@ -1,15 +1,12 @@
 <template>
-  <div>
     <div class="artwork-filter">
-      <input @input="onFilter" type="text" v-model="filterBy.title" />
-      <input type="number" v-model.number="filterBy.minPrice" />
-      <input type="number" v-model.number="filterBy.maxPrice" />
-      <input type="text" v-model="filterBy.tags" />
-      <input type="text" v-model="filterBy.creatorName" placeholder="artiist name" />
+      <input @input="onFilter" placeholder="Search Artwork" type="text" v-model="filterBy.title" />
+      <input class="num-input" placeholder="Start at" type="number" v-model.number="filterBy.minPrice" />
+      <input class="num-input" placeholder="Mac price" type="number" v-model.number="filterBy.maxPrice" />
+      <input type="text" placeholder="Search by tags" v-model="filterBy.tags" />
+      <input type="text"  v-model="filterBy.creatorName" placeholder="artiist name" />
       <button @click.prevent="onFilter">filter</button>
     </div>
-
-  </div>
 </template>
 <script>
 export default {
@@ -19,8 +16,8 @@ export default {
     return {
       filterBy: {
         title: "",
-        minPrice: 0,
-        maxPrice: 0,
+        minPrice: null,
+        maxPrice: null,
         tags: "",
         creatorName:null
       }

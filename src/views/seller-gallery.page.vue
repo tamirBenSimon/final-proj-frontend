@@ -1,7 +1,7 @@
 <template>
   <section class="seller-gallery-container">
     <h2>Meet the artist:</h2>
-    <pre>{{user}}</pre>
+    <pre>{{ user }}</pre>
     <product-list :artworks="artworks" />
   </section>
 </template>
@@ -12,29 +12,28 @@ import productList from "../components/product-list.cmp";
 export default {
   name: "gallery-container",
   components: {
-    productList,
+    productList
   },
   data() {
     return {
       selectedUser: null
-    }
+    };
   },
   created() {
     this.$store.dispatch({
-      type: "getUserById", userId : this.$router.params.id
+      type: "getUserById",
+      userId: this.$router.params.id
     });
     this.$store.dispatch({
-      type: "loadArtworks"
+      type: "loadArtworks",
+      filterBy: { creatorId: this.$router.params.id }
     });
-
   },
-  methods:{
-
-  },
+  methods: {},
   computed: {
     artworks() {
       return this.$store.getters.artworks;
     }
   }
-}
+};
 </script>

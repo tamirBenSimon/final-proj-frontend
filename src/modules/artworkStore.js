@@ -3,6 +3,7 @@ import { artworkService } from '../services/artwork.service.js'
 
 export default {
     state: {
+        artwork:{},
         artworks: [],
         currArtwork: null,
         filterBy:null
@@ -15,6 +16,9 @@ export default {
     mutations: {
         setArtworks(state, { artworks }) {
             state.artworks = artworks;
+        },
+        setArtwork(state, { artwork }) {
+            state.artwork = artwork;
         },
         setCurrArtwork(state, { artwork }) {
             state.currArtwork = artwork;
@@ -30,7 +34,7 @@ export default {
             return Promise.resolve(artworks);
         },
         async loadArtwork(context, { artworkId }) {
-            const artwork = await artworkService.getById(artworkId);
+            const artwork = await artworkService.getById(artworkId)
             context.commit({ type: 'setArtwork', artwork })
             return Promise.resolve(artwork);
         },
