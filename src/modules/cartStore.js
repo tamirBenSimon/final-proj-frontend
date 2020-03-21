@@ -4,58 +4,38 @@ import { cartService } from '../services/cart.service.js'
 export default {
     state: {
         // loggedinUser: localLoggedinUser,
-        // users: []
+        cart: []
     },
     getters: {
-        // users(state) {
-        //     return state.users;
-        // },
-        // loggedinUser(state) {
-        //     return state.loggedinUser
-        // }
+        cart(state) {
+            return state.cart;
+        }
     },
     mutations: {
-        // setUser(state, { user }) {
-        //     state.loggedinUser = user;
-        // },
-        // setUsers(state, { users }) {
-        //     state.users = users;
-        // },
+        setCart(state, { cart }) { ////// maybe change to product insatad of cart//////????????  
+            state.cart = cart;
+        },
         // removeUser(state, { userId }) {
         //     state.users = state.users.filter(user => user._id !== userId)
         // },
     },
     actions: {
-        // async login(context, { userCred }) {
-        //     const user = await cartService.login(userCred);
-        //     context.commit({ type: 'setUser', user })
-        //     return user;
-        // },
-        // async signup(context, { userCred }) {
-        //     const user = await cartService.signup(userCred)
-        //     context.commit({ type: 'setUser', user })
-        //     return user;
-
-        // },
-        // async logout(context) {
-        //     await cartService.logout()
-        //     context.commit({ type: 'setUsers', users: [] })
-        //     context.commit({ type: 'setUser', user: null })
-        // },
-        // async loadUsers(context) {
-        //     console.log('in store!!!');
-        //     const users = await cartService.query();
-        //     context.commit({ type: 'setUsers', users })
-        //     return users;
-        // },
+        async loadcart(context, { userId }) {
+            const cart = await cartService.getCurrCart(userId);
+            context.commit({ type: 'setCart', cart })
+            return cart;
+        },
         // async removeUser(context, { userId }) {
         //     await cartService.remove(userId);
         //     context.commit({ type: 'removeUser', userId })
         // },
-        // async updateUser(context, { user }) {
-        //     user = await cartService.update(user);
-        //     context.commit({ type: 'setUser', user })
-        //     return user;
-        // }
+        async addToCart(context, { userId, product }) {
+            console.log('userId:: ', userId);
+            console.log('product:: ', product);
+            await cartService.addToCurrCart(userId, product);
+            // currCart = await cartService.addToCurrCart(userId, product);
+            // context.commit({ type: 'setCurrCart', currCart })
+            // return currCart;
+        }
     }
 }

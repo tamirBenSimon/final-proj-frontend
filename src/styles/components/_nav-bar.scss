@@ -21,14 +21,36 @@
             height: 30px;
             margin-right: 10px;
         }
+        .nav-bar-search-img {
+            position: relative;
+            right: 50px;
+            bottom: -3px;
+            width: 24.8px;
+            height: 25px;
+            opacity: 0.4;
+        }
     }
     .nav-bar-3buttons {
         display: flex;
+        .nav-bar-cart-container {
+            .nav-bar-num-cart {
+                position: relative;
+                top: -40px;
+                right: -20px;
+                background-color: red;
+                border-radius: 50%;
+                width: 15px;
+                text-align: center;
+                opacity: 0.9;
+            }
+        }
     }
     .nav-bar-3buttons>* {
+        cursor: pointer;
         margin-right: 15px;
     }
     .nav-bar-logo {
+        cursor: pointer;
         margin-right: 40px;
     }
 }

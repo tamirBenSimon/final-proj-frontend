@@ -45,7 +45,6 @@ export default {
             context.commit({ type: 'setUser', user: null })
         },
         async loadUsers(context) {
-            console.log('in store!!!');
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;
