@@ -1,6 +1,9 @@
 <template>
   <router-link class="artwork-prev" :to="'/artwork/' + artwork._id">
     <div class="artwork-prev-img-container">
+      <div class="artwork-prev-wish-list">
+        wish
+      </div>
       <img  :src="Showartwork" alt="" />
       <div class="artwork-prev-txt-container">
         <div class="artwork-prev-txt-header">
