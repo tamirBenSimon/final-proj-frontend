@@ -1,0 +1,36 @@
+.wish-list-container {
+    margin-top: rem(100px);
+    min-height: rem(635px);
+    .wish-list-main-container {
+        min-height: rem(200px);
+        .wish-list-main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: rem(500px);
+            margin-bottom: 20px;
+            padding: 30px 0;
+            .wish-list-remove {
+                cursor: pointer;
+                font-size: 15px;
+                color: #323232;
+                text-decoration: underline;
+            }
+            .wish-list-buy {
+                cursor: pointer;
+                font-size: 15px;
+                color: #323232;
+                text-decoration: underline;
+            }
+            .wish-list-tite {
+                width: 70px;
+                line-height: 1.47em;
+                font-size: 20px;
+                margin-left: -35px;
+            }
+        }
+    }
+    .wish-list-img-product {
+        width: rem(100px);
+    }
+}

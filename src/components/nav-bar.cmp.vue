@@ -12,7 +12,7 @@
           <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List">
           <div class="nav-bar-num-wish-list" v-if="countWishList">{{countWishList}}</div>
         </div>
-        <img src="../../public/img/icons/github.png" alt="User Picture">
+        <img src="../../public/img/icons/account.png" alt="User Picture">
         <div class="nav-bar-cart-container">
           <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart">
           <div class="nav-bar-num-cart" v-if="countCart">{{countCart}}</div>
@@ -32,10 +32,11 @@ export default {
     }
   },
   created(){
-      eventBus.$on('addCart', countOfCart =>{
+      eventBus.$on('editCart', countOfCart =>{
+        console.log('countOfCart',countOfCart );
       this.countCart += countOfCart;
       })
-      eventBus.$on('addWishList', countOfWishList =>{
+      eventBus.$on('editWishList', countOfWishList =>{
       this.countWishList += countOfWishList;
       })
   },
@@ -50,10 +51,5 @@ export default {
       this.$router.push('/wishList');
     }
   }
-
 }
 </script>
-
-<style scoped>
-
-</style>

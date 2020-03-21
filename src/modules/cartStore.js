@@ -11,23 +11,23 @@ export default {
         }
     },
     mutations: {
-        setCart(state, { cart }) { ////// maybe change to product insatad of cart//////????????  
+        setCart(state, { cart }) {
             state.cart = cart;
         },
-        // removeUser(state, { userId }) {
-        //     state.users = state.users.filter(user => user._id !== userId)
-        // },
+        removeProduct(state, { userId }) {
+            state.cart = state.cart.cart.filter(cart => cart._id !== userId)
+        },
     },
     actions: {
-        async loadcart(context, { userId }) {
+        async loadCart(context, { userId }) {
             const cart = await cartService.getCurrCart(userId);
             context.commit({ type: 'setCart', cart })
             return cart;
         },
-        // async removeUser(context, { userId }) {
-        //     await cartService.remove(userId);
-        //     context.commit({ type: 'removeUser', userId })
-        // },
+        async removeCart(context, { productId, userId }) {
+            await cartService.remove(productId, userId);
+            context.commit({ type: 'removeProduct', userId })
+        },
         async addToCart(context, { userId, product }) {
             await cartService.addToCurrCart(userId, product);
         }
