@@ -183,8 +183,14 @@ function _createArtwork(artwork) {
     return artwork;
 }
 
-function query() {
-    return Promise.resolve(gArtworks);
+function query(creatorId) {
+    if (!creatorId)  return Promise.resolve(gArtworks);
+    else {
+        console.log('creator id: ',creatorId)
+        const ArtworksByCreator = gArtworks.filter(artwork => artwork.createdBy._id === creatorId)
+        return Promise.resolve(ArtworksByCreator);
+    }
+   
 }
 
 async function getById(artworkId) {

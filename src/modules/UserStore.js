@@ -5,6 +5,7 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
     state: {
+        selectedUser: null,
         loggedinUser: localLoggedinUser,
         users: []
     },
@@ -19,6 +20,9 @@ export default {
     mutations: {
         setUser(state, { user }) {
             state.loggedinUser = user;
+        },
+        setSelectedUser(state, { user }) {
+            state.selectedUser = user;
         },
         setUsers(state, { users }) {
             state.users = users;
@@ -50,6 +54,12 @@ export default {
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;
+        },
+        async loadUser(context, {userID}) {
+            console.log('in store!!!');
+            const user = await userService.query(userID);
+            context.commit({ type: 'setUser', user })
+            return user;
         },
         async removeUser(context, { userId }) {
             await userService.remove(userId);
