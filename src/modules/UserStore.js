@@ -26,8 +26,6 @@ export default {
         },
         setSelectedUser(state, { user }) {
             state.selectedUser = user;
-            console.log('state.selectedUser',state.selectedUser)
-            console.log('state.loggedinUser', state.loggedinUser)
         },
         setUsers(state, { users }) {
             state.users = users;
@@ -35,6 +33,9 @@ export default {
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id !== userId)
         },
+        setLoggedinUser(state) {
+            state.loggedinUser = null;
+        }
     },
     actions: {
         async login(context, { userCred }) {
@@ -50,15 +51,16 @@ export default {
         },
         async logout(context) {
             await userService.logout()
-            context.commit({ type: 'setUsers', users: [] })
-            context.commit({ type: 'setUser', user: null })
+            context.commit({ type: 'setLoggedinUser', users: [] })
+                // context.commit({ type: 'setUsers', users: [] })
+                // context.commit({ type: 'setUser', user: null })
         },
         async loadUsers(context) {
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;
         },
-        async loadUser(context, {userId}) {
+        async loadUser(context, { userId }) {
             console.log('in store!!!');
             const user = await userService.getById(userId);
             context.commit({ type: 'setUser', user })
