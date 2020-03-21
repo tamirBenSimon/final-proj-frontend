@@ -11,8 +11,8 @@ function _createUsers() {
             _createUser({
                 _id: "u101",
                 fullName: "ariel zissu",
-                userName: "arielzissu@nike.com",
-                password: "arielking123",
+                userName: "ariel",
+                password: "123",
                 isAdmin: true,
                 bio: "Hello everyone, I played basketball",
                 wishlist: [],
@@ -122,14 +122,11 @@ function getNextPrevUserIds(userId) {
 }
 
 async function login(userCred) {
-    console.log('in the service: ',userCred)
-    /// hardcoded for testing
-    if (userCred.username === 'ariel' & userCred.password === '123') {
-        var user = gUsers[0];
-        console.log('in the if of service,', user)
+    const currUser = gUsers.find(user => user.userName === userCred.username && user.password === userCred.password)
+    if (currUser) {
+        _handleLogin(currUser)
     } else return null;
     // const user = await HttpService.post('auth/login', userCred)
-    return _handleLogin(user)
 }
 
 // async function signup(userCred) {
@@ -143,7 +140,6 @@ async function login(userCred) {
 
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
-    console.log('handling user');
     return user;
 }
 
