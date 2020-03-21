@@ -133,10 +133,13 @@ async function login(userCred) {
 //     const user = await HttpService.post('auth/signup', userCred)
 //     return _handleLogin(user)
 // }
-// async function logout() {
-//     await HttpService.post('auth/logout');
-//     sessionStorage.clear();
-// }
+
+function logout() {
+    // async function logout() {
+    // await HttpService.post('auth/logout');
+    sessionStorage.clear();
+    console.log('clear!!!');
+}
 
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
@@ -152,6 +155,6 @@ export const userService = {
     getEmptyUser,
     getNextPrevUserIds,
     login,
-    // logout,
+    logout,
     // signup
 }

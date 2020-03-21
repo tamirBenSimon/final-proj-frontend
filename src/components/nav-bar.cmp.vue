@@ -12,11 +12,24 @@
           <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List">
           <div class="nav-bar-num-wish-list" v-if="countWishList">{{countWishList}}</div>
         </div>
-        <img src="../../public/img/icons/account.png" alt="User Picture">
+
+        <div class="dropdown">
+          <img class="dropbtn" src="../../public/img/icons/account.png" alt="User Picture">
+            <div class="dropdown-content">
+              <a href="#/">Home Page</a>
+              <a v-if="!isLoggedinUser" href="#/login">Login</a>
+              <a v-if="!isLoggedinUser" href="#/signup">Sign Up</a>
+              <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
+            </div>
+        </div>
+
         <div class="nav-bar-cart-container">
           <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart">
           <div class="nav-bar-num-cart" v-if="countCart">{{countCart}}</div>
         </div>
+
+        
+
     </div>
   </div>
 </template>
@@ -28,10 +41,12 @@ export default {
   data(){
     return{
       countCart: 0,
-      countWishList: 0
+      countWishList: 0,
+      isLoggedinUser: null
     }
   },
   created(){
+    this.isLoggedinUser = this.$store.getters.loggedinUser;
       eventBus.$on('editCart', countOfCart =>{
         console.log('countOfCart',countOfCart );
       this.countCart += countOfCart;
@@ -49,6 +64,13 @@ export default {
     },
     onWishList(){
       this.$router.push('/wishList');
+    },
+    onLogOut(){
+      this.$store.dispatch({
+          type: 'logout',
+      });
+      this.$router.push('/');
+      this.isLoggedinUser = null;
     }
   }
 }
