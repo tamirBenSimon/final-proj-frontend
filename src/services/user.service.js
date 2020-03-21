@@ -9,7 +9,7 @@ function _createUsers() {
     if (!users || !users.length) {
         users = [
             _createUser({
-                _id: "101",
+                _id: 101,
                 fullName: "ariel zissu",
                 userName: "ariel",
                 password: "123",
@@ -20,7 +20,7 @@ function _createUsers() {
                 createdAt: 123234455445,
             }),
             _createUser({
-                _id: "102",
+                _id: 102,
                 fullName: "vlad indikt",
                 userName: "shuki@gmail.com",
                 password: "shuki444",
@@ -31,7 +31,7 @@ function _createUsers() {
                 createdAt: 126564455421,
             }),
             _createUser({
-                _id: "103",
+                _id: 103,
                 fullName: "tamir ben simom",
                 userName: "puki@ealla.com",
                 password: "puki143",
@@ -48,14 +48,14 @@ function _createUsers() {
 }
 
 function _createUser(user) {
-    user._id = utilService.makeId()
+    // user._id = utilService.makeId()
     return user;
 }
 
 function query() {
     return Promise.resolve(gUsers);
 }
-
+//102
 function getById(userId) {
     const currUser = gUsers.find(user => user._id === userId)
     return Promise.resolve(currUser)
