@@ -63,8 +63,6 @@ export default {
       const rate = this.artwork.reviews[i].rate;
         i++;
         switch (rate){
-          case 0:
-            return ' ';
           case 1:
             return '⭐';
           case 2:
@@ -76,7 +74,7 @@ export default {
           case 5:
             return '⭐⭐⭐⭐⭐';
       }
-      return ' ';
+      return ' ';// here is checking if the rate is 0
     }
   },
   methods:{
