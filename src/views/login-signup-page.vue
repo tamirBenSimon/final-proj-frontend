@@ -34,20 +34,30 @@ export default {
         username: '',
         password: ''
       },
-      isSignup: false
+      isSignup: false ///we need this???
     }
   },
    methods: {
     login() {
-      // console.log('in login component: ',userCred)
       this.$store.dispatch({
-        type: 'login', userCred : this.credentials
+        type: 'login', 
+        userCred : this.credentials
       })
+      .then((user)=>{
+        console.log('user is a: ', user);
+        if (user !== null) this.$router.push('/artwork');
+      })
+      
+      this.credentials.username = '';
+      this.credentials.password = '';
     },
     signup(signupCreds) {
       this.$store.dispatch({
         type: 'signup', signupCreds
       })
+      this.signupCreds.fullName = '';
+      this.signupCreds.username = '';
+      this.signupCreds.password = '';
     },
 
   },

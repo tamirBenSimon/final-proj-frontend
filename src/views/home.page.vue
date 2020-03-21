@@ -13,7 +13,7 @@ import artworkFilter from "../components/artwork-filter.cmp";
 import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
 
 export default {
-  name: "market-app",
+  name: "home-page",
   components: {
     productList,
     artworkFilter

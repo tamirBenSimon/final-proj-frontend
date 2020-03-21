@@ -33,15 +33,18 @@
 </template>
 
 <script>
+import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'product-details',
   data(){
     return{
-      artwork: null
+      artwork: null,
+      loggedinUser: null
     }
   },
   created(){
+    this.loggedinUser = this.$store.getters.loggedinUser;
      const artworkId = this.$route.params.id;
         if (artworkId) {
             this.$store.dispatch({
@@ -55,10 +58,17 @@ export default {
   },
   methods:{
     onBack(){
-      this.$router.push('/');
+      this.$router.push('/artwork');
     },
     onCart(){
-      console.log('go cart!');
+      const userId = this.loggedinUser._id;
+      const product = this.artwork;
+      this.$store.dispatch({
+          type: 'addToCart',
+          userId: userId, 
+          product: product 
+      })
+       eventBus.$emit('addCart', 1);
     },
     onBuy(){
       console.log('buying!');

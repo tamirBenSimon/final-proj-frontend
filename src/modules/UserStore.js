@@ -32,8 +32,7 @@ export default {
         },
     },
     actions: {
-        async login(context, {userCred}) {
-            console.log('in the user store: ', userCred)
+        async login(context, { userCred }) {
             const user = await userService.login(userCred);
             context.commit({ type: 'setUser', user })
             return user;
@@ -50,7 +49,6 @@ export default {
             context.commit({ type: 'setUser', user: null })
         },
         async loadUsers(context) {
-            console.log('in store!!!');
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;

@@ -1,6 +1,6 @@
 <template>
     <div class="footer">   
-        footer
+      coffeerights &copy; 2020 [Ariel Zissu, Vlad Indikt, Tamir Ben Simon]
     </div>
 </template>
 
@@ -11,8 +11,5 @@ export default {
 </script>
 
 <style scoped>
-.footer{
-    background-color: rgb(168, 161, 161);
-    padding: 10px;
-}
+
 </style>
