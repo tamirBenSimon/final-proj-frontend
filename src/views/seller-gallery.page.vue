@@ -4,10 +4,9 @@
     <!-- <pre>{{ user }}</pre> -->
     <img class="seller-gallery-img" :src="user.imgUrl">
     <h4>{{user.fullName}}</h4>
-    <h4>Artist's bio: {{user.bio}}</h4>
     <h5>A member since: {{yearJoined}}</h5>
+    <h4>Artist's bio: {{user.bio}}</h4>
     <product-list :artworks="artworks" />
-    <h2>after the list</h2>
   </section>
 </template>
 
