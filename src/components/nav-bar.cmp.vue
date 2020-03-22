@@ -13,7 +13,7 @@
         <div class="nav-bar-WishList-container">
           <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List">
           <div class="nav-bar-num-wish-list" v-if="countWishList">{{countWishList}}</div>
-          <h4 class="nav-bar-title-Favorite">Favorite</h4>
+          <!-- <h4 class="nav-bar-title-Favorite">Favorite</h4> -->
         </div>
 
         <div class="nav-bar-line"></div>
@@ -21,7 +21,7 @@
         <div class="nav-bar-cart-container">
           <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart">
           <div class="nav-bar-num-cart" v-if="countCart">{{countCart}}</div>
-          <h4 class="nav-bar-title-cart">Cart</h4>
+          <!-- <h4 class="nav-bar-title-cart">Cart</h4> -->
         </div>
         
         <div class="nav-bar-line"></div>
