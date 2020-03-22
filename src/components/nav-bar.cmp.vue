@@ -60,7 +60,7 @@ export default {
       this.$router.push('/cart');
     },
     onLogo(){
-      this.$router.push('/artwork');
+      this.$router.push('/');
     },
     onWishList(){
       this.$router.push('/wishList');
