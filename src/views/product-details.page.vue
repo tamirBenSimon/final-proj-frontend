@@ -44,6 +44,9 @@ export default {
       loggedinUser: null
     }
   },
+  created(){
+    
+  },
   mounted(){
     this.loggedinUser = this.$store.getters.loggedinUser;
      const artworkId = this.$route.params.id;
@@ -72,7 +75,8 @@ export default {
           userId: userId, 
           product: product 
       })
-       eventBus.$emit('editCart', 1);
+       eventBus.$emit('editCart');
+        location.reload();
     },
     onBuy(){
       console.log('buying!');
