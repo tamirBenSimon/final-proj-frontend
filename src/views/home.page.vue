@@ -1,10 +1,12 @@
 <template>
   <section class="home-main-layout">
     <header class="home-main-header" id="nav">
-    <img src="../../public/img/gallery/gallery2.jpg" alt="homepic">
-      </header>
-    <artwork-filter @onFilter="onFilter" />
-    <product-list :artworks="artworks" />
+      <img src="../../public/img/gallery/gallery2.jpg" alt="homepic">
+    </header>
+    <div class="home-main">
+      <artwork-filter @onFilter="onFilter" />
+      <product-list :artworks="artworks" />
+    </div>
   </section>
 </template>
 
