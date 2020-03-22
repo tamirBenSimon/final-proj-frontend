@@ -1,6 +1,6 @@
 import { userService } from '../services/user.service.js'
 
-var localLoggedinUser = null;
+var localLoggedinUser = 1234321;
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {

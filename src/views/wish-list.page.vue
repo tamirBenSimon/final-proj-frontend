@@ -30,6 +30,7 @@ export default {
   },
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
+    // if(!this.loggedinUser) this.loggedinUser._id = 1234321;
     this.$store.dispatch({
       type: "loadWishList",
       userId: this.loggedinUser._id
