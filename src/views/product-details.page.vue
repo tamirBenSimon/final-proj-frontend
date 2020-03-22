@@ -57,9 +57,6 @@ export default {
                 })
         }
   },
-  computed:{
-   
-  },
   methods:{
     onBack(){
       this.$router.push('/artwork');
@@ -72,7 +69,8 @@ export default {
           userId: userId, 
           product: product 
       })
-       eventBus.$emit('editCart', 1);
+       eventBus.$emit('editCart');
+        location.reload();
     },
     onBuy(){
       console.log('buying!');

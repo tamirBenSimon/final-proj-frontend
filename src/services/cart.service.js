@@ -2,10 +2,13 @@ import { storageService } from './storage.service.js'
 // import userStore from './modules/UserStore.js';
 
 const KEY = 'cartDB';
+const COUNTER_KEY = 'cart_counterDB';
 
 var gCarts = storageService.load(KEY);
 if (!gCarts || !gCarts.length) gCarts = [];
 
+var gCartCounter = storageService.load(COUNTER_KEY);
+if (!gCartCounter) gCartCounter = 0;
 
 function getCurrCart(userId) {
     if (!gCarts) return null;
@@ -23,6 +26,8 @@ function addToCurrCart(userId, product) {
         var currCart = gCarts[currIndex];
         currCart.cart.push(product);
     }
+    gCartCounter++;
+    storageService.store(COUNTER_KEY, gCartCounter);
     storageService.store(KEY, gCarts);
     return currCart;
 }
@@ -37,14 +42,20 @@ function remove(productId, userId) {
         if (productIdx === -1) return null;
         currCart.splice(productIdx, 1);
     }
+    gCartCounter--;
+    storageService.store(COUNTER_KEY, gCartCounter);
     storageService.store(KEY, gCarts);
     return gCarts;
 }
 
+function getCounter() {
+    return gCartCounter; ///אולי צריך למשוך מהלןקל סטורג
+}
 
 export const cartService = {
     getCurrCart,
     addToCurrCart,
-    remove
+    remove,
+    getCounter
 
 }

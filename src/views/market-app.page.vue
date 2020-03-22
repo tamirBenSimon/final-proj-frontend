@@ -33,8 +33,6 @@ export default {
           product: product 
         })
 
-        // const counterWL = this.$store.getters.WL_Counter;
-
         eventBus.$emit('editWishList');
         location.reload();
       })
