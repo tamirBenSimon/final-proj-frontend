@@ -1,8 +1,8 @@
 <template>
   <section class="home-main-layout">
     <!-- <homeHeaderToApp></homeHeaderToApp> -->
-    <homeHeader2>
-    </homeHeader2>
+     <homeHeader2>
+    </homeHeader2> 
     <artwork-filter @onFilter="onFilter" />
     <product-list :artworks="artworks" />
   </section>

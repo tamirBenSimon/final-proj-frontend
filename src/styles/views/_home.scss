@@ -23,26 +23,21 @@
   .home-main-header2 {
     height:80vh;
     position: relative;
-    background: rgb(52, 124, 209);
-    background: linear-gradient(
-      17deg,
-      rgba(52, 124, 209, 0.6948529411764706) 28%,
-      rgba(133, 170, 226, 0.65843837535014) 61%,
-      rgba(171, 196, 235, 0.65843837535014) 86%
-    );
+    // background: rgb(52, 124, 209);
+    // background: linear-gradient(
+    //   17deg,
+    //   rgba(52, 124, 209, 0.6948529411764706) 28%,
+    //   rgba(133, 170, 226, 0.65843837535014) 61%,
+    //   rgba(171, 196, 235, 0.65843837535014) 86%
+    // );
     .home-header2 {
         position: absolute;
-      bottom: 5%;
-      height: 40%;
-      left: 10%;
-      width: 80%;
-      background: rgb(224, 218, 218);
-      background: linear-gradient(
-        17deg,
-        rgba(224, 218, 218, 0.4819677871148459) 17%,
-        rgba(226, 225, 224, 0.3307072829131653) 89%
-      );
-      border-radius: 0.5rem;
-    }
+      bottom: 0px;
+      right: 0px;
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      display: flex;
   }
+}
 

@@ -1,6 +1,10 @@
 .cart-container {
     margin-top: rem(100px);
     min-height: rem(635px);
+    .cart-page-img-back {
+        height: 20px;
+        width: 20px;
+    }
     .cart-main-container {
         min-height: rem(200px);
         .cart-main {
