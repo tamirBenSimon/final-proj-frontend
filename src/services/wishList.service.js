@@ -1,4 +1,5 @@
 import { storageService } from './storage.service.js'
+// import { utilService } from './util.service.js'
 
 const KEY = 'wishListDB';
 const COUNTER_KEY = 'WL_counterDB';
@@ -17,6 +18,7 @@ function getCurrWishList(userId) {
 }
 
 function addToCurrWishList(userId, product) {
+    console.log('userId !!! ', userId);
     const currIndex = gwishLists.findIndex(wishList => wishList.userId === userId);
     if (currIndex === -1) {
         const newWishList = { userId, wishList: [product] };

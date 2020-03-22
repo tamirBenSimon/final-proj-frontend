@@ -50,7 +50,8 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      eventBus.$emit('editCart', -1);
+      eventBus.$emit('editCart');
+      location.reload();
     }
   }
 }

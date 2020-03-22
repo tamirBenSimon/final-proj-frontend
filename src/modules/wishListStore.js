@@ -28,8 +28,6 @@ export default {
         async loadWishList(context, { userId }) {
             const wishList = await wishListService.getCurrWishList(userId);
             context.commit({ type: 'setwishList', wishList })
-                // const counterWL = await wishListService.getCounter();
-                // context.commit({ type: 'setCounterWL', counterWL })
             return wishList;
         },
         async removeWishList(context, { productId, userId }) {

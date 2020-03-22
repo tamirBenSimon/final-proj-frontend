@@ -55,17 +55,17 @@ export default {
   },
   created(){
     const counterWL = this.$store.getters.WL_Counter;
-    console.log('counterWL whatttt: ',counterWL);
     this.countWishList = counterWL;
 
-    this.isLoggedinUser = this.$store.getters.loggedinUser;
-      eventBus.$on('editCart', countOfCart =>{
-      console.log('countOfCart',countOfCart );
-      this.countCart += countOfCart;
+    const counterCart = this.$store.getters.cartCounter;
+    this.countCart = counterCart;
+    
+      eventBus.$on('editCart', () =>{
+        const counterCart = this.$store.getters.cartCounter;
+        this.countCart = counterCart;
       })
       eventBus.$on('editWishList', () =>{
         const counterWL = this.$store.getters.WL_Counter;
-        console.log('counterWL is: ',counterWL);
         this.countWishList = counterWL;
       })
       window.$on('scroll')
