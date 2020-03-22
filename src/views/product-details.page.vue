@@ -44,9 +44,6 @@ export default {
       loggedinUser: null
     }
   },
-  created(){
-    
-  },
   mounted(){
     this.loggedinUser = this.$store.getters.loggedinUser;
      const artworkId = this.$route.params.id;
@@ -59,9 +56,6 @@ export default {
                     this.artwork = JSON.parse(JSON.stringify(artwork))
                 })
         }
-  },
-  computed:{
-   
   },
   methods:{
     onBack(){
