@@ -26,8 +26,8 @@
       <div class='product-details-aside-container'>
         <h4>Price</h4>
         <h4>${{artwork.price}}</h4>
-        <button @click='onBuy'>Buy Now</button>
-        <button @click='onCart' >Add To Cart</button>
+        <div class="product-details-buy-btn btn flex-center" @click='onBuy'>Buy Now</div>
+        <div class="product-details-add-btn btn flex-center" @click='onCart' >Add To Cart</div>
       </div>
     </div>
   </section>
