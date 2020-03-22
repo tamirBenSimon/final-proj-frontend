@@ -24,25 +24,38 @@ export default {
     });
 
     eventBus.$on(EVENT_REMOVE,(artworkId)=>{
-      this.removeArtwork(artworkId)})
-  },
-  methods:{
-        removeArtwork (artworkId){
-      this.$store.dispatch({
-      type: "removeArtwork",
-      artworkId
-    });
-    },
-    onFilter(filterBy){
-            this.$store.dispatch({
-      type: "loadArtworks",
-      filterBy
-    });
-    }
+      this.removeArtwork(artworkId)});
+
+      eventBus.$on('addWishList', (userId, product) =>{
+        this.$store.dispatch({
+          type: 'addToWishList',
+          userId: userId, 
+          product: product 
+        })
+
+        // const counterWL = this.$store.getters.WL_Counter;
+
+        eventBus.$emit('editWishList');
+        location.reload();
+      })
   },
   computed: {
     artworks() {
       return this.$store.getters.artworks;
+    }
+  },
+  methods:{
+    removeArtwork (artworkId){
+      this.$store.dispatch({
+      type: "removeArtwork",
+      artworkId
+      });
+    },
+    onFilter(filterBy){
+      this.$store.dispatch({
+      type: "loadArtworks",
+      filterBy
+      });
     }
   }
 }

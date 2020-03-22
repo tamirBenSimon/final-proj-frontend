@@ -46,7 +46,9 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      eventBus.$emit('editWishList', -1);
+      // const counterWL = this.$store.getters.WL_Counter;
+      eventBus.$emit('editWishList');
+      location.reload();
     }
   }
 }

@@ -28,7 +28,9 @@ export default {
 
 <style scoped>
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid grey;
   padding: 5px;
+  border-collapse: collapse;
 }
+
 </style>
