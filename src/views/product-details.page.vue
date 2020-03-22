@@ -1,6 +1,6 @@
 <template>
   <section class='product-details-container-all'>
-    <img @click='onBack' class='product-details-img-back' src='../../public/img/icons/left-arrow.png' alt='back'>
+    <img @click='onBack' class='product-details-img-back' src='../../public/img/icons/left-arrow.png' alt='back' title="Back">
     <div class='product-details-container-main'>
       <div class='product-details-left-side-container'>
         
