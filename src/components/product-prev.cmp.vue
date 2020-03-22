@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       imgUrlIdx: 0,
-      // currSrc:'../../public/img/icons/black-like.png',
+      currSrc:'../../public/img/icons/black-like.png',
       loggedinUser: null,
     };
   },
@@ -77,12 +77,7 @@ export default {
     onWishList(){
       const userId = this.loggedinUser._id;
       const product = this.artwork;
-      this.$store.dispatch({
-          type: 'addToWishList',
-          userId: userId, 
-          product: product 
-      })
-       eventBus.$emit('editWishList', 1);
+      eventBus.$emit('addWishList', userId, product);
     }
   }
 }
