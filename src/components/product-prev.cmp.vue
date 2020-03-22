@@ -10,11 +10,13 @@
           <h3>{{ artwork.title }}</h3>
           <span>{{ artwork.price }}USD</span>
         </div>
+        <div class="artwork-prev-created-by">
+        <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imageURL" alt="">
         <span class="artwork-prev-createdBy-fullName">
-          {{ artwork.createdBy.fullName }}</span
-        >
-        <!-- <span>{{  artwork.desc }}</span> <br> -->
-        <span>{{ isInStock }}</span>
+          {{ artwork.createdBy.fullName }}</span>
+        </div>
+
+        <!-- <span>{{ isInStock }}</span> -->
         <div class="artwork-prev-controle-pad">
           <button @click.prevent="remove">remove</button>
           <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
