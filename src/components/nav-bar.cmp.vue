@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div class="navbar-container-main">
-        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/facebook.png" alt="Logo"> 
+        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/proj_logo.png" alt="Logo"> 
         <div class="nav-bar-input">
             <input class="navbar-input-inside" type="text" placeholder="Search">
             <img class="nav-bar-search-img" src="../../public/img/icons/search.png" alt="Search">   
