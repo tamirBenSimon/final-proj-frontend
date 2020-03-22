@@ -24,11 +24,10 @@
         flex-wrap: nowrap;
         flex-direction: column;
       }
-      .artwork-edit-galler-container{
-          background-color: red;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+      .artwork-edit-galler-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .artwork-edit-container-reviews {
         // background-color: rgb(189, 234, 245);
@@ -45,10 +44,13 @@
       flex-direction: row;
       max-height: 150px;
       width: auto;
+      justify-content: center;
     }
     .artwork-edit-head-gallery-item {
       margin: 5px;
       object-fit: cover;
+      max-width: 100px;
+      height: Auto;
     }
     .artwork-edit-aside-container {
       // background-color: rgb(189, 248, 177);
