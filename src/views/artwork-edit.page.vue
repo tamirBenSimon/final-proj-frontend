@@ -1,26 +1,40 @@
 <template>
-  <section class="product-details-container-all">
+  <section class="artwork-edit-container-all">
     <img
       @click="onBack"
-      class="product-details-img-back"
+      class="artwork-edit-img-back"
       src="../../public/img/icons/left-arrow.png"
       alt="back"
     />
-    <div class="product-details-container-main">
-      <div class="product-details-left-side-container">
-        <div class="product-details-preview-artwork">
+    <div class="artwork-edit-container-main">
+      <div class="artwork-edit-left-side-container">
+        <div class="artwork-edit-galler-container">
+        <div class="artwork-details-head-gallery">
           <img
-            class="product-details-img-artwork"
-            :src="artwork.imgURLs[0]"
+            class="artwork-edit-head-gallery-item"
+            v-for="(artworkImgUrl, idx) in artwork.imgURLs"
+            :key="idx"
+            :src="artworkImgUrl"
+            alt=""
+            @click="onGalleryIMGClick(idx)"
+          />
+        </div>
+        <div class="artwork-edit-preview-artwork">
+          <img
+            class="artwork-edit-img-artwork"
+            :src="getCurrImg"
             alt="artwork"
           />
         </div>
-        <div class="product-details-container-reviews">
+        </div>
+        <button @click="onRemove">delete</button>
+        <button @click="onSave">Save Artwork</button>
+        <div class="artwork-edit-container-reviews">
           <h2>reviews:</h2>
           <ul>
             <li v-for="(review, index) in artwork.reviews" :key="index">
               <img
-                class="product-details-img-reviewer"
+                class="artwork-edit-img-reviewer"
                 :src="review.by.imgURL"
                 alt="reviewer"
               />
@@ -32,11 +46,29 @@
         </div>
       </div>
 
-      <div class="product-details-aside-container">
-        <h4>{{ artwork.title }}</h4>
-        <input type="text" v-model="artwork.title" placeholder="change title">
-        <h4>{{ artwork.desc }}</h4>
-        <h4>Price</h4>
+      <div class="artwork-edit-aside-container">
+        <h4>title: {{ artwork.title }}</h4>
+        <p>change title:</p>
+        <input type="text" v-model="artwork.title" placeholder="change title" />
+        <h4>description: {{ artwork.desc }}</h4>
+        <p>change description:</p>
+        <textarea
+          style="max-width:50ch; max-height:12ch;"
+          v-model="artwork.desc"
+          name=""
+          id=""
+        ></textarea>
+        <h4>Price: {{ artwork.price }}</h4>
+        <p>New price:</p>
+        <input type="number" v-model.number="artwork.price" />
+        <h4>currently {{ isInStock }}</h4>
+        <button @click="changeInStock">in Stock</button>
+        <p>New price:</p>
+        <input type="number" v-model.number="artwork.price" />
+        <input type="text" v-model="NewImgURL" /><button @click="onNewMImgURL">
+          Save new URL
+        </button>
+        {{ NewImgURL }}
         <pre
           >{{ artwork }}
         </pre>
@@ -46,12 +78,14 @@
 </template>
 
 <script>
-import { eventBus } from "../services/event-bus.service.js";
+// import { eventBus } from "../services/event-bus.service.js";
 
 export default {
-  name: "product-details",
+  name: "artwork-edit",
   data() {
     return {
+      currImgIdx: 0,
+      NewImgURL: "",
       artwork: null,
       loggedinUser: null
     };
@@ -71,6 +105,12 @@ export default {
     }
   },
   computed: {
+    getCurrImg(){
+      return this.artwork.imgURLs[this.currImgIdx];
+    },
+    isInStock() {
+      return this.artwork.inStock ? "in stock" : "out of stock";
+    },
     currRate() {
       var i = 0;
       const rate = this.artwork.reviews[i].rate;
@@ -91,22 +131,30 @@ export default {
     }
   },
   methods: {
+    onSave(){
+      this.$store.dispatch({
+      type: "updateArtwork",
+      artwork:{...this.artwork}
+    })
+    .then(artwork=>{this.artwork=artwork})
+},
+    onRemove(){
+      this.artwork.imgURLs.splice([this.currImgIdx],1)
+      this.currImgIdx=0;
+    },
+    onGalleryIMGClick(idx){
+      this.currImgIdx=idx;
+    },
+    onNewMImgURL() {
+      this.artwork.imgURLs.push(this.NewImgURL);
+      this.NewImgURL = "";
+    },
+    changeInStock() {
+      this.artwork.inStock = !this.artwork.inStock;
+    },
     onBack() {
       this.$router.push("/artwork");
     },
-    onCart() {
-      const userId = this.loggedinUser._id;
-      const product = this.artwork;
-      this.$store.dispatch({
-        type: "addToCart",
-        userId: userId,
-        product: product
-      });
-      eventBus.$emit("addCart", 1);
-    },
-    onBuy() {
-      console.log("buying!");
-    }
   }
 };
 </script>

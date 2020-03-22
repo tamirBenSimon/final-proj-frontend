@@ -43,8 +43,8 @@ export default {
             context.commit({ type: 'removeArtwork', artworkId })
         },
         async updateArtwork(context, { artwork }) {
-            artwork = await artworkService.update(artwork);
-            context.commit({ type: 'artwork', artwork })
+            let savedArtwork = await artworkService.saveArtwork(artwork);
+            context.commit({ type: 'setArtwork', savedArtwork })
             return artwork;
         }
     }

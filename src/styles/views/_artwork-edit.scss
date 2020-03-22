@@ -1,0 +1,61 @@
+.artwork-edit-container-all {
+  .artwork-edit-img-back {
+    margin: 100px 0 0 35px;
+    width: rem(40px);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .artwork-edit-container-main {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    .artwork-edit-left-side-container {
+      margin-inline-end: rem(20px);
+      flex-grow: 1.6;
+      display: flex;
+      flex-direction: column;
+
+      .artwork-edit-img-artwork {
+        object-fit: cover;
+        max-height: rem(300px);
+      }
+      .artwork-edit-gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+      }
+      .artwork-edit-galler-container{
+          background-color: red;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+      .artwork-edit-container-reviews {
+        // background-color: rgb(189, 234, 245);
+        .artwork-edit-img-reviewer {
+          width: rem(40px);
+          height: rem(40px);
+          border-radius: 50%;
+        }
+      }
+    }
+    .artwork-details-head-gallery {
+      margin-inline-end: rem(10px);
+      display: flex;
+      flex-direction: row;
+      max-height: 150px;
+      width: auto;
+    }
+    .artwork-edit-head-gallery-item {
+      margin: 5px;
+      object-fit: cover;
+    }
+    .artwork-edit-aside-container {
+      // background-color: rgb(189, 248, 177);
+      flex-grow: 0.8;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

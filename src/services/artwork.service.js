@@ -227,22 +227,24 @@ async function getById(artworkId) {
 
 
 function saveArtwork(artwork) {
-    if (artwork.id) return _updateArtwork(artwork)
+    console.log('saving IT')
+    if (artwork._id) return _updateArtwork(artwork)
     else return _addArtwork(artwork);
 }
 
 function _addArtwork(artwork) {
+    console.log('update artwork')
     artwork.id = utilService.makeId()
-    artwork.push(artwork);
-    storageService.store(KEY, artwork)
-    return Promise.resolve(artwork)
+    gArtworks.push(artwork);
+    storageService.store(KEY, gArtworks)
+    return Promise.resolve(gArtworks)
 }
 
 function _updateArtwork(artwork) {
-    const idx = artwork.findIndex(currrAtwork => currrAtwork.id === artwork.id);
-    artwork.splice(idx, 1, artwork)
-    storageService.store(KEY, artwork)
-    return Promise.resolve(artwork)
+    const idx = gArtworks.findIndex(currrAtwork => currrAtwork._id === artwork._id);
+    gArtworks.splice(idx, 1, artwork)
+    storageService.store(KEY, gArtworks)
+    return Promise.resolve(gArtworks)
 }
 
 
