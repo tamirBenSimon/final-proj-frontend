@@ -82,11 +82,10 @@ export default {
           userId: userId, 
           product: product 
       })
-      .then(res=>console.log('the res is:',res))
-       eventBus.$emit('addWishList', 1);
+       eventBus.$emit('editWishList', 1);
     }
   }
-};
+}
 </script>
 
 <style></style>
