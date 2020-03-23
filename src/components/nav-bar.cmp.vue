@@ -2,7 +2,7 @@
   <div class="navbar-container">
 
     <div class="navbar-container-main">
-        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/proj_logo.png" alt="Logo"> 
+        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/proj_logo.png" alt="Logo" title="Home Page"> 
         <div class="nav-bar-input">
             <input class="navbar-input-inside" type="text" placeholder="Search">
             <img class="nav-bar-search-img" src="../../public/img/icons/search.png" alt="Search">   
@@ -11,7 +11,7 @@
 
     <div class="nav-bar-3buttons">
         <div class="nav-bar-WishList-container">
-          <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List">
+          <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List" title="Wish List">
           <div class="nav-bar-num-wish-list" v-if="countWishList">{{countWishList}}</div>
           <!-- <h4 class="nav-bar-title-Favorite">Favorite</h4> -->
         </div>
@@ -19,7 +19,7 @@
         <div class="nav-bar-line"></div>
 
         <div class="nav-bar-cart-container">
-          <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart">
+          <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart" title="Cart">
           <div class="nav-bar-num-cart" v-if="countCart">{{countCart}}</div>
           <!-- <h4 class="nav-bar-title-cart">Cart</h4> -->
         </div>
@@ -68,7 +68,6 @@ export default {
         const counterWL = this.$store.getters.WL_Counter;
         this.countWishList = counterWL;
       })
-      window.$on('scroll')
   },
   methods:{
     onCart(){

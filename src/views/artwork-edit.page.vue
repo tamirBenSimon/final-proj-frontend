@@ -5,6 +5,7 @@
       class="artwork-edit-img-back"
       src="../../public/img/icons/left-arrow.png"
       alt="back"
+      title="Back"
     />
     <div class="artwork-edit-container-main">
       <div class="artwork-edit-left-side-container">

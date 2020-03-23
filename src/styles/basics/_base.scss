@@ -6,8 +6,6 @@ img {
     width: 100%;
 }
 
-html {}
-
 body {
     margin: 0;
     background-color: $clr5;
@@ -20,4 +18,13 @@ a {
 
 button {
     cursor: pointer;
+}
+
+.btn {
+    cursor: pointer;
+}
+input{
+    outline: none;
+    padding: rem(4px) rem(60px);
+    margin: 0px;
 }

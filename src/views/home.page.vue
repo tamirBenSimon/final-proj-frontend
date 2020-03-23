@@ -3,7 +3,6 @@
     <!-- <homeHeaderToApp></homeHeaderToApp> -->
      <homeHeader2>
     </homeHeader2> 
-    <artwork-filter @onFilter="onFilter" />
     <product-list :artworks="artworks" />
   </section>
 </template>
@@ -12,14 +11,12 @@
 import productList from "../components/product-list.cmp";
 // import  homeHeaderToApp from "../components/home-header-to-app.cmp";
 import  homeHeader2 from "../components/home-header2.cmp";
-import artworkFilter from "../components/artwork-filter.cmp";
 import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
 
 export default {
   name: "home-page",
   components: {
     productList,
-    artworkFilter,
     // homeHeaderToApp,
     homeHeader2
   },
