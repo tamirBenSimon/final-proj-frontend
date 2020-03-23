@@ -6,8 +6,6 @@ img {
     width: 100%;
 }
 
-html {}
-
 body {
     margin: 0;
     background-color: $clr5;
@@ -19,5 +17,9 @@ a {
 }
 
 button {
+    cursor: pointer;
+}
+
+.btn {
     cursor: pointer;
 }

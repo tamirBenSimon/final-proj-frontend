@@ -1,6 +1,6 @@
 <template>
   <section class="cart-container">
-    <img @click="onBack" class="cart-page-img-back" src="../../public/img/icons/left-arrow.png" alt="back">
+    <img @click="onBack" class="cart-page-img-back" src="../../public/img/icons/left-arrow.png" alt="back" title="Back">
     <h2>My cart</h2>
     <hr>
     <div class="cart-main-container">

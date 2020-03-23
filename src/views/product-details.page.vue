@@ -1,6 +1,6 @@
 <template>
   <section class='product-details-container-all'>
-    <img @click='onBack' class='product-details-img-back' src='../../public/img/icons/left-arrow.png' alt='back'>
+    <img @click='onBack' class='product-details-img-back' src='../../public/img/icons/left-arrow.png' alt='back' title="Back">
     <div class='product-details-container-main'>
       <div class='product-details-left-side-container'>
         
@@ -11,24 +11,41 @@
         </div>
 
         <div class='product-details-container-reviews'>
-          <h2>reviews:</h2>
-          <ul>
-            <li v-for='(review, index) in artwork.reviews' :key='index'>
-              <img class='product-details-img-reviewer' :src='review.by.imgURL' alt='reviewer'>
-              <h3>{{review.by.fullName}}</h3>
-              <h4>{{review.Txt}}</h4>
+          <h2>Reviews:</h2>
+          <ul class="product-details-reviews-list">
+            <li class="product-details-review-prev" v-for='(review, index) in artwork.reviews' :key='index'>
+              <div class="product-details-review-main-header">
+                <img class="product-details-img-reviewer" :src='review.by.imgURL' alt='reviewer'>
+                <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
+              </div>
               <h5>{{currRate(review.rate)}}</h5>
+              <h4>{{review.Txt}}</h4>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class='product-details-aside-container'>
-        <h4>Price</h4>
-        <h4>${{artwork.price}}</h4>
-        <button @click='onBuy'>Buy Now</button>
-        <button @click='onCart' >Add To Cart</button>
+      <div class="product-details-aside-container">
+        <div class="product-details-aside-price">
+          <h4 class="product-details-price-title">Price</h4>
+          <h4 class="product-details-price-num">${{artwork.price}}</h4>
+          <p class="product-details-free-shipping">Free worldwide shipping and returns</p>
+        </div>
+
+        <div class="product-details-buy-btn btn flex-center" @click='onBuy'>Buy Now</div>
+        <div class="product-details-add-btn btn flex-center" @click='onCart' >Add To Cart</div>
+
+        <div class="product-details-policy-main">
+          <hr/>
+          <h2>sdadasas</h2>
+          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+        </div>
       </div>
+
     </div>
   </section>
 </template>
