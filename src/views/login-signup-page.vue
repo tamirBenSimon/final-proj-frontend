@@ -59,6 +59,7 @@ export default {
         this.signupCreds.fullName = '';
         this.signupCreds.username = '';
         this.signupCreds.password = '';
+        this.$router.push('/');
       })
     },
   },
