@@ -38,11 +38,11 @@
         <div class="product-details-policy-main">
           <hr/>
           <h2>sdadasas</h2>
-          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
+          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
         </div>
       </div>
 
