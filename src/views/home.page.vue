@@ -8,7 +8,6 @@
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <product-list   v-for="tag in homeTags" :artworks="getArtWorksByTag(tag)" :key="tag" >
             <h3 class="artwork-list-title">Explore trending streams on {{tag}}</h3>
-
     </product-list>
     <div class="hero-comuunity">
       <h1>hero</h1>
@@ -64,7 +63,7 @@ export default {
       let tagSortedArtworks= artworks.filter(artwork=>{
         return artwork.tags.includes(tag)
       })
-      return tagSortedArtworks
+      return tagSortedArtworks.slice(0,4)
     }
   },
   computed: {
