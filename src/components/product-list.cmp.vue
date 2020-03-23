@@ -1,6 +1,8 @@
 <template>
   <section >
     <div class="artwork-list-artwork-prevs-container">
+      <slot>
+      </slot>
     <productPrev v-for="artwork in artworks" :key="artwork._id" :artwork="artwork" />
     
     </div>
