@@ -9,7 +9,7 @@ import cart from '../views/cart.page';
 import wishList from '../views/wish-list.page';
 import sellerGallery from '../views/seller-gallery.page';
 import artworkEdit from '../views/artwork-edit.page';
-
+import sellerCabinet from '../views/seller-cabinet.page';
 
 Vue.use(VueRouter)
 
@@ -56,6 +56,10 @@ const routes = [{
 {
     path: '/artwork/edit/:id',
     component: artworkEdit
+},
+{
+    path: '/cabinet/:id',
+    component: sellerCabinet
 }
 ]
 
