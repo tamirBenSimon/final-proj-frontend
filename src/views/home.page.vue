@@ -7,7 +7,7 @@
     </div>
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <product-list   v-for="tag in homeTags" :artworks="getArtWorksByTag(tag)" :key="tag" >
-            <h3>Explore trending streams on {{tag}}</h3>
+            <h3 class="artwork-list-title">Explore trending streams on {{tag}}</h3>
 
     </product-list>
     <div class="hero-comuunity">
