@@ -68,7 +68,6 @@ export default {
         const counterWL = this.$store.getters.WL_Counter;
         this.countWishList = counterWL;
       })
-      window.$on('scroll')
   },
   methods:{
     onCart(){

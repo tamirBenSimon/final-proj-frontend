@@ -18,26 +18,19 @@
     );
     border-radius: 0.5rem;
   }
-  }
-
-  .home-main-header2 {
-    height:80vh;
-    position: relative;
-    // background: rgb(52, 124, 209);
-    // background: linear-gradient(
-    //   17deg,
-    //   rgba(52, 124, 209, 0.6948529411764706) 28%,
-    //   rgba(133, 170, 226, 0.65843837535014) 61%,
-    //   rgba(171, 196, 235, 0.65843837535014) 86%
-    // );
-    .home-header2 {
-        position: absolute;
-      bottom: 0px;
-      right: 0px;
-      height: 100%;
-      width: 100%;
-      padding: 10px;
-      display: flex;
-  }
 }
 
+.home-main-header2 {
+  position: relative;
+
+  .home-header2 {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 50%;
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.493);
+  }
+}
