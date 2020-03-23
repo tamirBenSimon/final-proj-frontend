@@ -1,13 +1,14 @@
-import {storageService} from './storage.service.js'
+import {storageService} from './storage.service.js';
+import { utilService } from './util.service.js';
 
 const KEY = 'ordersDB';
 
 const gOrders = _makeOrders();
 
 function _makeOrders() {
-    const orders = storageService.load(KEY);
+    var orders = storageService.load(KEY);
     if (!orders || !orders.length) {
-        orders = [{
+         orders = [{
             _id: 'sasasa',
             at: 1420120526000,
             by: {fullName: 'ariel zissu', _id: 101, imgURL: `https://i.picsum.photos/id/552/200/250.jpg`},
@@ -50,10 +51,14 @@ function _makeOrders() {
         return orders;
     }
 }
+// test function
+
+window.testQuery = query;
+
 
 function query(sellerId) {
     if (!sellerId) return gOrders;
-    sellerOrders = gOrders.filter(order => order.from._id === sellerId)
+    const sellerOrders = gOrders.filter(order => order.from._id === sellerId)
     return sellerOrders
 }
 
@@ -61,5 +66,23 @@ function remove(orderId) {
     const idx = gOrders.findIdx(order => order._id !== orderId)
     gOrders.splice(idx,1)
     storageService.save(KEY,gOrders)
-    return gOrders;
+    // return gOrders; needed?
+}
+
+function store(order) {
+    if (!order._id) {
+        order._id = utilService.makeId();
+        gOrders.push(order)
+    } 
+    else {
+        const idx = gOrders.findIdx(currOrder => currOrder._id !== order._id)
+        gOrders.splice(idx,1,order)
+    }
+    storageService.save(KEY,gOrders)
+}
+
+export const orderService = {
+    query,
+    remove,
+    store
 }
