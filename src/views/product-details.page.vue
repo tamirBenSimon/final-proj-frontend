@@ -18,7 +18,7 @@
                 <img class="product-details-img-reviewer" :src='review.by.imgURL' alt='reviewer'>
                 <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
               </div>
-              <h5>{{currRate(review.rate)}}</h5>
+              <h5 class="product-details-review-rate">{{currRate(review.rate)}}</h5>
               <h4 class="product-details-review-txt">{{review.Txt}}</h4>
             </li>
           </ul>

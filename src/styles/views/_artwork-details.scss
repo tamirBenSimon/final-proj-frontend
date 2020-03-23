@@ -43,6 +43,10 @@
                         }
                         .product-details-review-txt {
                             max-width: 80ch;
+                            margin: 5px 0;
+                        }
+                        .product-details-review-rate {
+                            margin: 0;
                         }
                     }
                 }
@@ -64,7 +68,6 @@
             padding: 40px 25px;
             margin-left: 0;
             margin-right: 0%;
-            width: 0%;
             .product-details-aside-price {
                 display: flex;
                 flex-direction: column;
@@ -140,6 +143,7 @@
             height: 70%;
             width: 100%;
             .product-details-all-policy-img {
+                background-color: lightgoldenrodyellow;
                 .product-details-policy-img {
                     width: 50px;
                     font-size: .8125rem;
