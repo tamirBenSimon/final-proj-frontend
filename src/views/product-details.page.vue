@@ -28,6 +28,15 @@
         <div class="product-details-line"></div>
 
       <div class="product-details-aside-container">
+        <div class="product-details-seller-main flex-center">
+          <img class="product-details-img-seller" :src="artwork.createdBy.imageURL" alt="Seller Picture">
+          <span class="product-details-span">|</span>
+          <div class="product-details-seller-main2 flex-center">
+            <h4 class="product-details-seller-name ">{{artwork.createdBy.fullName}}</h4>
+            <span class="product-details-span">|</span>
+            <h4 class="product-details-seller-sales">{{artwork.salesCount}} sales</h4>
+          </div>
+       </div>
         <div class="product-details-aside-price">
           <h4 class="product-details-price-title">Price</h4>
           <h4 class="product-details-price-num">${{artwork.price}}</h4>
