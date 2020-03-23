@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       filterBy: { tags: "urban" },
-      homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
+      homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"],
     };
   },
   created() {

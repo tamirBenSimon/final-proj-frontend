@@ -134,6 +134,12 @@ async function login(userCred) {
 //     return _handleLogin(user)
 // }
 
+async function signup(userCred) {
+    console.log('userCred: ', userCred);
+    _handleLogin(userCred)
+    return userCred;
+}
+
 function logout() {
     // async function logout() {
     // await HttpService.post('auth/logout');
@@ -146,7 +152,6 @@ function _handleLogin(user) {
     return user;
 }
 
-// CRUDL - Create, Read, Update, Delete, List
 export const userService = {
     query,
     getById,
@@ -156,5 +161,5 @@ export const userService = {
     getNextPrevUserIds,
     login,
     logout,
-    // signup
+    signup
 }
