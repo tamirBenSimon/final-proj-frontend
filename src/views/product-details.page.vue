@@ -19,11 +19,13 @@
                 <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
               </div>
               <h5>{{currRate(review.rate)}}</h5>
-              <h4>{{review.Txt}}</h4>
+              <h4 class="product-details-review-txt">{{review.Txt}}</h4>
             </li>
           </ul>
         </div>
       </div>
+
+        <div class="product-details-line"></div>
 
       <div class="product-details-aside-container">
         <div class="product-details-aside-price">
@@ -37,13 +39,37 @@
 
         <div class="product-details-policy-main">
           <hr/>
-          <h2>sdadasas</h2>
-          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-          <img class="product-details-policy-img" src="../../public/img/svg/shipping-car.svg" alt="Car-shipping">
-        </div>
+          <div class="product-details-all-policy-img">
+
+            <div class="product-details-policy-main1">
+              <div class="product-details-policy-flex-col">
+                <img class="product-details-policy-img" src="../../public/img/svg/shipping-policy.svg" alt="shipping-policy">
+                <h5 class="product-details-p">Shipping usually takes up to 7 days.</h5>
+              </div>
+              <div class="product-details-policy-flex-col">
+                <img class="product-details-policy-img" src="../../public/img/svg/medal.svg" alt="shipping-policy">
+                <h5 class="product-details-p">Original work delivered with a certificate of authenticity.</h5>
+              </div>
+            </div>
+
+            <div class="product-details-policy-main2">
+              <div class="product-details-policy-flex-col">
+                <img class="product-details-policy-img" src="../../public/img/svg/return.svg" alt="shipping-policy">
+                <h5 class="product-details-p">We have a 14 day withdrawal period, starting on the day you receive the work.</h5>
+              </div>
+              <div class="product-details-policy-flex-col">
+                <img class="product-details-policy-img" src="../../public/img/svg/password.svg" alt="shipping-policy">
+                <h5 class="product-details-p">You can pay safely by credit card or bank transfer.</h5>
+              </div>
+            </div>
+
+            <div class="product-details-policy-main3">
+              <img class="product-details-policy-img" src="../../public/img/svg/sticker.svg" alt="shipping-policy">
+              <h5 class="product-details-p1">Reliability and traceability guaranteed.</h5>
+            </div>
+
+          </div>
+       </div>
       </div>
 
     </div>
