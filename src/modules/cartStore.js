@@ -16,6 +16,7 @@ export default {
     mutations: {
         setCart(state, { cart }) {
             state.cart = cart;
+            console.log('cart in store: ', state.cart)
         },
         removeProduct(state, { userId }) {
             state.cart = state.cart.cart.filter(cart => cart._id !== userId)

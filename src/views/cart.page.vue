@@ -5,13 +5,15 @@
     <hr>
     <div class="cart-main-container">
       <div v-if="cart">
-        <div class="cart-main" v-for="(product, index) in cart.cart" :key="index">
+        <!-- <div class="cart-main" v-for="(product, index) in cart.cart" :key="index"> -->
+        <div class="cart-main" v-for="(product, index) in cart" :key="index">  
           <img class="cart-img-product" :src="product.imgURLs[0]" alt="Product">
           <div class="cart-tite">{{product.title}}</div>
           <h2>${{product.price}}</h2>
           <div @click="onRemove(product)" class="cart-remove">Remove</div>
           <div class="cart-buy">Buy Now</div>
         </div>
+        <button @click="placeOrders">buy all the shit</button>
       </div>
     </div>
     <hr>
@@ -31,6 +33,7 @@ export default {
   },
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
+    console.log('logged user111: ',this.loggedinUser);
     this.$store.dispatch({
       type: "loadCart",
       userId: this.loggedinUser._id
@@ -52,6 +55,26 @@ export default {
       })
       eventBus.$emit('editCart');
       location.reload();
+    },
+    placeOrders() {
+      this.cart.forEach(item => this.placeOrder(item))
+    },
+    placeOrder(item) {
+      console.log('ordering item: ',item)
+      const newOrder= {
+            at: Date.now(),
+            by: {fullName: this.loggedinUser.fullName, _id: this.loggedinUser._id, imgURL: this.loggedinUser.imgURL},
+            from: {fullName: item.createdBy.fullName, _id: item.createdBy._id},
+            product: {
+                _id: item._id,
+                title: item.title,
+                price: item.price},
+            status: 'ordered',
+            shippingInfo: {
+              lat:32.085300 + Math.random()*10, lng:34.781769+ Math.random()*10
+            }}
+      this.$store.dispatch({type: "addOrder", order: newOrder})
+      
     }
   }
 }

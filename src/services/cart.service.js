@@ -14,7 +14,7 @@ function getCurrCart(userId) {
     if (!gCarts) return null;
     const currCart = gCarts.find(cart => cart.userId === userId);
     if (!currCart) return null;
-    return currCart;
+    return currCart.cart; // change: added .cart
 }
 
 function addToCurrCart(userId, product) {
