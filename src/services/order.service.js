@@ -5,6 +5,8 @@ const KEY = 'ordersDB';
 
 const gOrders = _makeOrders();
 
+window.checkOrders = gOrders;
+
 function _makeOrders() {
     var orders = storageService.load(KEY);
     if (!orders || !orders.length) {
@@ -46,10 +48,23 @@ function _makeOrders() {
             status: 'ordered',
             shippingInfo: {
               lat:32.412429, lng:34.927134
-            }}]
+            }},
+            {
+                _id: 'abbda2wq',
+                at: 1561120526000,
+                by: {fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg`},
+                from: {fullName: 'ariel zissu', _id: 101},
+                product: {
+                    _id: 'p127',
+                    title: 'lost in peace',
+                    price: 59,},
+                status: 'ordered',
+                shippingInfo: {
+                  lat:31.412429, lng:34.827134
+                }}]
         storageService.store(KEY,orders);
-        return orders;
     }
+    return orders;
 }
 // test function
 
@@ -58,6 +73,7 @@ window.testQuery = query;
 
 function query(sellerId) {
     if (!sellerId) return gOrders;
+    console.log('seller id in service: ',sellerId);
     const sellerOrders = gOrders.filter(order => order.from._id === sellerId)
     return sellerOrders
 }
