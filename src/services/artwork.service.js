@@ -191,7 +191,7 @@ function _createArtwork(artwork) {
 }
 
 function query(filterBy = null) {
-    console.log("QUEYYYYY")
+    console.log("QUEYYYYY, ", filterBy)
     if (!filterBy) {
         return Promise.resolve(gArtworks);
     }
@@ -203,8 +203,7 @@ function query(filterBy = null) {
             return false
         if (filterBy.title && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
             return false
-        if (filterBy.tags && !artwork.tags.findIndex(tag => {
-                console.log(tag)
+        if (filterBy.tags && !artwork.tags.find(tag => {
                 return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
             }))
             return false
