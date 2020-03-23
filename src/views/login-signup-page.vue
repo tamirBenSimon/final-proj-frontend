@@ -2,18 +2,18 @@
   <section class=login-signup-container>
       <section v-if="!isSignup" class="user-login">
             <h2>please login</h2>
-            <form @submit.prevent="login">
-                <input type="text" placeholder="email" v-model="credentials.username" />
+            <form @submit.prevent="onLogin">
+                <input type="text" ref="name" placeholder="Username" v-model="credentials.username" />
                 <input type="password" placeholder="Your Password" v-model="credentials.password" />
                 <button>Login</button>
             </form>
       </section>
       <section v-else class="user-signup">
             <h2>please sign up</h2>
-            <form @submit.prevent="signup">
-                <input type="text" placeholder="Full name" v-model="credentials.fullName" />
-                <input type="text" placeholder="email" v-model="credentials.username" />
-                <input type="password" placeholder="Your Password" v-model="credentials.password" />
+            <form @submit.prevent="onSignup">
+                <input type="text" ref="name" placeholder="Full name" v-model="signupCreds.fullName" />
+                <input type="text" placeholder="Username" v-model="signupCreds.username" />
+                <input type="password" placeholder="Your Password" v-model="signupCreds.password" />
                 <button>Login</button>
             </form>
       </section>
@@ -38,7 +38,7 @@ export default {
     }
   },
    methods: {
-    login() {
+    onLogin() {
       this.$store.dispatch({
         type: 'login', 
         userCred : this.credentials
@@ -50,17 +50,24 @@ export default {
       this.credentials.username = '';
       this.credentials.password = '';
     },
-    signup(signupCreds) {
+    onSignup() {
       this.$store.dispatch({
-        type: 'signup', signupCreds
+        type: 'signup',
+        userCred: this.signupCreds
       })
-      this.signupCreds.fullName = '';
-      this.signupCreds.username = '';
-      this.signupCreds.password = '';
+      .then(()=>{
+        this.signupCreds.fullName = '';
+        this.signupCreds.username = '';
+        this.signupCreds.password = '';
+        this.$router.push('/');
+      })
     },
   },
   created() {
     if (this.$route.path === '/signup') this.isSignup = true;
+  },
+  mounted(){
+    this.$refs.name.focus();
   }
 }
 </script>

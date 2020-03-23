@@ -18,7 +18,7 @@
                 <img class="product-details-img-reviewer" :src='review.by.imgURL' alt='reviewer'>
                 <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
               </div>
-              <h5>{{currRate(review.rate)}}</h5>
+              <h5 class="product-details-review-rate">{{currRate(review.rate)}}</h5>
               <h4 class="product-details-review-txt">{{review.Txt}}</h4>
             </li>
           </ul>
@@ -28,6 +28,19 @@
         <div class="product-details-line"></div>
 
       <div class="product-details-aside-container">
+        <div class="product-details-seller-main flex-center">
+          <router-link :to="'/sellerGallery/'+artwork.createdBy._id">
+            <img class="product-details-img-seller" :src="artwork.createdBy.imageURL" alt="Seller Picture">
+          </router-link>
+          <span class="product-details-span">|</span>
+          <div class="product-details-seller-main2 flex-center">
+            <router-link :to="'/sellerGallery/'+artwork.createdBy._id">
+            <h4 class="product-details-seller-name ">{{artwork.createdBy.fullName}}</h4>
+            </router-link>
+            <span class="product-details-span">|</span>
+            <h4 class="product-details-seller-sales">{{artwork.salesCount}} sales</h4>
+          </div>
+       </div>
         <div class="product-details-aside-price">
           <h4 class="product-details-price-title">Price</h4>
           <h4 class="product-details-price-num">${{artwork.price}}</h4>

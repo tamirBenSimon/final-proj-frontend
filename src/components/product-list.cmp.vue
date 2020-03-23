@@ -1,10 +1,13 @@
 <template>
-  <section >
+  <section>
+    <slot> </slot>
     <div class="artwork-list-artwork-prevs-container">
-    <productPrev v-for="artwork in artworks" :key="artwork._id" :artwork="artwork" />
-    
+      <productPrev
+        v-for="artwork in artworks"
+        :key="artwork._id"
+        :artwork="artwork"
+      />
     </div>
-
   </section>
 </template>
 
@@ -17,7 +20,7 @@ export default {
     productPrev
   },
   props: {
-    artworks: Array,
+    artworks: Array
   }
 };
 </script>

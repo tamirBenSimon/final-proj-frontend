@@ -62,7 +62,6 @@ export default {
             return users;
         },
         async loadUser(context, { userId }) {
-            console.log('in store!!!');
             const user = await userService.getById(userId);
             context.commit({ type: 'setUser', user })
             context.commit({ type: 'setSelectedUser', user })
