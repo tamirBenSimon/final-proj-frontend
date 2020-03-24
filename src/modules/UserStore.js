@@ -1,7 +1,6 @@
 import userService from '../services/UserService.js'
 
-var localLoggedinUser = { fullName: 'Yosske Mc Yossinson', _id: 199, imgURL: `https://i.picsum.photos/id/512/200/250.jpg` };
-// var localLoggedinUser = 555;
+var localLoggedinUser = { fullName: 'Yosske Mc Yossinson', _id: 199, imgURL: `https://i.picsum.photos/id/72/200/250.jpg` };
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
@@ -30,6 +29,7 @@ export default {
         },
         setUsers(state, { users }) {
             state.users = users;
+            console.log('state.usersss: ', state.users);
         },
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id !== userId)
