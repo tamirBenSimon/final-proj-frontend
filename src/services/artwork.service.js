@@ -206,8 +206,7 @@ function query(filterBy = null) {
 
 
 async function getById(artworkId) {
-    let artwork = gArtworks.find(artwork => artwork._id === artworkId)
-    return Promise.resolve(artwork)
+        return httpService.get(`artwork/${artworkId}`)
 }
 
 
