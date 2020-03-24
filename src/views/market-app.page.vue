@@ -1,13 +1,14 @@
 <template>
+
   <section class="market-app-container">
-    <header class="main-header" id="nav">
-      </header>
+    <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
     <product-list :artworks="artworks" />
   </section>
 </template>
 
 <script>
+import tagsSelect from "../components/tags-select.cmp";
 import productList from "../components/product-list.cmp";
 import artworkFilter from "../components/artwork-filter.cmp";
 import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
@@ -16,7 +17,15 @@ export default {
   name: "market-app",
   components: {
     productList,
-    artworkFilter
+    artworkFilter,
+    tagsSelect
+  },
+  data(){
+    return{
+            filterBy: {},
+            homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
+
+    }
   },
   created() {
     this.$store.dispatch({
@@ -43,6 +52,13 @@ export default {
     }
   },
   methods:{
+        tagClicked(tag) {
+      this.filterBy.tags=tag
+      this.$store.dispatch({
+        type: "loadArtworks",
+        filterBy: { tags: this.filterBy.tags }
+      });
+    },
     removeArtwork (artworkId){
       this.$store.dispatch({
       type: "removeArtwork",

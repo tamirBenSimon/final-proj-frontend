@@ -1,4 +1,11 @@
 .artwork-edit-container-all {
+  background: rgb(228, 225, 215);
+  background: linear-gradient(
+    87deg,
+    rgba(228, 225, 215, 0.778326296338848) 0%,
+    rgba(249, 247, 241, 0.7867296576833859) 47%,
+    rgba(230, 226, 216, 0.8231442235097164) 100%
+  );
   .artwork-edit-img-back {
     margin: 100px 0 0 35px;
     width: rem(40px);
@@ -16,7 +23,7 @@
       flex-direction: column;
 
       .artwork-edit-img-artwork {
-        object-fit: cover;
+        object-fit: contain;
         max-height: rem(300px);
       }
       .artwork-edit-gallery {
@@ -24,11 +31,7 @@
         flex-wrap: nowrap;
         flex-direction: column;
       }
-      .artwork-edit-galler-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
+
       .artwork-edit-container-reviews {
         // background-color: rgb(189, 234, 245);
         .artwork-edit-img-reviewer {
@@ -45,6 +48,9 @@
       max-height: 150px;
       width: auto;
       justify-content: center;
+      & > img {
+        cursor: pointer;
+      }
     }
     .artwork-edit-head-gallery-item {
       margin: 5px;
@@ -53,21 +59,68 @@
       height: Auto;
     }
     .artwork-edit-aside-container {
-      background: rgb(109,109,110);
-      background: linear-gradient(90deg, rgba(109,109,110,0.17720591654630602) 47%, rgba(148,119,99,0.38728995015975143) 85%);
       flex-grow: 0.8;
       display: flex;
       flex-direction: column;
       text-align: center;
 
-      & h4{
-        margin: 0.3rem 0 0.7rem 0;
+      & h4 {
+        margin: 1.5rem 0 0.7rem 0;
       }
-      &>*{
+      & > * {
         align-self: center;
       }
-      
+      .num-input{
+        align-self: center;
+        padding: rem(6px) rem(12px);
+        max-width: 12ch;
+      }
+
+
+      .url-input {
+        width: 80%;
+      }
+
+      textarea {
+        padding: 8px;
+        width: 90%;
+        min-height: 20ch;
+        background: rgb(244, 241, 235);
+        background: linear-gradient(
+          0deg,
+          rgba(244, 241, 235, 0.9463935232296043) 0%,
+          rgba(250, 248, 246, 0.9099789574032738) 86%,
+          rgba(255, 255, 255, 0.520623215106355) 100%
+        );
+        resize: none;
+        border-radius: 0.6rem;
+        border: lightslategray 1px solid;
+        outline: none;
+        &:focus,
+        &:hover {
+          border: black 1px solid;
+        }
+      }
+    }
+  }
+  .set-out-stock {
+    align-self: center;
+    font-size: 0.8rem;
+    outline: none;
+    background-color: rgba(245, 245, 245, 0.13);
+    color: rgb(98, 173, 98);
+    padding: 14px 15px;
+    border-radius: 0.3rem;
+    border: 1px solid rgb(44, 42, 42);
+    transition: all, 0.2s;
+    &:hover {
+      font-weight: bolder;
+      padding: 14px 20px;
+      background-color: rgb(245, 245, 245);
     }
 
+  }
+  .setInStock {
+    color: rgb(177, 75, 75);
   }
 }

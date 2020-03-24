@@ -2,19 +2,18 @@
   <section class="home-main-layout">
     <!-- <homeHeaderToApp></homeHeaderToApp> -->
     <homeHeader2> </homeHeader2>
-    <div class="tags-title">
-      <h3>Explore trending streams on {{ this.filterBy.tags }}</h3>
-    </div>
-    <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
-    <product-list   v-for="tag in homeTags" :artworks="getArtWorksByTag(tag)" :key="tag" >
-            <h3 class="artwork-list-title">Explore trending streams on {{tag}}</h3>
+    <product-list
+      v-for="tag in homeTags"
+      :artworks="getArtWorksByTag(tag)"
+      :key="tag"
+    >
+      <h3 class="artwork-list-title">Explore trending streams on  <span class="span"> {{ tag }}</span></h3>
     </product-list>
     <div class="hero-comuunity">
       <h1>hero</h1>
     </div>
-  <!-- <home-list> -->
-  <!-- </home-list> -->
-
+    <!-- <home-list> -->
+    <!-- </home-list> -->
   </section>
 </template>
 
@@ -22,7 +21,6 @@
 import productList from "../components/product-list.cmp";
 // import  homeHeaderToApp from "../components/home-header-to-app.cmp";
 // import  homeHeaderToApp from "../components/home-header-to-app.cmp";
-import tagsSelect from "../components/tags-select.cmp";
 import homeHeader2 from "../components/home-header2.cmp";
 import { eventBus, EVENT_REMOVE } from "../services/event-bus.service.js";
 
@@ -31,18 +29,17 @@ export default {
   components: {
     productList,
     // homeHeaderToApp,
-    homeHeader2,
-    tagsSelect
+    homeHeader2
   },
   data() {
     return {
       filterBy: { tags: "urban" },
-      homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
+      homeTags: ["nature", "urban", "psychedelic"]
     };
   },
   created() {
     this.$store.dispatch({
-      type: "loadArtworks",
+      type: "loadArtworks"
     });
 
     eventBus.$on(EVENT_REMOVE, artworkId => {
@@ -50,20 +47,12 @@ export default {
     });
   },
   methods: {
-    tagClicked(tag) {
-      this.filterBy.tags=tag
-      this.$store.dispatch({
-        type: "loadArtworks",
-        filterBy: { tags: this.filterBy.tags }
+    getArtWorksByTag(tag) {
+      let artworks = this.artworks;
+      let tagSortedArtworks = artworks.filter(artwork => {
+        return artwork.tags.includes(tag);
       });
-    },
-    getArtWorksByTag(tag){
-      console.log('soRTING!!! ', tag)
-      let artworks=this.artworks
-      let tagSortedArtworks= artworks.filter(artwork=>{
-        return artwork.tags.includes(tag)
-      })
-      return tagSortedArtworks.slice(0,4)
+      return tagSortedArtworks.slice(0, 4);
     }
   },
   computed: {
@@ -71,7 +60,5 @@ export default {
       return this.$store.getters.artworks;
     }
   }
-
-
 };
 </script>
