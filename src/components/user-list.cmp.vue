@@ -8,7 +8,7 @@
             <th> </th>
             <th>Full Name</th>
             <th>User Name</th>
-            <th>Password</th>
+            <!-- <th>Password</th> -->
             <th>Bio</th>
             <th>Delete</th>
           </tr>

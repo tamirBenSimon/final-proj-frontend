@@ -1,6 +1,7 @@
 import HttpService from './HttpService.js'
 
 export default {
+    query,
     login,
     logout,
     signup,
@@ -8,6 +9,11 @@ export default {
     getById,
     remove,
     update
+}
+
+function query() {
+    const users = HttpService.get('user');
+    return Promise.resolve(users)
 }
 
 function getById(userId) {

@@ -1,4 +1,4 @@
-import { userService } from '../services/user.service.js'
+import userService from '../services/UserService.js'
 
 var localLoggedinUser = { fullName: 'Yosske Mc Yossinson', _id: 199, imgURL: `https://i.picsum.photos/id/512/200/250.jpg` };
 // var localLoggedinUser = 555;
@@ -57,6 +57,7 @@ export default {
                 // context.commit({ type: 'setUser', user: null })
         },
         async loadUsers(context) {
+            console.log('inside store!!!');
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;
