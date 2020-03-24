@@ -7,7 +7,7 @@
       alt="back"
       title="Back"
     />
-    <div class="artwork-edit-container-main">
+    <div class="artwork-ontainer-main">
       <div class="artwork-edit-left-side-container">
         <div class="artwork-edit-galler-container">
           <div class="artwork-details-head-gallery">

@@ -1,5 +1,7 @@
 import { utilService } from './util.service.js'
 import { storageService } from './storage.service.js'
+import httpService from './HttpService.js'
+
 const KEY = 'usersDB'
 
 var gUsers = _createUsers();
@@ -52,8 +54,15 @@ function _createUser(user) {
     return user;
 }
 
-function query() {
-    return Promise.resolve(gUsers);
+function query(filterBy = null) {
+    // return Promise.resolve(gUsers);
+
+    var queryParams  = new URLSearchParams()
+    for(let key in filterBy){
+        if (filterBy[key]) queryParams.set(`${key}`, filterBy[key])
+        const users = httpService.get(`user/?${queryParams}`);
+        return Promise.resolve(users)
+    }
 }
 //102
 function getById(userId) {

@@ -1,5 +1,8 @@
 import { utilService } from './util.service.js'
 import { storageService } from './storage.service.js'
+import httpService from './HttpService.js'
+
+
 const KEY = 'artworksDB'
 
 var gArtworks = _createArtworks();
@@ -22,16 +25,16 @@ function _createArtworks() {
                 tags: ['psychedelic', 'calm', 'nature'],
                 salesCount: 28,
                 reviews: [{
-                        Txt: "Great! i love it. Please Give me link for another artworks. ok??? Please dont forget me!",
-                        _id: '43dv55',
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        Txt: "I LOVE this doll with was lovingly made by Polina with such impeccable attention to the tiniest detail! In my mind, this is truly a collector's doll which is much too nice to be given to my little granddaughter, Julia, as originally planned! My photo does not show the incredible detail, as I intentionally chose one which would more accurately depict her size. I wish I could also upload a second close-up photo which shows the incredible detail. Thank you, Polina, for taking such pride in your work, as it certainly shows!Kindest regards,Mary",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 5
-                    },
+                    Txt: "Great! i love it. Please Give me link for another artworks. ok??? Please dont forget me!",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    Txt: "I LOVE this doll with was lovingly made by Polina with such impeccable attention to the tiniest detail! In my mind, this is truly a collector's doll which is much too nice to be given to my little granddaughter, Julia, as originally planned! My photo does not show the incredible detail, as I intentionally chose one which would more accurately depict her size. I wish I could also upload a second close-up photo which shows the incredible detail. Thank you, Polina, for taking such pride in your work, as it certainly shows!Kindest regards,Mary",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
                 ]
             }),
             _createArtwork({
@@ -50,15 +53,15 @@ function _createArtworks() {
                 tags: ['psychedelic', 'calm', 'nature'],
                 salesCount: 28,
                 reviews: [{
-                        Txt: "Awesome purchase. Seller is a fantastic crafter and this item was a perfect example of how much she loves what she does!! Thanks",
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        Txt: "i bought it again! this time for my uncle!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 5
-                    },
+                    Txt: "Awesome purchase. Seller is a fantastic crafter and this item was a perfect example of how much she loves what she does!! Thanks",
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    Txt: "i bought it again! this time for my uncle!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
                 ]
             }),
             _createArtwork({
@@ -75,19 +78,19 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 2,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        _id: '43f55',
-                        imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
-                        rate: 2,
-                        by: { fullName: 'ariel zissu', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    Txt: "great ! i love it",
+                    _id: '43f55',
+                    imageURL: `https://i.picsum.photos/id/542/200/250.jpg`,
+                    rate: 2,
+                    by: { fullName: 'ariel zissu', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
 
-                    },
-                    {
-                        _id: '43it5',
-                        Txt: "too expensive!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 3
-                    },
+                },
+                {
+                    _id: '43it5',
+                    Txt: "too expensive!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
                 ]
             }),
             _createArtwork({
@@ -100,17 +103,17 @@ function _createArtworks() {
                 tags: ['modern', 'urban', 'nature'],
                 salesCount: 2,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        _id: '43dv55',
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        _id: '1op55',
-                        Txt: "haimon limon!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 5
-                    },
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    _id: '1op55',
+                    Txt: "haimon limon!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 5
+                },
                 ]
             }), _createArtwork({
                 title: 'go take a walk',
@@ -122,17 +125,17 @@ function _createArtworks() {
                 tags: ['light-play', 'angles', 'family'],
                 salesCount: 51,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        _id: '43dv55',
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        _id: '1p99us',
-                        Txt: "too expensive!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 1
-                    },
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    _id: '1p99us',
+                    Txt: "too expensive!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 1
+                },
                 ]
             }), _createArtwork({
                 title: 'beautiful art',
@@ -144,17 +147,17 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 17,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        _id: '43dv55',
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        _id: '15gtrus',
-                        Txt: "this is a review wrote by tamir",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 3
-                    },
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    _id: '15gtrus',
+                    Txt: "this is a review wrote by tamir",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
                 ]
             }), _createArtwork({
                 title: 'the life, of muki',
@@ -166,17 +169,17 @@ function _createArtworks() {
                 tags: ['fantasy', 'urban', 'nature'],
                 salesCount: 12,
                 reviews: [{
-                        Txt: "great ! i love it",
-                        _id: '43dv55',
-                        by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
-                        rate: 4
-                    },
-                    {
-                        _id: '11dzd',
-                        Txt: "muki is the best!",
-                        by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
-                        rate: 3
-                    },
+                    Txt: "great ! i love it",
+                    _id: '43dv55',
+                    by: { fullName: 'vlad indikt', _id: 102, imgURL: `https://i.picsum.photos/id/552/200/250.jpg` },
+                    rate: 4
+                },
+                {
+                    _id: '11dzd',
+                    Txt: "muki is the best!",
+                    by: { fullName: 'tamir ben simom', _id: 103, imgURL: `https://i.picsum.photos/id/562/200/250.jpg` },
+                    rate: 3
+                },
                 ]
             })
         ]
@@ -191,30 +194,37 @@ function _createArtwork(artwork) {
 }
 
 function query(filterBy = null) {
-    console.log("QUEYYYYY, ", filterBy)
-    if (!filterBy) {
-        return Promise.resolve(gArtworks);
+    var queryParams  = new URLSearchParams()
+    for(let key in filterBy){
+        if (filterBy[key]) queryParams.set(`${key}`, filterBy[key])
     }
-    console.log(filterBy)
-    let artworks = gArtworks.filter(artwork => {
-        if (filterBy.minPrice && filterBy.minPrice > artwork.price)
-            return false
-        if (filterBy.maxPrice && filterBy.maxPrice < artwork.price)
-            return false
-        if (filterBy.title && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
-            return false
-        if (filterBy.tags && !artwork.tags.find(tag => {
-                return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
-            }))
-            return false
-        if (filterBy.creatorId && artwork.createdBy._id != filterBy.creatorId)
-            return false
-        if (filterBy.creatorName && !artwork.createdBy.fullName.toLowerCase().includes(filterBy.creatorName.toLowerCase()))
-            return false
-        return true
+    // httpservice -> backend in a get request with query param
+    const artworks = httpService.get(`artwork/?${queryParams}`);
+    // console.log(artworks, 'got it from the server !')
+    // console.log("QUEYYYYY, ", filterBy)
+    // if (!filterBy) {
+    //     return Promise.resolve(gArtworks);
+    // }
+    // let localStorageArtworks = gArtworks.filter(artwork => {
+    //     if (filterBy.minPrice && filterBy.minPrice > artwork.price)
+    //         return false
+    //     if (filterBy.maxPrice && filterBy.maxPrice < artwork.price)
+    //         return false
+    //     if (filterBy.title && !artwork.title.toLowerCase().includes(filterBy.title.toLowerCase()))
+    //         return false
+    //     if (filterBy.tags && !artwork.tags.find(tag => {
+    //         return tag.toLowerCase().includes(filterBy.tags.toLowerCase())
+    //     }))
+    //         return false
+    //     if (filterBy.creatorId && artwork.createdBy._id != filterBy.creatorId)
+    //         return false
+    //     if (filterBy.creatorName && !artwork.createdBy.fullName.toLowerCase().includes(filterBy.creatorName.toLowerCase()))
+    //         return false
+    //     return true
 
-    })
-    console.log(artworks)
+    // })
+
+
     return Promise.resolve(artworks)
 }
 
