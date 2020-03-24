@@ -27,6 +27,11 @@ export default {
             const orders = await orderService.query(sellerId);
             context.commit({ type: 'setOrders', orders })
             return Promise.resolve(orders);
+        },
+        async addOrder(context, { order }) {
+            let savedOrders = await orderService.save(order);
+            context.commit({ type: 'setOrders', savedOrders })
+            return Promise.resolve(savedOrders);
         }
  
     }

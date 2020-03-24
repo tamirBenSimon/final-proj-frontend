@@ -81,11 +81,11 @@ function query(sellerId) {
 function remove(orderId) {
     const idx = gOrders.findIdx(order => order._id !== orderId)
     gOrders.splice(idx,1)
-    storageService.save(KEY,gOrders)
+    storageService.store(KEY,gOrders)
     // return gOrders; needed?
 }
 
-function store(order) {
+function save(order) {
     if (!order._id) {
         order._id = utilService.makeId();
         gOrders.push(order)
@@ -94,11 +94,12 @@ function store(order) {
         const idx = gOrders.findIdx(currOrder => currOrder._id !== order._id)
         gOrders.splice(idx,1,order)
     }
-    storageService.save(KEY,gOrders)
+    storageService.store(KEY,gOrders)
+    return gOrders
 }
 
 export const orderService = {
     query,
     remove,
-    store
+    save
 }

@@ -1,6 +1,7 @@
 import { userService } from '../services/user.service.js'
 
-var localLoggedinUser = 1234321;
+var localLoggedinUser = { fullName: 'Yosske Mc Yossinson', _id: 199, imgURL: `https://i.picsum.photos/id/512/200/250.jpg` };
+// var localLoggedinUser = 555;
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
@@ -61,7 +62,6 @@ export default {
             return users;
         },
         async loadUser(context, { userId }) {
-            console.log('in store!!!');
             const user = await userService.getById(userId);
             context.commit({ type: 'setUser', user })
             context.commit({ type: 'setSelectedUser', user })

@@ -30,10 +30,9 @@
           <img class="dropbtn" src="../../public/img/icons/account.png" alt="User Picture">
             <div class="dropdown-content">
               <a href="#/">Home Page</a>
-              <a v-if="!isLoggedinUser" href="#/login">Login</a>
-              <a v-if="!isLoggedinUser" href="#/signup">Sign Up</a>
-              <!-- <a v-if="!isLoggedinUser" href="#" @click="signup">Sign Up</a> -->
-              <!-- <router-link to="#/signup">signup</router-link> -->
+              <a href="/#/cabinet">Profile</a>
+              <a v-if="!isLoggedinUser" href="/#/login">Login</a>
+              <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a>
               <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
             </div>
             <img class="nav-bar-drop-down" src="../../public/img/icons/drop-down.png" alt="Drop-Down">
@@ -56,6 +55,9 @@ export default {
     }
   },
   created(){
+    const loggedinUser = this.$store.getters.loggedinUser;
+    this.isLoggedinUser = loggedinUser;
+    
     const counterWL = this.$store.getters.WL_Counter;
     this.countWishList = counterWL;
 
@@ -88,8 +90,8 @@ export default {
       this.$store.dispatch({
           type: 'logout',
       });
-      this.$router.push('/');
       this.isLoggedinUser = null;
+      this.$router.push('/');
     }
   }
 }
