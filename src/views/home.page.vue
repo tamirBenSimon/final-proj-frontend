@@ -10,15 +10,11 @@
 <script>
 import productList from "../components/product-list.cmp";
 import artworkFilter from "../components/artwork-filter.cmp";
-import header from "../components/headerq12.cmp";
+// import header from "../components/headerq12.cmp";
 import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
 
 export default {
   name: "home-page",
-  components: {
-    productList,
-    artworkFilter
-  },
   created() {
     this.$store.dispatch({
       type: "loadArtworks"
@@ -45,6 +41,11 @@ export default {
     artworks() {
       return this.$store.getters.artworks;
     }
+  },
+  components:{
+    productList,
+    artworkFilter,
+    // header
   }
 }
 </script>

@@ -35,7 +35,7 @@
           <span class="product-details-span">|</span>
           <div class="product-details-seller-main2 flex-center">
             <router-link :to="'/sellerGallery/'+artwork.createdBy._id">
-            <h4 class="product-details-seller-name ">{{artwork.createdBy.fullName}}</h4>
+            <h4 class="product-details-seller-name">{{artwork.createdBy.fullName}}</h4>
             </router-link>
             <span class="product-details-span">|</span>
             <h4 class="product-details-seller-sales">{{artwork.salesCount}} sales</h4>

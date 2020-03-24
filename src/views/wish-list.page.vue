@@ -15,7 +15,7 @@
     </div>
     <hr>
   </section>
-</template>
+</template>   
 
 <script>
 import {eventBus} from '../services/event-bus.service.js'

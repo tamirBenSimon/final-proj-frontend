@@ -50,10 +50,8 @@ function remove(productId, userId) {
 }
 
 function getCounter() {
-    return gWLCounter; ///אולי צריך למשוך מהלןקל סטורג
+    return gWLCounter;
 }
-
-
 
 
 export const wishListService = {
@@ -63,3 +61,35 @@ export const wishListService = {
     getCounter
 
 }
+
+
+// import HttpService from './HttpService.js'
+
+// export default {
+//     query,
+//     getUsers,
+//     getById,
+//     remove,
+//     update
+// }
+
+// function query() {
+//     const users = HttpService.get('user');
+//     return Promise.resolve(users)
+// }
+
+// function getById(userId) {
+//     return HttpService.get(`user/${userId}`)
+// }
+
+// function remove(userId) {
+//     return HttpService.delete(`user/${userId}`)
+// }
+
+// function update(user) {
+//     return HttpService.put(`user/${user._id}`, user)
+// }
+
+// function getUsers() {
+//     return HttpService.get('user')
+// }
