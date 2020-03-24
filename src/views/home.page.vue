@@ -10,7 +10,7 @@
 <script>
 import productList from "../components/product-list.cmp";
 import artworkFilter from "../components/artwork-filter.cmp";
-// import header from "../components/headerq12.cmp";
+// import header from "../components/home-header2.cmp";
 import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
 
 export default {
@@ -24,16 +24,16 @@ export default {
       this.removeArtwork(artworkId)})
   },
   methods:{
-        removeArtwork (artworkId){
+      removeArtwork (artworkId){
       this.$store.dispatch({
-      type: "removeArtwork",
-      artworkId
+        type: "removeArtwork",
+        artworkId
     });
     },
     onFilter(filterBy){
-            this.$store.dispatch({
-      type: "loadArtworks",
-      filterBy
+      this.$store.dispatch({
+        type: "loadArtworks",
+        filterBy
     });
     }
   },

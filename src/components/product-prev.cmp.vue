@@ -2,7 +2,8 @@
   <router-link class="artwork-prev" :to="getURL">
     <div class="artwork-prev-img-container">
       <div class="artwork-prev-wish-list">
-        <img @click.prevent="onWishList" @mouseover="onHoverWishList" @mouseleave="onLeaveWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
+        <img v-if="!isWishList" @click.prevent="onWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
+        <img v-else @click.prevent="onWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
       </div>
       <img  :src="Showartwork" alt="" />
       <div class="artwork-prev-txt-container">
@@ -36,8 +37,8 @@ export default {
   data() {
     return {
       imgUrlIdx: 0,
-      currSrc:'../../public/img/icons/black-like.png',
       loggedinUser: null,
+      isWishList: false
     };
   },
   created(){
@@ -70,19 +71,12 @@ export default {
     remove() {
       eventBus.$emit(EVENT_REMOVE, this.artwork._id);
     },
-    onHoverWishList(){
-      this.currSrc="../../public/img/icons/red-like.png";
-    },
-    onLeaveWishList(){
-       this.currSrc="../../public/img/icons/black-like.png";
-    },
     onWishList(){
       const userId = this.loggedinUser._id;
       const product = this.artwork;
       eventBus.$emit('addWishList', userId, product);
+      this.isWishList = !this.isWishList;
     }
   }
 }
 </script>
-
-<style></style>
