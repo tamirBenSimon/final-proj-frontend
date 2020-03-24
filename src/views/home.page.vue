@@ -1,51 +1,54 @@
 <template>
-  <section class="market-app-container">
-    <header class="main-header" id="nav">
-      </header>
-    <artwork-filter @onFilter="onFilter" />
-    <product-list :artworks="artworks" />
+  <section class="home-main-layout">
+    <!-- <homeHeaderToApp></homeHeaderToApp> -->
+    <headerVid> </headerVid>
+    <product-list
+      v-for="tag in homeTags"
+      :artworks="getArtWorksByTag(tag)"
+      :key="tag">
+      <h3 class="artwork-list-title">Explore trending streams on  <span class="span"> {{ tag }}</span></h3>
+    </product-list>
+    <div class="hero-comuunity">
+      <h1>hero</h1>
+    </div>
   </section>
 </template>
 
 <script>
 import productList from "../components/product-list.cmp";
-import artworkFilter from "../components/artwork-filter.cmp";
-// import header from "../components/home-header2.cmp";
-import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
+import headerVid from "../components/home-header2.cmp";
 
 export default {
+    data() {
+    return {
+      filterBy: { tags: "urban" },
+      homeTags: ["nature", "urban", "psychedelic"]
+    };
+  },
   name: "home-page",
   created() {
     this.$store.dispatch({
       type: "loadArtworks"
     });
 
-    eventBus.$on(EVENT_REMOVE,(artworkId)=>{
-      this.removeArtwork(artworkId)})
   },
-  methods:{
-      removeArtwork (artworkId){
-      this.$store.dispatch({
-        type: "removeArtwork",
-        artworkId
-    });
+  methods: {
+        getArtWorksByTag(tag) {
+      let artworks = this.artworks;
+      let tagSortedArtworks = artworks.filter(artwork => {
+        return artwork.tags.includes(tag);
+      });
+      return tagSortedArtworks.slice(0, 4);
     },
-    onFilter(filterBy){
-      this.$store.dispatch({
-        type: "loadArtworks",
-        filterBy
-    });
-    }
   },
   computed: {
     artworks() {
       return this.$store.getters.artworks;
     }
   },
-  components:{
+  components: {
     productList,
-    artworkFilter,
-    // header
+    headerVid
   }
-}
+};
 </script>
