@@ -54,7 +54,7 @@ export default {
       userId: this.loggedinUser._id
       })
       eventBus.$emit('editCart');
-      location.reload();
+      // location.reload();
     },
     placeOrders() {
       this.cart.forEach(item => this.placeOrder(item))

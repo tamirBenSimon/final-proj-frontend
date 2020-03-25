@@ -3,10 +3,10 @@ import { artworkService } from '../services/artwork.service.js'
 
 export default {
     state: {
-        artwork:{},
+        artwork: {},
         artworks: [],
         currArtwork: null,
-        filterBy:null
+        filterBy: null
     },
     getters: {
         artworks(state) {
@@ -28,15 +28,15 @@ export default {
         },
     },
     actions: {
-        async loadArtworks(context, {filterBy=null}) {
+        async loadArtworks(context, { filterBy = null }) {
             const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
-            return Promise.resolve(artworks);
+            return artworks;
         },
         async loadArtwork(context, { artworkId }) {
             const artwork = await artworkService.getById(artworkId)
             context.commit({ type: 'setArtwork', artwork })
-            return Promise.resolve(artwork);
+            return artwork;
         },
         async removeArtwork(context, { artworkId }) {
             await artworkService.removeArtwork(artworkId);

@@ -126,7 +126,7 @@ export default {
           product: product 
       })
        eventBus.$emit('editCart');
-        location.reload();
+        // location.reload();
     },
     onBuy(){
       console.log('buying!');

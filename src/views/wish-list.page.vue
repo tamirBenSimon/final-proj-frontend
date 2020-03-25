@@ -3,8 +3,8 @@
     <h2>My Wish List</h2>
     <hr>
     <div class="wish-list-main-container">
-      <div v-if="wishList" >
-        <div class="wish-list-main" v-for="(product, index) in wishList.wishList" :key="index">
+      <div v-if="wishlist">
+        <div class="wish-list-main" v-for="(product, index) in wishlist[0].wishlist" :key="index">
           <img class="wish-list-img-product" :src="product.imgURLs[0]" alt="Product">
           <div class="wish-list-tite">{{product.title}}</div>
           <h2>${{product.price}}</h2>
@@ -25,7 +25,7 @@ export default {
   data(){
     return{
       loggedinUser: null,
-      wishList: null 
+      wishlist: null 
     }
   },
   created(){
@@ -35,21 +35,21 @@ export default {
       type: "loadWishList",
       userId: this.loggedinUser._id
     })
-    .then(currwishList =>{
-      console.log('currwishList in cmp: ',currwishList);
-      this.wishList = currwishList; 
+    .then(currwishlist =>{
+      console.log('currwishlist in cmp: ',currwishlist);
+      this.wishlist = currwishlist; 
     })
   },
   methods:{
       onRemove(product){
       this.$store.dispatch({
-      type: "removeWishList",
-      productId: product._id,
+      type: "removewishList",
+      wishlist: product._id,
       userId: this.loggedinUser._id
       })
       // const counterWL = this.$store.getters.WL_Counter;
-      eventBus.$emit('editWishList');
-      location.reload();
+      eventBus.$emit('editwishlist');
+      // location.reload();
     }
   }
 }

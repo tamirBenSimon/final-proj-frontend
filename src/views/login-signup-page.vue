@@ -44,11 +44,10 @@ export default {
         userCred : this.credentials
       })
       .then((user)=>{
-        console.log('user is a: ', user);
         if (user !== null) this.$router.push('/');
+        this.credentials.username = '';
+        this.credentials.password = '';
       })
-      this.credentials.username = '';
-      this.credentials.password = '';
     },
     onSignup() {
       this.$store.dispatch({

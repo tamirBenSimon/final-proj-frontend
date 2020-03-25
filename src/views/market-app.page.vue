@@ -43,7 +43,7 @@ export default {
         })
 
         eventBus.$emit('editWishList');
-        location.reload();
+        // location.reload();
       })
   },
   computed: {

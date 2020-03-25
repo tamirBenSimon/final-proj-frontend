@@ -5,7 +5,7 @@
         <img v-if="!isWishList" @click.prevent="onWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
         <img v-else @click.prevent="onWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
       </div>
-      <img  :src="Showartwork" alt="" />
+      <img :src="Showartwork" alt="Artwork" />
       <div class="artwork-prev-txt-container">
         <div class="artwork-prev-txt-header">
           <h3>{{ artwork.title }}</h3>

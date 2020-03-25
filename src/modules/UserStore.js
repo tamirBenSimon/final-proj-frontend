@@ -1,6 +1,6 @@
 import userService from '../services/UserService.js'
 
-var localLoggedinUser = { fullName: 'Yosske Mc Yossinson', _id: 199, imgURL: `https://i.picsum.photos/id/72/200/250.jpg` };
+var localLoggedinUser = { _id: '5e7b9d3276d50de800d4f347' };
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
