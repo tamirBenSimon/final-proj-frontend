@@ -1,9 +1,5 @@
 <template>
   <section class="artwork-edit-container-all">
-
-
-
-
     <img
       @click="onBack"
       class="artwork-edit-img-back"
@@ -11,7 +7,8 @@
       alt="back"
       title="Back"
     />
-        <div class="artwork-edit-container-main">
+
+    <div class="artwork-edit-container-main">
       <div class="artwork-edit-left-side-container">
         <div class="artwork-edit-galler-container">
           <div class="artwork-details-head-gallery">
@@ -30,27 +27,52 @@
               :src="getCurrImg"
               alt="artwork"
             />
+
+            <vue-picture-swipe :items="items"></vue-picture-swipe>
+            <!-- 
+            <vue-flux
+              :options="fluxOptions"
+              :images="fluxImages"
+              :transitions="fluxTransitions"
+              ref="slider"
+            >
+            </vue-flux> -->
+            <!-- <button @click="$refs.slider.showImage('next')">NEXT</button> -->
           </div>
         </div>
-        <button class="set-out-stock setInStock" @click="onRemove">delete</button>
-      
-        <div class='product-details-container-reviews'>
+        <button class="set-out-stock setInStock" @click="onRemove">
+          delete
+        </button>
+
+        <!-- <div class="product-details-container-reviews">
           <h2>Reviews:</h2>
           <ul class="product-details-reviews-list">
-            <li class="product-details-review-prev" v-for='(review, index) in artwork.reviews' :key='index'>
+            <li
+              class="product-details-review-prev"
+              v-for="(review, index) in artwork.reviews"
+              :key="index"
+            >
               <div class="product-details-review-main-header">
-                <img class="product-details-img-reviewer" :src='review.by.imgURL' alt='reviewer'>
-                <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
+                <img
+                  class="product-details-img-reviewer"
+                  :src="review.by.imgURL"
+                  alt="reviewer"
+                />
+                <h3 class="product-details-review-fullName">
+                  {{ review.by.fullName }}
+                </h3>
               </div>
-              <h5 class="product-details-review-rate">{{currRate(review.rate)}}</h5>
-              <h4 class="product-details-review-txt">{{review.Txt}}</h4>
+              <h5 class="product-details-review-rate">
+                {{ currRate(review.rate) }}
+              </h5>
+              <h4 class="product-details-review-txt">{{ review.Txt }}</h4>
             </li>
           </ul>
-        </div>
-          </div>
+        </div> -->
+      </div>
 
       <div class="artwork-edit-aside-container">
-        <h4>title: </h4>
+        <h4>title:</h4>
         <input type="text" v-model="artwork.title" placeholder="change title" />
         <h4>artwork description:</h4>
         <textarea v-model="artwork.desc"></textarea>
@@ -66,15 +88,14 @@
         </button>
 
         <input
-        class="url-input"
+          class="url-input"
           type="text"
           placeholder="New image url"
           v-model="NewImgURL"
         /><button @click="onNewMImgURL">
           Save new URL
         </button>
-                <button class="set-out-stock" @click="onSave">Save Artwork</button>
-
+        <button class="set-out-stock" @click="onSave">Save Artwork</button>
       </div>
     </div>
   </section>
@@ -82,16 +103,33 @@
 
 <script>
 // import { eventBus } from "../services/event-bus.service.js";
+import VuePictureSwipe from "vue-picture-swipe";
+// import { VueFlux, Transitions } from "vue-flux";
+// import "vue-flux/dist-ssr/_vue-flux.css";
 
 export default {
   name: "artwork-edit",
   data() {
     return {
+      // fluxOptions: {
+      //   autoplay: true
+      // },
+      // fluxImages: ["https://i.picsum.photos/id/116/200/250.jpg", "https://i.picsum.photos/id/116/200/250.jpg"],
+      // fluxTransitions: {
+      //   transitionTurn3d: Transitions.transitionTurn3d
+      // },
+
       currImgIdx: 0,
       NewImgURL: "",
       artwork: null,
-      loggedinUser: null
+      loggedinUser: null,
+      items:[]
+
     };
+  },
+  components: {
+    VuePictureSwipe
+    // 'vue-flux': VueFlux
   },
   created() {
     this.loggedinUser = this.$store.getters.loggedinUser;
@@ -104,36 +142,55 @@ export default {
         })
         .then(artwork => {
           this.artwork = JSON.parse(JSON.stringify(artwork));
+    this.imageList(artwork.imgURLs);
         });
     }
+
   },
   computed: {
     stockBtnMsg() {
       return this.artwork.inStock ? "Set as not available" : "Set as available";
     },
     getCurrImg() {
+      console.log(this.artwork.imgURLs[this.currImgIdx]);
       return this.artwork.imgURLs[this.currImgIdx];
     },
     isInStock() {
       return this.artwork.inStock ? "in stock" : "out of stock";
-    },
-
+    }
   },
   methods: {
-     currRate(rate){
-        switch (rate){
-          case 1:
-            return '⭐';
-          case 2:
-            return '⭐⭐';
-          case 3:
-            return '⭐⭐⭐';
-          case 4:
-            return '⭐⭐⭐⭐';
-          case 5:
-            return '⭐⭐⭐⭐⭐';
+    imageList(imgURLs) {
+      let items = imgURLs.map(imgURL=> {
+        console.log(imgURL)
+        return {
+          src: imgURL,
+          thumbnail: imgURL,
+          alt: imgURL,
+          w: 600,
+          h: 400,
+          // style: {'object-fit': 'contain'}
+        };
+      
+      });
+
+      return this.items=items;
+    },
+
+    currRate(rate) {
+      switch (rate) {
+        case 1:
+          return "⭐";
+        case 2:
+          return "⭐⭐";
+        case 3:
+          return "⭐⭐⭐";
+        case 4:
+          return "⭐⭐⭐⭐";
+        case 5:
+          return "⭐⭐⭐⭐⭐";
       }
-      return ' ';// here is checking if the rate is 0
+      return " "; // here is checking if the rate is 0
     },
     onSave() {
       this.$store
