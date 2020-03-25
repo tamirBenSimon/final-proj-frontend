@@ -1,5 +1,9 @@
 <template>
   <section class="artwork-edit-container-all">
+
+
+
+
     <img
       @click="onBack"
       class="artwork-edit-img-back"
@@ -7,7 +11,7 @@
       alt="back"
       title="Back"
     />
-    <div class="artwork-ontainer-main">
+        <div class="artwork-edit-container-main">
       <div class="artwork-edit-left-side-container">
         <div class="artwork-edit-galler-container">
           <div class="artwork-details-head-gallery">
@@ -29,22 +33,21 @@
           </div>
         </div>
         <button class="set-out-stock setInStock" @click="onRemove">delete</button>
-        <div class="artwork-edit-container-reviews">
-          <h2>reviews:</h2>
-          <ul>
-            <li v-for="(review, index) in artwork.reviews" :key="index">
-              <img
-                class="artwork-edit-img-reviewer"
-                :src="review.by.imgURL"
-                alt="reviewer"
-              />
-              <h3>{{ review.by.fullName }}</h3>
-              <h4>{{ review.Txt }}</h4>
-              <h5>{{ currRate }}</h5>
+      
+        <div class='product-details-container-reviews'>
+          <h2>Reviews:</h2>
+          <ul class="product-details-reviews-list">
+            <li class="product-details-review-prev" v-for='(review, index) in artwork.reviews' :key='index'>
+              <div class="product-details-review-main-header">
+                <img class="product-details-img-reviewer" :src='review.by.imgURL' alt='reviewer'>
+                <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
+              </div>
+              <h5 class="product-details-review-rate">{{currRate(review.rate)}}</h5>
+              <h4 class="product-details-review-txt">{{review.Txt}}</h4>
             </li>
           </ul>
         </div>
-      </div>
+          </div>
 
       <div class="artwork-edit-aside-container">
         <h4>title: </h4>
@@ -114,26 +117,24 @@ export default {
     isInStock() {
       return this.artwork.inStock ? "in stock" : "out of stock";
     },
-    currRate() {
-      var i = 0;
-      const rate = this.artwork.reviews[i].rate;
-      i++;
-      switch (rate) {
-        case 1:
-          return "⭐";
-        case 2:
-          return "⭐⭐";
-        case 3:
-          return "⭐⭐⭐";
-        case 4:
-          return "⭐⭐⭐⭐";
-        case 5:
-          return "⭐⭐⭐⭐⭐";
-      }
-      return " "; // here is checking if the rate is 0
-    }
+
   },
   methods: {
+     currRate(rate){
+        switch (rate){
+          case 1:
+            return '⭐';
+          case 2:
+            return '⭐⭐';
+          case 3:
+            return '⭐⭐⭐';
+          case 4:
+            return '⭐⭐⭐⭐';
+          case 5:
+            return '⭐⭐⭐⭐⭐';
+      }
+      return ' ';// here is checking if the rate is 0
+    },
     onSave() {
       this.$store
         .dispatch({
