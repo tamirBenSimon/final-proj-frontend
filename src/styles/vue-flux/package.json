@@ -1,0 +1,83 @@
+{
+  "_from": "vue-flux@^6.0.2",
+  "_id": "vue-flux@6.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-MZsNaoyxBWUDsL0dV7fdCTMYnOk4eWda+8HhS4gS78m9hF/rFNT/OlgS9x/BNq61DQ7srsS0Q839EWPLrDm34w==",
+  "_location": "/vue-flux",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "vue-flux@^6.0.2",
+    "name": "vue-flux",
+    "escapedName": "vue-flux",
+    "rawSpec": "^6.0.2",
+    "saveSpec": null,
+    "fetchSpec": "^6.0.2"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-flux/-/vue-flux-6.0.2.tgz",
+  "_shasum": "3c12e9259252939ee9ae22416fb697690d0138f5",
+  "_spec": "vue-flux@^6.0.2",
+  "_where": "C:\\Users\\HP\\Desktop\\final project\\gallerio\\frontend",
+  "author": {
+    "name": "ragnar lotus"
+  },
+  "bugs": {
+    "url": "https://github.com/deulos/vue-flux/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Vue image slider",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^6.3.0",
+    "eslint-plugin-jest": "^22.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "tailwindcss": "^1.1.2",
+    "vue": "^2.6.10",
+    "vue-cosk": "0.2.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "files": [
+    "dist",
+    "dist-ssr"
+  ],
+  "homepage": "https://deulos.github.com/vue-flux-docs",
+  "keywords": [
+    "vue",
+    "image",
+    "slider",
+    "carousel",
+    "parallax"
+  ],
+  "license": "MIT",
+  "main": "dist/vue-flux.umd.min.js",
+  "name": "vue-flux",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deulos/vue-flux.git"
+  },
+  "scripts": {
+    "build": "npm run bundle:nossr && npm run bundle:ssr",
+    "bundle": "vue-cli-service build --target lib --name vue-flux \"src/components/index.js\"",
+    "bundle:nossr": "set EXTRACT_CSS=false&& npm run bundle -- --dest dist",
+    "bundle:ssr": "set EXTRACT_CSS=true&& npm run bundle -- --dest dist-ssr",
+    "lint": "vue-cli-service lint --no-fix",
+    "serve": "vue-cli-service serve",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "version": "6.0.2"
+}

@@ -122,8 +122,8 @@ export default {
       const product = this.artwork;
       this.$store.dispatch({
           type: 'addToCart',
-          userId: userId, 
-          product: product 
+          userId, 
+          product 
       })
        eventBus.$emit('editCart');
         location.reload();
@@ -132,19 +132,20 @@ export default {
       console.log('buying!');
     },
      currRate(rate){
-        switch (rate){
-          case 1:
-            return '⭐';
-          case 2:
-            return '⭐⭐';
-          case 3:
-            return '⭐⭐⭐';
-          case 4:
-            return '⭐⭐⭐⭐';
-          case 5:
-            return '⭐⭐⭐⭐⭐';
-      }
-      return ' ';// here is checking if the rate is 0
+       return '⭐'.repeat(rate);
+      //   switch (rate){
+      //     case 1:
+      //       return '⭐';
+      //     case 2:
+      //       return '⭐⭐';
+      //     case 3:
+      //       return '⭐⭐⭐';
+      //     case 4:
+      //       return '⭐⭐⭐⭐';
+      //     case 5:
+      //       return '⭐⭐⭐⭐⭐';
+      // }
+      // return ' ';// here is checking if the rate is 0
     }
   }
 }

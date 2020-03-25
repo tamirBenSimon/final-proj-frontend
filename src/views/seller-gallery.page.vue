@@ -25,6 +25,7 @@ export default {
   },
 created() {
     const userId = this.$route.params.id;
+    console.log('userID ,  ' ,userId)
     this.$store.dispatch({
       type: "loadUser", userId : userId
     });

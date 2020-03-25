@@ -31,7 +31,7 @@ export default {
         async loadArtworks(context, {filterBy=null}) {
             const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
-            return Promise.resolve(artworks);
+            return artworks;
         },
         async loadArtwork(context, { artworkId }) {
             const artwork = await artworkService.getById(artworkId)
@@ -45,7 +45,7 @@ export default {
         async updateArtwork(context, { artwork }) {
             let savedArtwork = await artworkService.saveArtwork(artwork);
             context.commit({ type: 'setArtwork', savedArtwork })
-            return artwork;
+            return savedArtwork;
         }
     }
 }
