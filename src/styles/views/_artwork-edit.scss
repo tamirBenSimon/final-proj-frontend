@@ -1,11 +1,5 @@
 .artwork-edit-container-all {
-  background: rgb(228, 225, 215);
-  background: linear-gradient(
-    87deg,
-    rgba(228, 225, 215, 0.778326296338848) 0%,
-    rgba(249, 247, 241, 0.7867296576833859) 47%,
-    rgba(230, 226, 216, 0.8231442235097164) 100%
-  );
+
   .artwork-edit-img-back {
     margin: 100px 0 0 35px;
     width: rem(40px);
@@ -15,10 +9,12 @@
   }
   .artwork-edit-container-main {
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+
+
     .artwork-edit-left-side-container {
       margin-inline-end: rem(20px);
-      flex-grow: 1.6;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
 
@@ -31,16 +27,32 @@
         flex-wrap: nowrap;
         flex-direction: column;
       }
-
-      .artwork-edit-container-reviews {
-        // background-color: rgb(189, 234, 245);
-        .artwork-edit-img-reviewer {
-          width: rem(40px);
-          height: rem(40px);
-          border-radius: 50%;
+      .product-details-review-prev {
+        list-style-type: none;
+        margin-bottom: 70px;
+        .product-details-review-main-header {
+            display: flex;
+            .product-details-img-reviewer {
+                width: rem(40px);
+                height: rem(40px);
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .product-details-review-fullName {
+                font-size: 16px;
+            }
         }
-      }
+        .product-details-review-txt {
+            max-width: 80ch;
+            margin: 5px 0;
+        }
+        .product-details-review-rate {
+            margin: 0;
+        }
     }
+    }
+
+
     .artwork-details-head-gallery {
       margin-inline-end: rem(10px);
       display: flex;
@@ -50,14 +62,19 @@
       justify-content: center;
       & > img {
         cursor: pointer;
+        max-width: rem(150px);
       }
     }
+
+
     .artwork-edit-head-gallery-item {
       margin: 5px;
       object-fit: cover;
       max-width: 100px;
       height: Auto;
     }
+
+
     .artwork-edit-aside-container {
       flex-grow: 0.8;
       display: flex;
@@ -70,12 +87,11 @@
       & > * {
         align-self: center;
       }
-      .num-input{
+      .num-input {
         align-self: center;
         padding: rem(6px) rem(12px);
         max-width: 12ch;
       }
-
 
       .url-input {
         width: 80%;
@@ -102,6 +118,9 @@
         }
       }
     }
+
+
+
   }
   .set-out-stock {
     align-self: center;
@@ -118,7 +137,6 @@
       padding: 14px 20px;
       background-color: rgb(245, 245, 245);
     }
-
   }
   .setInStock {
     color: rgb(177, 75, 75);

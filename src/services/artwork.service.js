@@ -217,29 +217,18 @@ function saveArtwork(artwork) {
 }
 
 function _addArtwork(artwork) {
-    console.log('update artwork')
-    artwork.id = utilService.makeId()
-    gArtworks.push(artwork);
-    storageService.store(KEY, gArtworks)
-    return Promise.resolve(gArtworks)
+    return httpService.add(`artwork/${artwork}`)
+
 }
 
 function _updateArtwork(artwork) {
-    const idx = gArtworks.findIndex(currrAtwork => currrAtwork._id === artwork._id);
-    gArtworks.splice(idx, 1, artwork)
-    storageService.store(KEY, gArtworks)
-    return Promise.resolve(gArtworks)
+    return httpService.put(`artwork/${artwork._id}`, artwork)
+
 }
 
 
 function removeArtwork(artworkId) {
-    console.log(artworkId)
-    const idx = gArtworks.findIndex(artwork => artwork._id === artworkId)
-    console.log(idx)
-    if (idx === -1) return Promise.reject('DID NOT REMOVE artwork')
-    gArtworks.splice(idx, 1);
-    storageService.store(KEY, gArtworks)
-    return Promise.resolve('artwork REMOVED')
+    return httpService.delete(`artwork/${artworkId}`)
 }
 
 

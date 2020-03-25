@@ -45,7 +45,7 @@ export default {
         async updateArtwork(context, { artwork }) {
             let savedArtwork = await artworkService.saveArtwork(artwork);
             context.commit({ type: 'setArtwork', savedArtwork })
-            return artwork;
+            return savedArtwork;
         }
     }
 }
