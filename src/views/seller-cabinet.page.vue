@@ -16,7 +16,7 @@
 export default {
   name:'seller-cabinet',
   created() {
-    const sellerId = +this.$route.params.id;
+    const sellerId = this.$route.params.id;
     this.$store.dispatch({
       type: "loadUser", userId : sellerId
     });
