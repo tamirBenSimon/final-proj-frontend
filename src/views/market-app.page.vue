@@ -30,21 +30,17 @@ export default {
       type: "loadArtworks"
     });
 
-    eventBus.$on(EVENT_REMOVE, artworkId => {
-      this.removeArtwork(artworkId);
-    });
-
-    eventBus.$on("addWishList", (userId, product) => {
-      this.$store.dispatch({
-        type: "addToWishList",
-        userId: userId,
-        product: product
-      });
-    });
-
-
-    eventBus.$emit("editWishList");
-    // location.reload();
+    eventBus.$on(EVENT_REMOVE,(artworkId)=>{
+      this.removeArtwork(artworkId)});
+      
+      eventBus.$on('addWishlist', (userId, product) =>{
+        this.$store.dispatch({
+          type: 'addToWishlist',
+          userId: userId, 
+          product: product 
+        })
+      })
+        // eventBus.$emit('editWishlist');
   },
   computed: {
     artworks() {

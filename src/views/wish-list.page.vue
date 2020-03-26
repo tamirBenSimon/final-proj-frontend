@@ -4,7 +4,7 @@
     <hr>
     <div class="wish-list-main-container">
       <div v-if="wishlist">
-        <div class="wish-list-main" v-for="(product, index) in wishlist[0].wishlist" :key="index">
+        <div class="wish-list-main" v-for="(product, index) in wishlist" :key="index">
           <img class="wish-list-img-product" :src="product.imgURLs[0]" alt="Product">
           <div class="wish-list-tite">{{product.title}}</div>
           <h2>${{product.price}}</h2>
@@ -18,7 +18,7 @@
 </template>   
 
 <script>
-import {eventBus} from '../services/event-bus.service.js'
+// import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'wish-list-cmp',
@@ -30,26 +30,23 @@ export default {
   },
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
-    // if(!this.loggedinUser) this.loggedinUser._id = 1234321;
     this.$store.dispatch({
-      type: "loadWishList",
+      type: "loadWishlist",
       userId: this.loggedinUser._id
     })
-    .then(currwishlist =>{
-      console.log('currwishlist in cmp: ',currwishlist);
-      this.wishlist = currwishlist; 
-    })
+    .then(() =>{
+    this.wishlist = this.$store.getters.wishlist;
+      })
   },
   methods:{
       onRemove(product){
       this.$store.dispatch({
-      type: "removewishList",
-      wishlist: product._id,
+      type: "removeFromWishlist",
+      productId: product._id,
       userId: this.loggedinUser._id
       })
       // const counterWL = this.$store.getters.WL_Counter;
-      eventBus.$emit('editwishlist');
-      // location.reload();
+      // eventBus.$emit('editwishlist');
     }
   }
 }
