@@ -107,6 +107,8 @@ function remove(orderId) {
 }
 
 function add(order) {
+    console.log('inside order service: ',order);
+    
     return httpService.post(`order/`, order)
 }
 
