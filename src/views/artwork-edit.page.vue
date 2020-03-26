@@ -177,21 +177,6 @@ export default {
       return this.items=items;
     },
 
-    currRate(rate) {
-      switch (rate) {
-        case 1:
-          return "⭐";
-        case 2:
-          return "⭐⭐";
-        case 3:
-          return "⭐⭐⭐";
-        case 4:
-          return "⭐⭐⭐⭐";
-        case 5:
-          return "⭐⭐⭐⭐⭐";
-      }
-      return " "; // here is checking if the rate is 0
-    },
     onSave() {
       this.$store
         .dispatch({
@@ -205,6 +190,7 @@ export default {
     onRemove() {
       this.artwork.imgURLs.splice([this.currImgIdx], 1);
       this.currImgIdx = 0;
+      this.onSave()
     },
     onGalleryIMGClick(idx) {
       this.currImgIdx = idx;
