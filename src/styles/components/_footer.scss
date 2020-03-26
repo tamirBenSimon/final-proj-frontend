@@ -1,12 +1,13 @@
 .footer {
-    background-color: $clr5;
+    background-color: $clr2;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border-top: grey 1px solid;
-    margin-top: 75px;
-    height: 130px;
+    margin-top: 110px;
+    height: 124px;
+    margin: 0;
     .footer-line {
         font-size: 20px;
     }

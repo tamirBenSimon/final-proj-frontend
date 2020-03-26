@@ -6,10 +6,10 @@
       v-for="tag in homeTags"
       :artworks="getArtWorksByTag(tag)"
       :key="tag">
-      <h3 class="artwork-list-title">Explore trending streams on  <span class="span"> {{ tag }}</span></h3>
+      <h3 class="artwork-list-title">Start Exploring<span class="span"> {{ tag }}</span></h3>
     </product-list>
     <div class="hero-comuunity">
-      <h1>hero</h1>
+      <h1 class="home-hero">hero</h1>
     </div>
   </section>
 </template>

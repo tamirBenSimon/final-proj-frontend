@@ -18,7 +18,7 @@
 </template>   
 
 <script>
-// import {eventBus} from '../services/event-bus.service.js'
+import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'wish-list-cmp',
@@ -45,8 +45,7 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      // const counterWL = this.$store.getters.WL_Counter;
-      // eventBus.$emit('editwishlist');
+      eventBus.$emit('editwishlist');
     }
   }
 }
