@@ -1,6 +1,6 @@
 import userService from '../services/UserService.js'
 
-var localLoggedinUser = { _id: '5e7c99e676d50de800d4f34a' }; // לשנות לפי המשתמש של האטלס
+var localLoggedinUser = { _id: '5e7c99e676d50de800d4f34a', fullName: 'Yosske McYossinson', imgURL:'https://www.placecage.com/c/200/300' }; // לשנות לפי המשתמש של האטלס
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {

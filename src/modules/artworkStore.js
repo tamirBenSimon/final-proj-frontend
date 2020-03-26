@@ -32,7 +32,6 @@ export default {
             console.log('in store loadArtWorks , ', filterBy)
             const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
-            console.log('artworkssss222 ', artworks)
 
             return artworks;
         },
