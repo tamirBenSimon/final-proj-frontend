@@ -2,7 +2,6 @@
 import httpService from './HttpService.js'
 
 function query(filterBy = null) {
-    console.log(filterBy)
     var queryParams = new URLSearchParams()
     for (let key in filterBy) {
         if (filterBy[key]) queryParams.set(`${key}`, filterBy[key])
