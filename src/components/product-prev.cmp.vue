@@ -5,24 +5,28 @@
         <img v-if="!isWishlist" @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
         <img v-else @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
       </div>
-      <img :src="Showartwork" alt="Artwork" />
-      <div class="artwork-prev-txt-container">
-        <div class="artwork-prev-txt-header">
-          <h3>{{ artwork.title }}</h3>
-          <span>{{ artwork.price }}USD</span>
-        </div>
-        <div class="artwork-prev-created-by">
-        <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
-        <span class="artwork-prev-createdBy-fullName">
-          {{ artwork.createdBy.fullName }}</span>
-        </div>
 
-        <!-- <span>{{ isInStock }}</span> -->
-        <div class="artwork-prev-controle-pad">
-          <button @click.prevent="remove">remove</button>
-          <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
+      <div class="artwork-prev-txt-container">
+        <img :src="Showartwork" alt="Artwork" />
+        <div class="artwork-prev-container-flach">
+          <div class="artwork-prev-txt-header">
+            <h3>{{ artwork.title }}</h3>
+            <span>{{ artwork.price }}<span class="artwork-prev-USD">USD</span></span>
+          </div>
+          <div class="artwork-prev-created-by">
+          <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
+          <span class="artwork-prev-createdBy-fullName">
+            {{ artwork.createdBy.fullName }}</span>
+          </div>
+
+          <!-- <span>{{ isInStock }}</span> -->
+          <div class="artwork-prev-controle-pad">
+            <button @click.prevent="remove">remove</button>
+            <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
+          </div>
         </div>
       </div>
+
     </div>
   </router-link>
 </template>
@@ -44,14 +48,14 @@ export default {
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
   },
-  mounted() {
-    setInterval(() => {
-      this.imgUrlIdx =
-        this.imgUrlIdx === this.artwork.imgURLs.length - 1
-          ? 0
-          : this.imgUrlIdx + 1;
-    }, 7000);
-  },
+  // mounted() {
+  //   setInterval(() => {
+  //     this.imgUrlIdx =
+  //       this.imgUrlIdx === this.artwork.imgURLs.length - 1
+  //         ? 0
+  //         : this.imgUrlIdx + 1;
+  //   }, 7000);
+  // },
   computed: {
     getURL(){
       return  ('/artwork/' + this.artwork._id)

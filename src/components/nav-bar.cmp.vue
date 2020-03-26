@@ -55,7 +55,7 @@ export default {
     this.isLoggedinUser = loggedinUser;
     
     const counterWL = this.$store.getters.WL_Counter;
-    this.countwishlist = counterWL;
+    this.countwishlist = counterWL[0];
 
     const counterCart = this.$store.getters.cartCounter;
     this.countCart = counterCart;
@@ -64,10 +64,10 @@ export default {
         const counterCart = this.$store.getters.cartCounter;
         this.countCart = counterCart;
       })
-      // eventBus.$on('editwishlist', () =>{
-      //   const counterWL = this.$store.getters.WL_Counter;
-      //   this.countwishlist = counterWL;
-      // })
+      eventBus.$on('editwishlist', () =>{
+        const counterWL = this.$store.getters.WL_Counter;
+        this.countwishlist = counterWL[0];
+      })
   },
   methods:{
     signup(){
