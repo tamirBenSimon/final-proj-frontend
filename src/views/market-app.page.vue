@@ -24,7 +24,6 @@ export default {
     return{
             filterBy: {},
             homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
-
     }
   },
   created() {
@@ -34,17 +33,17 @@ export default {
 
     eventBus.$on(EVENT_REMOVE,(artworkId)=>{
       this.removeArtwork(artworkId)});
-
-      eventBus.$on('addWishList', (userId, product) =>{
+      
+      eventBus.$on('addWishlist', (userId, product) =>{
+        console.log('add wishlist eventBus!!!');
         this.$store.dispatch({
-          type: 'addToWishList',
+          type: 'addToWishlist',
           userId: userId, 
           product: product 
         })
-
-        eventBus.$emit('editWishList');
-        // location.reload();
+        console.log('123123', );
       })
+        // eventBus.$emit('editWishlist');
   },
   computed: {
     artworks() {

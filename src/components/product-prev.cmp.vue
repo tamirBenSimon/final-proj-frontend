@@ -2,8 +2,8 @@
   <router-link class="artwork-prev" :to="getURL">
     <div class="artwork-prev-img-container">
       <div class="artwork-prev-wish-list">
-        <img v-if="!isWishList" @click.prevent="onWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
-        <img v-else @click.prevent="onWishList" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
+        <img v-if="!isWishlist" @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
+        <img v-else @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
       </div>
       <img :src="Showartwork" alt="Artwork" />
       <div class="artwork-prev-txt-container">
@@ -38,7 +38,7 @@ export default {
     return {
       imgUrlIdx: 0,
       loggedinUser: null,
-      isWishList: false
+      isWishlist: false
     };
   },
   created(){
@@ -71,11 +71,11 @@ export default {
     remove() {
       eventBus.$emit(EVENT_REMOVE, this.artwork._id);
     },
-    onWishList(){
+    onWishlist(){
       const userId = this.loggedinUser._id;
       const product = this.artwork;
-      eventBus.$emit('addWishList', userId, product);
-      this.isWishList = !this.isWishList;
+      eventBus.$emit('addWishlist', userId, product);
+      this.isWishlist = !this.isWishlist;
     }
   }
 }

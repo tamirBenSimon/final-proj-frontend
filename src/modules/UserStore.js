@@ -1,6 +1,6 @@
 import userService from '../services/UserService.js'
 
-var localLoggedinUser = { _id: '5e7b9d3276d50de800d4f347' };
+var localLoggedinUser = { _id: '5e7c99e676d50de800d4f34a' }; // לשנות לפי המשתמש של האטלס
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {

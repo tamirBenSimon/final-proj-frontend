@@ -1,56 +1,52 @@
-import { wishListService } from '../services/wishList.service.js'
+import { wishlistService } from '../services/wishlist.service.js'
 
 export default {
     state: {
-        wishList: [],
-        // WL_Counter: wishListService.getCounter()
+        wishlist: [],
+        WL_Counter: [0]
     },
     getters: {
-        wishList(state) {
-            return state.wishList;
+        wishlist(state) {
+            console.log('state.wishlist in start:', state.wishlist);
+            return state.wishlist;
         },
         WL_Counter(state) {
             return state.WL_Counter;
         },
     },
     mutations: {
-        setwishList(state, { wishList }) {
-            console.log('wishList123213123: ', wishList);
-            state.wishList = wishList;
-            console.log('state.wishList7777: ', state.wishList);
+        setwishlist(state, { wishlist }) {
+            state.wishlist = wishlist[0].wishlist;
         },
-        removeWishList(state, { userId }) {
-            state.wishList = state.wishList.wishList.filter(cart => cart._id !== userId)
-        },
-        setCounterWL(state, { counterWL }) {
-            state.WL_Counter = counterWL;
+        setCounterWL(state, { currNum }) {
+            let num = state.WL_Counter.pop();
+            num += currNum;
+            state.WL_Counter.push(num);
         },
         removeWishlistProduct(state, { productId }) {
-            console.log('state.wishList: ', state.wishList);
-            const idx = state.wishList.findIndex(currPoduct => currPoduct._id === productId)
-            state.wishList.splice(idx, 1)
-            console.log('state.wishList: ', state.wishList);
+            const idx = state.wishlist.findIndex(currPoduct => currPoduct._id === productId)
+            state.wishlist.splice(idx, 1)
+        },
+        addWishlistProduct(state, { product }) {
+            state.wishlist.push(product)
         }
     },
     actions: {
-        async loadWishList(context, { userId }) {
-            const wishList = await wishListService.getCurrWishList(userId);
-            context.commit({ type: 'setwishList', wishList })
-            return wishList;
+        async loadWishlist(context, { userId }) {
+            const wishlist = await wishlistService.getCurrwishlist(userId);
+            context.commit({ type: 'setwishlist', wishlist })
         },
-        async removewishList(context, { productId, userId }) {
+        async removeFromWishlist(context, { productId, userId }) {
+            await wishlistService.remove(productId, userId);
             context.commit({ type: 'removeWishlistProduct', productId })
-            const currWishlist = context.state;
-            console.log('currWishlist: ', currWishlist);
-            await wishListService.remove(currWishlist, userId);
-            context.commit({ type: 'removeWishList', userId })
-                // const counterWL = await wishListService.getCounter();
-                // context.commit({ type: 'setCounterWL', counterWL })
+            context.commit({ type: 'setCounterWL', currNum: -1 })
         },
-        async addToWishList(context, { userId, product }) {
-            await wishListService.addToCurrWishList(userId, product);
-            // const counterWL = await wishListService.getCounter();
-            // context.commit({ type: 'setCounterWL', counterWL })
+        async addToWishlist(context, { userId, product }) {
+            console.log('userId in store: ', userId);
+            console.log('product in store: ', product);
+            await wishlistService.addToCurrwishlist(userId, product);
+            context.commit({ type: 'addWishlistProduct', product })
+            context.commit({ type: 'setCounterWL', currNum: 1 })
         },
     }
 }

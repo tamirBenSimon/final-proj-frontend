@@ -10,10 +10,9 @@
     </div>
 
     <div class="nav-bar-3buttons">
-        <div class="nav-bar-WishList-container">
-          <img @click="onWishList" src="../../public/img/icons/black-like.png" alt="Wish List" title="Wish List">
-          <div class="nav-bar-num-wish-list" v-if="countWishList">{{countWishList}}</div>
-          <!-- <h4 class="nav-bar-title-Favorite">Favorite</h4> -->
+        <div class="nav-bar-wishlist-container">
+          <img @click="onwishlist" src="../../public/img/icons/black-like.png" alt="Wish List" title="Wish List">
+          <div class="nav-bar-num-wish-list" v-if="countwishlist">{{countwishlist}}</div>
         </div>
 
         <div class="nav-bar-line"></div>
@@ -21,7 +20,6 @@
         <div class="nav-bar-cart-container">
           <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart" title="Cart">
           <div class="nav-bar-num-cart" v-if="countCart">{{countCart}}</div>
-          <!-- <h4 class="nav-bar-title-cart">Cart</h4> -->
         </div>
         
         <div class="nav-bar-line"></div>
@@ -35,8 +33,6 @@
               <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a>
               <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
             </div>
-            <img class="nav-bar-drop-down" src="../../public/img/icons/drop-down.png" alt="Drop-Down">
-            <h4 class="nav-bar-title-You">You</h4>
         </div>    
     </div>
 
@@ -50,7 +46,7 @@ export default {
   data(){
     return{
       countCart: 0,
-      countWishList: 0,
+      countwishlist: 0,
       isLoggedinUser: null
     }
   },
@@ -59,7 +55,7 @@ export default {
     this.isLoggedinUser = loggedinUser;
     
     const counterWL = this.$store.getters.WL_Counter;
-    this.countWishList = counterWL;
+    this.countwishlist = counterWL;
 
     const counterCart = this.$store.getters.cartCounter;
     this.countCart = counterCart;
@@ -68,10 +64,10 @@ export default {
         const counterCart = this.$store.getters.cartCounter;
         this.countCart = counterCart;
       })
-      eventBus.$on('editWishList', () =>{
-        const counterWL = this.$store.getters.WL_Counter;
-        this.countWishList = counterWL;
-      })
+      // eventBus.$on('editwishlist', () =>{
+      //   const counterWL = this.$store.getters.WL_Counter;
+      //   this.countwishlist = counterWL;
+      // })
   },
   methods:{
     signup(){
@@ -83,8 +79,8 @@ export default {
     onLogo(){
       this.$router.push('/');
     },
-    onWishList(){
-      this.$router.push('/wishList');
+    onwishlist(){
+      this.$router.push('/wishlist');
     },
     onLogOut(){
       this.$store.dispatch({

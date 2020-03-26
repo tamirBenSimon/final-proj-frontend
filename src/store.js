@@ -6,7 +6,7 @@ import Vuex from 'vuex';
 import userStore from './modules/UserStore.js';
 import artworkStore from './modules/artworkStore.js';
 import cartStore from './modules/cartStore.js';
-import wishListStore from './modules/wishListStore.js';
+import wishlistStore from './modules/wishlistStore.js';
 import orderStore from './modules/orderStore.js'
 
 Vue.use(Vuex)
@@ -17,7 +17,7 @@ export default new Vuex.Store({
         artworkStore,
         userStore,
         cartStore,
-        wishListStore,
+        wishlistStore,
         orderStore
     },
     state: {
