@@ -29,8 +29,11 @@ export default {
     },
     actions: {
         async loadArtworks(context, { filterBy = null }) {
+            console.log('in store loadArtWorks , ', filterBy)
             const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
+            console.log('artworkssss222 ', artworks)
+
             return artworks;
         },
         async loadArtwork(context, { artworkId }) {
