@@ -1,5 +1,4 @@
 <template>
-
   <section class="market-app-container">
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
@@ -11,7 +10,7 @@
 import tagsSelect from "../components/tags-select.cmp";
 import productList from "../components/product-list.cmp";
 import artworkFilter from "../components/artwork-filter.cmp";
-import {eventBus, EVENT_REMOVE} from '../services/event-bus.service.js'
+import { eventBus, EVENT_REMOVE } from "../services/event-bus.service.js";
 
 export default {
   name: "market-app",
@@ -20,57 +19,58 @@ export default {
     artworkFilter,
     tagsSelect
   },
-  data(){
-    return{
-            filterBy: {},
-            homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
-
-    }
+  data() {
+    return {
+      filterBy: {},
+      homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
+    };
   },
   created() {
     this.$store.dispatch({
       type: "loadArtworks"
     });
 
-    eventBus.$on(EVENT_REMOVE,(artworkId)=>{
-      this.removeArtwork(artworkId)});
+    eventBus.$on(EVENT_REMOVE, artworkId => {
+      this.removeArtwork(artworkId);
+    });
 
-      eventBus.$on('addWishList', (userId, product) =>{
-        this.$store.dispatch({
-          type: 'addToWishList',
-          userId: userId, 
-          product: product 
-        })
+    eventBus.$on("addWishList", (userId, product) => {
+      this.$store.dispatch({
+        type: "addToWishList",
+        userId: userId,
+        product: product
+      });
+    });
 
-        eventBus.$emit('editWishList');
-        // location.reload();
-      })
+
+    eventBus.$emit("editWishList");
+    // location.reload();
   },
   computed: {
     artworks() {
       return this.$store.getters.artworks;
     }
   },
-  methods:{
-        tagClicked(tag) {
-      this.filterBy.tags=tag
+  methods: {
+    tagClicked(tag) {
+      this.filterBy.tags = tag;
       this.$store.dispatch({
         type: "loadArtworks",
-        filterBy: { tags: this.filterBy.tags }
+        filterBy: { tag }
       });
     },
-    removeArtwork (artworkId){
+    removeArtwork(artworkId) {
       this.$store.dispatch({
-      type: "removeArtwork",
-      artworkId
+        type: "removeArtwork",
+        artworkId
       });
     },
-    onFilter(filterBy){
+    onFilter(filterBy) {
       this.$store.dispatch({
-      type: "loadArtworks",
-      filterBy
+        type: "loadArtworks",
+        filterBy
       });
     }
   }
-}
+};
 </script>

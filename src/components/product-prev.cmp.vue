@@ -12,7 +12,7 @@
           <span>{{ artwork.price }}USD</span>
         </div>
         <div class="artwork-prev-created-by">
-        <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imageURL" alt="">
+        <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
         <span class="artwork-prev-createdBy-fullName">
           {{ artwork.createdBy.fullName }}</span>
         </div>

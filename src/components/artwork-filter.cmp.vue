@@ -5,6 +5,7 @@
       <input class="num-input" placeholder="Mac price" type="number" v-model.number="filterBy.maxPrice" />
       <input type="text" placeholder="Search by tags" v-model="filterBy.tags" />
       <input type="text"  v-model="filterBy.creatorName" placeholder="artiist name" />
+      <input type="text"  v-model="filterBy.colorTags" placeholder="colorTag" />
       <button @click.prevent="onFilter">filter</button>
     </div>
 </template>
@@ -17,7 +18,7 @@ export default {
         title: "",
         minPrice: null,
         maxPrice: null,
-        tags: "",
+        tag: "",
         creatorName:null
       }
     };
