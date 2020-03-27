@@ -1,6 +1,17 @@
-.seller-gallery-img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.seller-gallery-container {
+    .seller-gallery-img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    .seller-gallery-chat-seller {
+        position: fixed;
+        bottom: 5px;
+        right: 15px;
+        border: black 2px solid;
+        padding: 10px;
+        background-color: rgb(255, 255, 255);
+        width: 25%;
+    }
 }

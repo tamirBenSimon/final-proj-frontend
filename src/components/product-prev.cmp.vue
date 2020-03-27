@@ -82,6 +82,7 @@ export default {
       eventBus.$emit(EVENT_REMOVE, this.artwork._id);
     },
     onWishlist(){
+      console.log('on wishlist!!!');
       const userId = this.loggedinUser._id;
       const product = this.artwork;
       eventBus.$emit('addWishlist', userId, product);

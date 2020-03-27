@@ -84,9 +84,10 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            padding: 40px 25px;
+            padding: 40px 10px;
             margin-left: 0;
             margin-right: 0%;
+            max-width: fit-content;
             .product-details-seller-main {
                 // background-color: rgb(203, 248, 192);
                 width: 40%;
@@ -112,7 +113,6 @@
                         font-weight: 500;
                     }
                     .product-details-seller-name:hover {
-                        // transform: translateY(-1px);
                         transform: scale(1.2);
                         cursor: pointer;
                     }
@@ -170,7 +170,7 @@
                 text-transform: uppercase;
                 line-height: 16px;
                 letter-spacing: 2px;
-                // border: 2px $clr4 solid;
+                border: 2px $clr4 solid;
                 padding: 10px;
                 width: 270px;
                 margin-bottom: 15px;
@@ -187,7 +187,6 @@
                 text-transform: uppercase;
                 line-height: 16px;
                 letter-spacing: 2px;
-                // border: 2px $clr2 solid;
                 padding: 10px;
                 width: 270px;
                 color: white;

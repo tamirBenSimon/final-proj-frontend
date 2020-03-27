@@ -58,16 +58,19 @@
         // bottom: 0px;
         // color: rgba(255, 255, 255, 0.87);
         background-color: #fff;
-        max-width: 300px;
+        // max-width: 300px;
         // height: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         justify-content: space-between;
+        height: 270px;
         // padding: 10px;
         .artwork-prev-img {
             object-fit: contain;
+            height: 149px;
+            width: auto;
         }
         .artwork-prev-container-flach {
             padding: 10px;

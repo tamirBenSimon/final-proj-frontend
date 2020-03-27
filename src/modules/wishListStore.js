@@ -19,7 +19,7 @@ export default {
             state.wishlist = wishlist[0].wishlist;
         },
         setCounterWL(state, { currNum }) {
-            let num = state.WL_Counter.pop();
+            let num = state.WL_Counter.pull();
             num += currNum;
             state.WL_Counter.push(num);
         },
