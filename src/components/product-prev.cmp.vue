@@ -1,30 +1,36 @@
 <template>
   <router-link class="artwork-prev" :to="getURL">
     <div class="artwork-prev-img-container">
+
       <div class="artwork-prev-wish-list">
         <img v-if="!isWishlist" @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
         <img v-else @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
       </div>
 
       <div class="artwork-prev-txt-container">
-        <img :src="Showartwork" alt="Artwork" />
-        <div class="artwork-prev-container-flach">
-          <div class="artwork-prev-txt-header">
-            <h3>{{ artwork.title }}</h3>
-            <span>{{ artwork.price }}<span class="artwork-prev-USD">USD</span></span>
-          </div>
-          <div class="artwork-prev-created-by">
-          <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
-          <span class="artwork-prev-createdBy-fullName">
-            {{ artwork.createdBy.fullName }}</span>
+
+          <img class="artwork-prev-img" :src="Showartwork" alt="Artwork" />
+
+          <div class="artwork-prev-container-flach">
+            <div class="artwork-prev-txt-header">
+              <h3>{{ artwork.title }}</h3>
+              <span>{{ artwork.price }}<span class="artwork-prev-USD">USD</span></span>
+            </div>
+
+            <div class="artwork-prev-created-by">
+              <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
+              <span class="artwork-prev-createdBy-fullName">
+                {{ artwork.createdBy.fullName }}
+              </span>
+            </div>
+
+            <!-- <span>{{ isInStock }}</span> -->
+            <div class="artwork-prev-controle-pad">
+              <button @click.prevent="remove">remove</button>
+              <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
+            </div>
           </div>
 
-          <!-- <span>{{ isInStock }}</span> -->
-          <div class="artwork-prev-controle-pad">
-            <button @click.prevent="remove">remove</button>
-            <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
-          </div>
-        </div>
       </div>
 
     </div>

@@ -1,7 +1,7 @@
 <template>
   <header class="home-main-header2">
     <!-- <img src="../../public/img/gallery/gallery2.jpg" alt="homepic"> -->
-    <video height="90%" width="100%" autoplay loop>
+    <video width="100%" autoplay loop>
       <source
         :src="require('../../public/video/homepage2.1.mp4')"
         type="video/mp4"
@@ -35,3 +35,8 @@ export default {
   methods: {}
 };
 </script>
+<style scoped>
+video{
+  height: 102vh;
+}
+</style>
