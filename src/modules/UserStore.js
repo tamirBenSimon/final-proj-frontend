@@ -1,6 +1,6 @@
 import userService from '../services/UserService.js'
 
-var localLoggedinUser = { _id: '5e7c99e676d50de800d4f34a', fullName: 'Yosske McYossinson', imgURL:'https://www.placecage.com/c/200/300' }; // לשנות לפי המשתמש של האטלס
+var localLoggedinUser = { _id: '5e7a1a16988a6fe1b32ae3c6', fullName: 'Ariel Zissu', imgURL: 'https://www.placecage.com/c/200/300' };
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
@@ -29,7 +29,6 @@ export default {
         },
         setUsers(state, { users }) {
             state.users = users;
-            console.log('state.usersss: ', state.users);
         },
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id !== userId)
@@ -57,7 +56,7 @@ export default {
                 // context.commit({ type: 'setUser', user: null })
         },
         async loadUsers(context) {
-            console.log('inside store!!!');
+            // console.log('inside store!!!');
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;

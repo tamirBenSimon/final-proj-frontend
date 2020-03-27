@@ -29,7 +29,7 @@ export default {
 
 async function ajax(endpoint, method = 'GET', data = null) {
     try {
-        console.log(`--HTTPSERVICE: ${method} --ENDPOINT: ${endpoint} --DATA: ${data} `)
+        // console.log(`--HTTPSERVICE: ${method} --ENDPOINT: ${endpoint} --DATA: ${data} `)
         const res = await axios({
             url: `${BASE_URL}${endpoint}`,
             method,

@@ -30,7 +30,6 @@ export default {
     actions: {
         async loadArtworks(context, { filterBy = null }) {
             const artworks = await artworkService.query(filterBy);
-            console.log('artworkssss222 ', artworks)
             context.commit({ type: 'setArtworks', artworks })
             return artworks;
         },
@@ -50,8 +49,3 @@ export default {
         }
     }
 }
-
-
-
-
-

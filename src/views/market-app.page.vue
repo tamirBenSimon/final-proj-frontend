@@ -40,7 +40,7 @@ export default {
           product: product 
         })
       })
-        eventBus.$emit('editWishlist');
+        // eventBus.$emit('editWishlist');
   },
   computed: {
     artworks() {

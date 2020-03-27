@@ -57,8 +57,8 @@ function _createUser(user) {
 function query(filterBy = null) {
     // return Promise.resolve(gUsers);
 
-    var queryParams  = new URLSearchParams()
-    for(let key in filterBy){
+    var queryParams = new URLSearchParams()
+    for (let key in filterBy) {
         if (filterBy[key]) queryParams.set(`${key}`, filterBy[key])
         const users = httpService.get(`user/?${queryParams}`);
         return Promise.resolve(users)
@@ -144,7 +144,7 @@ async function login(userCred) {
 // }
 
 async function signup(userCred) {
-    console.log('userCred: ', userCred);
+    // console.log('userCred: ', userCred);
     _handleLogin(userCred)
     return userCred;
 }
@@ -153,7 +153,7 @@ function logout() {
     // async function logout() {
     // await HttpService.post('auth/logout');
     sessionStorage.clear();
-    console.log('clear!!!');
+    // console.log('clear!!!');
 }
 
 function _handleLogin(user) {

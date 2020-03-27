@@ -18,7 +18,7 @@
 </template>   
 
 <script>
-import {eventBus} from '../services/event-bus.service.js'
+// import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'wish-list-cmp',
@@ -35,8 +35,8 @@ export default {
       userId: this.loggedinUser._id
     })
     .then(() =>{
-    this.wishlist = this.$store.getters.wishlist;
-      })
+       this.wishlist = this.$store.getters.wishlist;
+    })
   },
   methods:{
       onRemove(product){
@@ -45,7 +45,7 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      eventBus.$emit('editWishlist');
+      // eventBus.$emit('editWishlist');
     }
   }
 }

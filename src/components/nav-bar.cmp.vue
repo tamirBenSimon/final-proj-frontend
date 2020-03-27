@@ -12,7 +12,7 @@
     <div class="nav-bar-3buttons">
         <div class="nav-bar-wishlist-container">
           <img @click="onwishlist" src="../../public/img/icons/black-like.png" alt="Wish List" title="Wish List">
-          <div class="nav-bar-num-wish-list" v-if="countwishlist">{{countwishlist}}</div>
+          <div class="nav-bar-num-wish-list" v-if="WL_count">{{WL_count}}</div>
         </div>
 
         <div class="nav-bar-line"></div>
@@ -54,8 +54,8 @@ export default {
     const loggedinUser = this.$store.getters.loggedinUser;
     this.isLoggedinUser = loggedinUser;
     
-    const counterWL = this.$store.getters.WL_Counter;
-    this.countwishlist = counterWL[0];
+    // const counterWL = this.$store.getters.WL_Counter;
+    // this.countwishlist = counterWL[0];
 
     const counterCart = this.$store.getters.cartCounter;
     this.countCart = counterCart;
@@ -64,10 +64,15 @@ export default {
         const counterCart = this.$store.getters.cartCounter;
         this.countCart = counterCart;
       })
-      eventBus.$on('editWishlist', () =>{
-        const counterWL = this.$store.getters.WL_Counter;
-        this.countwishlist = counterWL[0];
-      })
+      // eventBus.$on('editWishlist', () =>{
+      //   const counterWL = this.$store.getters.WL_Counter;
+      //   this.countwishlist = counterWL[0];
+      // })
+  },
+  computed:{
+    WL_count(){
+      return this.$store.getters.WL_Counter;
+    }
   },
   methods:{
     signup(){

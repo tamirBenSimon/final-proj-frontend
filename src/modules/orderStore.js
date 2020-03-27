@@ -1,10 +1,8 @@
 import { orderService } from "../services/order.service"
 
-
 export default {
     state: {
         orders: []
-
     },
     getters: {
         orders(state) {
@@ -12,10 +10,9 @@ export default {
         }
     },
     mutations: {
-        setOrders(state, {orders}) {
+        setOrders(state, { orders }) {
             state.orders = orders;
         }
-
     },
     actions: {
         async loadAllOrders(context) {
@@ -23,9 +20,8 @@ export default {
             context.commit({ type: 'setAllOrders', orders })
             return Promise.resolve(orders);
         },
-        async loadSellerOrders(context, {sellerId}) {
-            console.log('payload in loadsellers:', sellerId)
-            const orders = await orderService.query({sellerId});
+        async loadSellerOrders(context, { sellerId }) {
+            const orders = await orderService.query({ sellerId });
             context.commit({ type: 'setOrders', orders })
             return orders;
         },
@@ -34,6 +30,5 @@ export default {
             context.commit({ type: 'setOrders', addedOrders })
             return addedOrders;
         }
- 
     }
 }
