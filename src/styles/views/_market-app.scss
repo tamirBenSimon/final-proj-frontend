@@ -1,6 +1,40 @@
-.market-app-container {
-    min-height: rem(655px);
-    max-width: 80%;
-    margin: 0 auto;
-    margin-top: 110px;
-}
+            .market-app-container {
+                min-height: rem(655px);
+                margin: 0 auto;
+                margin-top: 110px;
+            }
+            
+            .artwork-list-market-app {
+                padding: 5px;
+            }
+            
+            .artwork-list-market-app .artwork-list-artwork-prevs-container {
+                // padding: 5px;
+                display: inline-block;
+                column-count: 2;
+                column-gap: 10px;
+                column-width: 100%;
+                // background-color: rgb(213, 214, 127);
+            }
+            
+            .artwork-list-market-app .artwork-list-prev {
+                display: inline-block;
+                width: 100%;
+                // background-color: rgb(185, 66, 66);
+                padding: 3px;
+                box-shadow: 0 0 2px grey;
+            }
+            
+            // .artwork-list-market-app .artwork-prev-txt-container {
+            //     height: unset;
+            //     .artwork-prev-img {
+            //         height: 60%;
+            //         width: unset;
+            //     }
+            // }
+            // // height: 270px;
+            // .artwork-prev-img {
+            //     object-fit: contain;
+            //     // height: 149px;
+            //     // width: auto;
+            //     height: 60%;

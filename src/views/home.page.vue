@@ -1,16 +1,19 @@
 <template>
   <section class="home-main-layout">
     <!-- <homeHeaderToApp></homeHeaderToApp> -->
-    <headerVid> </headerVid>
-    <product-list
+    <headerVid class="home-main-video"> </headerVid>
+    <product-list class="artwork-list-home-container"
       v-for="tag in homeTags"
       :artworks="getArtWorksByTag(tag)"
       :key="tag">
       <h3 class="artwork-list-title">Start Exploring<span class="span"> {{ tag }}</span></h3>
+      <div class="artwork-list-more-main">
+        <h3 class="artwork-list-more-btn btn">More...</h3>
+      </div>
     </product-list>
-    <div class="hero-comuunity">
+    <!-- <div class="hero-comuunity">
       <h1 class="home-hero">hero</h1>
-    </div>
+    </div> -->
   </section>
 </template>
 

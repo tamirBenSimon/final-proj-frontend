@@ -2,19 +2,11 @@
     width: 80%;
     margin: 0 auto;
     .artwork-list-artwork-prevs-container {
-        // display: grid;
-        // grid-auto-flow: dense;
-        // grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        // // grid-auto-rows: rem(240px);
-        // gap: rem(30px);
-        // padding: rem(10px) rem(20px);
         display: flex;
-        background-color: $clr5;
-        // flex-wrap: wrap;
-        // column-count: 3;
+        // background-color: $clr5;
     }
     .artwork-list-artwork-prevs-container>* {
-        margin: 20px;
+        margin: 5px;
     }
     .artwork-list-more-main {
         text-align: right;
@@ -22,6 +14,7 @@
             display: inline-block;
             font-size: 30px;
             text-decoration-line: underline;
+            margin: 0;
         }
         .artwork-list-more-btn:hover {
             color: skyblue;

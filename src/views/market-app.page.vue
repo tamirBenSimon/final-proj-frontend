@@ -2,7 +2,7 @@
   <section class="market-app-container">
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
-    <product-list :artworks="artworks" />
+    <product-list class="artwork-list-market-app" :artworks="artworks" />
   </section>
 </template>
 
