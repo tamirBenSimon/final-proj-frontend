@@ -24,9 +24,10 @@ export default {
             return Promise.resolve(orders);
         },
         async loadSellerOrders(context, {sellerId}) {
-            const orders = await orderService.query(sellerId);
+            console.log('payload in loadsellers:', sellerId)
+            const orders = await orderService.query({sellerId});
             context.commit({ type: 'setOrders', orders })
-            return Promise.resolve(orders);
+            return orders;
         },
         async addOrder(context, { order }) {
             let addedOrders = await orderService.add(order);
