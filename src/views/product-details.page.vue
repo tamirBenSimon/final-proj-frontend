@@ -6,19 +6,22 @@
         
         <div class='product-details-preview-artwork'>
           <img class='product-details-img-artwork' :src='artwork.imgURLs[0]' alt='artwork'>
-          <h4>{{artwork.title}}</h4>
+          <h4 class='product-details-img-title'>{{artwork.title}}</h4>
           <h4>{{artwork.desc}}</h4>
         </div>
 
+        <hr class="product-details-hr">
         <div class='product-details-container-reviews'>
           <h2>Reviews:</h2>
           <ul class="product-details-reviews-list">
             <li class="product-details-review-prev" v-for='(review, index) in artwork.reviews' :key='index'>
               <div class="product-details-review-main-header">
                 <img class="product-details-img-reviewer" :src='review.by.imgURL' alt='reviewer'>
-                <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
+                <div class="product-details-img-rev-inside">
+                  <h3 class="product-details-review-fullName">{{review.by.fullName}}</h3>
+                  <h5 class="product-details-review-rate">{{currRate(review.rate)}}</h5>
+                </div>
               </div>
-              <h5 class="product-details-review-rate">{{currRate(review.rate)}}</h5>
               <h4 class="product-details-review-txt">{{review.Txt}}</h4>
             </li>
           </ul>
