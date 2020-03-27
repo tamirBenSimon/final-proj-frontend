@@ -28,7 +28,8 @@ export default {
   name: "home-page",
   created() {
     this.$store.dispatch({
-      type: "loadArtworks"
+      type: "loadArtworks",
+      filterBy: {limit: 10}
     });
 
   },
@@ -38,7 +39,7 @@ export default {
       let tagSortedArtworks = artworks.filter(artwork => {
         return artwork.tags.includes(tag);
       });
-      return tagSortedArtworks.slice(0, 4);
+      return tagSortedArtworks.slice(0, 3);
     },
   },
   computed: {
