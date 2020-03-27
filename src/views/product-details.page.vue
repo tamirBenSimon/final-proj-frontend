@@ -30,7 +30,7 @@
       <div class="product-details-aside-container">
         <div class="product-details-seller-main flex-center">
           <router-link :to="'/sellerGallery/'+artwork.createdBy._id">
-            <img class="product-details-img-seller" :src="artwork.createdBy.imageURL" alt="Seller Picture">
+            <img class="product-details-img-seller" :src="artwork.createdBy.imgURL" alt="Seller Picture">
           </router-link>
           <span class="product-details-span">|</span>
           <div class="product-details-seller-main2 flex-center">
