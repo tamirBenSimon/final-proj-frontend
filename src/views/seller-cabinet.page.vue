@@ -5,14 +5,18 @@
     <h4>{{user.fullName}}</h4>
     <h4>Artist's bio: {{user.bio}}</h4>
     <hr>
+    
       <h2>your orders,sir: </h2>
       <ul>
-        <li v-for="order in orders" :key="order.id"><pre>{{order}}</pre></li>
+        <!-- <li v-for="order in orders" :key="order.id"><pre>{{order}}</pre></li> -->
+        <order-list v-for="order in orders" :orders="orders" :key="order.id"></order-list>
       </ul>
   </section>
 </template>
 
 <script>
+// import {eventBus} from '../services/event-bus.service.js'
+import orderList from "../components/order-list.cmp";
 export default {
   name:'seller-cabinet',
   created() {
@@ -31,8 +35,9 @@ export default {
     user() {
       return this.$store.getters.selectedUser;
     }
+  },
+  components:{
+    orderList,
   }
-
-  
 }
 </script>
