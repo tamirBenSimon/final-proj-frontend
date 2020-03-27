@@ -31,6 +31,7 @@ export default {
         async loadArtworks(context, { filterBy = null }) {
             const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
+            console.log('artworkssss222 ', artworks)
             return artworks;
         },
         async loadArtwork(context, { artworkId }) {
@@ -49,3 +50,8 @@ export default {
         }
     }
 }
+
+
+
+
+

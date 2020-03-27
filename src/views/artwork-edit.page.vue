@@ -86,6 +86,16 @@
         >
           {{ stockBtnMsg }}
         </button>
+        <label> Upload your image to cloudinary!
+        <input @change="uploadImg" type="file">
+        
+    </label> 
+        <!-- <cld-image
+          cloudName="demo"
+          publicId="sample"
+          width="600"
+          crop="scale" 
+        />  -->
 
         <input
           class="url-input"
@@ -104,8 +114,11 @@
 <script>
 // import { eventBus } from "../services/event-bus.service.js";
 import VuePictureSwipe from "vue-picture-swipe";
+// import { CldImage } from "cloudinary-vue";
 // import { VueFlux, Transitions } from "vue-flux";
 // import "vue-flux/dist-ssr/_vue-flux.css";
+//more to import from cloudinary: CldContext, CldVideo,CldTransformation,CldPoster
+import {cloudinaryService} from "../services/cloudinary.service.js"
 
 export default {
   name: "artwork-edit",
@@ -123,12 +136,12 @@ export default {
       NewImgURL: "",
       artwork: null,
       loggedinUser: null,
-      items:[]
-
+      items: []
     };
   },
   components: {
-    VuePictureSwipe
+    VuePictureSwipe,
+    // CldImage
     // 'vue-flux': VueFlux
   },
   created() {
@@ -142,10 +155,9 @@ export default {
         })
         .then(artwork => {
           this.artwork = JSON.parse(JSON.stringify(artwork));
-    this.imageList(artwork.imgURLs);
+          this.imageList(artwork.imgURLs);
         });
     }
-
   },
   computed: {
     stockBtnMsg() {
@@ -160,21 +172,30 @@ export default {
     }
   },
   methods: {
+    async  uploadImg(event){
+      console.log(event.target.files[0])
+      const fileObject= await (cloudinaryService.uploadImg(event))
+      const newImgURL=fileObject.url
+      this.artwork.imgURLs.push(newImgURL)
+      console.log(" now i am url like thissssss: " , this.artwork.imgURLs)
+      this.onSave()
+
+
+    },
     imageList(imgURLs) {
-      let items = imgURLs.map(imgURL=> {
-        console.log(imgURL)
+      let items = imgURLs.map(imgURL => {
+        console.log(imgURL);
         return {
           src: imgURL,
           thumbnail: imgURL,
           alt: imgURL,
           w: 600,
-          h: 400,
+          h: 400
           // style: {'object-fit': 'contain'}
         };
-      
       });
 
-      return this.items=items;
+      return (this.items = items);
     },
 
     onSave() {
@@ -190,7 +211,7 @@ export default {
     onRemove() {
       this.artwork.imgURLs.splice([this.currImgIdx], 1);
       this.currImgIdx = 0;
-      this.onSave()
+      this.onSave();
     },
     onGalleryIMGClick(idx) {
       this.currImgIdx = idx;
