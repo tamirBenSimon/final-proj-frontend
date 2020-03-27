@@ -30,6 +30,7 @@ export default {
   },
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
+    console.log('inside wishlist page created.',this.loggedinUser)
     this.$store.dispatch({
       type: "loadWishlist",
       userId: this.loggedinUser._id

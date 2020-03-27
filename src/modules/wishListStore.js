@@ -35,6 +35,7 @@ export default {
     actions: {
         async loadWishlist(context, { userId }) {
             const wishlist = await wishlistService.getCurrwishlist(userId);
+            console.log('inside wishlist store, printing "wishlist":', wishlist)
             context.commit({ type: 'setwishlist', wishlist })
         },
         async removeFromWishlist(context, { productId, userId }) {
