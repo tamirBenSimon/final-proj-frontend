@@ -1,26 +1,30 @@
 <template>
   <section class="seller-gallery-container">
     <h2>Meet the artist:</h2>
-    <!-- <pre>{{ user }}</pre> -->
     <img class="seller-gallery-img" :src="user.imgUrl">
     <h4>{{user.fullName}}</h4>
     <h5>A member since: {{yearJoined}}</h5>
     <h4>Artist's bio: {{user.bio}}</h4>
+    <button @click="onIsMsg">Chat With Seller</button>
     <product-list :artworks="artworks" />
+    <chat-seller v-if="isMsg" @close="onIsMsg" class="seller-gallery-chat-seller" />
   </section>
 </template>
 
 <script>
 import productList from "../components/product-list.cmp";
+import chatSeller from "../components/chat-seller.cmp";
 
 export default {
   name: "gallery-container",
   components: {
-    productList
+    productList,
+    chatSeller
   },
   data() {
     return {
-      selectedUser: null
+      selectedUser: null,
+      isMsg: false
     }
   },
 created() {
@@ -39,10 +43,16 @@ created() {
       return date.getFullYear();
     },
     artworks() {
+      console.log('this.$store.getters.artworks',this.$store.getters.artworks);
       return this.$store.getters.artworks;
     },
     user() {
       return this.$store.getters.selectedUser;
+    }
+  },
+  methods:{
+    onIsMsg(){
+      this.isMsg = !this.isMsg;
     }
   }
 };

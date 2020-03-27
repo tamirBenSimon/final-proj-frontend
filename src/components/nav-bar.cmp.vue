@@ -64,7 +64,7 @@ export default {
         const counterCart = this.$store.getters.cartCounter;
         this.countCart = counterCart;
       })
-      eventBus.$on('editwishlist', () =>{
+      eventBus.$on('editWishlist', () =>{
         const counterWL = this.$store.getters.WL_Counter;
         this.countwishlist = counterWL[0];
       })
