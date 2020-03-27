@@ -2,7 +2,7 @@
   <div class="navbar-container">
 
     <div class="navbar-container-main">
-        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/proj_logo.png" alt="Logo" title="Home Page"> 
+        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Home Page"> 
         <div class="nav-bar-input">
             <input class="navbar-input-inside" type="text" placeholder="Search">
             <img class="nav-bar-search-img" src="../../public/img/icons/search.png" alt="Search">   
@@ -64,7 +64,7 @@ export default {
         const counterCart = this.$store.getters.cartCounter;
         this.countCart = counterCart;
       })
-      eventBus.$on('editwishlist', () =>{
+      eventBus.$on('editWishlist', () =>{
         const counterWL = this.$store.getters.WL_Counter;
         this.countwishlist = counterWL[0];
       })
