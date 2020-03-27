@@ -1,7 +1,6 @@
 <template>
   <section class="admin-page-container">
     <img @click="onBack" class="amin-page-img-back" src="../../public/img/icons/left-arrow.png" alt="back">
-    <h1>Admin Page:</h1>
     <user-list :users="users" />
   </section>
 </template>

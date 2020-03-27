@@ -17,11 +17,17 @@
                 padding-top: 80px;
                 margin-bottom: 90px;
                 .product-details-img-artwork {
-                    // width: 21.75rem;
                     width: 95%;
-                    height: 400px;
+                    // height: 400px;
                     object-position: left;
                     object-fit: contain;
+                    border-image-repeat: stretch stretch;
+                    border-width: 12px;
+                    border-image-slice: 40;
+                    border-style: solid;
+                    background: transparent;
+                    // border-image: url('../../public/img/frames/frame77.png') 7% round;
+                    padding: 0;
                 }
                 .product-details-img-title {
                     font-weight: 600;
@@ -252,4 +258,24 @@
             }
         }
     }
+}
+
+.frame1 {
+    border-image: url('../../public/img/frames/frame33.png') 7% round;
+}
+
+.frame2 {
+    border-image: url('../../public/img/frames/frame44.png') 7% round;
+}
+
+.frame3 {
+    border-image: url('../../public/img/frames/frame55.png') 7% round;
+}
+
+.frame4 {
+    border-image: url('../../public/img/frames/frame66.png') 7% round;
+}
+
+.frame5 {
+    border-image: url('../../public/img/frames/frame66.png') 7% round;
 }

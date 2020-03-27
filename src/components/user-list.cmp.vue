@@ -1,6 +1,7 @@
 <template>
-  <section>
-    <h2>list:</h2>
+  <section class="flex-center">
+    <h2>Admin Page:</h2>
+    <h3>Users in system:</h3>
     <table>
       
         <thead>
@@ -8,7 +9,6 @@
             <th> </th>
             <th>Full Name</th>
             <th>User Name</th>
-            <th>Bio</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -39,6 +39,20 @@ table, th, td {
   border: 1px solid grey;
   padding: 5px;
   border-collapse: collapse;
+}
+section{
+  flex-direction: column; 
+}
+h2{
+  margin-top: 60px;
+  text-decoration-line: underline;
+  font-weight: 600;
+  font-size: 18px;
+}
+h3{
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 </style>

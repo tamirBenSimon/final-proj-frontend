@@ -27,16 +27,11 @@
         top: 2px;
         height: rem(30px);
         width: rem(30px);
-        // background-color: #fff;
-        // padding: 2px;
-        // background: rgb(72, 72, 70);
-        // background: linear-gradient(0deg, rgba(72, 72, 70, 0.7312675070028012) 1%, rgba(111, 110, 109, 0.7088585434173669) 22%, rgba(134, 134, 134, 0.4819677871148459) 56%, rgba(133, 132, 131, 0.27972694204634974) 100%);
         transition: all 0.3s;
     }
     & .artwork-prev-wish-list:hover {
         transform: scale(1.2);
-        background: rgb(72, 72, 70);
-        background: linear-gradient(0deg, rgba(72, 72, 70, 0.7312675070028012) 1%, rgba(111, 110, 109, 0.7088585434173669) 22%, rgba(134, 134, 134, 0.4819677871148459) 56%, rgba(133, 132, 131, 0.27972694204634974) 100%);
+        background-color: rgba(248, 76, 76, 0.384);
         border-radius: 50%;
         padding: 7px;
     }
@@ -56,6 +51,10 @@
             // height: 149px;
             // width: auto;
             width: 60%;
+            // border: black 2px solid;
+            // padding: 1px 4px;
+            border: black 5px solid;
+            padding: 0px 3px;
         }
         .artwork-prev-container-flach {
             width: 100%;
