@@ -5,7 +5,7 @@
       <div class='product-details-left-side-container'>
         
         <div class='product-details-preview-artwork'>
-          <img class='product-details-img-artwork' :src='artwork.imgURLs[0]' alt='artwork'>
+          <img class='product-details-img-artwork' :class="frame" :src='artwork.imgURLs[0]' alt='artwork'>
           <h4 class='product-details-img-title'>{{artwork.title}}</h4>
           <h4>{{artwork.desc}}</h4>
         </div>
@@ -52,6 +52,9 @@
 
         <div class="product-details-buy-btn btn flex-center" @click='onBuy'>Buy Now</div>
         <div class="product-details-add-btn btn flex-center" @click='onCart' >Add To Cart</div>
+        <button @click="onChangeFrame(1)">frame 1</button>
+        <button @click="onChangeFrame(2)">frame 2</button>
+        <button @click="onChangeFrame(3)">frame 3</button>
 
         <div class="product-details-policy-main">
           <hr/>
@@ -87,7 +90,6 @@
           </div>
        </div>
       </div>
-
     </div>
   </section>
 </template>
@@ -100,7 +102,8 @@ export default {
   data(){
     return{
       artwork: null,
-      loggedinUser: null
+      loggedinUser: null,
+      currFrame: 'frame2'
     }
   },
   mounted(){
@@ -116,7 +119,15 @@ export default {
                 })
         }
   },
+  computed:{
+    frame(){
+      return this.currFrame
+    }
+  },
   methods:{
+    onChangeFrame(frameIdx){
+      this.currFrame = 'frame'+ frameIdx
+    },
     onBack(){
       this.$router.push('/artwork');
     },
