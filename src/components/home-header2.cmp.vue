@@ -1,6 +1,5 @@
 <template>
   <header class="home-main-header2">
-    <!-- <img src="../../public/img/gallery/gallery2.jpg" alt="homepic"> -->
     <video width="100%" autoplay loop>
       <source
         :src="require('../../public/video/homepage2.1.mp4')"
@@ -16,8 +15,7 @@
         <h2>gallerior. make <span class="whiter">creativity</span>  count.</h2>
         <button>
           <router-link to="/artwork"> 
-
-          Begin exploring now...
+              Begin exploring now...
           </router-link>
         </button>
       </div>
@@ -28,11 +26,6 @@
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  created() {},
-  methods: {}
 };
 </script>
 <style scoped>

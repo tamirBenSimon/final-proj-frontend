@@ -1,8 +1,8 @@
-export  const cloudinaryService= {
+export const cloudinaryService = {
     uploadImg
 }
 
-    function uploadImg(ev) {
+function uploadImg(ev) {
     console.log('in CLOUDINARY serviceee')
     const CLOUD_NAME = "dsamb9nef"
     const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
@@ -12,15 +12,12 @@ export  const cloudinaryService= {
     formData.append('upload_preset', 'oe93i5sr');
 
     return fetch(UPLOAD_URL, {
-        method: 'POST',
-        body: formData
-    })
+            method: 'POST',
+            body: formData
+        })
         .then(res => res.json())
         .then(res => {
             console.log(res)
             return res
         })
-    // .catch(err => console.error(error))
 }
-
-

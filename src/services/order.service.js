@@ -3,11 +3,8 @@ import httpService from './HttpService.js'
 
 export const orderService = {
     query,
-    // getUsers,
-    // getById,
     remove,
     add,
-    // update
 }
 
 const KEY = 'ordersDB';
@@ -105,12 +102,7 @@ function query(filterBy = null) {
 
     return Promise.resolve(artworks)
 }
-// function query(sellerId) {
-//     if (!sellerId) return gOrders;
-//     console.log('seller id in service: ',sellerId);
-//     const sellerOrders = gOrders.filter(order => order.from._id === sellerId)
-//     return sellerOrders
-// }
+
 
 function remove(orderId) {
     const idx = gOrders.findIdx(order => order._id !== orderId)
@@ -124,16 +116,3 @@ function add(order) {
 
     return httpService.post(`order/`, order)
 }
-
-// function save(order) {
-//     if (!order._id) {
-//         order._id = utilService.makeId();
-//         gOrders.push(order)
-//     } 
-//     else {
-//         const idx = gOrders.findIdx(currOrder => currOrder._id !== order._id)
-//         gOrders.splice(idx,1,order)
-//     }
-//     storageService.store(KEY,gOrders)
-//     return gOrders
-// }

@@ -16,9 +16,6 @@ export default {
   props: {
     genres: Array
   },
-  data() {
-    return {};
-  },
   methods: {
     emitFilter(radyKey){
       this.$emit("onFilter", radyKey);

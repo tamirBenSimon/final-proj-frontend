@@ -1,4 +1,3 @@
-
 import httpService from './HttpService.js'
 
 function query(filterBy = null) {
@@ -10,11 +9,9 @@ function query(filterBy = null) {
     return Promise.resolve(artworks)
 }
 
-
 async function getById(artworkId) {
-        return httpService.get(`artwork/${artworkId}`)
+    return httpService.get(`artwork/${artworkId}`)
 }
-
 
 function saveArtwork(artwork) {
     if (artwork._id) return _updateArtwork(artwork)
@@ -31,11 +28,9 @@ function _updateArtwork(artwork) {
 
 }
 
-
 function removeArtwork(artworkId) {
     return httpService.delete(`artwork/${artworkId}`)
 }
-
 
 function getEmptyArtwork() {
     var emptyartwork = {
@@ -52,21 +47,7 @@ function getEmptyArtwork() {
     return emptyartwork;
 }
 
-// function getNextPrevartworkIds(artworkId) {
-//     const idx = gArtworks.findIndex(artwork => artwork.id === artworkId)
 
-//     var nextIdx = idx + 1;
-//     if (nextIdx === gArtworks.length) nextIdx = 0;
-//     var prevIdx = idx - 1;
-//     if (prevIdx < 0) prevIdx = gArtworks.length - 1;
-
-//     return {
-//         prevId: gArtworks[prevIdx].id,
-//         nextId: gArtworks[nextIdx].id,
-//     }
-// }
-
-// CRUDL - Create, Read, Update, Delete, List
 export const artworkService = {
     query,
     getById,

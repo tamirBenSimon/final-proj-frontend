@@ -16,13 +16,10 @@ export default {
   props: {
     tags: Array
   },
-  data() {
-    return {};
-  },
   methods: {
     onTagClicked(tag) {
       this.$emit("tagClicked", tag);
     }
   }
-};
+}
 </script>

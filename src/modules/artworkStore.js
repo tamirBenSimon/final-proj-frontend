@@ -29,7 +29,6 @@ export default {
     },
     actions: {
         async loadArtworks(context, { filterBy = null }) {
-            console.log(filterBy)
             const artworks = await artworkService.query(filterBy);
             context.commit({ type: 'setArtworks', artworks })
             return artworks;
