@@ -34,6 +34,7 @@ export default {
       this.removeArtwork(artworkId)});
       
       eventBus.$on('addWishlist', (userId, product) =>{
+        console.log('i was dispatched from market app!')
         this.$store.dispatch({
           type: 'addToWishlist',
           userId: userId, 
@@ -41,6 +42,9 @@ export default {
         })
       })
         // eventBus.$emit('editWishlist');
+  },
+  beforeDestroy(){
+    eventBus.$off()
   },
   computed: {
     artworks() {
