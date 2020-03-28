@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {eventBus} from '../services/event-bus.service.js'
+// import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'cart-cmp',
@@ -53,7 +53,7 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      eventBus.$emit('editCart');
+      // eventBus.$emit('editCart');
       // location.reload();
     },
     placeOrders() {

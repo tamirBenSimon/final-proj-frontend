@@ -12,14 +12,14 @@
     <div class="nav-bar-3buttons">
         <div class="nav-bar-wishlist-container">
           <img @click="onwishlist" src="../../public/img/icons/black-like.png" alt="Wish List" title="Wish List">
-          <div class="nav-bar-num-wish-list" v-if="WL_count">{{WL_count}}</div>
+          <div class="nav-bar-num-wish-list flex-center" v-if="WL_count">{{WL_count}}</div>
         </div>
 
         <div class="nav-bar-line"></div>
 
         <div class="nav-bar-cart-container">
           <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart" title="Cart">
-          <div class="nav-bar-num-cart" v-if="countCart">{{countCart}}</div>
+          <div class="nav-bar-num-cart flex-center" v-if="cart_count">{{cart_count}}</div>
         </div>
         
         <div class="nav-bar-line"></div>
@@ -40,38 +40,23 @@
 </template>
 
 <script>
-import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   data(){
     return{
-      countCart: 0,
-      countwishlist: 0,
       isLoggedinUser: null
     }
   },
   created(){
     const loggedinUser = this.$store.getters.loggedinUser;
     this.isLoggedinUser = loggedinUser;
-    
-    // const counterWL = this.$store.getters.WL_Counter;
-    // this.countwishlist = counterWL[0];
-
-    const counterCart = this.$store.getters.cartCounter;
-    this.countCart = counterCart;
-    
-      eventBus.$on('editCart', () =>{
-        const counterCart = this.$store.getters.cartCounter;
-        this.countCart = counterCart;
-      })
-      // eventBus.$on('editWishlist', () =>{
-      //   const counterWL = this.$store.getters.WL_Counter;
-      //   this.countwishlist = counterWL[0];
-      // })
   },
   computed:{
     WL_count(){
       return this.$store.getters.WL_Counter;
+    },
+    cart_count(){
+      return this.$store.getters.cartCounter;
     }
   },
   methods:{
