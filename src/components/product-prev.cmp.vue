@@ -16,14 +16,14 @@
               <h3>{{ artwork.title }}</h3>
               <span>{{ artwork.price }}<span class="artwork-prev-USD">USD</span></span>
             </div>
-
-            <div class="artwork-prev-created-by">
-              <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
-              <span class="artwork-prev-createdBy-fullName">
-                {{ artwork.createdBy.fullName }}
-              </span>
-            </div>
-
+            <router-link :to="'/sellerGallery/'+artwork.createdBy._id">
+              <div class="artwork-prev-created-by">
+                <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt="">
+                <span class="artwork-prev-createdBy-fullName">
+                  {{ artwork.createdBy.fullName }}
+                </span>
+              </div>
+            </router-link>
             <!-- <span>{{ isInStock }}</span> -->
             <div class="artwork-prev-controle-pad">
               <button @click.prevent="remove">remove</button>
