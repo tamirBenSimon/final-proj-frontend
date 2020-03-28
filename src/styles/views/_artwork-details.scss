@@ -16,19 +16,36 @@
                 min-height: 600px;
                 padding-top: 80px;
                 margin-bottom: 90px;
-                .product-details-img-artwork {
-                    width: 95%;
-                    // height: 400px;
-                    object-position: left;
-                    object-fit: contain;
-                    border-image-repeat: stretch stretch;
-                    border-width: 12px;
-                    border-image-slice: 40;
-                    border-style: solid;
-                    background: transparent;
-                    // border-image: url('../../public/img/frames/frame77.png') 7% round;
-                    padding: 0;
-                    max-width: 50%;
+                .product-details-img-main {
+                    position: relative;
+                    .product-details-img-artwork {
+                        width: 95%;
+                        // height: 400px;
+                        object-position: left;
+                        object-fit: contain;
+                        border-image-repeat: stretch stretch;
+                        border-width: 12px;
+                        border-image-slice: 40;
+                        border-style: solid;
+                        background: transparent;
+                        // border-image: url('../../public/img/frames/frame77.png') 7% round;
+                        padding: 0;
+                        max-width: 50%;
+                    }
+                    .product-details-img-enlarge {
+                        position: absolute;
+                        top: -33px;
+                        right: 400px;
+                        width: 23px;
+                        -webkit-transition: all .3s;
+                        transition: all .3s;
+                        border: 2px solid indigo;
+                        padding: 3px;
+                        box-sizing: unset;
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
                 }
                 .product-details-img-title {
                     font-weight: 600;

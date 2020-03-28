@@ -5,7 +5,10 @@
       <div class='product-details-left-side-container'>
         
         <div class='product-details-preview-artwork'>
-          <img class='product-details-img-artwork' :class="frame" :src='artwork.imgURLs[0]' alt='artwork'>
+          <div class='product-details-img-main'>
+            <img class='product-details-img-enlarge btn' src="../../public/img/svg/enlarge.svg" alt="Enlarge picture" title="Enlarge picture" @click="biger" />
+            <img class='product-details-img-artwork' :class="frame" :src='artwork.imgURLs[0]' alt='artwork'>
+         </div>
           <h4 class='product-details-img-title'>{{artwork.title}}</h4>
           <h4>{{artwork.desc}}</h4>
         </div>
@@ -53,7 +56,7 @@
         <div class="product-details-buy-btn btn flex-center" @click='onBuy'>Buy Now</div>
         <div class="product-details-add-btn btn flex-center" @click='onCart' >Add To Cart</div>
         <div class="product-details-frame-btn-main">
-          <h2>Frames:</h2>
+          <h2>Frame Illustration:</h2>
             <div class="product-details-frame-btn-first">
                 <div class="fr1 btn style-frame mrgR" @click="onChangeFrame(1)"></div>
                 <div class="fr2 btn style-frame mrgR" @click="onChangeFrame(2)"></div>
@@ -104,7 +107,8 @@
 </template>
 
 <script>
-import {eventBus} from '../services/event-bus.service.js'
+// import {eventBus} from '../services/event-bus.service.js';
+import Swal from 'sweetalert2';
 
 export default {
   name:'product-details',
@@ -119,13 +123,13 @@ export default {
     this.loggedinUser = this.$store.getters.loggedinUser;
      const artworkId = this.$route.params.id;
         if (artworkId) {
-            this.$store.dispatch({
-                    type: 'loadArtwork',
-                    artworkId
-                })
-                .then(artwork => {
-                    this.artwork = JSON.parse(JSON.stringify(artwork))
-                })
+          this.$store.dispatch({
+            type: 'loadArtwork',
+            artworkId
+          })
+          .then(artwork => {
+              this.artwork = JSON.parse(JSON.stringify(artwork))
+          })
         }
   },
   computed:{
@@ -141,34 +145,48 @@ export default {
       this.$router.push('/artwork');
     },
     onCart(){
+      console.log('cart!!!', );
       const userId = this.loggedinUser._id;
       const product = this.artwork;
       this.$store.dispatch({
-          type: 'addToCart',
-          userId, 
-          product 
+        type: 'addToCart',
+        userId, 
+        product 
       })
-       eventBus.$emit('editCart');
-        // location.reload();
     },
     onBuy(){
-      console.log('buying!');
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "Are you sure that you want to buy this artwork?",
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#dedede',
+        confirmButtonText: 'Yes, buy it!'
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire({
+              showConfirmButton: false,
+              timer: 2000,
+              title:'Thank you!',
+              text:'This artwork entered into the order!',
+              icon:'success'
+            })
+          }
+        })
     },
      currRate(rate){
        return '⭐'.repeat(rate);
-      //   switch (rate){
-      //     case 1:
-      //       return '⭐';
-      //     case 2:
-      //       return '⭐⭐';
-      //     case 3:
-      //       return '⭐⭐⭐';
-      //     case 4:
-      //       return '⭐⭐⭐⭐';
-      //     case 5:
-      //       return '⭐⭐⭐⭐⭐';
-      // }
-      // return ' ';// here is checking if the rate is 0
+    }, 
+    biger(){
+      Swal.fire({
+        title: this.artwork.title,
+        text: this.artwork.desc,
+        imageUrl: this.artwork.imgURLs[0],
+        imageWidth: 900,
+        // imageHeight: 200,
+        imageAlt: 'Custom image',
+      })
     }
   }
 }

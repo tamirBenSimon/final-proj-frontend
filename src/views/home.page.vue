@@ -20,6 +20,7 @@
 <script>
 import productList from "../components/product-list.cmp";
 import headerVid from "../components/home-header2.cmp";
+import { eventBus } from "../services/event-bus.service.js";
 
 export default {
     data() {
@@ -34,7 +35,18 @@ export default {
       type: "loadArtworks",
       filterBy: {limit: 10}
     });
-
+    
+    eventBus.$on('addWishlist', (userId, product) =>{
+        console.log('i was dispatched from market app!')
+        this.$store.dispatch({
+          type: 'addToWishlist',
+          userId: userId, 
+          product: product 
+        })
+      })
+  },
+  beforeDestroy(){
+    eventBus.$off()
   },
   methods: {
         getArtWorksByTag(tag) {

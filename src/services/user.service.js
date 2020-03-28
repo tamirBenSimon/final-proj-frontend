@@ -131,7 +131,7 @@ function getNextPrevUserIds(userId) {
 }
 
 async function login(userCred) {
-    const currUser = gUsers.find(user => user.userName === userCred.username && user.password === userCred.password)
+    const currUser = gUsers.find(user => user.userName === userCred.userName && user.password === userCred.password)
     if (currUser) {
         _handleLogin(currUser)
     } else return null;
