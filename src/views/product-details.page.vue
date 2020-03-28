@@ -52,10 +52,19 @@
 
         <div class="product-details-buy-btn btn flex-center" @click='onBuy'>Buy Now</div>
         <div class="product-details-add-btn btn flex-center" @click='onCart' >Add To Cart</div>
-        <button @click="onChangeFrame(1)">frame 1</button>
-        <button @click="onChangeFrame(2)">frame 2</button>
-        <button @click="onChangeFrame(3)">frame 3</button>
-
+        <div class="product-details-frame-btn-main">
+          <h2>Frames:</h2>
+            <div class="product-details-frame-btn-first">
+                <div class="fr1 btn style-frame mrgR" @click="onChangeFrame(1)"></div>
+                <div class="fr2 btn style-frame mrgR" @click="onChangeFrame(2)"></div>
+                <div class="fr3 btn style-frame mrgR" @click="onChangeFrame(3)"></div>
+            </div>
+            <div class="product-details-frame-btn-seccond">
+                <div class="fr4 btn style-frame mrgR" @click="onChangeFrame(4)"></div>
+                <div class="fr5 btn style-frame mrgR" @click="onChangeFrame(5)"></div>
+                <div class="fr6 btn style-frame mrgR" @click="onChangeFrame(6)"></div>
+            </div>
+        </div>
         <div class="product-details-policy-main">
           <hr/>
           <div class="product-details-all-policy-img">
@@ -103,7 +112,7 @@ export default {
     return{
       artwork: null,
       loggedinUser: null,
-      currFrame: 'frame2'
+      currFrame: 'frame1'
     }
   },
   mounted(){

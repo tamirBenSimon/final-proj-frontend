@@ -28,6 +28,7 @@
                     background: transparent;
                     // border-image: url('../../public/img/frames/frame77.png') 7% round;
                     padding: 0;
+                    max-width: 50%;
                 }
                 .product-details-img-title {
                     font-weight: 600;
@@ -198,11 +199,23 @@
                 color: white;
                 background-color: $clr2;
                 transition: all .2s ease-in-out;
-                margin-bottom: 95px;
+                margin-bottom: 15px;
                 font-weight: 600;
             }
             .product-details-add-btn:hover {
                 transform: scale(1.1);
+            }
+            .product-details-frame-btn-main {
+                display: flex;
+                flex-direction: column;
+                .product-details-frame-btn-first {
+                    display: flex;
+                    margin-bottom: 10px;
+                }
+                .product-details-frame-btn-seccond {
+                    display: flex;
+                    margin-bottom: 35px;
+                }
             }
         }
         .product-details-policy-main {
@@ -266,16 +279,51 @@
 
 .frame2 {
     border-image: url('../../public/img/frames/frame44.png') 7% round;
+    border-width: 30px !important;
+    border-image-slice: 100 !important;
 }
 
 .frame3 {
     border-image: url('../../public/img/frames/frame55.png') 7% round;
+    border-width: 28px !important;
 }
 
 .frame4 {
     border-image: url('../../public/img/frames/frame66.png') 7% round;
+    border-width: 23px !important;
+    border-image-slice: 42 !important;
 }
 
 .frame5 {
-    border-image: url('../../public/img/frames/frame66.png') 7% round;
+    border-image: url('../../public/img/frames/frame77.png') 7% round;
+}
+
+.frame6 {
+    border-image: url('../../public/img/frames/frame88.png') 7% round;
+    border-width: 23px !important;
+    border-image-slice: 24 !important;
+}
+
+.fr1 {
+    background-image: url('../../public/img/frames/frame33.png');
+}
+
+.fr2 {
+    background-image: url('../../public/img/frames/frame44.png');
+}
+
+.fr3 {
+    background-image: url('../../public/img/frames/frame55.png');
+}
+
+.fr4 {
+    background-image: url('../../public/img/frames/frame66.png');
+}
+
+.fr5 {
+    background-image: url('../../public/img/frames/frame77.png');
+}
+
+.fr6 {
+    background-image: url('../../public/img/frames/frame88.png');
 }

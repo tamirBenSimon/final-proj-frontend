@@ -7,7 +7,7 @@
         <img v-else @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
       </div>
 
-      <div class="artwork-prev-txt-container">
+      <div class="artwork-prev-txt-container flex-center">
 
           <img class="artwork-prev-img" :src="Showartwork" alt="Artwork" />
 
