@@ -2,12 +2,16 @@
   <section class="market-app-container">
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
+    <div class="app-main-container">
+<side-bar :genres="getGenres" @onFilter="onFilter"></side-bar>
     <product-list class="artwork-list-market-app" :artworks="artworks" />
+    </div>
   </section>
 </template>
 
 <script>
 import tagsSelect from "../components/tags-select.cmp";
+import sideBar from "../components/side-bar.cmp";
 import productList from "../components/product-list.cmp";
 import artworkFilter from "../components/artwork-filter.cmp";
 import { eventBus, EVENT_REMOVE } from "../services/event-bus.service.js";
@@ -17,17 +21,48 @@ export default {
   components: {
     productList,
     artworkFilter,
-    tagsSelect
+    tagsSelect,
+    sideBar
   },
   data() {
     return {
+      genres:[
+        {
+          artType:'paintings',
+          name: 'canvas'
+        },
+        
+                {
+          artType:'photography',
+          name: 'docu'
+        },
+                {
+          artType:'paintings',
+          name: 'geometry'
+        },
+                        {
+          artType:'photography',
+          name: 'Wild life'
+        },
+                        {
+          artType:'paintings',
+          name: 'fine art'
+        },
+      ],
       filterBy: {},
       homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
     };
   },
-  created() {
+  created() { 
+    console.log("createddddd")
+       let params= this.getParams;
+      //  this.filterBy={...params}
+       for(let key in params){
+        this.filterBy[key]= params[key]
+       }
     this.$store.dispatch({
-      type: "loadArtworks"
+      type: "loadArtworks",
+      filterBy: this.filterBy
     });
 
     eventBus.$on(EVENT_REMOVE,(artworkId)=>{
@@ -47,8 +82,15 @@ export default {
     eventBus.$off()
   },
   computed: {
+    getGenres(){
+      console.log("getting genres")
+      return this.filterBy.artType? (this.genres):(this.genres.map(genre=>{return genre.artType==this.filterBy.artType}))
+    },
     artworks() {
       return this.$store.getters.artworks;
+    },
+    getParams(){
+      return this.$route.params;
     }
   },
   methods: {
@@ -66,9 +108,14 @@ export default {
       });
     },
     onFilter(filterBy) {
+      console.log('onFILTER')
+      for(let key in filterBy){
+        this.filterBy[key]= filterBy[key]
+        console.log(key)
+      }
       this.$store.dispatch({
         type: "loadArtworks",
-        filterBy
+        filterBy: this.filterBy
       });
     }
   }
