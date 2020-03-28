@@ -48,6 +48,7 @@ h2{
   text-decoration-line: underline;
   font-weight: 600;
   font-size: 18px;
+  color: indigo;
 }
 h3{
   margin-top: 0;
