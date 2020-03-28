@@ -22,13 +22,12 @@
             />
           </div>
           <div class="artwork-edit-preview-artwork">
-            <img
-              class="artwork-edit-img-artwork"
-              :src="getCurrImg"
-              alt="artwork"
-            />
+             <vue-picture-swipe class="artwork-edit-img-artwork" :items="getCurrImgItem"></vue-picture-swipe>
 
-            <vue-picture-swipe :items="items"></vue-picture-swipe>
+                    <button class="set-out-stock setInStock" @click="onRemove">
+          delete
+        </button>
+            <!-- <vue-picture-swipe :items="getCurrImgItem"></vue-picture-swipe> -->
             <!-- 
             <vue-flux
               :options="fluxOptions"
@@ -40,9 +39,7 @@
             <!-- <button @click="$refs.slider.showImage('next')">NEXT</button> -->
           </div>
         </div>
-        <button class="set-out-stock setInStock" @click="onRemove">
-          delete
-        </button>
+
 
         <!-- <div class="product-details-container-reviews">
           <h2>Reviews:</h2>
@@ -72,66 +69,64 @@
       </div>
 
       <div class="artwork-edit-aside-container">
-        <h4>title:</h4>
-        <input type="text" v-model="artwork.title" placeholder="change title" />
-        <h4>artwork description:</h4>
-        <textarea v-model="artwork.desc"></textarea>
-        <h4>Price:</h4>
-        <input class="num-input" type="number" v-model.number="artwork.price" />
-        <h4>currently {{ isInStock }}</h4>
-        <button
-          class="set-out-stock"
-          :class="{ setInStock: artwork.inStock }"
-          @click="changeInStock"
-        >
-          {{ stockBtnMsg }}
-        </button>
-        <label> Upload your image to cloudinary!
-        <input @change="uploadImg" type="file">
-        
-    </label> 
-        <!-- <cld-image
-          cloudName="demo"
-          publicId="sample"
-          width="600"
-          crop="scale" 
-        />  -->
+        <div class="artwoek-edit-form">
+          <h4 class="artwork-edit-form-title">Title</h4>
+          <input
+            type="text"
+            v-model="artwork.title"
+            placeholder="change title"
+          />
+          <h4>Artwork description</h4>
+          <textarea v-model="artwork.desc"></textarea>
+          <h4>Price</h4>
+          <input
+            class="num-input"
+            type="number"
+            v-model.number="artwork.price"
+          />
+          <h4>Stock status</h4>
+          currently {{ isInStock }}
+          <button
+            class=" file-input set-out-stock"
+            :class="{ setInStock: artwork.inStock }"
+            @click="changeInStock"
+          >
+            {{ stockBtnMsg }}
+          </button>
 
-        <input
-          class="url-input"
-          type="text"
-          placeholder="New image url"
-          v-model="NewImgURL"
-        /><button @click="onNewMImgURL">
-          Save new URL
-        </button>
-        <button class="set-out-stock" @click="onSave">Save Artwork</button>
+          <h4>
+            Upload new image
+          </h4>
+          <label class="edit-form-input" name="file-input-upload" for="files">Upload from local files</label>
+          <input @change="uploadImg" id="files" name="file-input-upload" style="display: none;" type="file"/>
+          <span>Or</span>
+          <input type="text" v-model="NewImgURL" placeholder="type here new image url and hit Save" />
+
+          <button class="edit-form-input btn" @click="onNewMImgURL">
+            Save new URL
+          </button>
+                  <button class=" edit-form-input save-artwork" @click="onSave">Save changes to artwork</button>
+
+        </div>
+
       </div>
     </div>
   </section>
 </template>
 
 <script>
-// import { eventBus } from "../services/event-bus.service.js";
 import VuePictureSwipe from "vue-picture-swipe";
+import { cloudinaryService } from "../services/cloudinary.service.js";
+// import { eventBus } from "../services/event-bus.service.js";
 // import { CldImage } from "cloudinary-vue";
 // import { VueFlux, Transitions } from "vue-flux";
 // import "vue-flux/dist-ssr/_vue-flux.css";
 //more to import from cloudinary: CldContext, CldVideo,CldTransformation,CldPoster
-import {cloudinaryService} from "../services/cloudinary.service.js"
 
 export default {
   name: "artwork-edit",
   data() {
     return {
-      // fluxOptions: {
-      //   autoplay: true
-      // },
-      // fluxImages: ["https://i.picsum.photos/id/116/200/250.jpg", "https://i.picsum.photos/id/116/200/250.jpg"],
-      // fluxTransitions: {
-      //   transitionTurn3d: Transitions.transitionTurn3d
-      // },
-
       currImgIdx: 0,
       NewImgURL: "",
       artwork: null,
@@ -140,7 +135,7 @@ export default {
     };
   },
   components: {
-    VuePictureSwipe,
+    VuePictureSwipe
     // CldImage
     // 'vue-flux': VueFlux
   },
@@ -160,6 +155,23 @@ export default {
     }
   },
   computed: {
+    getCurrImgItem(){
+      let imageUrls=[]
+      imageUrls.push (this.artwork.imgURLs[this.currImgIdx])
+      
+      let item=imageUrls.map(imgURL => {
+        
+        return {
+          src: imgURL,
+          thumbnail: imgURL,
+          alt: imgURL,
+          w: 1090,
+          h: 720
+          // style: {'object-fit': 'contain'}
+        }
+      });
+      return item
+    },
     stockBtnMsg() {
       return this.artwork.inStock ? "Set as not available" : "Set as available";
     },
@@ -172,15 +184,13 @@ export default {
     }
   },
   methods: {
-    async  uploadImg(event){
-      console.log(event.target.files[0])
-      const fileObject= await (cloudinaryService.uploadImg(event))
-      const newImgURL=fileObject.url
-      this.artwork.imgURLs.push(newImgURL)
-      console.log(" now i am url like thissssss: " , this.artwork.imgURLs)
-      this.onSave()
-
-
+    async uploadImg(event) {
+      console.log(event.target.files[0]);
+      const fileObject = await cloudinaryService.uploadImg(event);
+      const newImgURL = fileObject.url;
+      this.artwork.imgURLs.push(newImgURL);
+      console.log(" now i am url like thissssss: ", this.artwork.imgURLs);
+      this.onSave();
     },
     imageList(imgURLs) {
       let items = imgURLs.map(imgURL => {
