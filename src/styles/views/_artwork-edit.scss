@@ -1,4 +1,4 @@
-.artwork-edit-container-all {
+            .artwork-edit-container-all {
     .artwork-edit-img-back {
         margin: 100px 0 0 35px;
         width: rem(40px);
@@ -11,12 +11,19 @@
         flex-wrap: wrap;
         .artwork-edit-left-side-container {
             margin-inline-end: rem(20px);
-            flex-grow: 1;
+            flex-grow: 1.5;
             display: flex;
             flex-direction: column;
             .artwork-edit-img-artwork {
-                object-fit: contain;
+                display: flex;
+                justify-content: center;
+            }
+            .artwork-edit-img-artwork {
                 max-height: rem(300px);
+            }
+            .artwork-edit-img-artwork img {
+                object-fit: contain;
+                width: 100%;
             }
             .artwork-edit-gallery {
                 display: flex;
@@ -66,58 +73,92 @@
             height: Auto;
         }
         .artwork-edit-aside-container {
-            flex-grow: 0.8;
+            justify-self: center;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             text-align: center;
+            .artwoek-edit-form {
+                width: 90%;
+                border: 1px solid rgba(247, 203, 147, 0.856);
+                display: flex;
+                flex-direction: column;
+            }
             & h4 {
-                margin: 1.5rem 0 0.7rem 0;
+                width: 100%;
+                margin: 0;
+                text-align: left;
+                background-color: $clr1;
+                color: darkviolet;
+                color: $clr2;
+                font-weight: bold;
+                padding: rem(8px);
             }
             &>* {
                 align-self: center;
             }
-            .num-input {
-                align-self: center;
-                padding: rem(6px) rem(12px);
-                max-width: 12ch;
+            & input,
+            & .edit-form-input {
+                padding: 0.6rem 0px 0.6rem 0.2rem;
+                margin: 0px;
+                border-radius: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: inherit;
+                transition: all, 0.3s;
+                &:hover,
+                &:focus {
+                    background-color: rgb(235, 220, 220);
+                }
             }
-            .url-input {
-                width: 80%;
+            .edit-form-input {
+                transition: all, .3s;
+                cursor: pointer;
+                font-weight: 700;
+            }
+            .edit-form-input:hover {
+                letter-spacing: 0.3px;
+            }
+            .edit-form-input.save-artwork {
+                width: 100%;
+                outline: none;
+                font-weight: bold;
+                font-size: 1.3rem;
+                color: $clr2;
+                &:hover {
+                    color: $clr1;
+                    letter-spacing: inherit;
+                }
             }
             textarea {
                 padding: 8px;
-                width: 90%;
+                width: 100%;
                 min-height: 20ch;
-                background: rgb(244, 241, 235);
-                background: linear-gradient( 0deg, rgba(244, 241, 235, 0.9463935232296043) 0%, rgba(250, 248, 246, 0.9099789574032738) 86%, rgba(255, 255, 255, 0.520623215106355) 100%);
                 resize: none;
-                border-radius: 0.6rem;
-                border: lightslategray 1px solid;
+                border: none;
                 outline: none;
+                transition: all, 0.3s;
                 &:focus,
                 &:hover {
-                    border: black 1px solid;
+                    background-color: rgb(235, 220, 220);
                 }
             }
-        }
-    }
-    .set-out-stock {
-        align-self: center;
-        font-size: 0.8rem;
-        outline: none;
-        background-color: rgba(245, 245, 245, 0.13);
-        color: rgb(98, 173, 98);
-        padding: 14px 15px;
-        border-radius: 0.3rem;
-        border: 1px solid rgb(44, 42, 42);
-        transition: all, 0.2s;
-        &:hover {
-            font-weight: bolder;
-            padding: 14px 20px;
-            background-color: rgb(245, 245, 245);
-        }
-    }
-    .setInStock {
-        color: rgb(177, 75, 75);
-    }
-}
+            <<<<<<< HEAD .setInStock {
+                color: rgb(177, 75, 75);
+                =======
+            }
+            .set-out-stock {
+                padding: rem(10px);
+                border: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                outline: none;
+                background-color: rgba(245, 245, 245, 0.13);
+                color: rgb(98, 173, 98);
+                transition: all, 0.2s;
+                &:hover {
+                    background-color: rgb(245, 245, 245);
+                    >>>>>>>c5493f4a451288c1ff9f65a6a1309b8ad6e6c027
+                }
+            }
