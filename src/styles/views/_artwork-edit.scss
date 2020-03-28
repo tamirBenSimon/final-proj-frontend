@@ -1,4 +1,4 @@
-            .artwork-edit-container-all {
+.artwork-edit-container-all {
     .artwork-edit-img-back {
         margin: 100px 0 0 35px;
         width: rem(40px);
@@ -143,22 +143,20 @@
                     background-color: rgb(235, 220, 220);
                 }
             }
-            <<<<<<< HEAD .setInStock {
-                color: rgb(177, 75, 75);
-                =======
+        }
+        .set-out-stock {
+            padding: rem(10px);
+            border: none;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            background-color: rgba(245, 245, 245, 0.13);
+            color: rgb(98, 173, 98);
+            transition: all, 0.2s;
+            &:hover {
+                background-color: rgb(245, 245, 245);
             }
-            .set-out-stock {
-                padding: rem(10px);
-                border: none;
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                outline: none;
-                background-color: rgba(245, 245, 245, 0.13);
-                color: rgb(98, 173, 98);
-                transition: all, 0.2s;
-                &:hover {
-                    background-color: rgb(245, 245, 245);
-                    >>>>>>>c5493f4a451288c1ff9f65a6a1309b8ad6e6c027
-                }
-            }
+        }
+    }
+}
