@@ -1,27 +1,64 @@
 <template>
-<div>
-<h4  @click="emitFilter({artType:''})">artwork type </h4>
-        <div @click="emitFilter({artType:'paintings'})">Paintings</div>
-        <div @click="emitFilter({artType:'photography'})">photography</div>
-        <div v-for="(genre,idx) in genres" :key="idx" > {{genre.name}} </div>
-
-<h4>artwork genre</h4>
-<span>Photography</span>
-</div>
-  
+  <div>
+    <h4 @click="emitFilterType({ artType: '' })">Artwork type</h4>
+    <span class="side-bar-opt" @click="emitFilterType({ artType: 'paintings' })">
+      Paintings
+    </span>
+    <span
+      class="side-bar-opt"
+      @click="emitFilterType({ artType: 'photography' })"
+    >
+      photography
+    </span>
+    <h4 @click="emitFilter({ artGenre: null })">Artwork genre</h4>
+    <span
+      class="side-bar-opt"
+      v-for="(genre, idx) in getGenres"
+      @click="emitFilter({ artGenre: genre.name })"
+      :key="idx"
+    >
+      {{ genre.name }}
+    </span>
+        <h4 @click="emitFilterType({ tags: '' })">Tags</h4>
+    <div class="side-bar-tag-container">
+      <span
+        v-for="(tag, idx) in tags"
+        @click="$emit('tagClicked', tag)"
+        :key="idx"
+        >{{ tag }}</span
+      >
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    genres: Array
+    genres: Array,
+    tags: Array
   },
   data() {
-    return {};
+    return {
+      genresFilter: null
+    };
   },
   methods: {
-    emitFilter(radyKey){
+    emitFilterType(radyKey) {
+      this.emitFilter(radyKey);
+      this.genresFilter = radyKey.artType;
+    },
+    emitFilter(radyKey) {
       this.$emit("onFilter", radyKey);
+    }
+  },
+  computed: {
+    getGenres() {
+      if (this.genresFilter) {
+        return this.genres.filter(genre => {
+          return genre.artType == this.genresFilter;
+        });
+      }
+      return this.genres;
     }
   }
 };
