@@ -8,7 +8,9 @@
       :key="tag">
       <h3 class="artwork-list-title">Start Exploring<span class="span"> {{ tag }}</span></h3>
       <div class="artwork-list-more-main">
+        <router-link :to="{name:'market-app', params:{tag:tag}}">
         <h3 class="artwork-list-more-btn btn">More...</h3>
+        </router-link>
       </div>
     </product-list>
     <!-- <div class="hero-comuunity">
@@ -49,6 +51,12 @@ export default {
     eventBus.$off()
   },
   methods: {
+    // getURL(tag){
+      
+    //   let urlParams= new URLSearchParams()
+    //   urlParams.append('tag',tag)
+    //   return 'artwork/:tags/', component: User "//"+urlParams
+    // },
         getArtWorksByTag(tag) {
       let artworks = this.artworks;
       let tagSortedArtworks = artworks.filter(artwork => {
