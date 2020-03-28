@@ -9,65 +9,50 @@
             }
             
             .artwork-list-market-app .artwork-list-artwork-prevs-container {
-                // padding: 5px;
                 display: inline-block;
                 column-count: 3;
                 column-gap: 10px;
                 column-width: 100%;
-                // background-color: rgb(213, 214, 127);
+                width: 80%;
+                text-align: center;
+                margin: 0 auto;
             }
             
             .artwork-list-market-app .artwork-list-prev {
                 display: inline-block;
                 width: 100%;
-                // background-color: rgb(185, 66, 66);
                 padding: 3px;
                 box-shadow: 0 0 2px grey;
             }
-            .app-main-container{
+            
+            .app-main-container {
                 display: flex;
-
             }
-            // .artwork-list-market-app .artwork-prev-txt-container {
-            //     height: unset;
-            //     .artwork-prev-img {
-            //         height: 60%;
-            //         width: unset;
-            //     }
-            // }
-            // // height: 270px;
-            // .artwork-prev-img {
-            //     object-fit: contain;
-            //     // height: 149px;
-            //     // width: auto;
-            //     height: 60%;
-            .market-side-bar{
+            
+            .market-side-bar {
                 border: 1px solid lighten($clr2, 8%);
-                color:darken(indigo, 10%);
-                // color: indigo;
+                color: darken(indigo, 10%);
                 letter-spacing: 0.4px;
                 padding-inline-start: rem(6px);
-                h4:not(:first-child){
-                    margin-top: 0.75rem ;
+                h4:not(:first-child) {
+                    margin-top: 0.75rem;
                 }
-                h4{
-                   background-color: darken(indigo, 5%);
+                h4 {
+                    background-color: darken(indigo, 5%);
                     border: 1px solid rgba(0, 0, 0, 0);
                     color: $clr1;
                     position: relative;
-                    // font-weight: 600;
                     margin-bottom: rem(3px);
                     border-radius: 3px;
-                    // color: indigo;
                     padding: rem(10px);
                     cursor: pointer;
                     transition: all, .3s;
-                    &:hover{
-                       color: darken(indigo, 5%);
-                       background-color: rgb(218, 205, 205);
+                    &:hover {
+                        color: darken(indigo, 5%);
+                        background-color: rgb(218, 205, 205);
                         border-bottom: 1px solid indigo;
                     }
-                   &::after{
+                    &::after {
                         content: 'See all';
                         position: absolute;
                         right: rem(8px);
@@ -76,36 +61,32 @@
                         font-weight: normal;
                     }
                 }
-                .side-bar-opt{
-                    border:1px solid rgba(24, 23, 23, 0) ;
+                .side-bar-opt {
+                    border: 1px solid rgba(24, 23, 23, 0);
                     display: block;
                     transition: all, .2s;
                     margin: 3px 0;
                     padding: rem(2px);
                     cursor: pointer;
-                    &:hover{
+                    &:hover {
                         border-bottom: 1px solid $clr2;
-
                     }
                 }
-                .side-bar-tag-container{
+                .side-bar-tag-container {
                     max-width: 20ch;
-
                     display: flex;
                     padding: 2px;
                     flex-wrap: wrap;
                     justify-content: space-around;
-                  }
-                  .side-bar-tag-container span{
-                      border: 1px solid lighten($clr2,8%);
-                      margin: 0.2rem 0.5rem;
-                      padding: 0.4rem;
-                      cursor: pointer;
-                      transition: all, .3s;
-                      &:hover{
-                          background-color: lighten($clr1, 10%);
-                      }
-                  }
-
-
+                }
+                .side-bar-tag-container span {
+                    border: 1px solid lighten($clr2, 8%);
+                    margin: 0.2rem 0.5rem;
+                    padding: 0.4rem;
+                    cursor: pointer;
+                    transition: all, .3s;
+                    &:hover {
+                        background-color: lighten($clr1, 10%);
+                    }
+                }
             }
