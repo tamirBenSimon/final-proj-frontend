@@ -1,9 +1,9 @@
 <template>
   <section class='product-details-container-all'>
-    <img @click='onBack' class='product-details-img-back' src='../../public/img/icons/left-arrow.png' alt='back' title="Back">
     <div class='product-details-container-main'>
+
       <div class='product-details-left-side-container'>
-        
+       <img @click='onBack' class='product-details-img-back btn' src='../../public/img/icons/left-arrow.png' alt='back' title="Back">
         <div class='product-details-preview-artwork'>
           <div class='product-details-img-main'>
             <img class='product-details-img-enlarge btn' src="../../public/img/svg/enlarge.svg" alt="Enlarge picture" title="Enlarge picture" @click="biger" />
@@ -107,7 +107,6 @@
 </template>
 
 <script>
-// import {eventBus} from '../services/event-bus.service.js';
 import Swal from 'sweetalert2';
 
 export default {
@@ -145,7 +144,6 @@ export default {
       this.$router.push('/artwork');
     },
     onCart(){
-      console.log('cart!!!', );
       const userId = this.loggedinUser._id;
       const product = this.artwork;
       this.$store.dispatch({
@@ -184,7 +182,6 @@ export default {
         text: this.artwork.desc,
         imageUrl: this.artwork.imgURLs[0],
         imageWidth: 900,
-        // imageHeight: 200,
         imageAlt: 'Custom image',
       })
     }

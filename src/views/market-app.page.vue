@@ -3,8 +3,8 @@
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
     <div class="app-main-container">
-<side-bar :genres="getGenres" @onFilter="onFilter"></side-bar>
-    <product-list class="artwork-list-market-app" :artworks="artworks" />
+      <side-bar class="market-side-bar"  :tags="homeTags"  @tagClicked="tagClicked" :genres="getGenres" @onFilter="onFilter"></side-bar>
+      <product-list class="artwork-list-market-app" :artworks="artworks" />
     </div>
   </section>
 </template>
@@ -25,13 +25,14 @@ export default {
     sideBar
   },
   data() {
+              
     return {
-      genres:[
+       genres:[
         {
           artType:'paintings',
           name: 'canvas'
         },
-        
+
                 {
           artType:'photography',
           name: 'docu'
@@ -48,13 +49,12 @@ export default {
           artType:'paintings',
           name: 'fine art'
         },
-      ],
+       ],
       filterBy: {},
       homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
     };
   },
-  created() { 
-    console.log("createddddd")
+  created() {
        let params= this.getParams;
       //  this.filterBy={...params}
        for(let key in params){
@@ -67,13 +67,13 @@ export default {
 
     eventBus.$on(EVENT_REMOVE,(artworkId)=>{
       this.removeArtwork(artworkId)});
-      
+
       eventBus.$on('addWishlist', (userId, product) =>{
         console.log('i was dispatched from market app!')
         this.$store.dispatch({
           type: 'addToWishlist',
-          userId: userId, 
-          product: product 
+          userId: userId,
+          product: product
         })
       })
         // eventBus.$emit('editWishlist');
@@ -83,9 +83,13 @@ export default {
   },
   computed: {
     getGenres(){
-      console.log("getting genres")
-      return this.filterBy.artType? (this.genres):(this.genres.map(genre=>{return genre.artType==this.filterBy.artType}))
+      return this.genres
     },
+    getFilterBy(){
+      return this.filterBy
+    },
+
+
     artworks() {
       return this.$store.getters.artworks;
     },
@@ -95,10 +99,10 @@ export default {
   },
   methods: {
     tagClicked(tag) {
-      this.filterBy.tags = tag;
+      this.filterBy.tag = tag;
       this.$store.dispatch({
         type: "loadArtworks",
-        filterBy: { tag }
+        filterBy:this.filterBy
       });
     },
     removeArtwork(artworkId) {
@@ -108,10 +112,8 @@ export default {
       });
     },
     onFilter(filterBy) {
-      console.log('onFILTER')
       for(let key in filterBy){
         this.filterBy[key]= filterBy[key]
-        console.log(key)
       }
       this.$store.dispatch({
         type: "loadArtworks",

@@ -6,7 +6,7 @@
       <li v-for="(txt,idx) in txts" :key="idx">{{txt}}</li>
     </ul>
     <input type="text" placeholder="Text" v-model="txt">
-          <button @click="addMsg">Send</button>
+    <button @click="addMsg">Send</button>
   </section>
 </template>
 

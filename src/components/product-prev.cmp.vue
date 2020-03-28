@@ -54,14 +54,6 @@ export default {
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
   },
-  // mounted() {
-  //   setInterval(() => {
-  //     this.imgUrlIdx =
-  //       this.imgUrlIdx === this.artwork.imgURLs.length - 1
-  //         ? 0
-  //         : this.imgUrlIdx + 1;
-  //   }, 7000);
-  // },
   computed: {
     getURL(){
       return  ('/artwork/' + this.artwork._id)
@@ -82,7 +74,6 @@ export default {
       eventBus.$emit(EVENT_REMOVE, this.artwork._id);
     },
     onWishlist(){
-      console.log('inside prev!!');
       const userId = this.loggedinUser._id;
       const product = this.artwork;
       eventBus.$emit('addWishlist', userId, product);

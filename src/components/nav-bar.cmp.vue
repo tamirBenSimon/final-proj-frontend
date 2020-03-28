@@ -2,7 +2,7 @@
   <div class="navbar-container">
 
     <div class="navbar-container-main">
-        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Home Page"> 
+        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Gallerior!"> 
         <div class="nav-bar-input">
             <input class="navbar-input-inside" type="text" placeholder="Search">
             <img class="nav-bar-search-img" src="../../public/img/icons/search.png" alt="Search">   
@@ -11,21 +11,21 @@
 
     <div class="nav-bar-3buttons">
         <div class="nav-bar-wishlist-container">
-          <img @click="onwishlist" src="../../public/img/icons/black-like.png" alt="Wish List" title="Wish List">
+          <img @click="onwishlist" src="../../public/img/svg/heart1.svg" alt="Wish List" title="Wish List">
           <div class="nav-bar-num-wish-list flex-center" v-if="WL_count">{{WL_count}}</div>
         </div>
 
         <div class="nav-bar-line"></div>
 
         <div class="nav-bar-cart-container">
-          <img @click="onCart" src="../../public/img/icons/cart.png" alt="Cart" title="Cart">
+          <img @click="onCart" src="../../public/img/svg/cart1.svg" alt="Cart" title="Cart">
           <div class="nav-bar-num-cart flex-center" v-if="cart_count">{{cart_count}}</div>
         </div>
         
         <div class="nav-bar-line"></div>
            
         <div class="dropdown">
-          <img class="dropbtn" src="../../public/img/icons/account.png" alt="User Picture">
+          <img class="dropbtn" src="../../public/img/svg/account1.svg" alt="User Picture">
             <div class="dropdown-content">
               <a href="#/">Home Page</a>
               <a href="/#/cabinet">Profile</a>

@@ -11,6 +11,7 @@ export default {
     },
     getters: {
         users(state) {
+            console.log('state.users is: ', state.users);
             return state.users;
         },
         loggedinUser(state) {
@@ -52,11 +53,8 @@ export default {
         async logout(context) {
             await userService.logout()
             context.commit({ type: 'setLoggedinUser', users: [] })
-                // context.commit({ type: 'setUsers', users: [] })
-                // context.commit({ type: 'setUser', user: null })
         },
         async loadUsers(context) {
-            // console.log('inside store!!!');
             const users = await userService.query();
             context.commit({ type: 'setUsers', users })
             return users;
