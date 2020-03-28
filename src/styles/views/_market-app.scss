@@ -42,6 +42,7 @@
             //     // width: auto;
             //     height: 60%;
             .market-side-bar{
+                font-weight: lighter;
                 border: 1px solid lighten($clr2, 8%);
                 color:darken(indigo, 10%);
                 // color: indigo;
@@ -51,11 +52,9 @@
                     margin-top: 0.75rem ;
                 }
                 h4{
-                   background-color: darken(indigo, 5%);
                     border: 1px solid rgba(0, 0, 0, 0);
-                    color: $clr1;
+                    border-bottom: 1px solid $clr2;
                     position: relative;
-                    // font-weight: 600;
                     margin-bottom: rem(3px);
                     border-radius: 3px;
                     // color: indigo;
@@ -64,19 +63,19 @@
                     transition: all, .3s;
                     &:hover{
                        color: darken(indigo, 5%);
-                       background-color: rgb(218, 205, 205);
-                        border-bottom: 1px solid indigo;
+                       border-bottom: 1px solid $clr2;
                     }
                    &::after{
                         content: 'See all';
                         position: absolute;
                         right: rem(8px);
-                        bottom: rem(4px);
+                        bottom: rem(10px);
                         font-size: 0.7rem;
                         font-weight: normal;
                     }
                 }
                 .side-bar-opt{
+                    color: lighten(indigo, 60%);
                     border:1px solid rgba(24, 23, 23, 0) ;
                     display: block;
                     transition: all, .2s;
@@ -84,7 +83,15 @@
                     padding: rem(2px);
                     cursor: pointer;
                     &:hover{
+                        color: darken(indigo, 10%);
+
                         border-bottom: 1px solid $clr2;
+                        &::after{
+                            content:'>';
+                            color: indigo;
+                            float:right;
+                        }
+
 
                     }
                 }
@@ -97,13 +104,17 @@
                     justify-content: space-around;
                   }
                   .side-bar-tag-container span{
-                      border: 1px solid lighten($clr2,8%);
+                      padding: 2px 3px;
+                      border: 1px solid lighten(indigo,60%);
+                      color: lighten(indigo,60%);
                       margin: 0.2rem 0.5rem;
                       padding: 0.4rem;
                       cursor: pointer;
                       transition: all, .3s;
                       &:hover{
-                          background-color: lighten($clr1, 10%);
+                          color: darken(indigo, 10%);
+                          border: 1px solid darken(indigo, 10%);
+
                       }
                   }
 
