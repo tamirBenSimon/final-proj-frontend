@@ -2,7 +2,7 @@
   <div class="navbar-container">
 
     <div class="navbar-container-main">
-        <img @click="onLogo" class="nav-bar-logo" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Gallerior!"> 
+        <img @click="onLogo" class="nav-bar-logo btn" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Gallerior!"> 
         <div class="nav-bar-input">
             <input class="navbar-input-inside" type="text" placeholder="Search">
             <img class="nav-bar-search-img" src="../../public/img/icons/search.png" alt="Search">   
@@ -28,7 +28,7 @@
           <img class="dropbtn" src="../../public/img/svg/account1.svg" alt="User Picture">
             <div class="dropdown-content">
               <a href="#/">Home Page</a>
-              <a href="/#/cabinet">Profile</a>
+              <a :href="'/#/cabinet/'+ isLoggedinUser._id">Profile</a>
               <a v-if="!isLoggedinUser" href="/#/login">Login</a>
               <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a>
               <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
@@ -44,12 +44,11 @@
 export default {
   data(){
     return{
-      isLoggedinUser: null
+      isLoggedinUser: null,
     }
   },
   created(){
-    const loggedinUser = this.$store.getters.loggedinUser;
-    this.isLoggedinUser = loggedinUser;
+    this.isLoggedinUser = this.$store.getters.loggedinUser;
   },
   computed:{
     WL_count(){
@@ -57,7 +56,7 @@ export default {
     },
     cart_count(){
       return this.$store.getters.cartCounter;
-    }
+    },
   },
   methods:{
     signup(){

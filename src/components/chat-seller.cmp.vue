@@ -47,5 +47,8 @@ text-align: end;
 li{
   list-style-type: none;
 }
-
+input{
+  width: 100%;
+  height: 30px;
+}
 </style>

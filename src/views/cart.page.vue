@@ -33,13 +33,11 @@ export default {
   },
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
-    console.log('logged user111: ',this.loggedinUser);
     this.$store.dispatch({
       type: "loadCart",
       userId: this.loggedinUser._id
     })
     .then(currCart =>{
-      console.log('currCart in cmp: ',currCart);
       this.cart = currCart; 
     })
   },
@@ -53,8 +51,6 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      // eventBus.$emit('editCart');
-      // location.reload();
     },
     placeOrders() {
       this.cart.forEach(item => this.placeOrder(item))

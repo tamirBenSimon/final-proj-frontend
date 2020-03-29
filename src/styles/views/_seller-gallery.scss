@@ -1,4 +1,16 @@
 .seller-gallery-container {
+    .seller-gallery-chat-btn {
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        border: 2px black solid;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        font-weight: 600;
+        z-index: 3;
+        opacity: 0.7;
+    }
     .seller-gallery-img {
         border-radius: 50%;
         width: 100px;
@@ -13,5 +25,46 @@
         padding: 10px;
         background-color: rgb(255, 255, 255);
         width: 25%;
+    }
+    .artwork-list-main-container {
+        text-align: center;
+        .artwork-list-artwork-prevs-container {
+            display: inline-block;
+            column-count: 3;
+            column-gap: 10px;
+            column-width: 100%;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .artwork-list-prev {
+            display: inline-block;
+            width: 100%;
+            padding: 3px;
+            box-shadow: 0 0 2px grey;
+        }
+    }
+}
+
+@media (max-width: $break-wide) {
+    .seller-gallery-container {
+        margin: 0 40px;
+        .artwork-list-main-container {
+            .artwork-list-artwork-prevs-container {
+                column-count: 2;
+            }
+        }
+    }
+}
+
+@media (max-width: $break-normal) {
+    .seller-gallery-container {
+        margin: 0 20px;
+        text-align: center;
+        .artwork-list-main-container {
+            .artwork-list-artwork-prevs-container {
+                column-count: 1;
+            }
+        }
     }
 }

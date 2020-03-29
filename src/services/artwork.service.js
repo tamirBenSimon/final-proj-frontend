@@ -19,7 +19,7 @@ function saveArtwork(artwork) {
 }
 
 function _addArtwork(artwork) {
-    return httpService.add(`artwork/${artwork}`)
+    return httpService.post(`artwork/`,artwork)
 
 }
 

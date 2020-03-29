@@ -5,14 +5,14 @@
     <h4>{{user.fullName}}</h4>
     <h4>Artist's bio: {{user.bio}}</h4>
     <hr>
-    <template>
-      <div>
+    <!-- <template> -->
+      <div class="seller-cabinet-radio-btn btn">
         <el-radio-group v-model="radio1">
           <el-radio-button label="Artworks"></el-radio-button>
           <el-radio-button label="Orders"></el-radio-button>
         </el-radio-group>
       </div>
-    </template>
+    <!-- </template> -->
     <product-list v-if="radio1 === 'Artworks'" :artworks="artworks" />
     <order-list v-else v-for="order in orders" :orders="orders" :key="order.id"></order-list>
     <!-- <h2>your orders,sir: </h2>

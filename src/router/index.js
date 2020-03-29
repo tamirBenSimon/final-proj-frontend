@@ -54,9 +54,10 @@ const routes = [{
         component: sellerGallery
     },
     {
-        path: '/artwork/edit/:id',
+        path: '/artwork/edit/:id?',
         component: artworkEdit
     },
+
     {
         path: '/cabinet/:id',
         component: sellerCabinet

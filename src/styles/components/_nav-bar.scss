@@ -1,5 +1,5 @@
 .navbar-container {
-    background-color: $clr6;
+    background-color: $clr1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +8,7 @@
     position: fixed;
     top: 0;
     z-index: 5;
-    box-shadow: 0px 0px 2px 0px grey;
+    box-shadow: 0px 0px 3px 0px grey;
     height: 76px;
     .navbar-container-main {
         display: flex;
@@ -81,7 +81,6 @@
         padding-top: 25px;
     }
     .nav-bar-logo {
-        cursor: pointer;
         height: 50px;
         width: 70px;
         margin: 0;

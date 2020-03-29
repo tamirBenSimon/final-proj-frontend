@@ -22,7 +22,8 @@ export default {
     productList,
     artworkFilter,
     tagsSelect,
-    sideBar
+    sideBar,
+    
   },
   data() {
               
@@ -76,7 +77,6 @@ export default {
           product: product
         })
       })
-        // eventBus.$emit('editWishlist');
   },
   beforeDestroy(){
     eventBus.$off()
