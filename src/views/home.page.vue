@@ -62,7 +62,7 @@ export default {
       let tagSortedArtworks = artworks.filter(artwork => {
         return artwork.tags.includes(tag);
       });
-      return tagSortedArtworks.slice(0, 4);
+      return tagSortedArtworks.slice(0, 5);
     },
   },
   computed: {
