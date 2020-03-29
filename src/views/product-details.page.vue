@@ -118,6 +118,13 @@ export default {
       currFrame: 'frame1'
     }
   },
+  created(){
+    const loggedinUser = this.$store.getters.loggedinUser;
+    this.$store.dispatch({
+      type: "loadCart",
+      userId: loggedinUser._id
+    })
+  },
   mounted(){
     this.loggedinUser = this.$store.getters.loggedinUser;
      const artworkId = this.$route.params.id;

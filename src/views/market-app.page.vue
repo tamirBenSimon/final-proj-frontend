@@ -76,7 +76,6 @@ export default {
           product: product
         })
       })
-        // eventBus.$emit('editWishlist');
   },
   beforeDestroy(){
     eventBus.$off()
