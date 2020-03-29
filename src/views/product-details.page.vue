@@ -109,7 +109,7 @@
 
 <script>
 import Swal from 'sweetalert2';
-import VuePictureSwipe from "vue-picture-swipe";
+// import VuePictureSwipe from "vue-picture-swipe";
 
 
 export default {
@@ -214,7 +214,7 @@ export default {
     }
   },
   components:{
-    VuePictureSwipe
+    // VuePictureSwipe
   }
 }
 </script>
