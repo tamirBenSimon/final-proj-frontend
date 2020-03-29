@@ -2,7 +2,10 @@
     <tr>
         <td>{{count+1}}</td>
         <td>{{order.at}}</td>
-        <td><img :src="order.by.imgURL"  alt=""><div>{{order.by.fullName}}</div></td>
+        <td class="order-prev-img-buyer">
+          <img class="order-prev-img" :src="order.by.imgURL"  alt="">
+          <div class="order-prev-buyer">{{order.by.fullName}}</div>
+        </td>
         <td>{{order.product.title}}</td>
         <td>{{order.product.price}}</td>
         <td>{{order.status}}</td>
