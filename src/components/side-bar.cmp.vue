@@ -22,17 +22,18 @@
       <h4 @click="emitFilter({ maxPrice: '' })">My budget</h4>
       <input type="range" min="0" max="2500" v-on:change="emitMaxPrice" v-model="maxPrice">
       <div class="side-bar-range-value"> {{this.maxPrice}}<span class="lighter-color"> USD</span></div>
-        <h4 @click="emitFilter({ colorTags: '' })">colors</h4>
-        <color-select @emitFilter="emitFilter"></color-select>
-        <h4 @click="emitFilter({ tag: '' })">Tags</h4>
+              <h4 @click="emitFilter({ tag: '' })">Tags</h4>
     <!-- <div class="side-bar-tag-container"> -->
       <span
             class="side-bar-opt"
         v-for="(tag, idx) in tags"
         @click="$emit('tagClicked', tag)"
         :key="idx"
-        ># {{ tag }}</span
-      >
+        ># {{ tag }}</span>
+      
+        <h4 @click="emitFilter({ colorTags: '' })">colors</h4>
+        <color-select @emitFilter="emitFilter"></color-select>
+
     <!-- </div> -->
   </div>
 </template>
