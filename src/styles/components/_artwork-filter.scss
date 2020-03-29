@@ -1,11 +1,53 @@
 .artwork-filter {
+  display: flex;
+  margin: rem(40px);
+  & input {
+      width: 35ch;
+      background-color: #fff;
+      border-radius: 0px;
+    outline: none;
+    padding: 4px 0 4px 16px;
+    font-size: 1rem;
+    transition: all, .2s;
+    height: 20px;
+    &:::placeholder{
+        color
+    }
+
+}
+
+& .num-input {
+    max-width: 12ch;
+    padding: 1ch;
+}
+
+.search-container {
+    border: 1px solid rgba(121, 116, 116, 0.507);
     display: flex;
-    margin-top: rem(80px);
-    & input {
-        outline: none;
+    flex-direction: row;
+    align-items: center;
+    &:hover,
+    &:focus {
+        background-color: rgb(255, 255, 255);
     }
-    & .num-input {
-        max-width: 12ch;
-        padding: 1ch;
+    
+    & > * {
+        margin: 0;
+        border: none;
     }
+    .el-radio-button__inner {
+        color: #e0b5ff;
+        border: none;
+        padding: 8px 10px;
+        border-radius: 0px;
+        font-size: 1rem;
+        box-shadow: 1px solid rgba(196, 15, 15, 0);
+        background-color: rgba(238, 225, 225, 0);
+
+    }
+    .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+      background-color:#c5c5c0;
+      color: antiquewhite;
+    box-shadow: none;    }
+  }
 }

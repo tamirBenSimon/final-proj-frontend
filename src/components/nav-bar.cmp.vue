@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container">
+  <div class="navbar-container page-component__scroll">
 
     <div class="navbar-container-main">
         <img @click="onLogo" class="nav-bar-logo btn" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Gallerior!"> 
@@ -36,12 +36,13 @@
         </div>    
     </div>
 
-  </div>
+ </div>
 </template>
 
 <script>
 
 export default {
+  name: 'nav-bar',
   data(){
     return{
       isLoggedinUser: null,
