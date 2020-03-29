@@ -13,9 +13,8 @@
     }
 }
 
-.artwork-list-home-container {
-    // background-color: rgb(235, 96, 96);
-    // padding: 10px;
+.artwork-list-home-container .artwork-prev-controle-pad {
+    display: none;
 }
 
 .artwork-list-home-container .artwork-list-artwork-prevs-container {
@@ -62,7 +61,6 @@
             margin: rem(8px);
         }
         .whiter {
-            
             color: rgba(170, 85, 240, 0.815);
         }
         & button {
@@ -87,9 +85,9 @@
     }
 }
 
-    .home-main-header2{
-        height:90vh;   
-    }
+.home-main-header2 {
+    height: 90vh;
+}
 
 .tags-title {
     text-align: center;

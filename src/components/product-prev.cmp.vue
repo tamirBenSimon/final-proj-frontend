@@ -14,7 +14,7 @@
           <div class="artwork-prev-container-flach">
             <div class="artwork-prev-txt-header">
               <h3>{{ artwork.title }}</h3>
-              <span>{{ artwork.price }}<span class="artwork-prev-USD">USD</span></span>
+              <h4><span class="artwork-prev-USD">$</span>{{ artwork.price }}</h4>
             </div>
             <router-link :to="'/sellerGallery/'+artwork.createdBy._id">
               <div class="artwork-prev-created-by">
