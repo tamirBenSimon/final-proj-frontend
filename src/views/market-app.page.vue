@@ -22,7 +22,8 @@ export default {
     productList,
     artworkFilter,
     tagsSelect,
-    sideBar
+    sideBar,
+    
   },
   data() {
               

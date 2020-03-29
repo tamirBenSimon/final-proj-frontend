@@ -1,13 +1,13 @@
 <template>
   <header class="home-main-header2">
-    <video width="100%" autoplay loop>
+    <video h="100" class="home-main-header2-vid" autoplay loop >
       <source
         :src="require('../../public/video/homepage2.1.mp4')"
         type="video/mp4"
       />
       Your browser does not support HTML5 video.
     </video>
-    <div class="home-header2">
+    <!-- <div class="home-header2"> -->
       <div class="home-header2-txt">
         <h2>Online inspire <span class="whiter">community.</span></h2>
         <h2>simple interaction <span class="whiter">marketplace.</span></h2>
@@ -19,7 +19,7 @@
           </router-link>
         </button>
       </div>
-    </div>
+    <!-- </div> -->
   </header>
   
 </template>
@@ -28,8 +28,4 @@
 export default {
 };
 </script>
-<style scoped>
-video{
-  height: 102vh;
-}
-</style>
+

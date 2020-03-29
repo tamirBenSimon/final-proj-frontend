@@ -22,11 +22,14 @@
             />
           </div>
           <div class="artwork-edit-preview-artwork">
-             <vue-picture-swipe class="artwork-edit-img-artwork" :items="getCurrImgItem"></vue-picture-swipe>
+            <vue-picture-swipe
+              class="artwork-edit-img-artwork"
+              :items="getCurrImgItem"
+            ></vue-picture-swipe>
 
-                    <button class="set-out-stock setInStock" @click="onRemove">
-          delete
-        </button>
+            <button class="set-out-stock setInStock" @click="onRemove">
+              delete
+            </button>
             <!-- <vue-picture-swipe :items="getCurrImgItem"></vue-picture-swipe> -->
             <!-- 
             <vue-flux
@@ -39,7 +42,6 @@
             <!-- <button @click="$refs.slider.showImage('next')">NEXT</button> -->
           </div>
         </div>
-
 
         <!-- <div class="product-details-container-reviews">
           <h2>Reviews:</h2>
@@ -97,18 +99,30 @@
           <h4>
             Upload new image
           </h4>
-          <label class="edit-form-input" name="file-input-upload" for="files">Upload from local files</label>
-          <input @change="uploadImg" id="files" name="file-input-upload" style="display: none;" type="file"/>
+          <label class="edit-form-input" name="file-input-upload" for="files"
+            >Upload from local files</label
+          >
+          <input
+            @change="uploadImg"
+            id="files"
+            name="file-input-upload"
+            style="display: none;"
+            type="file"
+          />
           <span>Or</span>
-          <input type="text" v-model="NewImgURL" placeholder="type here new image url and hit Save" />
+          <input
+            type="text"
+            v-model="NewImgURL"
+            placeholder="type here new image url and hit Save"
+          />
 
           <button class="edit-form-input btn" @click="onNewMImgURL">
             Save new URL
           </button>
-                  <button class=" edit-form-input save-artwork" @click="onSave">Save changes to artwork</button>
-
+          <button class=" edit-form-input save-artwork" @click="onSave">
+            Save changes to artwork
+          </button>
         </div>
-
       </div>
     </div>
   </section>
@@ -140,6 +154,7 @@ export default {
     // 'vue-flux': VueFlux
   },
   created() {
+    console.log("artwork Id in created Time ", artworkId);
     this.loggedinUser = this.$store.getters.loggedinUser;
     const artworkId = this.$route.params.id;
     if (artworkId) {
@@ -148,19 +163,43 @@ export default {
           type: "loadArtwork",
           artworkId
         })
-        .then(artwork => {
-          this.artwork = JSON.parse(JSON.stringify(artwork));
-          this.imageList(artwork.imgURLs);
+        .then(resArtwork => {
+          this.artwork = JSON.parse(JSON.stringify(resArtwork));
+          this.imageList(resArtwork.imgURLs);
         });
+    } else {
+      this.artwork = {
+        title: "",
+        desc: "",
+        price: null,
+        inStock: true,
+        size: { w: "920", h: "600" },
+        SaleInfo: { inSale: false, salePrice: null },
+        artType: null,
+        artGenre: null,
+        createdAt: 1585216150222,
+        shippingInfo: { lat: 41.8779788465189, lng: 44.3249329384843 },
+        colorTags: [],
+        createdBy: {
+          _id: this.loggedinUser._id,
+          fullName: this.loggedinUser.fullName,
+          imgURL: this.loggedinUser.imgURL
+        },
+
+        imgURLs: [],
+        tags: [],
+        salesCount: 0,
+        reviews: []
+      };
+      console.log(this.artwork);
     }
   },
   computed: {
-    getCurrImgItem(){
-      let imageUrls=[]
-      imageUrls.push (this.artwork.imgURLs[this.currImgIdx])
-      
-      let item=imageUrls.map(imgURL => {
-        
+    getCurrImgItem() {
+      let imageUrls = [];
+      imageUrls.push(this.artwork.imgURLs[this.currImgIdx]);
+
+      let item = imageUrls.map(imgURL => {
         return {
           src: imgURL,
           thumbnail: imgURL,
@@ -168,9 +207,9 @@ export default {
           w: 1090,
           h: 720
           // style: {'object-fit': 'contain'}
-        }
+        };
       });
-      return item
+      return item;
     },
     stockBtnMsg() {
       return this.artwork.inStock ? "Set as not available" : "Set as available";
@@ -212,7 +251,7 @@ export default {
       this.$store
         .dispatch({
           type: "updateArtwork",
-          artwork: { ...this.artwork }
+          artwork: this.artwork
         })
         .then(artwork => {
           this.artwork = artwork;

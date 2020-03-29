@@ -19,7 +19,12 @@
     >
       {{ genre.name }}
     </span>
-        <h4 @click="emitFilterType({ tags: '' })">Tags</h4>
+      <h4 @click="emitFilter({ maxPrice: '' })">My budget</h4>
+      <input type="range" min="0" max="2500" v-on:change="emitMaxPrice" v-model="maxPrice">
+      <div class="side-bar-range-value"> {{this.maxPrice}}<span class="lighter-color"> USD</span></div>
+        <h4 @click="emitFilter({ tags: '' })">Tags</h4>
+        <color-select @emitFilter="emitFilter"></color-select>
+        <h4 @click="emitFilter({ tags: '' })">Tags</h4>
     <div class="side-bar-tag-container">
       <span
         v-for="(tag, idx) in tags"
@@ -32,6 +37,7 @@
 </template>
 
 <script>
+import colorSelect from "./color-select.cmp";
 export default {
   props: {
     genres: Array,
@@ -39,19 +45,26 @@ export default {
   },
   data() {
     return {
+      maxPrice:null,
       genresFilter: null
     };
   },
   methods: {
-    emitFilterType(radyKey) {
-      this.emitFilter(radyKey);
-      this.genresFilter = radyKey.artType;
+    emitFilterType(readyKey) {
+      console.log('emit for colortags,', readyKey)
+      this.emitFilter(readyKey);
+      this.genresFilter = readyKey.artType;
     },
     emitFilter(radyKey) {
       this.$emit("onFilter", radyKey);
+    },
+        emitMaxPrice(){
+    this.$emit("onFilter",{ maxPrice: this.maxPrice })
     }
   },
   computed: {
+
+
     getGenres() {
       if (this.genresFilter) {
         return this.genres.filter(genre => {
@@ -60,6 +73,9 @@ export default {
       }
       return this.genres;
     }
+  },
+  components:{
+    colorSelect
   }
 };
 </script>
