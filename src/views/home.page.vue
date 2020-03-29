@@ -1,6 +1,5 @@
 <template>
   <section class="home-main-layout">
-    <!-- <homeHeaderToApp></homeHeaderToApp> -->
     <headerVid class="home-main-video"> </headerVid>
     <product-list class="artwork-list-home-container"
       v-for="tag in homeTags"
@@ -13,9 +12,6 @@
         </router-link>
       </div>
     </product-list>
-    <!-- <div class="hero-comuunity">
-      <h1 class="home-hero">hero</h1>
-    </div> -->
   </section>
 </template>
 
@@ -51,18 +47,12 @@ export default {
     eventBus.$off()
   },
   methods: {
-    // getURL(tag){
-      
-    //   let urlParams= new URLSearchParams()
-    //   urlParams.append('tag',tag)
-    //   return 'artwork/:tags/', component: User "//"+urlParams
-    // },
-        getArtWorksByTag(tag) {
-      let artworks = this.artworks;
-      let tagSortedArtworks = artworks.filter(artwork => {
-        return artwork.tags.includes(tag);
-      });
-      return tagSortedArtworks.slice(0, 5);
+    getArtWorksByTag(tag) {
+    let artworks = this.artworks;
+    let tagSortedArtworks = artworks.filter(artwork => {
+      return artwork.tags.includes(tag);
+    });
+    return tagSortedArtworks.slice(0, 4);
     },
   },
   computed: {
@@ -74,5 +64,5 @@ export default {
     productList,
     headerVid
   }
-};
+}
 </script>

@@ -1,6 +1,7 @@
 <template>
   <section>
-    <table>
+      <table>
+
         <thead>
           <tr>
             <th> </th>
@@ -14,9 +15,15 @@
         </thead>
 
         <tbody>
-          <order-prev v-for="(order, index) in orders" :key="order._id" :order="order" :count="index" />
+          <order-prev
+           v-for="(order, index) in orders"
+            :key="order._id" 
+            :order="order" 
+            :count="index" 
+          />
         </tbody>
-    </table>
+        
+      </table>
   </section>
 </template>
 

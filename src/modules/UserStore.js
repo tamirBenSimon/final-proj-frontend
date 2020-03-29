@@ -1,7 +1,6 @@
 import userService from '../services/UserService.js'
 
 var localLoggedinUser = { _id: '5e7a1a16988a6fe1b32ae3c6', fullName: 'Ariel Zissu', imgURL: 'https://www.placecage.com/c/200/300' };
-// if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
     state: {

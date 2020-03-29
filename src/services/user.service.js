@@ -144,7 +144,6 @@ async function login(userCred) {
 // }
 
 async function signup(userCred) {
-    // console.log('userCred: ', userCred);
     _handleLogin(userCred)
     return userCred;
 }
@@ -153,7 +152,6 @@ function logout() {
     // async function logout() {
     // await HttpService.post('auth/logout');
     sessionStorage.clear();
-    // console.log('clear!!!');
 }
 
 function _handleLogin(user) {

@@ -1,6 +1,5 @@
 import { artworkService } from '../services/artwork.service.js'
 
-
 export default {
     state: {
         artwork: {},
