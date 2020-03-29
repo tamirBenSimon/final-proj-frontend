@@ -24,9 +24,9 @@
 }
 
 .artwork-list-home-container .artwork-prev-txt-container {
-    height: 270px;
+    height: 345px;
     .artwork-prev-img {
-        height: 149px;
+        height: 65%;
         width: auto;
         padding: 3px;
         // border-image-source: url('../../../public/img/frames/frame2.jpg');
@@ -43,31 +43,27 @@
 .home-main-header2 {
     position: relative;
     overflow: hidden;
-    .home-header2 {
-        position: absolute;
-        bottom: 60px;
-        right: 60px;
-        height: 50vh;
-        width: 60%;
-        padding: 10px;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: flex-end;
-        align-content: flex-start;
-    }
     .home-header2-txt {
+        font-size: 1.2rem;
+        background-color: rgba(233, 227, 227, 0.418);
+        position: absolute;
+        bottom: 10%;
+        right: 2px;
+        width: 60%;
+        /* height: 70%; */
+        padding: 10px;
         text-align: center;
         overflow: hidden;
-        background-color: rgba(147, 112, 216, 0.333);
-        padding: 10px;
+        padding: 0.625rem;
         h2 {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Prata, sans-serif;
             letter-spacing: 0.2rem;
-            color: rgba(53, 52, 52, 0.829);
+            color: rgba(90, 87, 87, 0.829);
             margin: rem(8px);
         }
         .whiter {
-            color: rgba(114, 60, 158, 0.815);
+            
+            color: rgba(170, 85, 240, 0.815);
         }
         & button {
             font-size: 1.5rem;
@@ -78,7 +74,7 @@
             border-radius: 0.2rem;
             padding: 10px 30px;
             transition: all 0.3s;
-            // color: rgba(53, 52, 52, 0.829);
+            color: rgba(243, 234, 234, 0.829);
             margin-top: 0.5rem;
         }
         & button:hover {
@@ -91,12 +87,9 @@
     }
 }
 
-.home-main-layout {
-    // background-color: $clr6;
-    .home-main-video {
-        margin-bottom: 80px;
+    .home-main-header2{
+        height:90vh;   
     }
-}
 
 .tags-title {
     text-align: center;

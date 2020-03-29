@@ -8,6 +8,7 @@
           <div class='product-details-img-main'>
             <img class='product-details-img-enlarge btn' src="../../public/img/svg/enlarge.svg" alt="Enlarge picture" title="Enlarge picture" @click="biger" />
             <img class='product-details-img-artwork' :class="frame" :src='artwork.imgURLs[0]' alt='artwork'>
+
          </div>
           <h4 class='product-details-img-title'>{{artwork.title}}</h4>
           <h4>{{artwork.desc}}</h4>
@@ -108,11 +109,14 @@
 
 <script>
 import Swal from 'sweetalert2';
+import VuePictureSwipe from "vue-picture-swipe";
+
 
 export default {
   name:'product-details',
   data(){
     return{
+      currImgIdx:0,
       artwork: null,
       loggedinUser: null,
       currFrame: 'frame1'
@@ -132,6 +136,22 @@ export default {
         }
   },
   computed:{
+        getCurrImgItem() {
+      let imageUrls = [];
+      imageUrls.push(this.artwork.imgURLs[this.currImgIdx]);
+
+      let item = imageUrls.map(imgURL => {
+        return {
+          src: imgURL,
+          thumbnail: imgURL,
+          alt: imgURL,
+          w: 1090,
+          h: 720
+          // style: {'object-fit': 'contain'}
+        };
+      });
+      return item;
+    },
     frame(){
       return this.currFrame
     }
@@ -185,6 +205,9 @@ export default {
         imageAlt: 'Custom image',
       })
     }
+  },
+  components:{
+    VuePictureSwipe
   }
 }
 </script>
