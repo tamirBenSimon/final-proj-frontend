@@ -8,7 +8,7 @@
 <script>
 export default {
   methods:{
-     onLogOut(){
+     onLogo(){
       this.$router.push('/');
     }
   }
