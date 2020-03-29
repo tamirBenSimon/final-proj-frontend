@@ -3,7 +3,7 @@
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
     <div class="app-main-container">
-      <side-bar class="market-side-bar"  :tags="homeTags"  @tagClicked="tagClicked" :genres="getGenres" @onFilter="onFilter"></side-bar>
+      <side-bar class="market-side-bar"  :tags="getHomeTags"  @tagClicked="tagClicked" :genres="getGenres" @onFilter="onFilter"></side-bar>
       <product-list class="artwork-list-market-app" :artworks="artworks" />
     </div>
   </section>
@@ -52,7 +52,7 @@ export default {
         },
        ],
       filterBy: {},
-      homeTags: ["nature", "urban", "psychedelic", "art", "exhibit", "go"]
+      homeTags: ["nature", "urban", "psychedelic", "fantasy", "anime", "creature","experiment", "negative","cat", "animal","clipart", "scream", "tribute"]
     };
   },
   created() {
@@ -82,6 +82,9 @@ export default {
     eventBus.$off()
   },
   computed: {
+    getHomeTags(){
+      return this.homeTags.slice(2,8)
+    },
     getGenres(){
       return this.genres
     },

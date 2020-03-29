@@ -2,10 +2,8 @@
     <div class="artwork-filter">
       <input @input="onFilter" placeholder="Search Artwork" type="text" v-model="filterBy.title" />
       <input class="num-input" placeholder="Start at" type="number" v-model.number="filterBy.minPrice" />
-      <input class="num-input" placeholder="Mac price" type="number" v-model.number="filterBy.maxPrice" />
-      <input type="text" placeholder="Search by tags" v-model="filterBy.tags" />
+      <input class="num-input" placeholder="Max price" type="number" v-model.number="filterBy.maxPrice" />
       <input type="text"  v-model="filterBy.creatorName" placeholder="artiist name" />
-      <input type="text"  v-model="filterBy.colorTags" placeholder="colorTag" />
       <button @click.prevent="onFilter">filter</button>
     </div>
 </template>
