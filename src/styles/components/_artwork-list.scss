@@ -1,5 +1,5 @@
 .artwork-list-main-container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     .artwork-list-artwork-prevs-container {
         display: flex;
@@ -10,6 +10,7 @@
     }
     .artwork-list-more-main {
         text-align: right;
+        margin-right: 20px;
         .artwork-list-more-btn {
             display: inline-block;
             font-size: 30px;
