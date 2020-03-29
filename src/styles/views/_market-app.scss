@@ -211,3 +211,29 @@
 .lighter-color {
     color: lighten(indigo, 60%);
 }
+
+@media (max-width: $break-wide) {
+    .market-app-container {
+        margin: 0 40px;
+        .artwork-list-main-container {
+            .artwork-list-artwork-prevs-container {
+                column-count: 2;
+            }
+        }
+    }
+}
+
+@media (max-width: $break-normal) {
+    .market-app-container {
+        margin: 0 20px;
+        text-align: center;
+        .artwork-list-main-container {
+            .artwork-list-artwork-prevs-container {
+                column-count: 1;
+            }
+        }
+        .seller-gallery-chat-btn {
+            height: unset;
+        }
+    }
+}
