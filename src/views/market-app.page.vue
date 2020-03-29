@@ -57,7 +57,6 @@ export default {
   },
   created() {
        let params= this.getParams;
-      //  this.filterBy={...params}
        for(let key in params){
         this.filterBy[key]= params[key]
        }
@@ -70,7 +69,6 @@ export default {
       this.removeArtwork(artworkId)});
 
       eventBus.$on('addWishlist', (userId, product) =>{
-        console.log('i was dispatched from market app!')
         this.$store.dispatch({
           type: 'addToWishlist',
           userId: userId,

@@ -13,15 +13,9 @@ function remove(productId, userId) {
     return HttpService.delete(`wishlist/${userId}`, { productId, userId })
 }
 
-// function getCounter() {
-//     return gWLCounter;
-// }
-
 
 export const wishlistService = {
     getCurrwishlist,
     addToCurrwishlist,
     remove,
-    // getCounter
-
 }

@@ -18,7 +18,6 @@
 </template>   
 
 <script>
-// import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'wish-list-cmp',
@@ -30,7 +29,6 @@ export default {
   },
   created(){
     this.loggedinUser = this.$store.getters.loggedinUser;
-    console.log('inside wishlist page created.',this.loggedinUser)
     this.$store.dispatch({
       type: "loadWishlist",
       userId: this.loggedinUser._id
@@ -46,7 +44,6 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
-      // eventBus.$emit('editWishlist');
     }
   }
 }

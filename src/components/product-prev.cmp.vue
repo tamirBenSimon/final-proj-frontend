@@ -57,7 +57,6 @@ export default {
   computed: {
     getURL(){
       return  ('/artwork/' + this.artwork._id)
-    //  this.$route.params.id? : ('/artwork/edit/'+ this.artwork._id)
     },
     isInStock() {
       return this.artwork.inStock ? "available" : "currently not available";

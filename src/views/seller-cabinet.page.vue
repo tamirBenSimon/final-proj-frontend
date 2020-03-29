@@ -15,15 +15,10 @@
     <!-- </template> -->
     <product-list v-if="radio1 === 'Artworks'" :artworks="artworks" />
     <order-list v-else v-for="order in orders" :orders="orders" :key="order.id"></order-list>
-    <!-- <h2>your orders,sir: </h2>
-     <ul>
-        <li v-for="order in orders" :key="order.id"><pre>{{order}}</pre></li>
-      </ul> -->
   </section>
 </template>
 
 <script>
-// import {eventBus} from '../services/event-bus.service.js'
 import productList from "../components/product-list.cmp";
 import orderList from "../components/order-list.cmp";
 export default {
@@ -53,7 +48,6 @@ export default {
       return this.$store.getters.selectedUser;
     },
     artworks() {
-      console.log('this.$store.getters.artworks',this.$store.getters.artworks);
       return this.$store.getters.artworks;
     }
   },

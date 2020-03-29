@@ -75,7 +75,6 @@ export default {
       this.$store.dispatch({
           type: 'logout',
       });
-      // this.$store.getters.loggedinUser = null;
       this.isLoggedinUser = null;
       this.$router.push('/');
     }

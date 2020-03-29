@@ -15,7 +15,6 @@
 </template>
 
 <script>
-// import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name: 'order-prev',
@@ -26,7 +25,6 @@ export default {
    methods:{
      changeStatus(orderStatus){
        console.log('changing order something ',orderStatus)
-      //  eventBus.$emit('delete', userId);
       }
     }
 }
@@ -38,5 +36,4 @@ table, th, td {
   padding: 5px;
   border-collapse: collapse;
 }
-
 </style>
