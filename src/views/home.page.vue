@@ -35,7 +35,7 @@ export default {
   created() {
     this.$store.dispatch({
       type: "loadArtworks",
-      filterBy: {limit: 10}
+      // filterBy: {limit: 30}
     });
     
     eventBus.$on('addWishlist', (userId, product) =>{
@@ -62,7 +62,7 @@ export default {
       let tagSortedArtworks = artworks.filter(artwork => {
         return artwork.tags.includes(tag);
       });
-      return tagSortedArtworks.slice(0, 3);
+      return tagSortedArtworks.slice(0, 4);
     },
   },
   computed: {
