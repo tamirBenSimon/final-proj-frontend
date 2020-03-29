@@ -20,6 +20,10 @@
 .artwork-list-home-container .artwork-list-artwork-prevs-container {
     margin-bottom: rem(100px);
     background-color: $clr5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
 }
 
 .artwork-list-home-container .artwork-prev-txt-container {
