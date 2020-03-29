@@ -2,13 +2,14 @@
     min-height: rem(655px);
     margin: 0 auto;
     margin-top: 110px;
+    width: 90%;
     .artwork-prev-controle-pad {
         display: none;
     }
 }
 
 .artwork-list-market-app {
-    padding: 5px;
+    // padding: 5px;
 }
 
 .artwork-list-market-app .artwork-list-artwork-prevs-container {
@@ -53,6 +54,8 @@
     border: 1px solid lighten($clr2, 8%);
     color: darken(indigo, 10%);
     letter-spacing: 0.4px;
+    margin-right: 10px;
+    min-width: 205px;
     h4:not(:first-child) {
         margin-top: 0.75rem;
     }
@@ -102,19 +105,19 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
-    .side-bar-tag-container span {
-        padding: 2px 3px;
-        border: 1px solid lighten(indigo, 60%);
-        color: lighten(indigo, 60%);
-        margin: 0.2rem 0.5rem;
-        padding: 0.4rem;
-        cursor: pointer;
-        transition: all, 0.3s;
-        &:hover {
-            color: darken(indigo, 10%);
-            border: 1px solid darken(indigo, 10%);
-        }
-    }
+    // .side-bar-tag-container span {
+    //     padding: 2px 3px;
+    //     border: 1px solid lighten(indigo, 60%);
+    //     color: lighten(indigo, 60%);
+    //     margin: 0.2rem 0.5rem;
+    //     padding: 0.4rem;
+    //     cursor: pointer;
+    //     transition: all, 0.3s;
+    //     &:hover {
+    //         color: darken(indigo, 10%);
+    //         border: 1px solid darken(indigo, 10%);
+    //     }
+    // }
     .side-bar-range-value {
         width: 100%;
         text-align: center;
@@ -210,4 +213,32 @@
 //helpers:
 .lighter-color {
     color: lighten(indigo, 60%);
+}
+
+@media (max-width: $break-wide) {
+    .market-app-container {
+        margin: 0 40px;
+        .artwork-list-main-container {
+            .artwork-list-artwork-prevs-container {
+                column-count: 2;
+            }
+        }
+    }
+}
+
+@media (max-width: $break-normal) {
+    .market-app-container {
+        text-align: center;
+        .artwork-list-main-container {
+            .artwork-list-artwork-prevs-container {
+                column-count: 1;
+            }
+        }
+        .seller-gallery-chat-btn {
+            height: unset;
+        }
+        .artwork-list-artwork-prevs-container {
+            width: 100%;
+        }
+    }
 }
