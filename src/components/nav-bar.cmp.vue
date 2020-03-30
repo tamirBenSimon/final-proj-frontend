@@ -8,14 +8,14 @@
         alt="Logo"
         title="Gallerior!"
       />
-      <div class="nav-bar-input">
+      <!-- <div class="nav-bar-input">
         <input class="navbar-input-inside" type="text" placeholder="Search" />
         <img
           class="nav-bar-search-img"
           src="../../public/img/icons/search.png"
           alt="Search"
         />
-      </div>
+      </div> -->
     </div>
 
     <div class="nav-bar-3buttons">
@@ -70,7 +70,7 @@ export default {
   name: "nav-bar",
   data() {
     return {
-      navStyle: "background-color:rgba(234, 234, 234,0);",
+      navStyle: "background-color:rgba(234, 234, 234,0)",
       isLoggedinUser: null,
       showNavbar: false,
       lastScrollPosition: 0
@@ -106,9 +106,9 @@ export default {
         window.pageYOffset || document.documentElement.scrollTop;
       // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
       if (currentScrollPosition < 300) {
-        this.navStyle = "background-color:rgba(234, 234, 234,0);";
+        this.navStyle = "background-color:rgba(234, 234, 234,0)";
       } else {
-        this.navStyle = "background-color: #eaeaead1;";
+        this.navStyle = "background-color: #eaeaeafb";
       }
 
     },

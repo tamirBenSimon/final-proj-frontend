@@ -55,5 +55,8 @@ h3{
   font-weight: 400;
   font-size: 15px;
 }
+table{
+  margin-bottom: 20px;
+}
 
 </style>

@@ -3,10 +3,10 @@
     
       <transition name="el-fade-in-linear">
     <div class="artwork-prev-img-container" shadow="hover">
-      <div class="artwork-prev-wish-list">
+      <!-- <div class="artwork-prev-wish-list">
         <img v-if="!isWishlist" @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
         <img v-else @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
-      </div>
+      </div> -->
 
       <div class="artwork-prev-txt-container flex-center">
 

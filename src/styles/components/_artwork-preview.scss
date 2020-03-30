@@ -16,20 +16,6 @@
         height: 100%;
         border-radius: 0.3rem;
     }
-    & .artwork-prev-wish-list {
-        position: absolute;
-        right: 2px;
-        top: 2px;
-        height: rem(30px);
-        width: rem(30px);
-        transition: all 0.3s;
-    }
-    & .artwork-prev-wish-list:hover {
-        transform: scale(1.2);
-        background-color: rgba(248, 76, 76, 0.384);
-        border-radius: 50%;
-        padding: 7px;
-    }
     & .artwork-prev-img-container>img {
         height: 100%;
     }
@@ -51,6 +37,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
+        min-width: 215px;
         .artwork-prev-USD {
             color: blue;
             margin-left: 2px;
@@ -62,28 +49,28 @@
     & h3 {
         margin: 0.2rem;
     }
-    .artwork-prev-controle-pad{
+    .artwork-prev-controle-pad {
         display: flex;
         justify-content: space-between;
         margin-top: 30px;
         font-size: 1.2rem;
     }
-    .artwork-prev-wishlist-icon{
-    font-size: 1.25rem;
-    position: absolute;
-    right: 5px;
-    transition: all, .2s;
-    &:hover, &:active{
-        font-size: 1.5rem;
-        color: indigo;
+    .artwork-prev-wishlist-icon {
+        font-size: 1.25rem;
+        position: absolute;
+        right: 5px;
+        transition: all, .2s;
+        &:hover,
+        &:active {
+            font-size: 1.5rem;
+            color: indigo;
+        }
     }
-    }
-    .artwork-prev-wishlist-icon-added{
+    .artwork-prev-wishlist-icon-added {
         font-size: 1.5rem;
         color: indigo;
         position: absolute;
         right: 5px;
         font-size: 1.5rem;
-
     }
 }

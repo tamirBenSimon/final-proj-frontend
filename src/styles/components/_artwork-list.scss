@@ -12,12 +12,11 @@
         margin-right: 5%;
         .artwork-list-more-btn {
             display: inline-block;
-            font-size: 30px;
-            text-decoration-line: underline;
-            margin: 0;
+            font-size: 27px;
+            margin: 0 5px;
         }
         .artwork-list-more-btn:hover {
-            color: skyblue;
+            color: $clr3;
         }
     }
 }
