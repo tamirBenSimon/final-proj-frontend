@@ -282,15 +282,35 @@ export default {
         confirmButtonText: "Yes, buy it!"
       }).then(result => {
         if (result.value) {
+          this.placeOrder(this.artwork)
           Swal.fire({
             showConfirmButton: false,
             timer: 2000,
             title: "Thank you!",
-            text: "This artwork entered into the order!",
+            text: "This artwork has been ordered",
             icon: "success"
           });
         }
       });
+    },
+    placeOrder(item) {
+      const newOrder= {
+            at: Date.now(),
+            by: {fullName: this.loggedinUser.fullName, _id: this.loggedinUser._id, imgURL: this.loggedinUser.imgURL},
+            from: {fullName: item.createdBy.fullName, _id: item.createdBy._id},
+            product: {
+                _id: item._id,
+                title: item.title,
+                price: item.price},
+            status: 'ordered',
+            shippingInfo: {
+              lat:32.085300 + Math.random()*10, lng:34.781769+ Math.random()*10
+            }}
+      this.$store.dispatch({type: "addOrder", order: newOrder})
+        .then(() => {
+          console.log('after order add before remove,with item:' , item)
+          })
+      
     },
     currRate(rate) {
       return "⭐".repeat(rate);

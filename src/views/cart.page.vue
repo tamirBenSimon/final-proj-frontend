@@ -67,7 +67,9 @@ export default {
               lat:32.085300 + Math.random()*10, lng:34.781769+ Math.random()*10
             }}
       this.$store.dispatch({type: "addOrder", order: newOrder})
-        // .then(item => this.onRemove(item))
+        .then(() => {
+          console.log('after order add before remove,with item:' , item)
+          this.onRemove(item)})
       
     }
   }
