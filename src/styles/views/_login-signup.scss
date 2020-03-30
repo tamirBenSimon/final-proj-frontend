@@ -17,9 +17,38 @@
     padding: 1.5rem;
 }
 
-input {
+.login-input {
     display: block;
     background-color: #f5f5f5b8;
-    border-radius: 15px;
-    // padding: 0.5rem;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    height: 35px;
+    border: 0;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 6px;
+}
+
+.login-btn {
+    background-color: #dedede;
+    margin-top: 10px;
+    border: 2px #2e2d2d solid;
+    color: #2e2d2d;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.signup-move-btn {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: -15px;
+    text-decoration: underline;
+    text-decoration-color: purple;
+    color: black;
+    &:hover {
+        color: #dddddd;
+    }
 }
