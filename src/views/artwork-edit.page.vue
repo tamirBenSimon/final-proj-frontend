@@ -7,7 +7,6 @@
       alt="back"
       title="Back"
     />
-
     <div class="artwork-edit-container-main">
       <div class="artwork-edit-left-side-container">
         <div class="artwork-edit-galler-container">
@@ -17,7 +16,7 @@
               v-for="(artworkImgUrl, idx) in artwork.imgURLs"
               :key="idx"
               :src="artworkImgUrl"
-              alt=""
+              alt="Artwork Image"
               @click="onGalleryIMGClick(idx)"
             />
           </div>
@@ -26,50 +25,12 @@
               class="artwork-edit-img-artwork"
               :items="getCurrImgItem"
             ></vue-picture-swipe>
-
             <button class="set-out-stock setInStock" @click="onRemove">
               delete
             </button>
-            <!-- <vue-picture-swipe :items="getCurrImgItem"></vue-picture-swipe> -->
-            <!-- 
-            <vue-flux
-              :options="fluxOptions"
-              :images="fluxImages"
-              :transitions="fluxTransitions"
-              ref="slider"
-            >
-            </vue-flux> -->
-            <!-- <button @click="$refs.slider.showImage('next')">NEXT</button> -->
           </div>
         </div>
-
-        <!-- <div class="product-details-container-reviews">
-          <h2>Reviews:</h2>
-          <ul class="product-details-reviews-list">
-            <li
-              class="product-details-review-prev"
-              v-for="(review, index) in artwork.reviews"
-              :key="index"
-            >
-              <div class="product-details-review-main-header">
-                <img
-                  class="product-details-img-reviewer"
-                  :src="review.by.imgURL"
-                  alt="reviewer"
-                />
-                <h3 class="product-details-review-fullName">
-                  {{ review.by.fullName }}
-                </h3>
-              </div>
-              <h5 class="product-details-review-rate">
-                {{ currRate(review.rate) }}
-              </h5>
-              <h4 class="product-details-review-txt">{{ review.Txt }}</h4>
-            </li>
-          </ul>
-        </div> -->
       </div>
-
       <div class="artwork-edit-aside-container">
         <div class="artwoek-edit-form">
           <h4 class="artwork-edit-form-title">Title</h4>
@@ -95,7 +56,6 @@
           >
             {{ stockBtnMsg }}
           </button>
-
           <h4>
             Upload new image
           </h4>
@@ -115,11 +75,10 @@
             v-model="NewImgURL"
             placeholder="type here new image url and hit Save"
           />
-
           <button class="edit-form-input btn" @click="onNewMImgURL">
             Save new URL
           </button>
-          <button class=" edit-form-input save-artwork" @click="onSave">
+          <button class="edit-form-input save-artwork" @click="onSave">
             Save changes to artwork
           </button>
         </div>
@@ -131,11 +90,6 @@
 <script>
 import VuePictureSwipe from "vue-picture-swipe";
 import { cloudinaryService } from "../services/cloudinary.service.js";
-// import { eventBus } from "../services/event-bus.service.js";
-// import { CldImage } from "cloudinary-vue";
-// import { VueFlux, Transitions } from "vue-flux";
-// import "vue-flux/dist-ssr/_vue-flux.css";
-//more to import from cloudinary: CldContext, CldVideo,CldTransformation,CldPoster
 
 export default {
   name: "artwork-edit",
@@ -150,11 +104,8 @@ export default {
   },
   components: {
     VuePictureSwipe
-    // CldImage
-    // 'vue-flux': VueFlux
   },
   created() {
-    console.log("artwork Id in created Time ", artworkId);
     this.loggedinUser = this.$store.getters.loggedinUser;
     const artworkId = this.$route.params.id;
     if (artworkId) {
@@ -191,7 +142,6 @@ export default {
         salesCount: 0,
         reviews: []
       };
-      console.log(this.artwork);
     }
   },
   computed: {
@@ -206,7 +156,6 @@ export default {
           alt: imgURL,
           w: 1090,
           h: 720
-          // style: {'object-fit': 'contain'}
         };
       });
       return item;
@@ -215,7 +164,6 @@ export default {
       return this.artwork.inStock ? "Set as not available" : "Set as available";
     },
     getCurrImg() {
-      console.log(this.artwork.imgURLs[this.currImgIdx]);
       return this.artwork.imgURLs[this.currImgIdx];
     },
     isInStock() {
@@ -224,29 +172,24 @@ export default {
   },
   methods: {
     async uploadImg(event) {
-      console.log(event.target.files[0]);
       const fileObject = await cloudinaryService.uploadImg(event);
       const newImgURL = fileObject.url;
       this.artwork.imgURLs.push(newImgURL);
-      console.log(" now i am url like thissssss: ", this.artwork.imgURLs);
       this.onSave();
     },
     imageList(imgURLs) {
       let items = imgURLs.map(imgURL => {
-        console.log(imgURL);
         return {
           src: imgURL,
           thumbnail: imgURL,
           alt: imgURL,
           w: 600,
           h: 400
-          // style: {'object-fit': 'contain'}
         };
       });
 
       return (this.items = items);
     },
-
     onSave() {
       this.$store
         .dispatch({
@@ -256,6 +199,7 @@ export default {
         .then(artwork => {
           this.artwork = artwork;
         });
+        this.$router.push("/artwork");
     },
     onRemove() {
       this.artwork.imgURLs.splice([this.currImgIdx], 1);
@@ -276,7 +220,5 @@ export default {
       this.$router.push("/artwork");
     }
   }
-};
+}
 </script>
-
-<style></style>
