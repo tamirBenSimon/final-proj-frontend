@@ -16,12 +16,14 @@
 
     <div class="nav-bar-3buttons">
       <div class="nav-bar-wishlist-container">
-        <img
+        <!-- <img
           @click="onwishlist"
           src="../../public/img/svg/heart1.svg"
           alt="Wish List"
           title="Wish List"
-        />
+        /> -->
+
+<i class="fas fa-heart"></i>
         <div class="nav-bar-num-wish-list flex-center" v-if="WL_count">
           {{ WL_count }}
         </div>

@@ -45,7 +45,7 @@
       # {{ tag }}
     </span>
 
-    <h4 @click="emitFilter({ colorTags: '' })">colors</h4>
+    <h4 @click="emitFilter({ colorTags: '' })">Colors</h4>
     <color-select @emitFilter="emitFilter"></color-select>
 
     <!-- </div> -->
