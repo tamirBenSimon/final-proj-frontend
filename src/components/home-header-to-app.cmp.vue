@@ -1,25 +1,31 @@
 <template>
-    <header class="home-main-header" id="nav">
-      <div v-if="currNum === 1">
-        <img src="../../public/img/gallery/gallery1.jpg" alt="Home Picture">
-        <div>call bla bla to action1</div>
+    <header class="home-main-header-container" id="nav">
+
+      <div v-if="currNum === 1" class="home-main">
+        <img class="home-main-img" src="../../public/img/gallery/gallery1.jpg" alt="Home Picture">
+        <div class="home-main-callBack btn">call bla bla to action1</div>
       </div>
-      <div v-if="currNum === 2">
-        <img src="../../public/img/gallery/gallery2.jpg" alt="Home Picture">
-        <div>Begin exploring now...</div>
+
+      <div v-if="currNum === 2" class="home-main">
+        <img class="home-main-img" src="../../public/img/gallery/gallery2.jpg" alt="Home Picture">
+        <div class="home-main-callBack btn">Begin exploring now...</div>
       </div>
-      <div v-if="currNum === 3">
-        <img src="../../public/img/gallery/gallery3.jpg" alt="Home Picture">
-        <div>call bla bla to action2</div>
+
+      <div v-if="currNum === 3" class="home-main">
+        <img class="home-main-img" src="../../public/img/gallery/gallery3.jpg" alt="Home Picture">
+        <div class="home-main-callBack btn">call bla bla to action2</div>
       </div>
-      <div v-if="currNum === 4">
-        <img src="../../public/img/gallery/gallery4.jpg" alt="Home Picture">
-        <div>call bla bla to action3</div>
+
+      <div v-if="currNum === 4" class="home-main">
+        <img class="home-main-img" src="../../public/img/gallery/gallery4.jpg" alt="Home Picture">
+        <div class="home-main-callBack btn">call bla bla to action3</div>
       </div>
-      <div v-if="currNum === 5">
-        <img src="../../public/img/gallery/gallery5.jpg" alt="Home Picture">
-        <div>call bla bla to action4</div>
+
+      <div v-if="currNum === 5" class="home-main">
+        <img class="home-main-img" src="../../public/img/gallery/gallery5.jpg" alt="Home Picture">
+        <div class="home-main-callBack btn">call bla bla to action4</div>
       </div>
+
       </header>
 </template>
 
@@ -31,16 +37,14 @@ export default {
         counterTime: null
     }
   },
-  // created(){
-  //     this.counterTime = setInterval(()=>{
-  //       if(this.numImg === 4) this.numImg = 0;
-  //       console.log('inside@!!!', this.numImg);
-  //       this.numImg++;
-  //     }, 4000)
-  // },
+  created(){
+      // this.counterTime = setInterval(()=>{
+      //   if(this.currNum === 5) this.currNum = 0;
+      //   this.currNum++;
+      // }, 14000)
+  },
   destroyed(){
     const counter = this.counterTime;
-    console.log('destroy!!!');
     clearInterval(counter);
   },
   computed:{

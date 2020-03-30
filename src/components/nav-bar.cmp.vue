@@ -10,6 +10,10 @@
       />
     </div>
 
+    <div class="nav-bar-artwork-cb btn">Artwork</div>
+
+    <div class="nav-bar-line"></div>
+
     <div class="nav-bar-3buttons">
       <div class="nav-bar-wishlist-container">
         <img

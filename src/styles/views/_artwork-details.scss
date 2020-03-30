@@ -37,7 +37,7 @@
                         width: 25px;
                         -webkit-transition: all .3s;
                         transition: all .3s;
-                        border: 2px solid indigo;
+                        border: 2px solid $clr4;
                         padding: 3px;
                         box-sizing: unset;
                         &:hover {
@@ -321,14 +321,17 @@
 
 .fr2 {
     background-image: url('../../public/img/frames/frame44.png');
+    background-position: -20px;
 }
 
 .fr3 {
     background-image: url('../../public/img/frames/frame55.png');
+    background-position: 0px;
 }
 
 .fr4 {
     background-image: url('../../public/img/frames/frame66.png');
+    background-position: -17px;
 }
 
 .fr5 {
@@ -337,6 +340,7 @@
 
 .fr6 {
     background-image: url('../../public/img/frames/frame88.png');
+    background-position: 30px;
 }
 
 @media (max-width: $break-wide) {
