@@ -7,7 +7,6 @@
       />
       Your browser does not support HTML5 video.
     </video>
-    <!-- <div class="home-header2"> -->
       <div class="home-header2-txt">
         <h2>Online inspire <span class="whiter">community.</span></h2>
         <h2>simple interaction <span class="whiter">marketplace.</span></h2>
@@ -19,13 +18,5 @@
           </router-link>
         </button>
       </div>
-    <!-- </div> -->
   </header>
-  
 </template>
-
-<script>
-export default {
-};
-</script>
-

@@ -7,7 +7,8 @@
     justify-content: center;
 }
 
-.user-login, .user-signup {
+.user-login,
+.user-signup {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,8 +20,6 @@
 input {
     display: block;
     background-color: #f5f5f5b8;
-    border: 0px;
     border-radius: 15px;
-    padding: 0.5rem;
-    margin-bottom: 0.4rem;
+    // padding: 0.5rem;
 }

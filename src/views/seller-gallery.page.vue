@@ -27,9 +27,8 @@ export default {
       isMsg: false
     }
   },
-created() {
+  created() {
     const userId = this.$route.params.id;
-    console.log('userID ,  ' ,userId)
     this.$store.dispatch({
       type: "loadUser", userId : userId
     });
@@ -43,7 +42,6 @@ created() {
       return date.getFullYear();
     },
     artworks() {
-      console.log('this.$store.getters.artworks',this.$store.getters.artworks);
       return this.$store.getters.artworks;
     },
     user() {

@@ -2,12 +2,12 @@
   <section class="artwork-list-main-container">
     <slot> </slot>
     <div class="artwork-list-artwork-prevs-container">
-        <productPrev
-          class="artwork-list-prev"
-          v-for="artwork in artworks"
-          :key="artwork._id"
-          :artwork="artwork"
-        />
+      <productPrev
+        class="artwork-list-prev"
+        v-for="artwork in artworks"
+        :key="artwork._id"
+        :artwork="artwork"
+      />
     </div>
   </section>
 </template>

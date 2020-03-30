@@ -247,7 +247,6 @@ export default {
           alt: imgURL,
           w: 1090,
           h: 720
-          // style: {'object-fit': 'contain'}
         };
       });
       return item;

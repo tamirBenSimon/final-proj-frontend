@@ -14,28 +14,24 @@
 @import 'components/artwork-filter';
 @import 'components/artwork-list';
 @import 'components/artwork-preview';
-// @import 'components/related-artwork';
 @import 'components/chat';
-@import './components/user-prev';
 @import './components/nav-bar';
 @import './components/footer';
 @import './components/tag-select';
 @import 'components/color-select';
-@import './components/side-bar';
 //
 //VIEWS
 @import 'views/admin';
 @import 'views/cart';
-// @import 'views/edit-artwork';
 @import 'views/home';
 @import 'views/market-app';
 @import 'views/artwork-details';
 @import 'views/artwork-edit';
 @import 'views/seller-gallery';
-@import 'views/user-profile';
 @import 'views/wish-list';
 @import 'views/login-signup';
 @import 'views/seller-cabinet';
 //PLUGINS
 // @import 'vue-flux/dist-ssr/_vue-flux';
 // @import { VueFlux, Transitions } from 'vue-flux/dist-ssr/_vue-flux.scss';
+@import url("//unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css");

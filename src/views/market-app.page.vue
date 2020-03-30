@@ -3,7 +3,15 @@
     <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
     <artwork-filter @onFilter="onFilter" />
     <div class="app-main-container">
-      <side-bar class="market-side-bar"  :tags="getHomeTags"  @tagClicked="tagClicked" :genres="getGenres" @onFilter="onFilter"></side-bar>
+    <div class="side-bar-range-value">
+    </div>
+      <side-bar
+        class="market-side-bar"
+        :tags="getHomeTags"
+        @tagClicked="tagClicked"
+        :genres="getGenres"
+        @onFilter="onFilter"
+      ></side-bar>
       <product-list class="artwork-list-market-app" :artworks="artworks" />
     </div>
   </section>
@@ -22,90 +30,100 @@ export default {
     productList,
     artworkFilter,
     tagsSelect,
-    sideBar,
-    
+    sideBar
   },
   data() {
-              
     return {
-       genres:[
+      genres: [
         {
-          artType:'paintings',
-          name: 'canvas'
+          artType: "paintings",
+          name: "canvas"
         },
 
-                {
-          artType:'photography',
-          name: 'docu'
+        {
+          artType: "photography",
+          name: "docu"
         },
-                {
-          artType:'paintings',
-          name: 'geometry'
+        {
+          artType: "paintings",
+          name: "geometry"
         },
-                        {
-          artType:'photography',
-          name: 'Wild life'
+        {
+          artType: "photography",
+          name: "Wild life"
         },
-                        {
-          artType:'paintings',
-          name: 'fine art'
-        },
-       ],
+        {
+          artType: "paintings",
+          name: "fine art"
+        }
+      ],
       filterBy: {},
-      homeTags: ["nature", "urban", "psychedelic", "fantasy", "anime", "creature","experiment", "negative","cat", "animal","clipart", "scream", "tribute"]
+      homeTags: [
+        "nature",
+        "urban",
+        "psychedelic",
+        "fantasy",
+        "anime",
+        "creature",
+        "negative",
+        "cat",
+        "animal",
+        "clipart",
+        "scream",
+        "tribute"
+      ]
     };
   },
   created() {
-       let params= this.getParams;
-      //  this.filterBy={...params}
-       for(let key in params){
-        this.filterBy[key]= params[key]
-       }
+    let params = this.getParams;
+    for (let key in params) {
+      this.filterBy[key] = params[key];
+    }
     this.$store.dispatch({
       type: "loadArtworks",
       filterBy: this.filterBy
     });
 
-    eventBus.$on(EVENT_REMOVE,(artworkId)=>{
-      this.removeArtwork(artworkId)});
+    eventBus.$on(EVENT_REMOVE, artworkId => {
+      this.removeArtwork(artworkId);
+    });
 
-      eventBus.$on('addWishlist', (userId, product) =>{
-        console.log('i was dispatched from market app!')
-        this.$store.dispatch({
-          type: 'addToWishlist',
-          userId: userId,
-          product: product
-        })
-      })
+    eventBus.$on("addWishlist", (userId, product) => {
+      this.$store.dispatch({
+        type: "addToWishlist",
+        userId: userId,
+        product: product
+      });
+    });
   },
-  beforeDestroy(){
-    eventBus.$off()
+  beforeDestroy() {
+    eventBus.$off();
   },
   computed: {
-    getHomeTags(){
-      return this.homeTags.slice(2,8)
+    getHomeTags() {
+      return this.homeTags.slice(2, 8);
     },
-    getGenres(){
-      return this.genres
+    getGenres() {
+      return this.genres;
     },
-    getFilterBy(){
-      return this.filterBy
+    getFilterBy() {
+      return this.filterBy;
     },
-
 
     artworks() {
       return this.$store.getters.artworks;
     },
-    getParams(){
+    getParams() {
       return this.$route.params;
     }
   },
   methods: {
+
     tagClicked(tag) {
       this.filterBy.tag = tag;
       this.$store.dispatch({
         type: "loadArtworks",
-        filterBy:this.filterBy
+        filterBy: this.filterBy
       });
     },
     removeArtwork(artworkId) {
@@ -115,8 +133,8 @@ export default {
       });
     },
     onFilter(filterBy) {
-      for(let key in filterBy){
-        this.filterBy[key]= filterBy[key]
+      for (let key in filterBy) {
+        this.filterBy[key] = filterBy[key];
       }
       this.$store.dispatch({
         type: "loadArtworks",

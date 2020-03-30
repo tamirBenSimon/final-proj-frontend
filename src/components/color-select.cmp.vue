@@ -1,16 +1,15 @@
 <template>
-    <div class="color-select-container">
-      <div class="color-select"
-      
+  <div class="color-select-container">
+    <div class="color-select"
       v-for="(color,idx) in colors"
       @click="onFilter(color)"
       :style=" {'background-color' : color}"
       :key="idx"
       > 
-
-      </div>
     </div>
+  </div>
 </template>
+
 <script>
 export default {
   name: "color-select",

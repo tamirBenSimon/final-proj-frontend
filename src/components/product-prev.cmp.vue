@@ -1,7 +1,8 @@
 <template>
   <router-link class="artwork-prev" :to="getURL">
-    <div class="artwork-prev-img-container">
-
+    
+      <transition name="el-fade-in-linear">
+    <div class="artwork-prev-img-container" shadow="hover">
       <div class="artwork-prev-wish-list">
         <img v-if="!isWishlist" @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/black-like.png" alt="Wish List">
         <img v-else @click.prevent="onWishlist" class="artwork-prev-wish-list-img" src="../../public/img/icons/red-like.png" alt="Wish List">
@@ -22,18 +23,26 @@
                 <span class="artwork-prev-createdBy-fullName">
                   {{ artwork.createdBy.fullName }}
                 </span>
+
+                  <i v-if="!isWishlist" @click.prevent="onWishlist"  class="fas fa-heart artwork-prev-wishlist-icon"></i>
+                  <i v-else @click.prevent="onWishlist"  class="fas fa-heart artwork-prev-wishlist-icon-added"></i>
+
               </div>
             </router-link>
-            <!-- <span>{{ isInStock }}</span> -->
             <div class="artwork-prev-controle-pad">
-              <button @click.prevent="remove">remove</button>
-              <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>
+
+                <i class="el-icon-delete"  @click.prevent="remove"></i>
+
+              <router-link :to="'/artwork/edit/'+ this.artwork._id">
+              <i  class="el-icon-edit"></i>
+               </router-link>
             </div>
           </div>
 
       </div>
 
     </div>
+          </transition>
   </router-link>
 </template>
 
@@ -57,7 +66,6 @@ export default {
   computed: {
     getURL(){
       return  ('/artwork/' + this.artwork._id)
-    //  this.$route.params.id? : ('/artwork/edit/'+ this.artwork._id)
     },
     isInStock() {
       return this.artwork.inStock ? "available" : "currently not available";

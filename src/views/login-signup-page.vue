@@ -34,7 +34,7 @@ export default {
         userName: '',
         password: ''
       },
-      isSignup: false ///we need this???
+      isSignup: false 
     }
   },
    methods: {
