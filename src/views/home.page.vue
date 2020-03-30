@@ -1,7 +1,8 @@
 <template>
   <section class="home-main-layout">
-    <!-- <headerVid class="home-main-video"> </headerVid> -->
+
     <header-two />
+
     <product-list class="artwork-list-home-container"
       v-for="tag in homeTags"
       :artworks="getArtWorksByTag(tag)"
@@ -13,12 +14,19 @@
         </router-link>
       </div>
     </product-list>
+
+    <div class="home-extra-main">
+        <img class="home-extra-img1" src="../../public/img/gallery/img5.jpg">
+        <img class="home-extra-img2" src="../../public/img/gallery/img2.jpg">
+        <img class="home-extra-img3" src="../../public/img/gallery/img3.jpg">
+        <img class="home-extra-img4" src="../../public/img/gallery/img4.jpg">      
+    </div>
+
   </section>
 </template>
 
 <script>
 import productList from "../components/product-list.cmp";
-// import headerVid from "../components/home-header2.cmp";
 import headerTwo from "../components/home-header-to-app.cmp";
 import { eventBus } from "../services/event-bus.service.js";
 
@@ -63,7 +71,6 @@ export default {
   },
   components: {
     productList,
-    // headerVid,
     headerTwo
   }
 }
