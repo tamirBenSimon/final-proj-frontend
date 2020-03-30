@@ -60,7 +60,7 @@ export default {
         },
         async loadUser(context, { userId }) {
             const user = await userService.getById(userId);
-            context.commit({ type: 'setUser', user })
+            // context.commit({ type: 'setUser', user }) // trying to resolve the orders bug
             context.commit({ type: 'setSelectedUser', user })
             return user;
         },
