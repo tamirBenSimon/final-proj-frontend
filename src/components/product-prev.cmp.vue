@@ -23,6 +23,10 @@
                 <span class="artwork-prev-createdBy-fullName">
                   {{ artwork.createdBy.fullName }}
                 </span>
+
+                              <i v-if="!isWishlist" @click.prevent="onWishlist"  class="fas fa-heart artwork-prev-wishlist-icon"></i>
+                              <i v-else @click.prevent="onWishlist"  class="fas fa-heart artwork-prev-wishlist-icon-added"></i>
+
               </div>
             </router-link>
             <!-- <span>{{ isInStock }}</span> -->

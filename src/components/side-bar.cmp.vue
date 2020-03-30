@@ -23,7 +23,7 @@
         {{ genre.name }}
     </div>
     <h4 @click="emitFilter({ maxPrice: '' })">My budget</h4>
-    <input
+    <input class="range-input"
       type="range"
       min="0"
       max="2500"
@@ -31,7 +31,7 @@
       v-model="maxPrice"
     />
     <div class="side-bar-range-value">
-      {{ this.maxPrice }}<span class="lighter-color"> USD</span>
+      {{ this.maxPrice }}<span class="lighter-color"> $</span>
     </div>
     <h4 @click="emitFilter({ tag: '' })">Tags</h4>
     <!-- <div class="side-bar-tag-container"> -->
