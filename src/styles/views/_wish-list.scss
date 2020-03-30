@@ -3,7 +3,6 @@
     min-height: rem(635px);
     .wish-list-page-img-back {
         width: 25px;
-        // margin: 95px 0 0 25px;
     }
     .wish-list-main-container {
         min-height: rem(200px);
@@ -14,6 +13,7 @@
             width: rem(500px);
             margin-bottom: 20px;
             padding: 30px 0;
+            width: 100%;
             .wish-list-remove {
                 cursor: pointer;
                 font-size: 15px;

@@ -1,6 +1,7 @@
 <template>
   <section class="home-main-layout">
-    <headerVid class="home-main-video"> </headerVid>
+    <!-- <headerVid class="home-main-video"> </headerVid> -->
+    <header-two />
     <product-list class="artwork-list-home-container"
       v-for="tag in homeTags"
       :artworks="getArtWorksByTag(tag)"
@@ -17,7 +18,8 @@
 
 <script>
 import productList from "../components/product-list.cmp";
-import headerVid from "../components/home-header2.cmp";
+// import headerVid from "../components/home-header2.cmp";
+import headerTwo from "../components/home-header-to-app.cmp";
 import { eventBus } from "../services/event-bus.service.js";
 
 export default {
@@ -61,7 +63,8 @@ export default {
   },
   components: {
     productList,
-    headerVid
+    // headerVid,
+    headerTwo
   }
 }
 </script>

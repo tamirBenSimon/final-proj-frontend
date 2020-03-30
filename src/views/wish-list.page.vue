@@ -3,8 +3,7 @@
     <img @click="onBack" class="wish-list-page-img-back btn" src="../../public/img/icons/left-arrow.png" alt="back" title="Back">
     <h2>My Wish List</h2>
     <hr>
-    <div class="wish-list-main-container">
-      <div v-if="wishlist">
+    <div v-if="wishlist" class="wish-list-main-container">
         <div class="wish-list-main" v-for="(product, index) in wishlist" :key="index">
           <img class="wish-list-img-product" :src="product.imgURLs[0]" alt="Product">
           <div class="wish-list-tite">{{product.title}}</div>
@@ -13,7 +12,6 @@
           <div class="wish-list-buy">Buy Now</div>
         </div>
       </div>
-    </div>
     <hr>
   </section>
 </template>   
@@ -45,6 +43,9 @@ export default {
       productId: product._id,
       userId: this.loggedinUser._id
       })
+    },
+    onBack() {
+      this.$router.push("/artwork");
     }
   }
 }

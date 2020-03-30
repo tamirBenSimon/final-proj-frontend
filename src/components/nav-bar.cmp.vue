@@ -8,15 +8,11 @@
         alt="Logo"
         title="Gallerior!"
       />
-      <!-- <div class="nav-bar-input">
-        <input class="navbar-input-inside" type="text" placeholder="Search" />
-        <img
-          class="nav-bar-search-img"
-          src="../../public/img/icons/search.png"
-          alt="Search"
-        />
-      </div> -->
     </div>
+
+    <div class="nav-bar-artwork-cb btn">Artwork</div>
+
+    <div class="nav-bar-line"></div>
 
     <div class="nav-bar-3buttons">
       <div class="nav-bar-wishlist-container">
@@ -55,9 +51,9 @@
         />
         <div class="dropdown-content">
           <a href="#/">Home Page</a>
-          <a :href="'/#/cabinet/' + isLoggedinUser._id">Profile</a>
+          <a :href="'/#/cabinet/' + loggedinUser._id">Profile</a>
           <a v-if="!isLoggedinUser" href="/#/login">Login</a>
-          <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a>
+          <!-- <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a> -->
           <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
         </div>
       </div>
@@ -71,7 +67,7 @@ export default {
   data() {
     return {
       navStyle: "background-color:rgba(234, 234, 234,0)",
-      isLoggedinUser: null,
+      // isLoggedinUser: null,
       showNavbar: false,
       lastScrollPosition: 0
     };
@@ -85,10 +81,13 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
 
-  created() {
-    this.isLoggedinUser = this.$store.getters.loggedinUser;
-  },
+  // created() {
+  //   this.isLoggedinUser = 
+  // },
   computed: {
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
+    },
     getNavStyle() {
       return this.navStyle;
     },
@@ -101,16 +100,13 @@ export default {
   },
   methods: {
     onScroll() {
-      // Get the current scroll position
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-      if (currentScrollPosition < 100) {
+      if (currentScrollPosition === 0) {
         this.navStyle = "background-color:rgba(234, 234, 234,0)";
       } else {
         this.navStyle = "background-color: #eaeaeafb";
       }
-
     },
 
     signup() {
@@ -130,13 +126,8 @@ export default {
         type: "logout"
       });
       this.isLoggedinUser = null;
-      this.$router.push("/");
+      this.$router.push("/login");
     }
   }
-};
+}
 </script>
-
-<style scoped>
-
-
-</style>

@@ -30,7 +30,7 @@ export default {
   },
   methods:{
     onBack(){
-      this.$router.push('/');
+      this.$router.push('/artwork');
     }
   },
   components:{

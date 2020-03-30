@@ -1,5 +1,5 @@
 <template>
-  <section class=login-signup-container>
+  <section class="login-signup-container">
       <section v-if="!isSignup" class="user-login">
             <h2>please login</h2>
             <form @submit.prevent="onLogin">
