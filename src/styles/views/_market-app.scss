@@ -32,9 +32,9 @@
 }
 
 .market-side-bar {
+
     max-width: 19vw;
     font-weight: lighter;
-    border: 1px solid lighten($clr2, 8%);
     color: darken(indigo, 10%);
     letter-spacing: 0.4px;
     margin-right: 10px;
@@ -44,6 +44,7 @@
         margin-top: 0.75rem;
     }
     h4 {
+        border-radius: 0.3rem;
         background-color: rgba(64, 65, 60, 0.555);
         position: relative;
         margin: 0 0 rem(4px) 0;
@@ -93,6 +94,7 @@
         width: 100%;
         text-align: center;
     }
+
     //   for the range input
     input[type=range] {
         -webkit-appearance: none;

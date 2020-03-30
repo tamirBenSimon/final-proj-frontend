@@ -1,62 +1,87 @@
 .artwork-filter {
-  display: flex;
-  margin: rem(40px);
-  & .search-input {
-      max-width: 35ch;
-      background-color: #fff;
-      border-radius: 0px;
-    outline: none;
-    padding: 4px 0 4px 10px;
-    font-size: 1rem;
-    transition: all, .2s;
-    height: 20px;
-    color: indigo;
-    &::placeholder{
-        color:#e0b5ff;
-        font-weight: lighter;
-    }
+  min-width: 400px;
+  max-width: 70%;
 
-}
-
-& .num-input, 
-& .num-input>* {
-    height: 93%;
-    margin: 0;
-    padding: 0;
-}
-& .el-input-number:hover{
-    border-radius:0.5rem ;
-border: 1px solid rgb(71, 42, 124);
-}
-
-.search-container {
+  .search-container {
+    margin-bottom: 0.5rem;
+    align-self: start;
     border: 1px solid rgba(121, 116, 116, 0.507);
     border-radius: 0.3rem;
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    transition: all, 0.3s;
     &:hover,
     &:focus {
-        background-color: rgb(255, 255, 255);
+      background-color: rgb(255, 255, 255);
     }
-    
-    & > * {
-        margin: 0;
-        border: none;
+    &.onFocus {
+      border: 1px solid rgb(28, 16, 29);
     }
-    .el-radio-button__inner {
-        color: #e0b5ff;
-        border: none;
-        padding: 8px 10px;
-        border-radius: 0px;
-        font-size: 1rem;
-        box-shadow: 1px solid rgba(196, 15, 15, 0);
-        background-color: rgba(238, 225, 225, 0);
+    .filter-icon-container{
+        width: 20px;
+        height: 100%;
+ 
+        align-self: center;
+    }
 
+    .search-input {
+      background-color: #fff;
+      border-radius: 0px;
+      outline: none;
+      padding: 4px 0 4px 10px;
+      font-size: 1rem;
+      transition: all, 0.2s;
+      height: 20px;
+      color: rgb(20, 2, 32);
+      &::placeholder {
+        color: #a5a4a7;
+        font-weight: lighter;
+      }
+    }
+
+    .el-radio-button__inner {
+      color: #e0b5ff;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 0px;
+      font-size: 1rem;
+      box-shadow: 1px solid rgba(196, 15, 15, 0);
+      background-color: rgba(238, 225, 225, 0);
     }
     .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-      background-color:#c5c5c0;
-      color: antiquewhite;
-    box-shadow: none;    }
+      background-color: #c5c5c0;
+      color: white;
+      box-shadow: none;
+    }
+
+    .filter-icon {
+        padding: 2px;
+      border-radius: 0px 3px 3px 0px;
+      color: rgb(121, 117, 117);
+      transition: all, 0.3s;
+      font-size: 17px;
+
+      &:hover {
+        color: rgb(226, 221, 221);
+      }
+    }
+
+    & > * {
+      margin: 0;
+      border: none;
+      display: inherit;
+
+    }
+  }
+  .search-secondary-line {
+    display: flex;
+    flex-direction: row;
+
+    & .el-input-number:hover {
+      border-radius: 0.5rem;
+      border: 1px solid rgb(65, 52, 88);
+    }
   }
 }
