@@ -1,9 +1,18 @@
 .cart-container {
-    margin: 90px 20px;
+    margin: 90px 50px;
     min-height: rem(635px);
     .cart-page-img-back {
         height: 25px;
         width: 25px;
+    }
+    .cart-buy-all {
+        width: 100px;
+        height: 40px;
+        border: 2px solid black;
+        margin-left: 93%;
+        font-size: 17px;
+        font-weight: 600;
+        color: purple;
     }
     .cart-main-container {
         min-height: rem(200px);
@@ -14,6 +23,7 @@
             width: rem(500px);
             margin-bottom: 20px;
             padding: 30px 0;
+            width: 100%;
             .cart-remove {
                 cursor: pointer;
                 font-size: 15px;
@@ -36,5 +46,25 @@
     }
     .cart-img-product {
         width: rem(100px);
+    }
+}
+
+@media (max-width: $break-wide) {
+    .cart-container {
+        .cart-buy-all {
+            width: 100px;
+            height: 40px;
+            border: 2px solid black;
+            margin-left: 80%;
+            font-size: 16px;
+        }
+        .cart-main-container {
+            .cart-main {
+                flex-direction: column;
+                .cart-tite {
+                    margin: 0 auto;
+                }
+            }
+        }
     }
 }

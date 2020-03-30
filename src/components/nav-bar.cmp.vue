@@ -10,28 +10,25 @@
       />
     </div>
 
-
     <div class="nav-bar-3buttons">
 
-      <div class="nav-bar-artwork-cb btn"><img
+      <!-- <div class="nav-bar-artwork-cb btn"><img
           @click="onArtwork"
           src="../../public/img/svg/artwork.svg"
           alt="Enter Gallery"
           title="Enter Gallery"
         />
-      </div>
+      </div> -->
 
-      <div class="nav-bar-line"></div>
+      <!-- <div class="nav-bar-line"></div> -->
 
       <div class="nav-bar-wishlist-container">
-        <!-- <img
+        <img
           @click="onwishlist"
           src="../../public/img/svg/heart1.svg"
           alt="Wish List"
           title="Wish List"
-        /> -->
-
-<i class="fas fa-heart"></i>
+        />
         <div class="nav-bar-num-wish-list flex-center" v-if="WL_count">
           {{ WL_count }}
         </div>
@@ -67,6 +64,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
