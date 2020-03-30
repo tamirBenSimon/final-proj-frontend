@@ -24,7 +24,6 @@
                 </span>
               </div>
             </router-link>
-            <!-- <span>{{ isInStock }}</span> -->
             <div class="artwork-prev-controle-pad">
               <button @click.prevent="remove">remove</button>
               <router-link :to="'/artwork/edit/'+ this.artwork._id"> Edit</router-link>

@@ -17,8 +17,10 @@ import 'element-ui/lib/theme-chalk/index.css'; //vue elementUI lib
 import './registerServiceWorker';
 import './styles/global.scss';
 
+
 Vue.use(ElementUI); //vue elementUI lib
 Vue.config.productionTip = false;
+
 
 new Vue({
     router,
