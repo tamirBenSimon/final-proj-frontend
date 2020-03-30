@@ -1,6 +1,6 @@
 <template>
   <router-link class="artwork-prev" :to="getURL">
-    <transition name="el-fade-in-linear">
+    <!-- <transition name="el-fade-in-linear"> -->
       <div class="artwork-prev-img-container" shadow="hover">
 
 
@@ -72,7 +72,7 @@
           </div>
         </div>
       </div>
-    </transition>
+    <!-- </transition> -->
   </router-link>
 </template>
 
