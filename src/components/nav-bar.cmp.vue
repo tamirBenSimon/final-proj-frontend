@@ -4,7 +4,7 @@
       <img
         @click="onLogo"
         class="nav-bar-logo btn"
-        src="../../public/img/icons/royal-logo.png"
+        src="../../public/img/icons/logo4.png"
         alt="Logo"
         title="Gallerior!"
       />
@@ -105,7 +105,7 @@ export default {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
       // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-      if (currentScrollPosition < 300) {
+      if (currentScrollPosition < 100) {
         this.navStyle = "background-color:rgba(234, 234, 234,0)";
       } else {
         this.navStyle = "background-color: #eaeaeafb";

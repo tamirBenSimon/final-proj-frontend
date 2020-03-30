@@ -14,7 +14,12 @@
       </div>
     <!-- </template> -->
     <product-list v-if="radio1 === 'Artworks'" :artworks="artworks" />
-    <order-list v-else v-for="order in orders" :orders="orders" :key="order.id"></order-list>
+    <order-list v-else  :orders="orders" ></order-list>
+    <!-- <h2>your orders,sir: </h2>
+     <ul>
+        <li v-for="order in orders" :key="order.id"><pre>{{order}}</pre></li>
+      </ul> -->
+    <!-- <order-list v-else v-for="order in orders" :orders="orders" :key="order.id"></order-list> --> 
   </section>
 </template>
 

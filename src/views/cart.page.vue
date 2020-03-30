@@ -10,9 +10,9 @@
           <div class="cart-tite">{{product.title}}</div>
           <h2>${{product.price}}</h2>
           <div @click="onRemove(product)" class="cart-remove">Remove</div>
-          <div class="cart-buy">Buy Now</div>
+          <div class="cart-buy" @click="placeOrder(product)">Buy Now</div>
         </div>
-        <button @click="placeOrders">buy all the shit</button>
+        <button @click="placeOrders">Buy all</button>
       </div>
     </div>
     <hr>
@@ -67,6 +67,7 @@ export default {
               lat:32.085300 + Math.random()*10, lng:34.781769+ Math.random()*10
             }}
       this.$store.dispatch({type: "addOrder", order: newOrder})
+        // .then(item => this.onRemove(item))
       
     }
   }
