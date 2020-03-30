@@ -8,7 +8,7 @@
       <h3 class="artwork-list-title">Start Exploring<span class="span"> {{ tag }}</span></h3>
       <div class="artwork-list-more-main">
         <router-link :to="{name:'market-app', params:{tag:tag}}">
-        <h3 class="artwork-list-more-btn btn">More...</h3>
+        <h3 class="artwork-list-more-btn btn">More</h3>
         </router-link>
       </div>
     </product-list>

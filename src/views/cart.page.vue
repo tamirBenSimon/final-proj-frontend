@@ -1,11 +1,10 @@
 <template>
   <section class="cart-container">
-    <img @click="onBack" class="cart-page-img-back" src="../../public/img/icons/left-arrow.png" alt="back" title="Back">
+    <img @click="onBack" class="cart-page-img-back btn" src="../../public/img/icons/left-arrow.png" alt="back" title="Back">
     <h2>My cart</h2>
     <hr>
     <div class="cart-main-container">
       <div v-if="cart">
-        <!-- <div class="cart-main" v-for="(product, index) in cart.cart" :key="index"> -->
         <div class="cart-main" v-for="(product, index) in cart" :key="index">  
           <img class="cart-img-product" :src="product.imgURLs[0]" alt="Product">
           <div class="cart-tite">{{product.title}}</div>
@@ -21,7 +20,6 @@
 </template>
 
 <script>
-// import {eventBus} from '../services/event-bus.service.js'
 
 export default {
   name:'cart-cmp',
@@ -56,7 +54,6 @@ export default {
       this.cart.forEach(item => this.placeOrder(item))
     },
     placeOrder(item) {
-      console.log('ordering item: ',item)
       const newOrder= {
             at: Date.now(),
             by: {fullName: this.loggedinUser.fullName, _id: this.loggedinUser._id, imgURL: this.loggedinUser.imgURL},

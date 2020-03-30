@@ -1,5 +1,6 @@
 <template>
   <section class="wish-list-container">
+    <img @click="onBack" class="wish-list-page-img-back btn" src="../../public/img/icons/left-arrow.png" alt="back" title="Back">
     <h2>My Wish List</h2>
     <hr>
     <div class="wish-list-main-container">
