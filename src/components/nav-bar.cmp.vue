@@ -2,7 +2,7 @@
   <div class="navbar-container">
 
     <div class="navbar-container-main">
-        <img @click="onLogo" class="nav-bar-logo btn" src="../../public/img/icons/royal-logo.png" alt="Logo" title="Gallerior!"> 
+        <img @click="onLogo" class="nav-bar-logo btn" src="../../public/img/icons/logo4.png" alt="Logo" title="Gallerior!"> 
         <div class="nav-bar-input">
             <input class="navbar-input-inside" type="text" placeholder="Search">
             <img class="nav-bar-search-img" src="../../public/img/icons/search.png" alt="Search">   
