@@ -11,7 +11,7 @@
         />
         <div class="product-details-preview-artwork">
           <div class="product-details-img-main">
-            <div class="product-details-img-enlarge btn">
+            <div class="product-details-img-enlarge btn flex-center">
 
               <img
                 src="../../public/img/svg/enlarge.svg"
