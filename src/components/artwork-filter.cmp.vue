@@ -23,7 +23,7 @@
     </div>
     </div>
 
-
+<!-- 
                 <div class="search-secondary-line">
 
     <el-input-number
@@ -41,7 +41,7 @@
       v-model.number="filterBy.maxPrice"
     />
     <button @click.prevent="onFilter">filter</button>
-    </div>
+    </div> -->
 
 
   </div>
