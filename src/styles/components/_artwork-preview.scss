@@ -1,6 +1,5 @@
 .artwork-prev {
     & .artwork-prev-created-by {
-        position: relative;
         padding: 0;
         display: flex;
         align-items: center;
@@ -15,6 +14,9 @@
         position: relative;
         height: 100%;
         border-radius: 0.3rem;
+    }
+    .artwork-prev-createdBy-fullName{
+        margin-inline-end: 1rem;
     }
     & .artwork-prev-wish-list {
         position: absolute;
@@ -43,7 +45,7 @@
         }
         .artwork-prev-container-flach {
             width: 100%;
-            padding: 20px;
+            padding: 10px;
         }
     }
     & .artwork-prev-txt-header {
@@ -70,8 +72,6 @@
     }
     .artwork-prev-wishlist-icon{
     font-size: 1.25rem;
-    position: absolute;
-    right: 5px;
     transition: all, .2s;
     &:hover, &:active{
         font-size: 1.5rem;
@@ -81,9 +81,15 @@
     .artwork-prev-wishlist-icon-added{
         font-size: 1.5rem;
         color: indigo;
+        // position: absolute;
+        // right: 5px;
+        font-size: 1.5rem;
+
+    }
+    .prev-wishlist-container{
         position: absolute;
         right: 5px;
-        font-size: 1.5rem;
+
 
     }
 }
