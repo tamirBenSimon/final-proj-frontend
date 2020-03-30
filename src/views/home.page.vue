@@ -23,7 +23,7 @@ import { eventBus } from "../services/event-bus.service.js";
 export default {
     data() {
     return {
-      filterBy: { tags: "urban" },
+      // filterBy: {   : "urban" },
       homeTags: ["nature", "urban", "psychedelic"]
     };
   },
@@ -35,7 +35,6 @@ export default {
     });
     
     eventBus.$on('addWishlist', (userId, product) =>{
-        console.log('i was dispatched from market app!')
         this.$store.dispatch({
           type: 'addToWishlist',
           userId: userId, 

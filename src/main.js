@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import VuePictureSwipe from 'vue-picture-swipe';
+
+
 Vue.component('vue-picture-swipe', VuePictureSwipe);
 import Cloudinary from 'cloudinary-vue';
 Vue.use(Cloudinary, {

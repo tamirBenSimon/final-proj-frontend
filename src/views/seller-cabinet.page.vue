@@ -9,7 +9,7 @@
       <div class="seller-cabinet-radio-btn btn">
         <el-radio-group v-model="radio1">
           <el-radio-button label="Artworks"></el-radio-button>
-          <el-radio-button label="Orders"></el-radio-button>
+          <el-radio-button label="Artists"></el-radio-button>
         </el-radio-group>
       </div>
     <!-- </template> -->
