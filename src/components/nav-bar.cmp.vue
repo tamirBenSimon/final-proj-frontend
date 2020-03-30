@@ -55,9 +55,9 @@
         />
         <div class="dropdown-content">
           <a href="#/">Home Page</a>
-          <a :href="'/#/cabinet/' + isLoggedinUser._id">Profile</a>
+          <a :href="'/#/cabinet/' + loggedinUser._id">Profile</a>
           <a v-if="!isLoggedinUser" href="/#/login">Login</a>
-          <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a>
+          <!-- <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a> -->
           <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
         </div>
       </div>
@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       navStyle: "background-color:rgba(234, 234, 234,0)",
-      isLoggedinUser: null,
+      // isLoggedinUser: null,
       showNavbar: false,
       lastScrollPosition: 0
     };
@@ -85,10 +85,13 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
 
-  created() {
-    this.isLoggedinUser = this.$store.getters.loggedinUser;
-  },
+  // created() {
+  //   this.isLoggedinUser = 
+  // },
   computed: {
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
+    },
     getNavStyle() {
       return this.navStyle;
     },
