@@ -10,8 +10,9 @@
 
       <div v-if="currNum === 2" class="home-main">
         <img class="home-main-img" src="../../public/img/gallery/gallery4.jpg" alt="Home Picture">
+        <div class="home-main-title flex-center">Discover The Creative Universe Of Our Artists</div>
         <router-link to="/artwork">
-          <div class="home-main-callBack btn flex-center">Begin exploring...</div>
+          <div class="home-main-callBack btn flex-center">Begin exploring <i class="fas fa-long-arrow-alt-right"></i></div>
         </router-link>
       </div>
 
