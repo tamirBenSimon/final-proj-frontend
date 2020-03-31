@@ -43,10 +43,11 @@
                 margin-bottom: rem(100px);
                 background-color: $clr5;
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
                 align-items: center;
                 padding: 15px;
-                margin: 0 5%;
+                // margin: 0 5%;
             }
             .artwork-prev-txt-container {
                 height: 345px;
@@ -107,6 +108,7 @@
             text-align: center;
         }
         h3.artwork-list-title {
+            font-family: MontserratAlt;
             letter-spacing: 0.15rem;
             color: rgb(94, 90, 83);
             display: flex;
@@ -116,6 +118,8 @@
             margin: 100px 0 0 0;
         }
         .span {
+            font-family: MontserratAlt;
+            font-weight: 600;
             color: $clr4;
             margin-inline-start: rem(30px);
             letter-spacing: 0.38rem;
