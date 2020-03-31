@@ -3,7 +3,7 @@
     <button @click="onClose">X</button>
     <h1>Chat</h1>
     <ul>
-      <li v-for="(txt,idx) in txts" :key="idx">{{txt}}</li>
+      <li v-for="(msg,idx) in msgs" :key="idx">{{msg.user}}:{{msg.txt}}</li>
     </ul>
     <input type="text" placeholder="Text" v-model="txt">
     <button @click="sendMsg">Send</button>
@@ -17,13 +17,13 @@ export default {
   data(){
     return{
       txt: '',
-      txts: []
+      msgs: []
     }
   },
   created() {
     socketService.setup(); 
     socketService.on('chat addMsg', msg=>{
-      this.txts.push(msg);
+      this.msgs.push(msg);
            
         });
   },
@@ -34,7 +34,8 @@ export default {
   // },
   methods:{
     sendMsg(){
-      socketService.emit('chat newMsg', this.txt);
+      let user = this.$store.getters.loggedinUser.fullName;
+      socketService.emit('chat newMsg', {user, txt:this.txt});
       this.txt='';
     },
     onClose(){
@@ -45,6 +46,9 @@ export default {
 </script>
 
 <style scoped>
+button {
+  border: 0px;
+}
 ul{
   padding: 0;
 }
@@ -60,5 +64,6 @@ li{
 input{
   width: 100%;
   height: 30px;
+  margin-bottom: 5px;
 }
 </style>

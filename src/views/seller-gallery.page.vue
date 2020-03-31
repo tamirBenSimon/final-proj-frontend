@@ -5,7 +5,7 @@
     <h4>{{user.fullName}}</h4>
     <h5>A member since: {{yearJoined}}</h5>
     <h4>Artist's bio: {{user.bio}}</h4>
-    <button class="seller-gallery-chat-btn btn" @click="onIsMsg">Chat With Seller</button>
+    <button class="seller-gallery-chat-btn btn" @click="onIsMsg">Chat with {{user.fullName}}</button>
     <product-list :artworks="artworks" />
     <chat-seller v-if="isMsg" @close="onIsMsg" class="seller-gallery-chat-seller" />
   </section>

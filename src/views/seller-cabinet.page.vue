@@ -15,7 +15,7 @@
     <!-- </template> -->
     <product-list v-if="radio1 === 'Artworks'" :artworks="artworks" />
     <order-list v-else  :orders="orders" ></order-list>
-    <button class="seller-gallery-chat-btn btn" @click="onIsMsg">Chat With Seller</button>
+    <button class="seller-gallery-chat-btn btn" @click="onIsMsg">Chat with buyer</button>
     <chat-seller v-if="isMsg" @close="onIsMsg" class="seller-gallery-chat-seller" />
     <!-- <h2>your orders,sir: </h2>
      <ul>

@@ -5,7 +5,7 @@
             <form @submit.prevent="onLogin">
                 <input class="login-input" type="text" ref="name" placeholder="Username" v-model="credentials.userName" />
                 <input class="login-input" type="password" placeholder="Your Password" v-model="credentials.password" />
-                <div class="login-btn btn flex-center">Login</div>
+                <div class="login-btn btn flex-center" @click="onLogin">Login</div>
                 <div class="signup-move-btn btn flex-center" @click="onSignUpNav">Sign Up</div>
             </form>
       </section>
