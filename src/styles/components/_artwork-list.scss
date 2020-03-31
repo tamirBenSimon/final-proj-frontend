@@ -5,15 +5,17 @@
         display: flex;
     }
     .artwork-list-artwork-prevs-container>* {
-        margin: 5px;
+        margin-bottom: 10px;
     }
     .artwork-list-more-main {
         text-align: right;
         margin-right: 5%;
         .artwork-list-more-btn {
+            font-family: MontserratAlt;
             display: inline-block;
             font-size: 27px;
             margin: 0 5px;
+            transition: color, .2s;
         }
         .artwork-list-more-btn:hover {
             color: $clr3;

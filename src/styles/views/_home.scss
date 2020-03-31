@@ -1,115 +1,127 @@
-.home-main-layout {
-    margin-bottom: rem(50px);
-    .home-main-header-container {
-        height: 70vh;
-        background-color: rgb(206, 62, 194);
-        .home-main {
-            background-color: rgb(67, 56, 216);
-            .home-main-img {
-                background-color: rgb(236, 201, 201);
-            }
-            .home-main-callBack {
-                background-color: rgb(200, 207, 137);
+    .home-main-layout {
+        margin-bottom: rem(170px);
+        .home-main-header-container {
+            height: 70vh;
+            .home-main {
+                background-color: rgba(235, 235, 235, 0.747);
+                .home-main-img {
+                    height: 80vh;
+                    position: relative;
+                    animation-duration: 2s;
+                    animation-name: slidein;
+                }
+                @keyframes slidein {
+                    from {
+                        margin-left: 100%;
+                        width: 300%;
+                    }
+                    to {
+                        margin-left: 0%;
+                        width: 100%;
+                    }
+                }
+                .home-main-callBack {
+                    background-color: #c6c6c6eb;
+                    position: absolute;
+                    top: 25%;
+                    left: 40%;
+                    min-width: 25%;
+                    height: 11%;
+                    background: linear-gradient(17deg, rgba(205, 203, 203, 0.87) 17%, #d3d1cf 89%);
+                    border-radius: 2rem;
+                    color: black;
+                    font-weight: 600;
+                    font-size: 22px;
+                }
             }
         }
-    }
-    // .home-main-header {
-    //     height: 70vh;
-    //     position: relative;
-    //     .header-to-app-content {
-    //         position: absolute;
-    //         bottom: 5%;
-    //         height: 40%;
-    //         left: 10%;
-    //         width: 80%;
-    //         background: rgb(224, 218, 218);
-    //         background: linear-gradient( 17deg, rgba(224, 218, 218, 0.4819677871148459) 17%, rgba(226, 225, 224, 0.3307072829131653) 89%);
-    //         border-radius: 0.5rem;
-    //     }
-    // }
-    .artwork-list-home-container {
-        .artwork-prev-controle-pad {
-            display: none;
+        .artwork-list-home-container {
+            .artwork-prev-controle-pad {
+                display: none;
+            }
+            .artwork-list-artwork-prevs-container {
+                margin-bottom: rem(100px);
+                background-color: $clr5;
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                align-items: center;
+                padding: 15px;
+                // margin: 0 5%;
+            }
+            .artwork-prev-txt-container {
+                height: 345px;
+                .artwork-prev-img {
+                    height: 65%;
+                    width: auto;
+                    padding: 3px;
+                }
+            }
         }
-        .artwork-list-artwork-prevs-container {
-            margin-bottom: rem(100px);
-            background-color: $clr5;
+        .home-main-header2 {
+            position: relative;
+            overflow: hidden;
+            .home-header2-txt {
+                font-size: 1.2rem;
+                background-color: rgba(233, 227, 227, 0.418);
+                position: absolute;
+                bottom: 10%;
+                right: 2px;
+                width: 60%;
+                padding: 10px;
+                text-align: center;
+                overflow: hidden;
+                padding: 0.625rem;
+                h2 {
+                    font-family: Montserrat, sans-serif;
+                    letter-spacing: 0.2rem;
+                    color: rgba(90, 87, 87, 0.829);
+                    margin: rem(8px);
+                }
+                .whiter {
+                    color: rgba(170, 85, 240, 0.815);
+                }
+                & button {
+                    font-size: 1.5rem;
+                    outline: none;
+                    background-color: rgba(59, 22, 145, 0.795);
+                    border: rgb(118, 6, 223) 2px solid;
+                    border-radius: 0.2rem;
+                    padding: 10px 30px;
+                    transition: all 0.3s;
+                    color: rgba(243, 234, 234, 0.829);
+                    margin-top: 0.5rem;
+                }
+                & button:hover {
+                    color: whitesmoke;
+                    background-color: rgba(255, 255, 255, 0.021);
+                    color: rgba(53, 52, 52, 0.829);
+                    margin-top: 0px;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+        .home-main-header2 {
+            height: 90vh;
+        }
+        .tags-title {
+            text-align: center;
+        }
+        h3.artwork-list-title {
+            font-family: MontserratAlt;
+            letter-spacing: 0.15rem;
+            color: rgb(94, 90, 83);
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 15px;
-            margin: 0 5%;
+            font-size: 2rem;
+            letter-spacing: 0.3rem;
+            margin: 100px 0 0 0;
         }
-        .artwork-prev-txt-container {
-            height: 345px;
-            .artwork-prev-img {
-                height: 65%;
-                width: auto;
-                padding: 3px;
-            }
-        }
-    }
-    .home-main-header2 {
-        position: relative;
-        overflow: hidden;
-        .home-header2-txt {
-            font-size: 1.2rem;
-            background-color: rgba(233, 227, 227, 0.418);
-            position: absolute;
-            bottom: 10%;
-            right: 2px;
-            width: 60%;
-            padding: 10px;
-            text-align: center;
-            overflow: hidden;
-            padding: 0.625rem;
-            h2 {
-                font-family: Montserrat, sans-serif;
-                letter-spacing: 0.2rem;
-                color: rgba(90, 87, 87, 0.829);
-                margin: rem(8px);
-            }
-            .whiter {
-                color: rgba(170, 85, 240, 0.815);
-            }
-            & button {
-                font-size: 1.5rem;
-                outline: none;
-                background-color: rgba(59, 22, 145, 0.795);
-                border: rgb(118, 6, 223) 2px solid;
-                border-radius: 0.2rem;
-                padding: 10px 30px;
-                transition: all 0.3s;
-                color: rgba(243, 234, 234, 0.829);
-                margin-top: 0.5rem;
-            }
-            & button:hover {
-                color: whitesmoke;
-                background-color: rgba(255, 255, 255, 0.021);
-                color: rgba(53, 52, 52, 0.829);
-                margin-top: 0px;
-                margin-bottom: 0.5rem;
-            }
+        .span {
+            font-family: MontserratAlt;
+            font-weight: 600;
+            color: $clr4;
+            margin-inline-start: rem(30px);
+            letter-spacing: 0.38rem;
         }
     }
-    .home-main-header2 {
-        height: 90vh;
-    }
-    .tags-title {
-        text-align: center;
-    }
-    h3.artwork-list-title {
-        letter-spacing: 0.15rem;
-        color: rgb(94, 90, 83);
-        display: flex;
-        justify-content: center;
-        font-size: 2rem;
-        letter-spacing: 0.3rem;
-        margin: 100px 0 0 0;
-    }
-    .span {
-        color: $clr4;
-        margin-inline-start: rem(30px);
-        letter-spacing: 0.38rem;
-    }
-}

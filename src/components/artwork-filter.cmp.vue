@@ -17,31 +17,13 @@
         <el-radio-button label="artworks"></el-radio-button>
         <el-radio-button label="artists"></el-radio-button>
       </el-radio-group>
-      <div class="filter-icon-container">
-<i class="fas fa-search filter-icon"></i>
+      <div class="filter-icon-container" :class="selected-search-icon" 
+      @mouseout="outFocus"
+      @mouseover="inputFocus">
+<i class="fas fa-search filter-icon" :class="{'onFocus':isOnInputFocus}"></i>
       </div>
     </div>
     </div>
-
-<!-- 
-                <div class="search-secondary-line">
-
-    <el-input-number
-      label="Min price"
-      class="num-input"
-      size="small"
-      v-model="filterBy.minPrice"
-      :step="2"
-    ></el-input-number>
-
-    <input
-      class="num-input"
-      placeholder="Max price"
-      type="number"
-      v-model.number="filterBy.maxPrice"
-    />
-    <button @click.prevent="onFilter">filter</button>
-    </div> -->
 
 
   </div>

@@ -15,7 +15,7 @@ export default {
   name: "color-select",
   data() {
     return {
-      colors:['#FBF3B5','blue', 'red', '#A32007','#A32007','#9AF655','#64A1F5','#75325C','#75325C','#F7EBC6', '#e9fb23' ]
+      colors:['blue', 'red',"yellow", "black", "brown", "white",'#e9fb23' ]
     };
   },
   methods: {

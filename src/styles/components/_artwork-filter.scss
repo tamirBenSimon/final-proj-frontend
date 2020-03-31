@@ -3,12 +3,13 @@
   max-width: 70%;
 
   .search-container {
-    margin-bottom: 0.5rem;
+    min-width: 46ch;
+    margin-bottom: 2rem;
     align-self: start;
     border: 1px solid rgba(121, 116, 116, 0.507);
     border-radius: 0.3rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: stretch;
     flex-direction: row;
     align-items: center;
     transition: all, 0.3s;
@@ -17,12 +18,12 @@
       background-color: rgb(255, 255, 255);
     }
     &.onFocus {
-      border: 1px solid rgb(28, 16, 29);
+      border: 1px solid rgb(73, 68, 73);
     }
     .filter-icon-container{
-        width: 20px;
+        width: 42px;
         height: 100%;
- 
+        text-align: center;
         align-self: center;
     }
 
@@ -35,6 +36,7 @@
       transition: all, 0.2s;
       height: 20px;
       color: rgb(20, 2, 32);
+      flex-grow: 2;
       &::placeholder {
         color: #a5a4a7;
         font-weight: lighter;
@@ -59,12 +61,15 @@
     .filter-icon {
         padding: 2px;
       border-radius: 0px 3px 3px 0px;
-      color: rgb(121, 117, 117);
+      color: rgb(148, 144, 144);
       transition: all, 0.3s;
       font-size: 17px;
-
+      cursor: pointer;
       &:hover {
-        color: rgb(226, 221, 221);
+        color: rgb(34, 32, 32);
+      }
+      &.onFocus {
+        color: rgb(34, 32, 32);
       }
     }
 

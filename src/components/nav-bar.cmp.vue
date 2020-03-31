@@ -10,11 +10,18 @@
       />
     </div>
 
-    <div class="nav-bar-artwork-cb btn">Artwork</div>
-
-    <div class="nav-bar-line"></div>
-
     <div class="nav-bar-3buttons">
+
+      <!-- <div class="nav-bar-artwork-cb btn"><img
+          @click="onArtwork"
+          src="../../public/img/svg/artwork.svg"
+          alt="Enter Gallery"
+          title="Enter Gallery"
+        />
+      </div> -->
+
+      <!-- <div class="nav-bar-line"></div> -->
+
       <div class="nav-bar-wishlist-container">
         <img
           @click="onwishlist"
@@ -53,11 +60,11 @@
           <a href="#/">Home Page</a>
           <a :href="'/#/cabinet/' + loggedinUser._id">Profile</a>
           <a v-if="!isLoggedinUser" href="/#/login">Login</a>
-          <!-- <a v-if="!isLoggedinUser" href="/#/signup">Sign Up</a> -->
           <a v-if="isLoggedinUser" href="#" @click="onLogOut">Log Out</a>
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -120,6 +127,9 @@ export default {
     },
     onwishlist() {
       this.$router.push("/wishlist");
+    },
+    onArtwork() {
+      this.$router.push("/artwork");
     },
     onLogOut() {
       this.$store.dispatch({

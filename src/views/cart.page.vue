@@ -2,7 +2,9 @@
   <section class="cart-container">
     <img @click="onBack" class="cart-page-img-back btn" src="../../public/img/icons/left-arrow.png" alt="back" title="Back">
     <h2>My cart</h2>
+    <div class="cart-buy-all btn flex-center" @click="placeOrders">Buy all</div>
     <hr>
+
     <div class="cart-main-container">
       <div v-if="cart">
         <div class="cart-main" v-for="(product, index) in cart" :key="index">  
@@ -10,16 +12,17 @@
           <div class="cart-tite">{{product.title}}</div>
           <h2>${{product.price}}</h2>
           <div @click="onRemove(product)" class="cart-remove">Remove</div>
-          <div class="cart-buy" @click="placeOrder(product)">Buy Now</div>
+          <div class="cart-buy" @click="placeOrderFirst(product)">Buy Now</div>
         </div>
-        <button @click="placeOrders">Buy all</button>
       </div>
     </div>
     <hr>
+
   </section>
 </template>
 
 <script>
+import Swal from "sweetalert2";
 
 export default {
   name:'cart-cmp',
@@ -51,7 +54,50 @@ export default {
       })
     },
     placeOrders() {
-      this.cart.forEach(item => this.placeOrder(item))
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Are you sure that you want to buy this artwork?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#dedede",
+        confirmButtonText: "Yes, buy it!"
+        })
+        .then(result => {
+          if (result.value) {
+            this.cart.forEach(item => this.placeOrder(item));
+            Swal.fire({
+              showConfirmButton: false,
+              timer: 2000,
+              title: "Thank you!",
+              text: "This artwork has been ordered",
+              icon: "success"
+            });
+          }
+        });
+    },
+    placeOrderFirst(product){
+        Swal.fire({
+        title: "Are you sure?",
+        text: "Are you sure that you want to buy this artwork?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#dedede",
+        confirmButtonText: "Yes, buy it!"
+        })
+        .then(result => {
+          if (result.value) {
+            this.placeOrder(product)
+            Swal.fire({
+              showConfirmButton: false,
+              timer: 2000,
+              title: "Thank you!",
+              text: "This artwork has been ordered",
+              icon: "success"
+            });
+          }
+        });
     },
     placeOrder(item) {
       const newOrder= {
