@@ -7,7 +7,7 @@
       alt="Logo"
       title="Gallerior!"
     />
-    <h2 class="footer-line">Copyright &copy; 2020 Gallerior - All Rights Reserved</h2>
+    <h2 class="footer-line">&copy; 2020 Gallerior - All Rights Reserved</h2>
   </section>
 </template>
 

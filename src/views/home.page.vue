@@ -15,12 +15,21 @@
       </div>
     </product-list>
 
-    <div class="home-extra-main">
+    <div class="home-artists-img-container-main" v-if="users">
+      <div class="home-artists-img-container" v-for="(user, index) in users" :key="index">
+        <router-link :to="'/sellerGallery/' + user._id">
+          <img class="home-artists-img" :src="user.imgUrl" alt="Image Artist">
+          <div class="home-artists-title">{{user.fullName}}</div>
+        </router-link>
+      </div>
+    </div>
+
+    <!-- <div class="home-extra-main">
         <img class="home-extra-img1" src="../../public/img/gallery/img5.jpg">
         <img class="home-extra-img2" src="../../public/img/gallery/img2.jpg">
         <img class="home-extra-img3" src="../../public/img/gallery/img3.jpg">
         <img class="home-extra-img4" src="../../public/img/gallery/img4.jpg">      
-    </div>
+    </div> -->
 
   </section>
 </template>
@@ -34,7 +43,8 @@ export default {
     data() {
     return {
       // filterBy: {   : "urban" },
-      homeTags: ["nature", "urban", "psychedelic"]
+      homeTags: ["nature", "urban", "psychedelic"],
+      users: null
     };
   },
   name: "home-page",
@@ -51,6 +61,13 @@ export default {
           product: product 
         })
       })
+
+    this.$store.dispatch({
+      type: "loadUsers"
+    })
+    .then(currUsers =>{
+      this.users = currUsers;
+    })
   },
   beforeDestroy(){
     eventBus.$off()
