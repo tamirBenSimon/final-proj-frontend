@@ -13,7 +13,7 @@
 
 <script>
 import productList from "../components/product-list.cmp";
-import chatSeller from "../components/chat-seller.cmp";
+import chatSeller from "../components/chat-window.cmp";
 
 export default {
   name: "gallery-container",

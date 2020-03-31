@@ -15,6 +15,8 @@
     <!-- </template> -->
     <product-list v-if="radio1 === 'Artworks'" :artworks="artworks" />
     <order-list v-else  :orders="orders" ></order-list>
+    <button class="seller-gallery-chat-btn btn" @click="onIsMsg">Chat With Seller</button>
+    <chat-seller v-if="isMsg" @close="onIsMsg" class="seller-gallery-chat-seller" />
     <!-- <h2>your orders,sir: </h2>
      <ul>
         <li v-for="order in orders" :key="order.id"><pre>{{order}}</pre></li>
@@ -24,13 +26,15 @@
 </template>
 
 <script>
+import chatSeller from "../components/chat-window.cmp";
 import productList from "../components/product-list.cmp";
 import orderList from "../components/order-list.cmp";
 export default {
   name:'seller-cabinet',
   data () {
       return {
-        radio1: 'Artworks'
+        radio1: 'Artworks',
+        isMsg: false
       };
     },
   created() {
@@ -56,9 +60,15 @@ export default {
       return this.$store.getters.artworks;
     }
   },
+  methods: {
+    onIsMsg(){
+      this.isMsg = !this.isMsg;
+    }
+  },
   components:{
     orderList,
-    productList
+    productList,
+    chatSeller
   }
 }
 </script>

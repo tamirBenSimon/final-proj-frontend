@@ -43,6 +43,7 @@ export default {
           product: product 
         })
       })
+
   },
   beforeDestroy(){
     eventBus.$off()
