@@ -45,8 +45,9 @@
     & .artwork-prev-txt-header>* {
         margin: 0px;
     }
-    & h3 {
+    & h4:first-child {
         margin: 0.2rem;
+        font-weight: 700;
     }
     .artwork-prev-controle-pad {
         display: flex;

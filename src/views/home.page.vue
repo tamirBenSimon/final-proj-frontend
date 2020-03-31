@@ -15,6 +15,7 @@
       </div>
     </product-list>
 
+      <h2 class="home-artists-main-title">Our Artists</h2>
     <div class="home-artists-img-container-main" v-if="users">
       <div class="home-artists-img-container" v-for="(user, index) in users" :key="index">
         <router-link :to="'/sellerGallery/' + user._id">

@@ -1,4 +1,4 @@
-import socket from '../services/httpService-for_backend/SocketService.js'
+import socket from '../services/SocketService.js'
 
 export default {
     actions: {
