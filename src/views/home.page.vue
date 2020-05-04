@@ -25,12 +25,6 @@
       </div>
     </div>
 
-    <!-- <div class="home-extra-main">
-        <img class="home-extra-img1" src="../../public/img/gallery/img5.jpg">
-        <img class="home-extra-img2" src="../../public/img/gallery/img2.jpg">
-        <img class="home-extra-img3" src="../../public/img/gallery/img3.jpg">
-        <img class="home-extra-img4" src="../../public/img/gallery/img4.jpg">      
-    </div> -->
 
   </section>
 </template>
