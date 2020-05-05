@@ -30,7 +30,6 @@
 }
 
 .market-side-bar {
-
     max-width: 19vw;
     font-weight: lighter;
     color: darken(indigo, 10%);
@@ -91,13 +90,10 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
-
     .side-bar-range-value {
         width: 100%;
         text-align: center;
     }
-
-
     //   for the range input
     input[type=range] {
         -webkit-appearance: none;

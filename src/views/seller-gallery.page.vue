@@ -1,7 +1,7 @@
 <template>
   <section class="seller-gallery-container">
     <h2>Meet the artist:</h2>
-    <img class="seller-gallery-img" :src="user.imgUrl">
+    <img class="seller-gallery-img" :src="user.imgUrl" />
     <h4>{{user.fullName}}</h4>
     <h5>A member since: {{yearJoined}}</h5>
     <h4>Artist's bio: {{user.bio}}</h4>
@@ -25,15 +25,17 @@ export default {
     return {
       selectedUser: null,
       isMsg: false
-    }
+    };
   },
   created() {
     const userId = this.$route.params.id;
     this.$store.dispatch({
-      type: "loadUser", userId : userId
+      type: "loadUser",
+      userId: userId
     });
     this.$store.dispatch({
-      type: "loadArtworks", filterBy: {creatorId: userId}
+      type: "loadArtworks",
+      filterBy: { creatorId: userId }
     });
   },
   computed: {
@@ -48,8 +50,8 @@ export default {
       return this.$store.getters.selectedUser;
     }
   },
-  methods:{
-    onIsMsg(){
+  methods: {
+    onIsMsg() {
       this.isMsg = !this.isMsg;
     }
   }

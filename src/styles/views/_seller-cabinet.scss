@@ -1,5 +1,6 @@
 .seller-cabinet-container {
     margin: 95px 50px;
+    min-height: 610px;
     .seller-cabinet-radio-btn {
         margin-bottom: 20px;
     }
@@ -31,7 +32,7 @@
     .seller-gallery-chat-btn {
         position: fixed;
         top: 100px;
-        right: 10px;
+        right: 40px;
         border: 2px black solid;
         background-color: white;
         color: black;
@@ -39,15 +40,9 @@
         font-weight: 600;
         z-index: 3;
         opacity: 0.7;
-        width: 20%;
         height: 40px;
+        width: unset;
     }
-    // .seller-gallery-img {
-    //     border-radius: 50%;
-    //     width: 100px;
-    //     height: 100px;
-    //     object-fit: cover;
-    // }
     .seller-gallery-chat-seller {
         position: fixed;
         bottom: 5px;

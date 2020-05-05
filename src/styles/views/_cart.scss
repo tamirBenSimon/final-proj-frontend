@@ -1,5 +1,5 @@
 .cart-container {
-    margin: 90px 50px;
+    margin: 90px 100px;
     min-height: rem(635px);
     .cart-page-img-back {
         height: 25px;
@@ -9,7 +9,7 @@
         width: 100px;
         height: 40px;
         border: 2px solid black;
-        margin-left: 93%;
+        margin-left: 90%;
         font-size: 17px;
         font-weight: 600;
         color: purple;
@@ -51,6 +51,7 @@
 
 @media (max-width: $break-wide) {
     .cart-container {
+        margin: 80px 30px;
         .cart-buy-all {
             width: 100px;
             height: 40px;

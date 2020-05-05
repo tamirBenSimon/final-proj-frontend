@@ -1,5 +1,5 @@
 .wish-list-container {
-    margin: 90px 50px;
+    margin: 90px 100px;
     min-height: rem(635px);
     .wish-list-page-img-back {
         width: 25px;
@@ -36,5 +36,11 @@
     }
     .wish-list-img-product {
         width: rem(100px);
+    }
+}
+
+@media (max-width: 840px) {
+    .wish-list-container {
+        margin: 80px 30px;
     }
 }
