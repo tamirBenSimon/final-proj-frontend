@@ -3,6 +3,9 @@
     margin: 0 auto;
     margin-top: 110px;
     width: 90%;
+    .market-app-tags-btn{
+        display: none;
+    }
     .artwork-prev-controle-pad {
         display: none;
     }
@@ -21,7 +24,6 @@
     display: inline-block;
     width: 100%;
     padding: 3px;
-    // box-shadow: 0 0 2px grey;
     background-color: rgb(241, 235, 235);
 }
 
@@ -94,7 +96,8 @@
         width: 100%;
         text-align: center;
     }
-    //   for the range input
+
+    // for the range input //
     input[type=range] {
         -webkit-appearance: none;
         width: 100%;
@@ -182,14 +185,14 @@
     }
 }
 
-//helpers:
+// helpers: //
 .lighter-color {
     color: lighten(indigo, 60%);
 }
 
 @media (max-width: $break-wide) {
     .market-app-container {
-        margin: 0 40px;
+        // margin: 0 40px;
         .artwork-list-main-container {
             .artwork-list-artwork-prevs-container {
                 column-count: 2;
@@ -201,6 +204,27 @@
 @media (max-width: $break-normal) {
     .market-app-container {
         text-align: center;
+        margin: 0px auto;
+        margin-top: 130px;
+        width: 70%;
+        .market-app-tags-btn{
+            display: inline-flex;
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: unset;
+            justify-content: center;
+            align-items: center;
+            padding: 3px;
+            font-size: 20px;
+            font-weight: 600;
+            z-index: 3;
+            background: #ffffffd6;
+            color: #a95aea;
+            box-shadow: 0 0 5px black;
+        }
         .artwork-list-main-container {
             .artwork-list-artwork-prevs-container {
                 column-count: 1;
@@ -212,5 +236,28 @@
         .artwork-list-artwork-prevs-container {
             width: 100%;
         }
+        .market-side-bar{
+            flex-direction: column;
+            position: fixed;
+            left: -200px;
+            top: 0;
+            height: 100vh;
+            background-color: rgba(255, 253, 253, 0.952);
+            border-right: 1px solid #d2d2d2;
+            box-shadow: 0px 20px 0px rgba(0, 0, 0, 0);
+            min-width: 200px;
+            transform: translate(100%, 0);
+            transition: transform .8s, box-shadow .3s;
+            z-index: 6;
+            box-shadow: -5px 0px 18px black;
+        }
+    }
+    .menu-tags-open .market-side-bar {
+        transform: translate(0, 0);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+        background-color: #292929;
+    }
+    .side-bar-budget-tag{
+        display: none;
     }
 }

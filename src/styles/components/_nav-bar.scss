@@ -155,6 +155,9 @@
         display: flex;
     }
     .navbar-container {
+        img {
+            margin-bottom: unset;
+        }
         .nav-bar-3buttons {
             flex-direction: column;
             position: fixed;

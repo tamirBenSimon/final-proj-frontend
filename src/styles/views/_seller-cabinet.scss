@@ -42,6 +42,9 @@
         opacity: 0.7;
         height: 40px;
         width: unset;
+        span{
+            font-weight: inherit;
+        }
     }
     .seller-gallery-chat-seller {
         position: fixed;
@@ -51,12 +54,13 @@
         padding: 10px;
         background-color: rgb(255, 255, 255);
         width: 25%;
+        text-align: center;
     }
 }
 
 @media (max-width: $break-wide) {
     .seller-cabinet-container {
-        margin: 0 40px;
+        margin: 80px 40px;
         .artwork-list-main-container {
             .artwork-list-artwork-prevs-container {
                 column-count: 2;
@@ -67,12 +71,17 @@
 
 @media (max-width: $break-normal) {
     .seller-cabinet-container {
-        margin: 0 20px;
+        margin: 70px 20px;
         text-align: center;
         .artwork-list-main-container {
             .artwork-list-artwork-prevs-container {
                 column-count: 1;
             }
+        }
+        .seller-gallery-chat-btn {
+           span{
+               display: none;
+           }
         }
     }
 }

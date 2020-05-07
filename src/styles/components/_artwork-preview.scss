@@ -44,6 +44,7 @@
     }
     & .artwork-prev-txt-header>* {
         margin: 0px;
+        font-size: 18px;
     }
     & h4:first-child {
         margin: 0.2rem;
@@ -56,7 +57,7 @@
         font-size: 1.2rem;
     }
     .artwork-prev-wishlist-icon {
-        font-size: 1.25rem;
+        font-size: 2rem;
         transition: all, .2s;
         &:hover,
         &:active {
@@ -65,10 +66,7 @@
         }
     }
     .artwork-prev-wishlist-icon-added {
-        font-size: 1.5rem;
         color: indigo;
-        // position: absolute;
-        // right: 5px;
         font-size: 1.5rem;
     }
     .prev-wishlist-container {

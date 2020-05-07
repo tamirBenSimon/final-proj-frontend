@@ -14,8 +14,10 @@
         font-weight: 600;
         z-index: 3;
         opacity: 0.7;
-        width: 20%;
-        height: 40px;
+        width: 16ch;
+        span{
+            font-weight: inherit;
+        }
     }
     .seller-gallery-img {
         border-radius: 50%;
@@ -32,6 +34,7 @@
         background-color: rgb(255, 255, 255);
         width: 25%;
         min-height: 300px;
+        text-align: center;
         h2 {
             font-size: 20px;
             font-weight: 700;
@@ -65,7 +68,7 @@
 
 @media (max-width: $break-wide) {
     .seller-gallery-container {
-        margin: 0 40px;
+        margin: 80px 40px;
         .artwork-list-main-container {
             .artwork-list-artwork-prevs-container {
                 column-count: 2;
@@ -79,7 +82,7 @@
 
 @media (max-width: $break-normal) {
     .seller-gallery-container {
-        margin: 0 20px;
+        margin: 70px 20px;
         text-align: center;
         .artwork-list-main-container {
             .artwork-list-artwork-prevs-container {
@@ -88,6 +91,12 @@
         }
         .seller-gallery-chat-btn {
             height: unset;
+            span{
+                display: none;
+            }
+            width: unset;
+            padding: 10px;
+            border-radius: 10px;
         }
         .seller-gallery-chat-seller {
             width: 65%;

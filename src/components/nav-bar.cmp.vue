@@ -73,6 +73,11 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
+    isLoggedinUser() {
+      // if (this.$store.getters.loggedinUser) return true;
+      // return false;
+      return true;
+    },
     getNavStyle() {
       return this.navStyle;
     },

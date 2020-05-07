@@ -1,10 +1,10 @@
 <template>
   <section class="market-app-container">
-    <tags-select @tagClicked="tagClicked" :tags="homeTags"> </tags-select>
+    <div class="market-app-tags-btn btn" @click="toggletags">{{moodOfSideBar}}</div>
+    <tags-select @tagClicked="tagClicked" :tags="homeTags"></tags-select>
     <artwork-filter @onFilter="onFilter" />
     <div class="app-main-container">
-    <div class="side-bar-range-value">
-    </div>
+      <div class="side-bar-range-value"></div>
       <side-bar
         class="market-side-bar"
         :tags="getHomeTags"
@@ -71,7 +71,8 @@ export default {
         "clipart",
         "scream",
         "tribute"
-      ]
+      ],
+      isOpenBar: false
     };
   },
   created() {
@@ -115,10 +116,13 @@ export default {
     },
     getParams() {
       return this.$route.params;
+    },
+    moodOfSideBar() {
+      if (this.isOpenBar) return "Close Side Bar";
+      return "Open Tags Filter";
     }
   },
   methods: {
-
     tagClicked(tag) {
       this.filterBy.tag = tag;
       this.$store.dispatch({
@@ -140,6 +144,10 @@ export default {
         type: "loadArtworks",
         filterBy: this.filterBy
       });
+    },
+    toggletags() {
+      this.isOpenBar = !this.isOpenBar;
+      document.body.classList.toggle("menu-tags-open");
     }
   }
 };

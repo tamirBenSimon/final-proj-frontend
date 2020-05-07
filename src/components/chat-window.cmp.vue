@@ -1,6 +1,6 @@
 <template>
   <section>
-    <button @click="onClose">X</button>
+    <button class="chat-close-btn" @click="onClose">X</button>
     <h2>Chat</h2>
     <ul>
       <li v-for="(msg,idx) in msgs" :key="idx">{{msg.user}}:{{msg.txt}}</li>
@@ -61,8 +61,11 @@ li {
   list-style-type: none;
 }
 input {
-  width: 100%;
+  width: 96%;
   height: 30px;
   margin-bottom: 5px;
+}
+.chat-close-btn {
+  padding: 5px 15px;
 }
 </style>
