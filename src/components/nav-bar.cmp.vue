@@ -55,9 +55,7 @@ export default {
   name: "nav-bar",
   data() {
     return {
-      navStyle: "background-color:rgba(234, 234, 234,0)",
-      showNavbar: false,
-      lastScrollPosition: 0
+      navStyle: "background-color:rgba(234, 234, 234,0)"
     };
   },
 
@@ -74,8 +72,6 @@ export default {
       return this.$store.getters.loggedinUser;
     },
     isLoggedinUser() {
-      // if (this.$store.getters.loggedinUser) return true;
-      // return false;
       return true;
     },
     getNavStyle() {

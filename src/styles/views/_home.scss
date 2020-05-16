@@ -6,16 +6,14 @@
             background-color: rgba(235, 235, 235, 0.747);
             .home-main-img {
                 height: 80vh;
-                position: relative;
                 object-fit: cover;
             }
             .home-container-main {
                 position: absolute;
                 top: 25%;
-                right: 35%;
+                right: 40%;
                 .home-main-title {
                     background-color: rgba(0, 0, 0, 0.8);
-                    position: relative;
                     padding: 35px;
                     width: 25ch;
                     min-width: inherit;
@@ -170,15 +168,38 @@
     }
 }
 
-@media (max-width: $break-normal){
+@media (max-width: $break-tablet) {
     .home-main-layout {
         .home-main-header-container {
             .home-main {
                 .home-container-main {
-                    top: 14%;
-                    right: 6%;
+                    right: 31%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $break-wide) {
+    .home-main-layout {
+        .home-main-header-container {
+            .home-main {
+                .home-container-main {
+                    right: 24%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $break-normal) {
+    .home-main-layout {
+        .home-main-header-container {
+            .home-main {
+                .home-container-main {
+                    right: 24%;
                     .home-main-title {
-                        padding: 10px;
+                        padding: 12px;
                         font-size: 20px;
                     }
                     .home-btn-explor {
@@ -196,9 +217,57 @@
             margin-top: 180px;
             font-size: 1.8rem;
             flex-direction: column;
-            align-items: center;    
+            align-items: center;
             height: 52px;
             line-height: 1.3;
+        }
+    }
+}
+
+@media (max-width: $break-narrow) {
+    .home-main-layout {
+        .home-main-header-container {
+            .home-main {
+                .home-container-main {
+                    right: 24%;
+                    .home-main-title {
+                        padding: 12px;
+                        font-size: 18px;
+                    }
+                    .home-btn-explor {
+                        bottom: -45%;
+                        left: 22%;
+                    }
+                    .home-main-callBack {
+                        font-size: 16px;
+                        padding: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $break-smallest) {
+    .home-main-layout {
+        .home-main-header-container {
+            .home-main {
+                .home-container-main {
+                    right: 17%;
+                    .home-main-title {
+                        padding: 10px;
+                        font-size: 16px;
+                    }
+                    .home-btn-explor {
+                        bottom: -45%;
+                        left: 22%;
+                    }
+                    .home-main-callBack {
+                        font-size: 14px;
+                        padding: 6px;
+                    }
+                }
+            }
         }
     }
 }
