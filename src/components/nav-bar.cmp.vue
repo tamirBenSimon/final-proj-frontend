@@ -120,6 +120,12 @@ export default {
     toggleNavBar() {
       document.body.classList.toggle("menu-open");
     }
-  }
+  },
+      created(){
+          this.$store.dispatch({
+      type: "loadWishlist",
+      userId: this.loggedinUser._id
+    })
+    }
 };
 </script>
