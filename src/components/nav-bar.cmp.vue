@@ -41,9 +41,9 @@
         <img class="dropbtn" src="../../public/img/svg/account1.svg" alt="User Picture" />
         <div class="dropdown-content">
           <a @click="toggleNavBar" href="#/">Home Page</a>
-          <a @click="toggleNavBar" :href="'/#/cabinet/' + loggedinUser._id">Profile</a>
-          <a @click="toggleNavBar" v-if="!isLoggedinUser" href="/#/login">Login</a>
-          <a v-if="isLoggedinUser" href="#" @click="onLogOut(), toggleNavBar()">Log Out</a>
+          <a @click="toggleNavBar" :href="'/#/cabinet/' + (loggedinUser?loggedinUser._id:null)">Profile</a>
+          <a @click="toggleNavBar" v-if="!loggedinUser" href="/#/login">Login</a>
+          <a v-if="loggedinUser" href="/#/login" @click="onLogOut(), toggleNavBar()">Log Out</a>
         </div>
       </div>
     </div>
@@ -72,7 +72,8 @@ export default {
       return this.$store.getters.loggedinUser;
     },
     isLoggedinUser() {
-      return true;
+      console.log(this.$store.getters.loggedinUser , "nav-bar loggeduser")
+      return this.$store.getters.loggedinUser? true:false;
     },
     getNavStyle() {
       return this.navStyle;
@@ -111,11 +112,10 @@ export default {
       this.$router.push("/artwork");
     },
     onLogOut() {
+      this.$router.push("/login");
       this.$store.dispatch({
         type: "logout"
       });
-      this.isLoggedinUser = null;
-      this.$router.push("/login");
     },
     toggleNavBar() {
       document.body.classList.toggle("menu-open");

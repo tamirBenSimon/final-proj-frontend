@@ -1,6 +1,6 @@
 import userService from '../services/UserService.js'
 
-var localLoggedinUser = { _id: '5e7a1a16988a6fe1b32ae3c6', fullName: 'Ariel Zissu', imgURL: 'https://www.placecage.com/c/200/300' };
+var localLoggedinUser = { _id: '5e7f95ef1c9d4400006b1453'};
 
 export default {
     state: {
@@ -33,7 +33,7 @@ export default {
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id !== userId)
         },
-        setLoggedinUser(state) {
+        setNoUser(state) {
             state.loggedinUser = null;
         }
     },
@@ -50,11 +50,11 @@ export default {
 
         },
         async logout(context) {
-            await userService.logout()
-            context.commit({ type: 'setLoggedinUser', users: [] })
+            context.commit({ type: 'setNoUser' })
         },
         async loadUsers(context) {
             const users = await userService.query();
+            console.log("loadUsersss, ", users)
             context.commit({ type: 'setUsers', users })
             return users;
         },
