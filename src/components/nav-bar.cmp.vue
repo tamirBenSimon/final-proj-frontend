@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import { eventBus } from "../services/event-bus.service.js";
 export default {
   name: "nav-bar",
   data() {
@@ -58,15 +59,28 @@ export default {
       navStyle: "background-color:rgba(234, 234, 234,0)"
     };
   },
+  created() {
+    this.$store.dispatch({
+      type: "loadWishlist",
+      userId: this.loggedinUser._id
+    });
 
+    eventBus.$on("addWishlist", (userId, product) => {
+      console.log("inside add in home-page", userId, product);
+      this.$store.dispatch({
+        type: "addToWishlist",
+        userId: userId,
+        product: product
+      });
+    });
+  },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
   },
-
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
+    eventBus.$off();
   },
-
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;

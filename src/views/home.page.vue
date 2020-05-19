@@ -34,7 +34,6 @@
 <script>
 import productList from "../components/product-list.cmp";
 import headerTwo from "../components/home-header-to-app.cmp";
-import { eventBus } from "../services/event-bus.service.js";
 
 export default {
   data() {
@@ -51,14 +50,6 @@ export default {
       // filterBy: {limit: 30}
     });
 
-    eventBus.$on("addWishlist", (userId, product) => {
-      this.$store.dispatch({
-        type: "addToWishlist",
-        userId: userId,
-        product: product
-      });
-    });
-
     this.$store
       .dispatch({
         type: "loadUsers"
@@ -66,9 +57,11 @@ export default {
       .then(currUsers => {
         this.users = currUsers;
       });
-  },
-  beforeDestroy() {
-    eventBus.$off();
+
+    this.$store.dispatch({
+      type: "loadWishlist",
+      userId: this.loggedinUser._id
+    });
   },
   methods: {
     getArtWorksByTag(tag) {

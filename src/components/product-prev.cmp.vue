@@ -1,77 +1,67 @@
 <template>
   <router-link class="artwork-prev" :to="getURL">
     <!-- <transition name="el-fade-in-linear"> -->
-      <div class="artwork-prev-img-container" shadow="hover">
+    <div class="artwork-prev-img-container" shadow="hover">
+      <div class="artwork-prev-txt-container flex-center">
+        <img class="artwork-prev-img" :src="Showartwork" alt="Artwork" />
 
+        <div class="artwork-prev-container-flach">
+          <div class="artwork-prev-txt-header">
+            <h4>{{ artwork.title }}</h4>
+            <h4>
+              <span class="artwork-prev-USD">$</span>
+              {{ artwork.price }}
+            </h4>
+          </div>
 
-        <div class="artwork-prev-txt-container flex-center">
-          <img class="artwork-prev-img" :src="Showartwork" alt="Artwork" />
+          <router-link :to="'/sellerGallery/' + artwork.createdBy._id">
+            <div class="artwork-prev-created-by">
+              <img class="artwork-prev-cretadBy-img" :src="artwork.createdBy.imgURL" alt />
 
-          <div class="artwork-prev-container-flach">
-            <div class="artwork-prev-txt-header">
-              <h4>{{ artwork.title }}</h4>
-              <h4>
-                <span class="artwork-prev-USD">$</span>{{ artwork.price }}
-              </h4>
-            </div>
+              <span class="artwork-prev-createdBy-fullName">{{ artwork.createdBy.fullName }}</span>
 
-
-            <router-link :to="'/sellerGallery/' + artwork.createdBy._id">
-
-              <div class="artwork-prev-created-by">
-                <img
-                  class="artwork-prev-cretadBy-img"
-                  :src="artwork.createdBy.imgURL"
-                  alt=""
-                />
-
-                <span class="artwork-prev-createdBy-fullName">
-                  {{ artwork.createdBy.fullName }}
-                </span>
-
-                <div class="prev-wishlist-container">
-                  <el-popover
-                    v-if="!isWishlist"
+              <div class="prev-wishlist-container">
+                <el-popover
+                  v-if="!isWishlist"
+                  @click.prevent="onWishlist"
+                  placement="bottom-end"
+                  width="20px"
+                  trigger="hover"
+                  content="Add to wishlist"
+                >
+                  <i
+                    slot="reference"
                     @click.prevent="onWishlist"
-                    placement="bottom-end"
-                    width="20px"
-                    trigger="hover"
-                    content="Add to wishlist"
-                  >
-                    <i
-                      slot="reference"
-                      @click.prevent="onWishlist"
-                      class="fas fa-heart artwork-prev-wishlist-icon"
-                    ></i>
-                  </el-popover>
-                  <el-popover
-                    v-else
+                    class="fas fa-heart artwork-prev-wishlist-icon"
+                  ></i>
+                </el-popover>
+                <el-popover
+                  v-else
+                  @click.prevent="onWishlist"
+                  placement="bottom-end"
+                  width="20px"
+                  trigger="hover"
+                  content="Remove from wishlist"
+                >
+                  <i
+                    class="fas fa-heart artwork-prev-wishlist-icon-added"
+                    slot="reference"
                     @click.prevent="onWishlist"
-                    placement="bottom-end"
-                    width="20px"
-                    trigger="hover"
-                    content="Remove from wishlist"
-                  >
-                    <i
-                      class="fas fa-heart artwork-prev-wishlist-icon-added"
-                      slot="reference"
-                      @click.prevent="onWishlist"
-                    ></i>
-                  </el-popover>
-
-                </div>
+                  ></i>
+                </el-popover>
               </div>
-            </router-link>
-            <div class="artwork-prev-controle-pad">
-              <i class="el-icon-delete" @click.prevent="remove"></i>
-
-              <router-link :to="'/artwork/edit/' + this.artwork._id">
-                <i class="el-icon-edit"></i>
-              </router-link>
             </div>
+          </router-link>
+          <div class="artwork-prev-controle-pad">
+            <i class="el-icon-delete" @click.prevent="remove"></i>
+
+            <router-link :to="'/artwork/edit/' + this.artwork._id">
+              <i class="el-icon-edit"></i>
+            </router-link>
           </div>
         </div>
       </div>
+    </div>
     <!-- </transition> -->
   </router-link>
 </template>
@@ -112,9 +102,17 @@ export default {
       eventBus.$emit(EVENT_REMOVE, this.artwork._id);
     },
     onWishlist() {
-      const userId = this.loggedinUser._id;
-      const product = this.artwork;
-      eventBus.$emit("addWishlist", userId, product);
+      var userId = this.loggedinUser._id;
+      var product = this.artwork;
+      if (!this.isWishlist) {
+        eventBus.$emit("addWishlist", userId, product);
+      } else {
+        this.$store.dispatch({
+          type: "removeFromWishlist",
+          productId: product._id,
+          userId
+        });
+      }
       this.isWishlist = !this.isWishlist;
     }
   }

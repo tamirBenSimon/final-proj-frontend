@@ -1,6 +1,5 @@
 <template>
   <section class="market-app-container">
-    <!-- <div class="market-app-tags-btn btn" @click="toggletags">{{moodOfSideBar}}</div> -->
     <div class="market-screen"></div>
     <div class="market-app-tags-btn btn" @click="toggletags">
       <img src="../../public/img/svg/filter-bar.svg" alt="Filter Bar" />
@@ -92,17 +91,6 @@ export default {
     eventBus.$on(EVENT_REMOVE, artworkId => {
       this.removeArtwork(artworkId);
     });
-
-    eventBus.$on("addWishlist", (userId, product) => {
-      this.$store.dispatch({
-        type: "addToWishlist",
-        userId: userId,
-        product: product
-      });
-    });
-  },
-  beforeDestroy() {
-    eventBus.$off();
   },
   computed: {
     getHomeTags() {
@@ -121,10 +109,6 @@ export default {
     getParams() {
       return this.$route.params;
     }
-    // moodOfSideBar() {
-    //   if (this.isOpenBar) return "Close Side Bar";
-    //   return "Open Tags Filter";
-    // }
   },
   methods: {
     tagClicked(tag) {

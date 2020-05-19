@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     emitFilterType(readyKey) {
-      console.log("emit for colortags,", readyKey);
       this.emitFilter(readyKey);
       this.genresFilter = readyKey.artType;
     },
