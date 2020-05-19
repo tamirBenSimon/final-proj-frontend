@@ -1,6 +1,6 @@
 <template>
   <section class="footer-main">
-   <img
+    <img
       @click="onLogo"
       class="nav-bar-logo btn"
       src="../../public/img/icons/logo4.png"
@@ -13,10 +13,10 @@
 
 <script>
 export default {
-  methods:{
-     onLogo(){
-      this.$router.push('/');
+  methods: {
+    onLogo() {
+      this.$router.push("/");
     }
   }
-}
+};
 </script>

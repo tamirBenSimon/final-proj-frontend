@@ -1,6 +1,10 @@
 <template>
   <section class="market-app-container">
-    <div class="market-app-tags-btn btn" @click="toggletags">{{moodOfSideBar}}</div>
+    <!-- <div class="market-app-tags-btn btn" @click="toggletags">{{moodOfSideBar}}</div> -->
+    <div class="market-screen"></div>
+    <div class="market-app-tags-btn btn" @click="toggletags">
+      <img src="../../public/img/svg/filter-bar.svg" alt="Filter Bar" />
+    </div>
     <tags-select @tagClicked="tagClicked" :tags="homeTags"></tags-select>
     <artwork-filter @onFilter="onFilter" />
     <div class="app-main-container">
@@ -116,11 +120,11 @@ export default {
     },
     getParams() {
       return this.$route.params;
-    },
-    moodOfSideBar() {
-      if (this.isOpenBar) return "Close Side Bar";
-      return "Open Tags Filter";
     }
+    // moodOfSideBar() {
+    //   if (this.isOpenBar) return "Close Side Bar";
+    //   return "Open Tags Filter";
+    // }
   },
   methods: {
     tagClicked(tag) {
