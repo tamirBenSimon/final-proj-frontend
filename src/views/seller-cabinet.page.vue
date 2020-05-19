@@ -40,21 +40,25 @@ export default {
       isMsg: false
     };
   },
+
   created() {
     const sellerId = this.$route.params.id;
+    console.log("creatingggg, " ,sellerId)
     this.$store.dispatch({
       type: "loadUser",
       userId: sellerId
     });
+      this.$store.dispatch({
+        type: "loadArtworks",
+                      filterBy: { creatorId: sellerId }
+
+      });
     this.$store.dispatch({
       type: "loadSellerOrders",
       sellerId
     });
-    this.$store.dispatch({
-      type: "loadArtworks",
-      filterBy: { creatorId: sellerId }
-    });
   },
+
   computed: {
     orders() {
       return this.$store.getters.orders;
@@ -63,6 +67,7 @@ export default {
       return this.$store.getters.selectedUser;
     },
     artworks() {
+      console.log("getting, " ,this.$store.getters.artworks)
       return this.$store.getters.artworks;
     }
   },
