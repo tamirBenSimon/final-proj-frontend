@@ -10,7 +10,6 @@ export default {
     },
     getters: {
         users(state) {
-            console.log('state.users is: ', state.users);
             return state.users;
         },
         loggedinUser(state) {
@@ -54,7 +53,6 @@ export default {
         },
         async loadUsers(context) {
             const users = await userService.query();
-            console.log("loadUsersss, ", users)
             context.commit({ type: 'setUsers', users })
             return users;
         },
