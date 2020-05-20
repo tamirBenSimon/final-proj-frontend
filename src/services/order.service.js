@@ -1,10 +1,12 @@
 import { storageService } from './storage.service.js';
 import httpService from './HttpService.js'
+import Axios from 'axios';
 
 export const orderService = {
     query,
     remove,
     add,
+    getCurrLocation
 }
 
 const KEY = 'ordersDB';
@@ -86,13 +88,11 @@ function _makeOrders() {
     return orders;
 }
 // test function
-
 window.testQuery = query;
 
 
 
 function query(filterBy = null) {
-    // console.log('das filtress: ',filterBy)
     var queryParams = new URLSearchParams()
     for (let key in filterBy) {
         if (filterBy[key]) queryParams.set(`${key}`, filterBy[key])
@@ -108,11 +108,12 @@ function remove(orderId) {
     const idx = gOrders.findIdx(order => order._id !== orderId)
     gOrders.splice(idx, 1)
     storageService.store(KEY, gOrders)
-        // return gOrders; needed?
 }
 
 function add(order) {
-    // console.log('inside order service: ', order);
-
     return httpService.post(`order/`, order)
+}
+
+function getCurrLocation(lat,lng){
+    return Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCBd9raFzGobWUFtQoZXQ-qRIjUqlMb0uw`);
 }

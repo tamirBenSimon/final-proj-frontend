@@ -26,9 +26,13 @@ export default {
             return orders;
         },
         async addOrder(context, { order }) {
-            let addedOrders = await orderService.add(order);
+            const addedOrders = await orderService.add(order);
             context.commit({ type: 'setOrders', addedOrders })
             return addedOrders;
+        },
+        async getLocation(context, { lat, lng }) {
+            const location = await orderService.getCurrLocation(lat,lng);
+            return location.data.plus_code.compound_code;
         }
     }
 }
