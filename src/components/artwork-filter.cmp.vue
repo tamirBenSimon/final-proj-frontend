@@ -15,7 +15,7 @@
 
       <div class="search-pad">
         <el-radio-group v-model="searchState">
-          <el-radio-button label="artworks"></el-radio-button>
+          <el-radio-button aria-checked="true" class="is-active" label="artworks"></el-radio-button>
           <el-radio-button label="artists"></el-radio-button>
         </el-radio-group>
         <!-- :class="selected-search-icon"  -->
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       isOnInputFocus: false,
-      searchState: "artwork",
+      searchState: "artworks",
       searchParams: "",
       filterBy: {
         title: "",

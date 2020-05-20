@@ -202,6 +202,7 @@
 
 <script>
 import Swal from "sweetalert2";
+import { eventBus } from "../services/event-bus.service.js";
 
 export default {
   name: "product-details",
@@ -213,13 +214,13 @@ export default {
       currFrame: "frame1"
     };
   },
-  created() {
-    const loggedinUser = this.$store.getters.loggedinUser;
-    this.$store.dispatch({
-      type: "loadCart",
-      userId: loggedinUser._id
-    });
-  },
+  // created() {
+  //   const loggedinUser = this.$store.getters.loggedinUser;
+  //   this.$store.dispatch({
+  //     type: "loadCart",
+  //     userId: loggedinUser._id
+  //   });
+  // },
   mounted() {
     this.loggedinUser = this.$store.getters.loggedinUser;
     const artworkId = this.$route.params.id;
@@ -265,11 +266,7 @@ export default {
     onCart() {
       const userId = this.loggedinUser._id;
       const product = this.artwork;
-      this.$store.dispatch({
-        type: "addToCart",
-        userId,
-        product
-      });
+      eventBus.$emit('cart_counter',userId,product )
     },
     onBuy() {
       Swal.fire({

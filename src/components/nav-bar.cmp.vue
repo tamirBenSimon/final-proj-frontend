@@ -60,15 +60,29 @@ export default {
     };
   },
   created() {
+        const loggedinUser = this.$store.getters.loggedinUser;
+
     this.$store.dispatch({
       type: "loadWishlist",
-      userId: this.loggedinUser._id
+      userId: loggedinUser._id
+    });
+        this.$store.dispatch({
+      type: "loadCart",
+      userId: loggedinUser._id
     });
 
     eventBus.$on("addWishlist", (userId, product) => {
       console.log("inside add in home-page", userId, product);
       this.$store.dispatch({
         type: "addToWishlist",
+        userId: userId,
+        product: product
+      });
+    });
+        eventBus.$on("addCart", (userId, product) => {
+          console.log(userId, product)
+      this.$store.dispatch({
+        type: "addToCart",
         userId: userId,
         product: product
       });

@@ -9,12 +9,15 @@ export default {
             return state.cart;
         },
         cartCounter(state) {
+            console.log("cart added counter!")
             return state.cart.length;
         },
     },
     mutations: {
-        setCart(state, { cart }) {
+        setCart(state,  {cart} ) {
             state.cart = cart;
+            console.log("state cart: ", state.cart)
+            console.log("data cart: ", cart)
         },
         removeProduct(state, { userId }) {
             state.cart = state.cart.cart.filter(cart => cart._id !== userId)
@@ -22,7 +25,9 @@ export default {
     },
     actions: {
         async loadCart(context, { userId }) {
+
             const cart = await cartService.getCurrCart(userId);
+            console.log('cart in cart store ', cart)
             context.commit({ type: 'setCart', cart })
             return cart;
         },
@@ -31,7 +36,8 @@ export default {
             context.commit({ type: 'removeProduct', userId })
         },
         async addToCart(context, { userId, product }) {
-            await cartService.addToCurrCart(userId, product);
+            const cart = await cartService.addToCurrCart(userId, product)
+            context.commit({ type: 'setCart', cart })
         }
     }
 }

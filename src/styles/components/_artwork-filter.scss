@@ -12,14 +12,18 @@
     justify-content: stretch;
     flex-direction: row;
     align-items: center;
-    transition: all, 0.3s;
+    transition: all, 0.18s;
     &:hover,
     &:focus {
-      background-color: rgb(255, 255, 255);
-    }
+      -webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+      box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+          }
     &.onFocus {
-      border: 1px solid rgb(73, 68, 73);
-    }
+      -webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+      box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+          }
     .filter-icon-container{
         width: 42px;
         height: 100%;

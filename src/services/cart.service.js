@@ -7,9 +7,13 @@ if (!gCarts || !gCarts.length) gCarts = [];
 
 
 function getCurrCart(userId) {
-    if (!gCarts) return null;
     const currCart = gCarts.find(cart => cart.userId === userId);
-    if (!currCart) return null;
+    if (!currCart){
+        const newCart = { userId, cart: [] };
+        gCarts.push(newCart);
+        storageService.store(KEY, gCarts)
+        return newCart;
+    }
     return currCart.cart;
 }
 
@@ -21,6 +25,7 @@ function addToCurrCart(userId, product) {
     } else {
         var currCart = gCarts[currIndex];
         currCart.cart.push(product);
+        gCarts.splice(currIndex, 1, currCart)
     }
     storageService.store(KEY, gCarts);
     return currCart;
